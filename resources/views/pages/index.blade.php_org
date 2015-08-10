@@ -1,0 +1,69 @@
+@extends('app')
+{{-- Main top page (roop data) --}}
+
+	@section('content')
+    
+    	<?php 
+        	if(isset($obj->img_link)) {
+            	$link = $obj->img_link; 
+            	$linkArr = explode(';', $link);
+            }
+            //echo $linkArr[0];
+        ?>
+    
+        {{ $obj->title}}
+        
+        {!! nb($obj -> intro_content) !!}
+
+		{!! nb($obj -> main_content) !!}
+        
+        {!! nb($obj -> sub_content) !!}
+        
+        
+        
+        <?php //print_r($pages); ?>
+<?php
+ /*  
+
+		@if(isset($linkArr[0]))
+        	<img src="{{ url($linkArr[1]) }}" />
+        @endif
+        
+
+    	@foreach($pages as $page)
+        	
+
+        	<?php 
+//            	$link = $page->img_link; 
+//            	$linkArr = explode(';', $link);
+//            	echo $linkArr[0];
+            ?>
+        あいうえお
+    		<article>
+        		<h1><a href="{{url($page->url_name)}}">{{$obj->title}}</a></h1>
+                
+                {{--
+                @if(isset($linkArr[0]))
+                	<img src="http://localhost:5010/{{$linkArr[0]}}" width="230" height="150" />
+                @endif
+                --}}
+                
+                <div>
+                	{!! nb($obj->intro_content); !!} {{-- HTMLentity()のエスケープをさせない --}}
+                </div>
+                
+                <div>
+                	{!! nb($obj->main_content); !!} {{-- HTMLentity()のエスケープをさせない --}}
+                </div>
+                <div>
+                	{!! nb($obj->sub_content) !!}
+                </div>
+        	</article>
+        
+        @endforeach
+    
+    	<?php //echo $pages->render(); ?>
+ */  
+ ?>  
+    @endsection
+
