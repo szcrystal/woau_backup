@@ -22,7 +22,7 @@
             <li>
             	<ul>
                 	<li><a href="{{ getUrl('auth/login') }}" class="arrow-white">ログイン</a></li>
-                    <li><a href="{{ getUrl('atuh/register') }}" class="arrow-white">新規登録</a></li>
+                    <li><a href="{{ getUrl('auth/register') }}" class="arrow-white">新規登録</a></li>
                 </ul>
             </li>
         
