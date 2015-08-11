@@ -137,9 +137,9 @@
             <li{!!addCurrent('jobs')!!}><a href="{{url('/dashboard/jobs')}}" class="onSlide"><span class="octicon octicon-file-directory"></span>求人情報</a></li>
             <li>
             	<ul class="slide">
-                    <li><a href="{{url('/dashboard')}}">求人情報一覧</a></li>
-                    <li><a href="{{url('/dashboard')}}">新規追加</a></li>
-                    <li><a href="{{url('/dashboard')}}">求人応募者一覧</a></li>
+                    <li><a href="#">求人情報一覧</a></li>
+                    <li><a href="#">新規追加</a></li>
+                    <li><a href="#">求人応募者一覧</a></li>
             	</ul>
             </li>
           </ul>
@@ -230,7 +230,7 @@
     {{-- login画面 --}}
     @else
     	
-            <div style="margin-top:15%;" class="col-md-10 col-md-offset-1">
+            <div class="col-md-10 col-md-offset-1 wrap-panel">
                 @yield('content')
             </div>
         

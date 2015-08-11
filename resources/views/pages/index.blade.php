@@ -51,7 +51,7 @@
             </div>
 
             <div class="link-box">
-            	<a href="{{getUrl('privacy')}}"><span>個人情報について</span></a>
+            	<a href="{{getUrl('privacy')}}"><span>個人情報の保護</span></a>
             </div>
 
             <div class="link-box">

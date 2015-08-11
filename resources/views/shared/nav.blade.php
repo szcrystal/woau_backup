@@ -11,7 +11,7 @@
     @if(Auth::user())
         <li>
             <p>こんにちは<br>{{ Auth::user()->name}} さん</p>
-            <a href="{{ getUrl('auth/logout') }}">ログアウト</a>
+            <a href="{{ getUrl('auth/logout') }}" class="logout">ログアウト</a>
         </li>
     @else
         <li>

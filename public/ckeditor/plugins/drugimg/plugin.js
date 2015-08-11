@@ -5,8 +5,9 @@ CKEDITOR.plugins.add( 'drugimg', {
         
         editor.addCommand( 'drugimg', {
             exec: function( editor ) {
-            	
+                
             	$('.container-fluid').append('<div class="plugBack"></div>'); //白背景追加
+                $('.plugBack').css({ height:$(window).height() });         
                 //.plugBackのcssはdbd.cssに入れている
 
                 $('.imgArea').addClass('plug')

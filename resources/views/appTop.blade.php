@@ -21,8 +21,10 @@
         <div id="cal">
         	<div>
             	<p>{!! nb($obj -> intro_content) !!}</p>
-                <div></div>
+                <hr>
             	<p>{!! nb($obj -> main_content) !!}</p>
+                
+                <div class="person"></div>
         	</div>
         </div>
         

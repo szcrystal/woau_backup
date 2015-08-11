@@ -127,7 +127,7 @@ a:active {
     height: 0;
 }
 #navmenu ul.main-m {
-	margin-top: 2.7em;
+	margin-top: 2.6em;
     font-size: 1.05em;
 }
 #navmenu ul.main-m li {
@@ -159,6 +159,7 @@ a:active {
 	float:left;
     padding-left: 1em;
     color: #FF3F02; /* #ff4000 */
+    //border: 1px solid red;
 }
 #navmenu ul.login-m li:last-of-type {
 	color: #565656;
@@ -167,38 +168,71 @@ a:active {
 	font-weight: bold;
 	font-size: 0.8em;
     line-height: 1.4em;
-    margin: 0 0 1.5em 5px;
+    margin: 0 0 0.45em 5px;
 }
 #navmenu ul.login-m li a {
 	border-radius: 0.6em;
-    padding: 0.8em 1.3em 0.8em 3.6em;
+    padding: 0.55em 1.3em 0.55em 3.6em;
     font-weight: bold;
     font-size: 1.0em;
+    display: inline-block;
+    //box-sizing: border-box;
+    //-moz-transition: all 0.2s linear;
+	//transition: all 0.2s linear; 
 }
 #navmenu ul.login-m li:first-of-type a {
 	border: 4px solid #ff3f02;
-    box-sizing: border-box;
     color: #ff3f02;
-    background: url(../images/main/top_icons/lock.png) 1em 50% no-repeat;
+    background: url(../images/main/top_icons/lock-in.png) 1em 50% no-repeat;
 }
 #navmenu ul.login-m li:last-of-type a {
 	border: 4px solid #565656;
     color: #565656;
     background: url(../images/main/top_icons/file.png) 1em 50% no-repeat;
 }
+#navmenu ul.login-m li:last-of-type a.logout {
+	background: url(../images/main/top_icons/lock-out.png) 1em 50% no-repeat;
+}
 
+@-webkit-keyframes scXy { 
+    50% { 
+    	-webkit-transform: translateY(-7px);
+        //opacity: 0.9;
+	}
+    100% {
+       	-webkit-transform: translateY(0);
+        opacity: 0.6;
+    }
+}
+@keyframes scXy {
+    50% {
+       	transform: translateY(-7px);
+        opacity: 0.9;
+    }
+    100% {
+		transform: translateY(0);
+        opacity: 0.6;
+    }
+}
+#navmenu ul.login-m li:hover a {
+/*	-webkit-transform: rotateZ(20deg);*/ /* transformはinlineには効かない */
+/*    transform: rotateZ(20deg);*/
+	-webkit-animation: scXy 0.3s ease 0s 1 normal forwards;
+	animation: scXy 0.3s ease 0s 1 normal forwards;	
+}
 
+/* Carousel */
 .home #cal {
 	height: auto;
     padding: 20px 0;
 	background: url(../images/main/orange-tiles.png);
 }
-.home #cal div {
+.home #cal > div {
 	max-width: 1100px;
     height: 373px;
     padding-top: 15px;
     box-sizing: content-box;
-    background: url(../images/main/banner-r.png) no-repeat;
+    background: url(../images/main/banner-rr.png) no-repeat;
 	color: #fff/*#ff3f02*//*#ff3f02*/;
     margin: auto;
     
@@ -215,16 +249,19 @@ a:active {
     line-height: 1.5em;
     letter-spacing: 0.1em;
 }
-.home #cal p + div {
-    margin: 0;
+.home #cal p + hr {
+    /*margin: 0;
 	width: 47.5%;
     height: 1px;
 	background: #fff;
     padding: 0;
-    margin: 12px 0 28px;
-/*    box-shadow: none;*/
-/*    border-color: #fff;*/
-/*    border-width: 1px 0 0 0;*/
+    margin: 12px 0 28px;*/
+    display: inline-block;
+    box-shadow: none;
+    border: 1px solid #fff;
+    border-width: 0 0 1px 0;
+    margin: 0.8em 0 1.5em;
+	width: 47.4%;    
 }
 .home #cal p:last-of-type {
 	//display: block;
@@ -236,6 +273,50 @@ a:active {
     //margin-top: 1.5em;
     letter-spacing: 0.05em;
 }
+@-webkit-keyframes person { 
+    20% {
+    	-webkit-transform: translateY(0);
+    }
+    24% {
+    	-webkit-transform: translateY(-10px);
+    }
+    28% {
+    	-webkit-transform: translateY(0);
+    }
+    32% {
+    	-webkit-transform: translateY(-10px);
+    }
+    36% {
+       	-webkit-transform: translateY(0);
+    }
+}
+@keyframes person {
+    20% {
+    	transform: translateY(0);
+    }
+    24% {
+    	transform: translateY(-10px);
+    }
+    28% {
+    	transform: translateY(0);
+    }
+    32% {
+    	transform: translateY(-10px);
+    }
+    36% {
+       	transform: translateY(0);
+    }
+}
+div.person {
+	background: url(../images/main/person.png) no-repeat;
+	margin-top: 37px;
+    width: 122px;
+    height: 136px;
+	-webkit-animation: person 4.5s ease 3s infinite normal forwards;
+	animation: person 4.5s ease 3s infinite normal forwards;	
+}
+
+/* Belt for auth */
 .home #user-belt {
 	//height: 3em;
     background: url(../images/main/foot-tile.png);
@@ -252,6 +333,8 @@ a:active {
 .home #user-belt > div > span {
 	margin: 0 1.8em;
 }
+
+
 
 a.arrow-white {
 	color: #fff;
