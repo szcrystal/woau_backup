@@ -196,25 +196,27 @@ a:active {
 
 @-webkit-keyframes scXy { 
     50% { 
-    	-webkit-transform: translateY(-7px);
-        //opacity: 0.9;
+    	//-webkit-transform: translateY(-7px);
+        -webkit-transform: scale(0.92);
+        opacity: 1;
 	}
     100% {
-       	-webkit-transform: translateY(0);
+       	//-webkit-transform: translateY(0);
+        -webkit-transform: scale(1);
         opacity: 0.6;
     }
 }
 @keyframes scXy {
     50% {
        	transform: translateY(-7px);
-        opacity: 0.9;
+        opacity: 1;
     }
     100% {
 		transform: translateY(0);
         opacity: 0.6;
     }
 }
-#navmenu ul.login-m li:hover a {
+#navmenu ul.login-m a:hover {
 /*	-webkit-transform: rotateZ(20deg);*/ /* transformはinlineには効かない */
 /*    transform: rotateZ(20deg);*/
 	-webkit-animation: scXy 0.3s ease 0s 1 normal forwards;
