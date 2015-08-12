@@ -336,15 +336,30 @@
         
         downLoadFile: function() {
         	$('.dlf').click(function(){
-            	$('h2').text('aaa');
+            	//$('h2').text('aaa');
             	var datas = {
-                	fPath: 'images/temps/11804/女性監査役HP構成.xlsx',
-                    fName: '女性監査役HP構成.xlsx',
+                	fPath: $('input[name="fPath"]').val(),
+                    fName: $('input[name="fName"]').val(),
                 };
+                location.href="/download.php?fPath="+datas.fPath +"&fName=" + datas.fName;
 //				var formElement = $("#dlFile");
 //				var datas = new FormData(formElement);
+
+                //var form = $('#dlFile').get(0);
+   
+                // FormData オブジェクトを作成
+               // var datas = new FormData( form ); //https://developer.mozilla.org/ja/docs/Web/Guide/Using_FormData_Objects
                 
-                $('h2').text(datas.fName);
+//                $('h2').text(datas.fName);
+//                console.log(datas);
+                
+//                var oReq = new XMLHttpRequest();
+//                oReq.open("POST", "/download.php");
+//                oReq.onload = function(oEvent) {
+                	//$(document).load("/download.php", datas);
+                
+//                };
+//                oReq.send(datas);
                 
 //                $(document).load('/download.php', datas, function(){
 //                	console.log('LOAD is done');
@@ -354,28 +369,39 @@
                 
             
 //            	$.ajax({
-//                        type: "POST",
-//                        url: '/download.php', //laravelではweb rootからのフルパスが安全
-//                        data: datas, //datas:<input type="file" .. />をupload.phpにPOSTするということ
-//                        //processData: false,
-//                        //contentType: false,
-//                        success: function(datas) { //success
-//                            console.log('upload is done');
-//                            //$(document).load('/download.php');
-//                            
-//                            //ファイルのリンク先をDBにpostするための処理 dataform.blade.phpに<input type="hidden">をappendする
-//                            //var imgLink = imgArr.join(';'); //implode
-//                    		//dr.append('<input type="hidden" name="img_link" value="' + imgLink + '" />');
-//                            
-//                        },//success
+//                    type: "POST",
+//                    url: '/download.php', //laravelではweb rootからのフルパスが安全
+//                    data: datas, //datas:<input type="file" .. />をupload.phpにPOSTするということ
+//                    processData: false,
+//                    contentType: false,
+//                    async: true,
+//        			cache: false,
+//                    success: function(data) { //success
+//                        console.log('upload is done');
+//                        //$(window).load(data);
+//                        //$('body').html(data);
+//                       //location.href = data;
+//                       
+//                       //var res = eval(data);
+////                        if (res.err_msg != undefined ){
+////                            alert( res.err_msg );
+////                            return;
+////                        }
+//                        console.log(data);
+//                        //location.href = res.redirect_url;
+//                       
+//                        //ファイルのリンク先をDBにpostするための処理 dataform.blade.phpに<input type="hidden">をappendする
+//                        //var imgLink = imgArr.join(';'); //implode
+//                        //dr.append('<input type="hidden" name="img_link" value="' + imgLink + '" />');
 //                        
-//                        error: function(XMLHttpRequest, textStatus, errorThrown) {
-//                            $("div").html('送信出来ませんでした。'+ errorThrown);
-//                        } //ajax error
-//                        
-//                    }); //ajax
+//                    },//success
+//                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+//                        $("div").html('送信出来ませんでした。'+ errorThrown);
+//                    } //ajax error
+//                    
+//                }); //ajax
             	
-            	//return false;
+            	return false;
             });
         },
         

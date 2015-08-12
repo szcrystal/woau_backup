@@ -26,6 +26,7 @@
     @endif
 </nav>
 
+{{--
 @if(Auth::user() && ! Request::is('/'))
 <div id="user-belt">
 	<ul>
@@ -37,4 +38,5 @@
     
 </div>
 @endif
+--}}
 

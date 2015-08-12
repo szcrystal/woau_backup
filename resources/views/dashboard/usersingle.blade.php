@@ -2,6 +2,7 @@
 
 @section('content')
 
+<?php //echo $_SERVER['HTTP_USER_AGENT']; ?>
 		
         <h1 class="page-header"><span class="mega-octicon octicon-person"></span> {{$user->name}}さんの登録情報</h1>
         
@@ -156,11 +157,14 @@
                             	<span>{{ $jobObj->attach_name }}</span><br />
                                 
                                 @if(isset($jobObj->attach_name))
-                                <form id="dlFile" method="post" action="/download.php">
+                                <form id="dlFile" method="post" action="/download.php"> {{-- method="post" action="/download.php" --}}
+                                
                                 	<input type="hidden" name="fPath" value="{{ $jobObj->attach_path }}" />
                                     <input type="hidden" name="fName" value="{{ $jobObj->attach_name }}" />
                                     
-                                    <button type="submit" value="" style="float: right; background:none; border:1px solid #327AB6; border-radius:2px; box-shadow:none;" class="dlf"><span style="margin:0 5px; color:#327AB6;" class="octicon octicon-arrow-down"></span></button>
+                                    <button type="submit" class="dlf">
+                                    	<span class="octicon octicon-arrow-down"></span>
+                                    </button>
                                 </form>
                                 @endif
                             </td>

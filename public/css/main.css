@@ -218,11 +218,11 @@ ul:after {
 }
 @keyframes scXy {
     50% {
-       	transform: translateY(-7px);
+       	transform: scale(0.92);
         opacity: 1;
     }
     100% {
-		transform: translateY(0);
+		transform: scale(1);
         opacity: 0.6;
     }
 }
@@ -346,6 +346,7 @@ div.person {
 	margin: 0 1.8em;
 }
 
+/* Solid Page */
 .main #user-belt ul {
 	width: 1100px;
     margin: 0.1em auto;
@@ -366,28 +367,6 @@ div.person {
 	float: right;
 }
 
-.content h1,
-.content h2 {
-	font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
-}
-.content h1 {
-	background: url(../images/main/wave-tile-white.png), #fe5c26;
-    color: #fff;
-    padding: 0.4em 1em;
-    font-size: 1.2em;
-    letter-spacing: 0.07em;
-}
-.content h2 {
-	border: 1px solid #fe5c26;
-    border-width: 0 0 0 7px;
-    padding: 0.5em 0.4em;
-    font-size: 1.2em;
-    color: #fe5c26;
-}
-.content > section {
-	//border: 1px solid purple;
-    margin: 0;
-}
 
 article.topics {
 	border: 1px solid #aaa;
@@ -703,9 +682,49 @@ a.topic-link {
 
 
 
+
+
+/* Single Page */
 .main #cal {
-	display: none;
+	//display: none;
 }
+.main section {
+	margin: 1.5em 1em 2.5em;
+    //width: 80%;
+}
+
+/*
+.content h1,
+.content h2 {
+	font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
+}
+.content h1 {
+	background: url(../images/main/wave-tile-white.png), #fe5c26;
+    color: #fff;
+    padding: 0.4em 1em;
+    font-size: 1.2em;
+    letter-spacing: 0.07em;
+}
+.content h2 {
+	border: 1px solid #fe5c26;
+    border-width: 0 0 0 7px;
+    padding: 0.5em 0.4em;
+    font-size: 1.2em;
+    color: #fe5c26;
+}
+.content > section {
+	//border: 1px solid purple;
+    margin: 0;
+}
+*/
+/*#single a {*/
+/*	display: block;*/
+/*    padding: 2em;*/
+/*    margin: 2em;*/
+/*    background: #eee;*/
+/*    border-radius: 1em;*/
+/*}*/
+
 
 /* Footer */
 #colop {
@@ -1074,7 +1093,6 @@ span.t-down:after {
 .back-btn:hover {
 	opacity: 0.7;
     text-decoration: none;
-    color: #fff;
   /*
   background: #ccc;
   text-decoration: none;
@@ -1158,7 +1176,7 @@ span.t-down:after {
 }
 
 
-/*  */
+/* Normal Table */
 .table col:first-of-type,
 .table thead {
     background: url(../images/main/wave-tile-gray.png), #FFFBF9;
@@ -1173,16 +1191,5 @@ span.t-down:after {
 }
 
 
-/* Single Page */
-section {
-	margin: 1.5em 1em 2.5em;
-    width: 80%;
-}
-/*#single a {*/
-/*	display: block;*/
-/*    padding: 2em;*/
-/*    margin: 2em;*/
-/*    background: #eee;*/
-/*    border-radius: 1em;*/
-/*}*/
+
 

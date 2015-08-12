@@ -40,7 +40,7 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label">パスワード</label>
                     <div class="col-md-10">
-                        <input type="password" class="form-control" name="password" placeholder="6文字以上">
+                        <input type="password" class="form-control" name="password" placeholder="6文字以上" autofocus>
                     </div>
                 </div>
                 
