@@ -33,14 +33,14 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label">ユーザーID</label>
                     <div class="col-md-10">
-                        <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="メールアドレスを入力して下さい">
+                        <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="メールアドレスを入力して下さい" autofocus>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-md-2 control-label">パスワード</label>
                     <div class="col-md-10">
-                        <input type="password" class="form-control" name="password" placeholder="6文字以上" autofocus>
+                        <input type="password" class="form-control" name="password" placeholder="6文字以上">
                     </div>
                 </div>
                 
