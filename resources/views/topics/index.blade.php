@@ -4,7 +4,7 @@
     
     	@foreach($topics as $topic)
     	
-        	<article>
+        	<article class="topics">
             <?php 
                 if(isset($topic->img_link)) {
                     $link = $topic->img_link; 
@@ -20,7 +20,7 @@
                 
                 {!! nb($topic -> intro_content) !!}
 
-                {!! nb($topic -> main_content) !!}
+                {!! $topic -> main_content !!}
                 
                 <footer>
                 {!! nb($topic -> sub_content) !!}

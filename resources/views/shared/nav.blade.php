@@ -32,9 +32,9 @@
     	<li><a href="{{getUrl('recruit')}}">求人一覧</a></li>
     	<li><a href="{{getUrl('iroha')}}">監査役いろは</a></li>
     	<li><a href="{{getUrl('blog')}}">ブログ</a></li>
-        <li><a href="{{getUrl('profile')}}">ユーザー情報</a></li>
+        <li><a href="{{getUrl('profile/'.Auth::user()->user_number)}}">ユーザー情報</a></li>
     </ul>
     
 </div>
-        @endif
+@endif
 

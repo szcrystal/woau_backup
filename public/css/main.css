@@ -348,7 +348,7 @@ div.person {
 
 .main #user-belt ul {
 	width: 1100px;
-    margin: 0.3em auto;
+    margin: 0.1em auto;
     padding: 0;
     //border: 1px solid red;
 }
@@ -387,6 +387,11 @@ div.person {
 .content > section {
 	//border: 1px solid purple;
     margin: 0;
+}
+
+article.topics {
+	border: 1px solid #aaa;
+    border-radius: 1em;
 }
 
 a.arrow-white {
