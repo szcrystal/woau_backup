@@ -10,7 +10,7 @@
 //            	echo $linkArr[0];
             ?>
         
-    		<article>
+    		<article class="content">
         		<h1>{{$pageObj->title}}</a></h1>
                 
                 {{--
@@ -18,15 +18,15 @@
                 	<img src="http://localhost:5010/{{$linkArr[0]}}" width="230" height="150" />
                 @endif
                 --}}
-                <div>	
+                <section class="intro_content">
                 	{!! nb($pageObj->intro_content) !!} {{-- HTMLentity()のエスケープをさせない --}}
-                </div>
-                <div>	
+                </section>
+                <section class="main_content">	
                 	{!! $pageObj->main_content !!} {{-- HTMLentity()のエスケープをさせない --}}
-                </div>
-                <div>
+                </section>
+                <section class="sub_content">
                 	{{$pageObj->sub_content}}
-                </div>
+                </section>
         	</article>
     
     	<?php //echo $pages->render(); ?>

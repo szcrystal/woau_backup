@@ -77,6 +77,16 @@ a:active {
 	outline: none;
 }
 
+ul {
+	list-style: none;
+}
+ul:after {
+	display: block;
+    clear: both;
+    content: "";
+    height: 0;
+}
+
 
 /*  Custom *********** */
 #page {
@@ -319,12 +329,12 @@ div.person {
 }
 
 /* Belt for auth */
-.home #user-belt {
+#user-belt {
 	//height: 3em;
     background: url(../images/main/foot-tile.png);
     padding: 0.5em 0;
 }
-.home #user-belt > div {
+#user-belt > div {
 	width: 1100px;
     height: 3em;
     line-height: 3em;
@@ -332,11 +342,52 @@ div.person {
     //border: 1px solid #fff;
     color: #fff;
 }
-.home #user-belt > div > span {
+#user-belt > div > span {
 	margin: 0 1.8em;
 }
 
+.main #user-belt ul {
+	width: 1100px;
+    margin: 0.3em auto;
+    padding: 0;
+    border: 1px solid red;
+}
+.main #user-belt li {
+	float: left;
+    padding: 0 1.2em;
+    margin: 0;
+    border: 1px solid #fff;
+    border-width: 0 1px;
+}
+.main #user-belt li a {
+	color: #fff;
+}
+.main #user-belt li:last-of-type {
+	float: right;
+}
 
+.content h1,
+.content h2 {
+	font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
+}
+.content h1 {
+	background: url(../images/main/wave-tile-white.png), #fe5c26;
+    color: #fff;
+    padding: 0.4em 1em;
+    font-size: 1.2em;
+    letter-spacing: 0.07em;
+}
+.content h2 {
+	border: 1px solid #fe5c26;
+    border-width: 0 0 0 7px;
+    padding: 0.5em 0.4em;
+    font-size: 1.2em;
+    color: #fe5c26;
+}
+.content > section {
+	border: 1px solid purple;
+    margin: 0;
+}
 
 a.arrow-white {
 	color: #fff;
