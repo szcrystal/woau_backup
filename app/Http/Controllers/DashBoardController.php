@@ -537,10 +537,15 @@ class DashBoardController extends Controller
             
             //cate_relation tableへの追加
             foreach($cateAry as $val) {
-                $this -> cateRelation -> insert(['blog_id'=>$id, 'cate_id'=>$val]);
+                $this -> cateRelation -> insert([
+                							'blog_id'=>$id,
+                                            'cate_id'=>$val,
+                                            'created_at' => date('Y-m-d H:i:s'),
+                                            'updated_at' => date('Y-m-d H:i:s'),
+                                            ]);
             }
         }
-        else {
+        else { //カテゴリーのチェック選択がない場合
         	CateRelation::where('blog_id', $id) -> delete();
         }
         
