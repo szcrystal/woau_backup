@@ -540,6 +540,9 @@ class DashBoardController extends Controller
                 $this -> cateRelation -> insert(['blog_id'=>$id, 'cate_id'=>$val]);
             }
         }
+        else {
+        	CateRelation::where('blog_id', $id) -> delete();
+        }
         
         $article->fill($data);
         $article->save();

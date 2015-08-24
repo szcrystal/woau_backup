@@ -3,7 +3,12 @@
 @include('shared.head')
 
 <body class="main">
-
+<div id="o-belt"></div>
+{{--
+@if(getenv('LARAVEL_ENV') != 'heroku')
+@include('shared.nav_1')
+@endif
+--}}
 {{-- @include('shared.nav_1') --}}
 
     <div id="page">
@@ -15,7 +20,7 @@
         @include('shared.nav')
 
         
-    <div class="container-fluid">
+    	<div class="container-fluid">
 			
             {{-- @if(str_contains(Request::path(), 'auth')) if ($request->is('auth/*')) --}}
             
@@ -23,7 +28,7 @@
                 @yield('content')
             </div>
 
-			{{--
+            {{--
             <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
                 <div class="sidebar-module sidebar-module-inset">
                 <h4>About</h4>
@@ -55,9 +60,9 @@
                 </ol>
                 </div>
             </div><!-- /.blog-sidebar -->
-        	--}}
-            
-    </div><!-- container -->
+            --}}
+                
+        </div><!-- container -->
     
     @include('shared.footer')
     

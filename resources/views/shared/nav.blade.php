@@ -10,32 +10,51 @@
     <ul class="login-m">
     @if(Auth::user())
         <li>
-            <p>こんにちは<br>{{ Auth::user()->name}} さん</p>
+            <p>こんにちは<br><span>{{ Auth::user()->name}}</span> さん</p>
             <a href="{{ getUrl('auth/logout') }}" class="logout">ログアウト</a>
         </li>
     @else
         <li>
             <p>登録がお済みの方は<br>コチラから！</p>
-            <a href="{{ getUrl('auth/login') }}">ログイン</a>
+            <a href="{{ getUrl('auth/login') }}" class="login">ログイン</a>
         </li>
         <li>
             <p>登録すると<br>企業情報が閲覧可能！</p>
             <a href="{{ getUrl('auth/register') }}">新規登録</a>
         </li>
-    </ul>
     @endif
+    </ul>
 </nav>
 
 
 @if(Auth::user() && ! Request::is('/'))
 <div id="user-belt">
 	<ul>
-    	<li><a href="{{getUrl('recruit')}}">求人一覧</a></li>
-    	<li><a href="{{getUrl('iroha')}}">監査役いろは</a></li>
+    	<li class="dropdown">
+        	<a href="{{getUrl('recruit')}}" class="dd-toggle" data-toggle="dropdown" role="button" aria-expanded="false">求人情報<span class="octicon octicon-chevron-down"></span></a>
+        	<ul class="dropdown-menu" role="menu">
+                <li><a href="{{getUrl('recruit')}}">・新着求人</a></li>
+                <li><a href="{{getUrl('recruit')}}">・求人一覧</a></li>
+            </ul>
+        </li>
+    	<li class="dropdown"><a href="{{getUrl('iroha')}}" class="dd-toggle" data-toggle="dropdown" role="button" aria-expanded="false">監査役いろは<span class="octicon octicon-chevron-down"></span></a>
+        	<ul class="dropdown-menu" role="menu">
+            	<?php
+                	$irohas = App\Iroha::where('slug', 'irohas') -> get();
+                    //$irohaObjs = $this -> iroha -> where('slug', 'irohas') -> orderBy('created_at', 'desc') -> get();
+                ?>
+                @foreach($irohas as $iroha)
+                <li><a href="{{getUrl('iroha/'.$iroha->url_name)}}">・{{ $iroha->sub_title }}</a></li>
+                @endforeach
+                <li><a href="{{getUrl('iroha/study')}}">・勉強会一覧</a></li>
+            </ul>
+        </li>
     	<li><a href="{{getUrl('blog')}}">ブログ</a></li>
         <li><a href="{{getUrl('profile/'.Auth::user()->user_number)}}">ユーザー情報</a></li>
     </ul>
 </div>
+@else
+<div class="guest-belt"></div>
 @endif
 
 

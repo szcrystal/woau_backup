@@ -21,7 +21,7 @@
                 <li>
                     <ul>
                     	<li><a href="{{ getUrl('iroha') }}" class="arrow-white">監査役いろは</a></li>
-                        <li><a href="{{ getUrl('about-audit') }}" class="arrow-white">監査役とは</a></li>
+                        <li><a href="{{ getUrl('iroha/about-audit') }}" class="arrow-white">監査役とは</a></li>
                         <li><a href="{{ getUrl('blog') }}" class="arrow-white">ブログ</a></li>
                     </ul>
                 </li>
@@ -50,6 +50,10 @@
                 </li>
             </ul>
         @endif
+        
+        {{-- <span class="octicon octicon-chevron-up"></span> --}}
     </div>
 	<p><small>Copyright 2015 woman x auditor All rights reserved.</small></p>
+    
+    
 </footer>

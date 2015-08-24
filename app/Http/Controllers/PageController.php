@@ -30,12 +30,15 @@ class PageController extends Controller
     {
     	//$pages = $this -> page -> orderBy('created_at','desc') ->paginate(5);
         $obj = Page::where('url_name', '') -> first();
-        $topicObj = $this -> topic -> orderBy('created_at','desc') ->take(10) ->get();
+        $topTopics = $this -> topic -> orderBy('created_at','desc') ->take(5) ->get();
         
         //$pages[]= compact('top');
         //$pages[] = compact('topixObj');
         
-        return view('pages.index', ['obj'=>$obj, 'topicObj'=>$topicObj]); //['top'=>$top, 'topixObj'=>$topixObj]
+        //$headTitle = '';
+        $headDesc = Siteinfo::first()->value('site_description');
+        
+        return view('pages.index', ['obj'=>$obj, 'topTopics'=>$topTopics, 'headDesc'=>$headDesc]); //['top'=>$top, 'topixObj'=>$topixObj]
         //return view('pages.index', compact('pages')); //配列を一つにして渡す場合 compact('pages')とする
     }
 
@@ -52,7 +55,8 @@ class PageController extends Controller
             }
             */
             //session()->forget(['name','mail','note']);
-            return view('pages.contact')/* -> with(compact('pageObjs'))*/;
+            $headTitle = 'お問い合わせ';
+            return view('pages.contact') -> with(compact('headTitle'));
         }
         else {
         	$pageObj = Page::where('url_name', $url_name) -> first();

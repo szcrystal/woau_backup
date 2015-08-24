@@ -3,6 +3,10 @@
 
 	@section('content')
     
+    <ul class="breadcrumb">
+    	<li><a href="{{getUrl('/')}}"><span class="octicon octicon-home"></span>Home</a></li>
+        <li>{{$pageObj->title}}</li>
+    </ul>
 
         	<?php 
 //            	$link = $page->img_link; 
@@ -10,26 +14,38 @@
 //            	echo $linkArr[0];
             ?>
         
-    		<article class="content">
+    		<article class="page-ct{{" ".$pageObj->url_name}}">
+            	@if(Request::is('about'))
+                <h1 class="main-title">{{$pageObj->title}}</a></h1>
+                @else
         		<h1>{{$pageObj->title}}</a></h1>
-                
-                {{--
-                @if(isset($linkArr[0]))
-                	<img src="http://localhost:5010/{{$linkArr[0]}}" width="230" height="150" />
                 @endif
-                --}}
-                <section class="intro_content">
-                	{!! nb($pageObj->intro_content) !!} {{-- HTMLentity()のエスケープをさせない --}}
+                @if($pageObj->intro_content != '')
+                <section class="intro-ct">
+                	{!! $pageObj->intro_content !!} {{-- HTMLentity()のエスケープをさせない --}}
                 </section>
-                <section class="main_content">	
-                	{!! $pageObj->main_content !!} {{-- HTMLentity()のエスケープをさせない --}}
+                @endif
+                
+                <section class="main-ct">	
+                	{!! $pageObj->main_content !!}
                 </section>
-                <section class="sub_content">
-                	{{$pageObj->sub_content}}
+                
+                @if($pageObj->sub_content != '')
+                <section class="sub-ct">
+                	{!! $pageObj->sub_content !!}
                 </section>
+                @endif
+                
         	</article>
     
     	<?php //echo $pages->render(); ?>
+
+
+{{--
+    @if(isset($linkArr[0]))
+        <img src="http://localhost:5010/{{$linkArr[0]}}" width="230" height="150" />
+    @endif
+--}}
     
     @endsection
 

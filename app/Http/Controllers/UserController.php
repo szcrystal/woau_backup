@@ -24,8 +24,9 @@ class UserController extends Controller
     		$user = User::where('user_number', $user_number) -> first();
             $jobObjs = $user -> jobentries;
             $studyObjs = $user -> studyentries;
+            $headTitle = "ユーザー情報";
         	
-            return view('auth.profile', ['user' => $user, 'jobObjs' => $jobObjs, 'studyObjs'=> $studyObjs]);
+            return view('auth.profile', ['user' => $user, 'jobObjs' => $jobObjs, 'studyObjs'=> $studyObjs, 'headTitle'=> $headTitle]);
         }
         else {
         	echo "Invalid Access : UserController->getEdit()"; //エラーページに遷移させるか
@@ -38,7 +39,8 @@ class UserController extends Controller
     	
         if(Auth::user()->user_number == $user_number) {
     		$userObj = User::where('user_number', $user_number) -> first();
-        	return view('auth.register') -> with(compact('userObj'));
+            $headTitle = 'ユーザー情報編集';
+        	return view('auth.register', ['userObj'=>$userObj, 'headTitle'=>$headTitle]);
         }
         else {
         	echo "Invalid Access : UserController->getEdit()";

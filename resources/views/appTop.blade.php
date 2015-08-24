@@ -4,10 +4,12 @@
 
 {{-- @if (Request::is('/'))  --}}
 <body class="home">
-
+<div id="o-belt"></div>
+{{--
 @if(getenv('LARAVEL_ENV') != 'heroku')
 @include('shared.nav_1')
 @endif
+--}}
 
 {{-- @if(str_contains(Request::path(), 'auth')) if ($request->is('auth/*')) --}}
 
@@ -36,7 +38,7 @@
                 <a href="{{ getUrl('/auth/logout')}}" class="arrow-white">ログアウト</a>
             </div>
         </div>
-		
+
         <div class="container-fluid">
         	<div class="blog-main">
             	
@@ -44,7 +46,7 @@
                     <section class="jobs">
                         <h2><span class="octicon octicon-primitive-square"></span>新着求人</h2>
                     	<div class="clearfix">
-                        @foreach($topicObj as $topic)
+                        @foreach($topTopics as $topic)
                             <article>
                                 <h3><a href="">{{ getStrDate($topic->title) }}</a></h3>
                                 {!! $topic -> intro_content !!}
@@ -93,6 +95,8 @@
                 </div>
         
         @else
+        <div class="guest-belt"></div>
+
         <div class="container-fluid">
         	<div class="blog-main">
         @endif

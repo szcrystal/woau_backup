@@ -1,8 +1,17 @@
 @extends('app')
 
-    @section('content')
-    <div class="contact">
-        <h2 class="panel-head"><img src="/images/main/i-mail.png">お問い合わせ</h2>
+@section('content')
+	<ul class="breadcrumb">
+        <li><a href="{{getUrl('/')}}"><span class="octicon octicon-home"></span>Home</a></li>
+        <li>お問い合わせ（内容確認）</li>
+    </ul>
+    
+    <main class="page-ct contact">
+    	<div class="main-head">
+        	<h1 class="panel-head">お問い合わせ</h1>
+            <p></p>
+        </div>
+        {{-- <h2 class="panel-head"><img src="/images/main/i-mail.png">お問い合わせ</h2> --}}
         
         @include('shared.move_2')
                           
@@ -55,7 +64,7 @@
                 {!! Form::hidden('end', TRUE) !!}
                 
                 <div class="wrap-b">
-                {!! Form::submit('送 信', array('class'=>'send-btn pull-left', 'name' => '_apply')) !!}
+                {!! Form::submit('送 信', array('class'=>'next-btn pull-left', 'name' => '_apply')) !!}
                 {!! Form::submit('戻 る', ['class'=>'back-btn pull-right', 'name'=>'_return']) !!}
                 </div>
                 
@@ -75,5 +84,5 @@
 			{!! Form::submit('return', array('class'=>'btn btn btn-warning', 'name' => '_return')) !!}
       	{!! Form::close() !!}
 --}}
-	</div>
-    @endsection
+	</main>
+@endsection

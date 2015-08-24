@@ -446,12 +446,100 @@
                 $('input[name="cancel"]').click(function(){
     				il.hide(0);        	
 	            });
-
+  
+            });
+                         
+        },
+        
+        
+        paginateStyle: function() {
+        	$p = $('.pagination');
+            
+        	if($p.find('li:first > a').attr('rel') == 'prev') {
+            	$p.find('.disabled > span').replaceWith('<span><img src="/images/main/double-arrow-gray.png"></span>');
+            }
+            else {
+        		$p.find('.disabled > span').replaceWith('<span><img src="/images/main/double-arrow-gray-left.png"></span>');
+            }
+            
+            $p.find('a[rel="prev"]').empty().append('<img src="/images/main/double-arrow-gray-left.png">');
+            $p.find('a[rel="next"]').empty().append('<img src="/images/main/double-arrow-gray.png">');
+        },
+        
+        
+        dropDown: function() {
+        	var speed = 450;
+            
+        	$('.dd-toggle').click(function(){
+                $('.dd-toggle').not(this).next('ul:visible').fadeOut(speed);
+            	$(this).next('ul').fadeToggle(speed);
                 
             });
             
+            $('body').click(function(e){
+            	var t = $(e.target);
+                if(!t.parents().hasClass('dropdown')) {
+                	$('.dd-toggle').next('ul:visible').fadeOut(speed);
+                }
             
+                
+            });  
+        },
+        
+        loginFunc: function() {
+        	$('.login').click(function(){
+            	
+                url = location.href;
+                
+                h = $(window).height();
+                w = $(window).width();
+            
+            	history.pushState('', 'login', '/auth/login'); //詳細はbookにあり HTML5のHistoryAPIを使用してリロードなしのページ遷移が出来る
+        		
+                $('body').append('<div class="inBack"></div>');
+                $('html,body').css({overflow:'hidden'});
+                
+                $('.inBack').css({height:h}).fadeIn(500);
+                
+                $('.inBack').load('/auth/login/ .panel', function(){
+                	var pw = $('.panel').width();
+                    var ph = $('.panel').height();
+                	
+                    $('.inBack').append('<span class="octicon octicon-x"></span>');
+                    
+                    $('.inBack .panel').addClass('addPanel').css({top:(h/2 - ph/2)-100, left:w/2 - pw/2}); 
+                    $('.inBack .octicon').css({top:(h/2 - ph/2)-80, left:w/2 + pw/2 + 30 });
+                    
+                    $('.inBack .panel, .octicon-x').fadeIn(300);
+                });
+                
+                $('.inBack').click(function(e){
+                	var t = $(e.target).not('span');
+                    
+                	if(!t.parents().hasClass('panel')) {
+                        history.pushState('', 'cancel', url);
                         
+                        $('html,body').css({overflow:'visible'});
+                        
+                        $(this).fadeOut(400, function(){
+                        	$('.inBack .panel').removeClass('addPanel');
+                            $(this).remove();
+                        });
+                    }
+                });
+                
+                
+//                $('#content').load('/wp-content/themes/twentyfifteen/page.php', data, function(){
+//                                    $(this).fadeIn(600);
+//                                    
+//                                    th.typeWriter();
+//                                    
+//                                    //$('h1').text(u);
+//                                });
+                
+                
+            	return false;
+            });
         },
         
     } //return
@@ -468,6 +556,10 @@ $(function(){
     //waDo.downLoadFile();
     
     waDo.insertLink();
+    
+    waDo.paginateStyle();
+    waDo.dropDown();
+    waDo.loginFunc();
 }); //doc.ready
 
 

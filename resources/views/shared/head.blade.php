@@ -17,8 +17,23 @@
         elseif(isset($pageObj)) {
            echo $pageObj-> title . ' | ';
         }
+        elseif(isset($topicObj)) {
+        	echo $topicObj-> title . ' | ';
+        }
+        elseif(isset($blogObj)) {
+        	echo $blogObj-> title . ' | ';
+        }
+		elseif(isset($atcl)) {
+        	echo $atcl->title . ' | ';
+        }
+        elseif(isset($headTitle)) {
+        	echo $headTitle . ' | ';
+        }
 
         ?>{{$s_info->site_name}}</title>
+    @if(isset($headDesc))
+<meta name="description" content="{!! $headDesc !!}">
+    @endif
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/main.css') }}" rel="stylesheet">
 	<!-- vector icon : octicon on github-->

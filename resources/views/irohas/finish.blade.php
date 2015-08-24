@@ -1,8 +1,20 @@
 @extends('app')
 
-    @section('content')
-    <div class="study-entry">
-    	<h2 class="panel-head"><img src="/images/main/i-study.png">勉強会参加お申し込み</h2>
+@section('content')
+	<ul class="breadcrumb">
+        <li><a href="{{getUrl('/')}}"><span class="octicon octicon-home"></span>Home</a></li>
+        <li><a href="{{getUrl('iroha')}}">監査役いろは</a></li>
+        <li><a href="{{getUrl('iroha/study')}}">勉強会一覧</a></li>
+        <li><a href="{{getUrl('iroha/study/'.$obj->id)}}">@if($obj->sub_title != ''){{$obj->sub_title}}
+        @else{{$obj->title}}@endif</a></li>
+        <li>お申し込み（完了）</li>
+    </ul>
+
+    <main class="page-ct study-entry">
+    	<div class="main-head">
+        	<h1 class="panel-head"><img src="/images/main/i-study.png">{{$obj->title}} 参加お申し込み</h1>
+            <p></p>
+        </div>
         
         @include('shared.move_3')
         
@@ -14,7 +26,8 @@
         </div>
 
         <div>
-            <a href="/" class="center-block send-btn">HOMEへ</a>
+            <a href="{{ getUrl('/') }}" class="edit-btn">HOMEへ</a>
         </div>
-    </div>
-    @endsection
+    </main>
+
+@endsection

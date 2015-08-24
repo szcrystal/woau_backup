@@ -43,11 +43,12 @@ class IrohaController extends Controller
     public function show($url_name) {
     	if($url_name == 'study') {
         	$objs = $this -> iroha -> where('slug', 'study') -> orderBy('created_at','desc') -> paginate($this->pg);
-        	return view('irohas.study', ['objs'=>$objs]);
+            $headTitle = '監査役いろは勉強会一覧';
+        	return view('irohas.study', ['objs'=>$objs, 'headTitle'=>$headTitle]);
         }
         else {
-    		$atcl = $this -> iroha -> where('url_name', $url_name) -> first();
-        	return view('irohas.single', compact('atcl'));
+    		$obj = $this -> iroha -> where('url_name', $url_name) -> first();
+        	return view('irohas.page', compact('obj'));
         }
     }
 
@@ -68,11 +69,13 @@ class IrohaController extends Controller
 //        foreach($this->in as $val) {
 //            $sess[$val] = $request->session()->pull($val, '');
 //        }
-        
-        return view('irohas.entry', ['obj'=>$obj]);
+        $headTitle = '勉強会参加申し込み';
+        return view('irohas.entry', ['obj'=>$obj, 'headTitle'=>$headTitle]);
     }
     
     public function postEntry(Request $request, $id) { //ORG:postIndex
+    
+    	$obj = $this ->iroha ->find($id);
     
     	//お問い合わせ最終ページの表示：Finish Page
     	if($request->input('end') == TRUE) { // ConfirmからのPOST 送信or戻る
@@ -116,7 +119,7 @@ class IrohaController extends Controller
                 
                 //session()->forget($this->in);
                 
-                return view('irohas.finish');
+                return view('irohas.finish', ['obj'=>$obj]);
             }
         }
     	else { //確認ページ：Confirm Page
@@ -128,9 +131,11 @@ class IrohaController extends Controller
             $this->validate($request, $rules);
             
             $datas = $request->all(); //requestから配列として$dataにする
+            
             session($datas);
             
-            return view('irohas.confirm')-> with(compact('datas')); //配列なので、view遷移後はdatas[name]で取得する
+            return view('irohas.confirm', ['datas'=>$datas, 'obj'=>$obj]);
+            //return view('irohas.confirm')-> with(compact('datas')); //配列なので、view遷移後はdatas[name]で取得する
             //return redirect()->to('confirm');
         }
 	}

@@ -1,39 +1,43 @@
 @extends('app')
 
 	@section('content')
-    
-    	
-        	<article>
-            <?php 
-                if(isset($obj->img_link)) {
-                    $link = $obj->img_link; 
-                    $linkArr = explode(';', $link);
-                }
-                //echo $linkArr[0];
-            ?>
-                <header>
-                    <h1>{{ $obj->title}}</a></h1>
+    	<ul class="breadcrumb">
+            <li><a href="{{getUrl('/')}}"><span class="octicon octicon-home"></span>Home</a></li>
+            <li>監査役いろは</li>
+        </ul>
 
-                    {{-- <small>{{getStrDate($obj->created_at)}}</small> --}}
-                </header>
-                
-                {!! nb($obj -> intro_content) !!}
+        <article class="page-ct{{" ".$obj->url_name}}">
+        <?php 
+            if(isset($obj->img_link)) {
+                $link = $obj->img_link; 
+                $linkArr = explode(';', $link);
+            }
+            //echo $linkArr[0];
+        ?>
+            <header>
+                <h1>{{ $obj->title}}</a></h1>
 
-                {!! nb($obj -> main_content) !!}
-                
-                <footer>
-                {!! nb($obj -> sub_content) !!}
-                </footer>
-            </article>
-        
-        	<ul>
-        	@foreach($links as $link)
-            	<li><a href="{{getUrl('iroha/'.$link)}}">{{$link}}</a></li>
-            	
-            @endforeach
+                {{-- <small>{{getStrDate($obj->created_at)}}</small> --}}
+            </header>
             
-            	<li><a href="{{getUrl('iroha/study')}}">監査役勉強会一覧</a></li>
-            </ul>
+            {!! nb($obj -> intro_content) !!}
+
+            {!! nb($obj -> main_content) !!}
+            
+            <footer>
+            {!! nb($obj -> sub_content) !!}
+            </footer>
+        </article>
+    
+        <ul>
+        @if(isset($links))
+        @foreach($links as $link)
+            <li><a href="{{getUrl('iroha/'.$link)}}">{{$link}}</a></li>
+        @endforeach
+        @endif
+        
+            <li><a href="{{getUrl('iroha/study')}}">監査役勉強会一覧</a></li>
+        </ul>
         
 <?php
  /*  

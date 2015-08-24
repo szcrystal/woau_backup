@@ -2,34 +2,54 @@
 
 	@section('content')
     
-    	@foreach($topics as $topic)
-    	
-        	<article class="topics">
-            <?php 
-                if(isset($topic->img_link)) {
-                    $link = $topic->img_link; 
-                    $linkArr = explode(';', $link);
-                }
-                //echo $linkArr[0];
-            ?>
-                <header>
-                    <h1><a href="{{getUrl('topics/'.$topic->id)}}">{{ $topic->title}}</a></h1>
-
-                    <small>{{getStrDate($topic->created_at)}}</small>
-                </header>
-                
-                {!! nb($topic -> intro_content) !!}
-
-                {!! $topic -> main_content !!}
-                
-                <footer>
-                {!! nb($topic -> sub_content) !!}
-                </footer>
-            </article>
+    	<ul class="breadcrumb">
+            <li><a href="{{getUrl('/')}}"><span class="octicon octicon-home"></span>Home</a></li>
+            <li>トピックス一覧</li>
+        </ul>
+    
+    	<main class="page-ct topics">
+        	<div class="main-head clearfix">
+        		<h1>トピックス一覧</h1>
+    			<p>woman x auditorから最新のニュースをお伝えします。</p>
+                {!! $topics->render() !!}
+            </div>
+            @foreach($topics as $obj)
+            
+                <article class="archive">
+                    <?php 
+                        if(isset($obj->img_link)) {
+                            $link = $obj->img_link; 
+                            $linkArr = explode(';', $link);
+                        }
+                        //echo $linkArr[0];
+                    ?>
+                    <header>
+                    	<small>{!! getStrDate($obj->created_at, 'slash') !!}</small>
+                        <h2><a href="{{getUrl('topics/'.$obj->id)}}">{{ $obj->title }}</a></h2>
+                    </header>
+                    
+                    <div>
+                        @if($obj -> intro_content != '')
+                            {!! $obj -> intro_content !!}
+                        @else
+                            {!! mb_substr(strip_tags($obj -> main_content), 0, 100) !!}
+                        @endif
+                        <a href="{{ getUrl('topics/'.$obj->id) }}" class="dots">・・・</a><br>
+                        <a href="{{ getUrl('topics/'.$obj->id) }}" class="more">Read More »</a>
+                    </div>
+                    
+                    {{--
+                    <footer>
+                    {!! nb($obj -> sub_content) !!}
+                    </footer>
+                    --}}
+                </article>
+            
+            @endforeach
+            
+            {!! $topics->render() !!}
         
-        @endforeach
-        
-        <?php echo $topics->render(); ?>
+        </main>
 <?php
  /*  
 

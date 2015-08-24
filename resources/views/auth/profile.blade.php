@@ -1,147 +1,165 @@
 @extends('app')
 
     @section('content')
-        <h2 class="page-header">ユーザー登録情報</h2>
+    
+        <ul class="breadcrumb">
+            <li><a href="{{getUrl('/')}}"><span class="octicon octicon-home"></span>Home</a></li>
+            <li>ユーザー情報</li>
+        </ul>
+    
+    	<article class="page-ct">
+        	<h1>{{$user->name}} さんのユーザー登録情報</h1>
         	
             @if (session('status'))
                 <div class="alert alert-success">
                     {{ session('status') }}
                 </div>
             @endif
-        
-        	<div class="clearfix">
-        		<a href="{{ url('profile/edit/'.$user->user_number) }}" class="btn btn-success pull-right">編集</a>
-            </div>
-            
-			<div class="table-responsive">
-                <table class="table table-bordered user-table">
-                  <colgroup>
-                    <col class="col-xs-2">
-                    <col class="col-xs-7">
-                  </colgroup>
-                  {{--<thead>
-                    <tr>
-                      <th>Class</th>
-                      <th>Description</th>
-                    </tr>
-                  </thead>
-                  --}}
-                  
-                  <tbody>
-                    <tr>
-                      <th scope="row">登録番号</th>
-                      <td>{{$user->user_number}}</td>
-                    </tr>
 
-                    <tr>
-                      <th scope="row">
-                        名前
-                      </th>
-                      <td>{{$user->name}}</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                        メールアドレス
-                      </th>
-                      <td>{{$user->email}}</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                        生年月日
-                      </th>
+        	<section class="userinfo">
+            	<div class="clearfix">
+                	<a href="{{ url('profile/edit/'.$user->user_number) }}" class="edit-btn pull-right">編集する</a>
+                </div>
+            
+            	<h2>ユーザー情報</h2>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered user-table">
+                      <colgroup>
+                        <col class="col-xs-2">
+                        <col class="col-xs-7">
+                      </colgroup>
+                      {{--<thead>
+                        <tr>
+                          <th>Class</th>
+                          <th>Description</th>
+                        </tr>
+                      </thead>
+                      --}}
                       
-                      <?php 
-                      	$birth = explode('-', $user->birth);
+                      <tbody>
+                        <tr>
+                          <th scope="row">ユーザー番号</th>
+                          <td>{{$user->user_number}}</td>
+                        </tr>
+
+                        <tr>
+                          <th scope="row">
+                            名前
+                          </th>
+                          <td>{{$user->name}}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">
+                            メールアドレス
+                          </th>
+                          <td>{{$user->email}}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">
+                            生年月日
+                          </th>
+                          
+                          <?php 
+                            $birth = explode('-', $user->birth);
+                            
+                          ?>
+                          <td>
+                            {{$birth[0]=='0000' ? '--' : $birth[0]}}年 
+                            {{$birth[1]=='00' ? '--' : $birth[1]}}月 
+                            {{$birth[2]=='00' ? '--' : $birth[2]}}日 
+                          </td>
+                        </tr>
                         
-                      ?>
-                      <td>
-                      	{{$birth[0]=='0000' ? '--' : $birth[0]}}年 
-                      	{{$birth[1]=='00' ? '--' : $birth[1]}}月 
-                        {{$birth[2]=='00' ? '--' : $birth[2]}}日 
-                      </td>
-                    </tr>
-                    
-                    <tr>
-                      <th scope="row">
-                        所在地
-                      </th>
-                      <td>{{$user->address}}</td>
-                    </tr>
-                    
-                    <tr>
-                      <th scope="row">
-                        職歴
-                      </th>
-                      <td>{{$user->work_history}}</td>
-                    </tr>
-                    
-                    <tr>
-                      <th scope="row">
-                        役職
-                      </th>
-                      <td>{{$user->office_posi}}</td>
-                    </tr>
-                    
-                    <tr>
-                      <th scope="row">
-                        出張の可否
-                      </th>
-                      <td>{{$user->is_trip}}</td>
-                    </tr>
-                    
-                    <tr>
-                      <th scope="row">
-                        英語能力
-                      </th>
-                      <td>{{$user->eng_ability}}</td>
-                    </tr>
-                    
-                    <tr>
-                      <th scope="row">
-                        公認会計士資格取得年
-                      </th>
-                      <td>{{$user->get_year == 0 ? '--' : $user->get_year}}年</td>
-                    </tr>
-                    
-                    <tr>
-                      <th scope="row">
-                        過去の経験監査業種
-                      </th>
-                      <td>{{$user->exp_type}}</td>
-                    </tr>
-                    
-                    <tr>
-                      <th scope="row">
-                        監査時のポジション
-                      </th>
-                      <td>{{$user->audit_posi}}</td>
-                    </tr>
-                    
-                    {{--
-                    <tr>
-                      <th scope="row">
-                        登録日時
-                      </th>
-                      <td>{{$user->created_at}}</td>
-                    </tr>
-					--}}
-                  </tbody>
-                </table>
-              </div>
+                        <tr>
+                          <th scope="row">
+                            所在地
+                          </th>
+                          <td>{{$user->address}}</td>
+                        </tr>
+                        
+                        <tr>
+                          <th scope="row">
+                            職歴
+                          </th>
+                          <td>{{$user->work_history}}</td>
+                        </tr>
+                        
+                        <tr>
+                          <th scope="row">
+                            役職
+                          </th>
+                          <td>{{$user->office_posi}}</td>
+                        </tr>
+                        
+                        <tr>
+                          <th scope="row">
+                            出張の可否
+                          </th>
+                          <td>{{$user->is_trip}}</td>
+                        </tr>
+                        
+                        <tr>
+                          <th scope="row">
+                            英語能力
+                          </th>
+                          <td>{{$user->eng_ability}}</td>
+                        </tr>
+                        
+                        <tr>
+                          <th scope="row">
+                            公認会計士資格取得年
+                          </th>
+                          <td>{{$user->get_year == 0 ? '--' : $user->get_year}}年</td>
+                        </tr>
+                        
+                        <tr>
+                          <th scope="row">
+                            過去の経験監査業種
+                          </th>
+                          <td>{{$user->exp_type}}</td>
+                        </tr>
+                        
+                        <tr>
+                          <th scope="row">
+                            監査時のポジション
+                          </th>
+                          <td>{{$user->audit_posi}}</td>
+                        </tr>
+                        
+                        {{--
+                        <tr>
+                          <th scope="row">
+                            登録日時
+                          </th>
+                          <td>{{$user->created_at}}</td>
+                        </tr>
+                        --}}
+                      </tbody>
+                    </table>
+                  </div>
+                  
+			</section>
               
-         
-        @if(! $jobObjs -> isEmpty())
-        <h2 class="page-header">応募した企業</h2> 
-			<div class="table-responsive">
-                <table class="table table-bordered">
+        
+        <section>
+            <h2 class="page-header">応募した企業</h2> 
+            
+            @if($jobObjs -> isEmpty())
+            <p style="padding-bottom: 2em;">{{$user->name}}さんが応募した企業はまだありません。<br>
+            気になる企業がありましたら応募してみましょう。<br>
+            <a href="{{getUrl('recruit')}}" class="conf-btn" style="margin-top: 1em;">企業情報一覧 »</a></p>
+            @else
+            <div class="table-responsive">
+                <table class="table table-bordered entry-table">
                   <thead>
                     <tr>
-                      <th>企業番号</th>
-                      <th class="col-md-3">企業名</th>
-                      <th class="col-md-5">応募時のコメント</th>
-                      {{-- <th>添付ファイル名</th> --}}
+                      <th>企業No</th>
+                      <th class="col-md-2">企業名</th>
+                      <th class="col-md-3">応募時のコメント</th>
+                      <th>添付したファイル</th>
                       <th>応募日</th>
-                      <th>企業情報</th>
+                      <th class="col-md-1"></th>
                       
                     </tr>
                   </thead>
@@ -157,42 +175,45 @@
                             </td>
                             
                             <td>
-                                {{ $jobObj->note }}<br />
-                                添付ファイル：{{ $jobObj->attach_name }}
+                                {{ $jobObj->note }}
                             </td>
-                            {{--
                             <td>
                                 {{ $jobObj->attach_name }}
-                            </td>
-                            --}}
-                                                
+                            </td>                    
                             <td>
                                 {{ getStrDate($jobObj->created_at)}}
                             </td>
 
-                            <td>
-                            	
-                                <a href="{{ getUrl('recruit/job/'. $num) }}" class="btn btn-primary btn-sm center-block">企業を確認</a>
+                            <td> 
+                                <a href="{{ getUrl('recruit/job/'. $num) }}" class="conf-btn">企業を<br>確認する</a>
                             </td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
             </div>
-        @endif  
-                
+            @endif
+        </section>
+         
 
-        @if(! $studyObjs->isEmpty())
-        <h2 class="page-header">参加申し込み勉強会</h2> 
-			<div class="table-responsive">
-                <table class="table table-bordered">
+        <section>
+            <h2 class="page-header">申し込みをした勉強会</h2>
+            
+            @if($studyObjs->isEmpty())
+            <p>{{$user->name}}さんが申し込みをした勉強会はまだありません。<br>
+            自分に役立つ勉強会を探して、ぜひ参加してみませんか？<br>
+            <a href="{{getUrl('iroha/study')}}" class="conf-btn" style="margin: 1em 0;">監査役いろは勉強会一覧 »</a></p>
+            
+            @else
+            <div class="table-responsive">
+                <table class="table table-bordered entry-table">
                   <thead>
                     <tr>
-                      <th>企業番号</th>
-                      <th class="col-md-3">勉強会</th>
+                      <th>勉強会No</th>
+                      <th class="col-md-3">勉強会名</th>
                       <th class="col-md-5">応募時のコメント</th>
                       <th>応募日</th>
-                      <th>勉強会情報</th>
+                      <th class="col-md-1"></th>
                     </tr>
                   </thead>
                   
@@ -208,31 +229,29 @@
                                                 
                             <td>{{ getStrDate($studyObj->created_at)}}</td>
 
-                            <td><a href="{{ getUrl('iroha/study/'. $studyObj->iroha_id) }}" class="btn btn-primary btn-sm center-block">企業を確認</a></td>
+                            <td><a href="{{ getUrl('iroha/study/'. $studyObj->iroha_id) }}" class="conf-btn">勉強会を<br>確認する</a></td>
                         </tr>
                     @endforeach
                 
                     </tbody>
                 </table>
             </div>
+            @endif
+        </section>
         
-        @endif
         
+    </article>
         
-        {{--
-            @foreach($userObj as $key => $val)
-                @if($key != '_token')   
-                        <th scope="row">{{$key}}</th>
-                        <td>{{$val}}</td>
 
-                @endif
-            @endforeach
-          --}}  
+    {{--
+        @foreach($userObj as $key => $val)
+            @if($key != '_token')   
+                    <th scope="row">{{$key}}</th>
+                    <td>{{$val}}</td>
 
-            
-            
-            
-
+            @endif
+        @endforeach
+      --}}  
 
 {{--
         {!! Form::open(array( 'url' => 'reservation/finish', 'method' => 'post' )) !!}
@@ -254,4 +273,5 @@
       	{!! Form::close() !!}
 --}}
 
+	
     @endsection

@@ -75,7 +75,7 @@ Route::get('/{post}', 'PageController@show');
 /* functions *********** */
 //改行させる
 function nb($arg) {
-	return nl2br($arg);
+	return nl2br($arg, FALSE); //false:HTML準拠の<br>を出力
 }
 
 function selectBox($first, $last, $objNum=null) {
@@ -117,9 +117,19 @@ function getUrl($linkArg) {
     }
 }
 
-function getStrDate($dateArg) {
-	$past = getdate(strtotime($dateArg));
-	return $past['year'].'年'.$past['mon'].'月'. $past['mday'] .'日';
+function getStrDate($dateArg, $type='') {
+	
+    $past = getdate(strtotime($dateArg));
+    
+	if($type == 'dot') {
+    	return $past['year']. '.' .$past['mon']. '.' . $past['mday'] .'';
+    }
+    else if($type == 'slash') {
+    	return "<em>".$past['year']. "</em><br>" .$past['mon'].'/'. $past['mday'] .'';
+	}
+    else {
+		return $past['year'].'年'.$past['mon'].'月'. $past['mday'] .'日';
+    }
 }
 
 function listCategory($blog_id) {
@@ -131,7 +141,7 @@ function listCategory($blog_id) {
             $cateObj = App\Cate::find($cate->cate_id);
             
             $ret .='<li class="pull-left">';
-            $ret .= '<a href="'. getUrl("blog/category/".$cateObj->slug) .'">' . $cateObj->name . '</a>';
+            $ret .= '<a href="'. getUrl("blog/category/".$cateObj->slug) .'">' . $cateObj->c_name . '</a>';
             $ret .= '</li>'."\n";
         }
          
@@ -142,6 +152,39 @@ function listCategory($blog_id) {
     else {
     	return '';
     }
+}
+
+function pager($table, $id_arg) {
+	
+	if($table == 'irohas') {
+    	$prev = DB::table($table)->where('slug', 'study')->where('id', '<', $id_arg) -> orderBy('created_at', 'desc') -> first();
+    	$next = DB::table($table)->where('slug', 'study')->where('id', '>', $id_arg) -> first();
+    }
+    else {
+    	$prev = DB::table($table)->where('id', '<', $id_arg) -> orderBy('created_at', 'desc') -> first();
+    	$next = DB::table($table)->where('id', '>', $id_arg) -> first();
+    }
+    
+    
+	$format = '<ul class="pager">';
+    
+    if(isset($prev)) {
+    	$link = ($table == 'irohas') ? 'iroha/'. $prev->slug : $prev->slug;
+    	$format .= '<li><a href="' . getUrl($link.'/'.$prev->id) . '" rel="prev">PREV</a></li>';
+    }
+    else
+        $format .= '<li class="disabled"><span>PREV</span></li>';
+        
+    if(isset($next)) {
+    	$link = ($table == 'irohas') ? 'iroha/'. $next->slug : $next->slug;
+        $format .= '<li><a href="'. getUrl($link.'/'.$next->id) .'" rel="next">NEXT</a></li>';
+    }
+    else
+        $format .= '<li class="disabled"><span>NEXT</span></li>';
+
+    $format .= '</ul>'."\n";
+    
+    return $format;
 }
 
 

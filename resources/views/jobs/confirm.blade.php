@@ -1,8 +1,20 @@
 @extends('app')
 
-    @section('content')
-    <div class="job-entry">
-        <h2 class="panel-head"><img src="/images/main/i-job.png">{{$datas['comp_name']}} へ応募する</h2>
+@section('content')
+	
+    <ul class="breadcrumb">
+        <li><a href="{{getUrl('/')}}"><span class="octicon octicon-home"></span>Home</a></li>
+        <li><a href="{{getUrl('recruit')}}">求人情報一覧</a></li>
+        <li><a href="{{getUrl('recruit/job/'.$obj->job_number)}}">@if($obj->sub_title != ''){{$obj->sub_title}}
+        @else{{$obj->title}}@endif</a></li>
+        <li>応募する（内容確認）</li>
+    </ul>
+    
+	<main class="page-ct job-entry">
+    	<div class="main-head">
+        	<h1 class="panel-head"><img src="/images/main/i-job.png">{{$datas['comp_name']}} へ応募する</h1>
+            <p></p>
+        </div>    
         
         @include('shared.move_2')
         
@@ -53,51 +65,31 @@
 
                 
             
-            {!! Form::open(array( 
-            				'method' => 'post',
-                            //'action'=>'PageController@postContact',
-                            //'enctype' => 'multipart/form-data',
-                            //'files' => true, 
-                        )) !!} {{-- 'url'=>'/finish' --}}
+        {!! Form::open(array( 
+                        'method' => 'post',
+                        //'action'=>'PageController@postContact',
+                        //'enctype' => 'multipart/form-data',
+                        //'files' => true, 
+                    )) !!} {{-- 'url'=>'/finish' --}}
+        
+            @foreach($datas as $key => $val) 
+                @if($key != '_token')
+                    {!! Form::hidden($key, $val) !!}
+                @endif
+            @endforeach
             
-            	@foreach($datas as $key => $val) 
-                    @if($key != '_token')
-                        {!! Form::hidden($key, $val) !!}
-                    @endif
-                @endforeach
-            	
-                {{-- <input type="file" name="add_file" value="{{$datas['add_file']}}" disabled /> --}}
-                
-                {!! Form::input('hidden', 'end', TRUE) !!}
-                
-                <div class="wrap-b">
-                {!! Form::submit('送 信', array('class'=>'send-btn pull-left', 'name' => '_apply')) !!}
-                {!! Form::submit('戻 る', ['class'=>'back-btn pull-right', 'name' => '_return']) !!}
-                </div>
+            {{-- <input type="file" name="add_file" value="{{$datas['add_file']}}" disabled /> --}}
             
-            {!! Form::close() !!}
+            {!! Form::input('hidden', 'end', TRUE) !!}
             
-            {{-- <a href="#" class="btn btn-success" onclick="history.back(); return false;">戻る</a> --}}
+            <div class="wrap-b">
+            {!! Form::submit('送 信', array('class'=>'next-btn pull-left', 'name' => '_apply')) !!}
+            {!! Form::submit('戻 る', ['class'=>'back-btn pull-right', 'name' => '_return']) !!}
+            </div>
+        
+        {!! Form::close() !!}
+            
+        {{-- <a href="#" class="btn btn-success" onclick="history.back(); return false;">戻る</a> --}}
 
-
-{{--
-        {!! Form::open(array( 'url' => 'reservation/finish', 'method' => 'post' )) !!}
-              
-              {!! Form::hidden('name', $datas['name']) !!}
-
-              {!! Form::hidden('mail', $datas['mail']) !!}
-
-              {!! Form::hidden('address', $datas['address']) !!}
-
-              {!! Form::hidden('use_addr', $datas['use_addr']) !!}
-
-              {!! Form::hidden('note', $datas['note']) !!}
-          
-          
-          	{!! Form::submit('apply', array('class'=>'btn btn-primary', 'name' => '_apply')) !!}
-			{!! Form::submit('return', array('class'=>'btn btn btn-warning', 'name' => '_return')) !!}
-      
-      	{!! Form::close() !!}
---}}
-	</div>
-    @endsection
+	</main>
+@endsection

@@ -3715,28 +3715,47 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   color: #444444;
 }
 .breadcrumb {
-  padding: 8px 15px;
-  margin-bottom: 20px;
+  padding: 0 0.5em;
+  margin: 1em 0 2.2em;
   list-style: none;
-  background-color: #f5f5f5;
+  background-color: none;
   border-radius: 4px;
+  text-align: right;
+  
 }
 .breadcrumb > li {
   display: inline-block;
+  color: #6a6a6a;
+  font-size: 0.95em;
 }
 .breadcrumb > li + li:before {
-  content: "/\00a0";
+  content: ">"; /* /\00a0 */
   padding: 0 5px;
-  color: #cccccc;
+  color: #aaa;
+}
+.breadcrumb > li > a {
+	color: #91CE18;
+    text-decoration: underline;
+}
+.breadcrumb > li > a:hover {
+	color: #BAE26A;
+    text-decoration: none;
 }
 .breadcrumb > .active {
   color: #777777;
 }
+.breadcrumb .octicon {
+	margin-top: -3px;
+    margin-right: 0.3em;
+}
+
 .pagination {
   display: inline-block;
   padding-left: 0;
   margin: 20px 0;
   border-radius: 4px;
+  font-size: 1.1em;
+  float: right;
 }
 .pagination > li {
   display: inline;
@@ -3745,32 +3764,35 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > li > span {
   position: relative;
   float: left;
-  padding: 6px 12px;
+  padding: 3px 11px;
   line-height: 1.42857143;
   text-decoration: none;
-  color: #337ab7;
-  background-color: #ffffff;
-  border: 1px solid #dddddd;
+  color: #666;
+/*  color: #337ab7;*/
+/*  background-color: #ffffff;*/
+  /*border: 1px solid #dddddd;*/
   margin-left: -1px;
+  -moz-transition: none;
+  transition: none;
 }
 .pagination > li:first-child > a,
 .pagination > li:first-child > span {
   margin-left: 0;
-  border-bottom-left-radius: 4px;
-  border-top-left-radius: 4px;
+/*  border-bottom-left-radius: 4px;*/
+/*  border-top-left-radius: 4px;*/
 }
 .pagination > li:last-child > a,
 .pagination > li:last-child > span {
-  border-bottom-right-radius: 4px;
-  border-top-right-radius: 4px;
+/*  border-bottom-right-radius: 4px;*/
+/*  border-top-right-radius: 4px;*/
 }
 .pagination > li > a:hover,
 .pagination > li > span:hover,
 .pagination > li > a:focus,
 .pagination > li > span:focus {
   color: #23527c;
-  background-color: #eeeeee;
-  border-color: #dddddd;
+/*  background-color: #eeeeee;*/
+/*  border-color: #dddddd;*/
 }
 .pagination > .active > a,
 .pagination > .active > span,
@@ -3779,8 +3801,10 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
   z-index: 2;
-  color: #ffffff;
-  background-color: #337ab7;
+  color: #fff;
+  background-color: #fe5c26;
+  /*background-color: #337ab7;*/
+  border-radius: 50%;
   border-color: #337ab7;
   cursor: default;
 }
@@ -3790,10 +3814,25 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > .disabled > a,
 .pagination > .disabled > a:hover,
 .pagination > .disabled > a:focus {
-  color: #777777;
-  background-color: #ffffff;
-  border-color: #dddddd;
-  cursor: not-allowed;
+  color: #666;
+/*  background-color: #ffffff;*/
+/*  border-color: #dddddd;*/
+/*  cursor: not-allowed;*/
+	opacity: 0;
+    cursor: default;
+}
+.pagination > .disabled > span img,
+.pagination > .disabled > span:hover img,
+.pagination > .disabled > span:focus img, 
+.pagination > li > a[rel="next"] > img,
+.pagination > li > a[rel="next"]:hover > img,
+.pagination > li > a[rel="next"]:focus > img,
+.pagination > li > a[rel="prev"] > img,
+.pagination > li > a[rel="nprev"]:hover > img,
+.pagination > li > a[rel="nprev"]:focus > img {
+	width: 16px;
+    height: auto;
+    margin-top: -3px;
 }
 .pagination-lg > li > a,
 .pagination-lg > li > span {
@@ -3827,7 +3866,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 .pager {
   padding-left: 0;
-  margin: 20px 0;
+  margin: 3em 0;
   list-style: none;
   text-align: center;
 }
@@ -3838,14 +3877,28 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pager li > span {
   display: inline-block;
   padding: 5px 14px;
-  background-color: #ffffff;
-  border: 1px solid #dddddd;
-  border-radius: 15px;
+  color: #6a6a6a;
+/*  font-weight: 400;*/
+/*  font-family: "Josefin Sans", sans-serif;*/
+/*  background-color: #ffffff;*/
+/*  border: 1px solid #dddddd;*/
+/*  border-radius: 15px;*/
+}
+.pager li:first-of-type > a,
+.pager li:first-of-type > span {
+	padding-left: 2em;
+	background: url(../images/main/double-arrow-gray-left.png) 0 45% no-repeat;
+}
+.pager li:last-of-type > a,
+.pager li:last-of-type > span {
+	padding-right: 2em;
+	background: url(../images/main/double-arrow-gray.png) 100% 45% no-repeat;
 }
 .pager li > a:hover,
 .pager li > a:focus {
   text-decoration: none;
-  background-color: #eeeeee;
+  opacity: 0.6;
+/*  background-color: #eeeeee;*/
 }
 .pager .next > a,
 .pager .next > span {
@@ -3859,9 +3912,11 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pager .disabled > a:hover,
 .pager .disabled > a:focus,
 .pager .disabled > span {
-  color: #777777;
-  background-color: #ffffff;
-  cursor: not-allowed;
+  color: #6a6a6a;
+  opacity: 0;
+/*  background-color: #ffffff;*/
+/*  cursor: not-allowed;*/
+	cursor: default;
 }
 .label {
   display: inline;

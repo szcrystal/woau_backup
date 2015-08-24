@@ -51,6 +51,7 @@
                                 <li><a href="{{ getUrl('recruit/newjobs') }}">新着求人一覧</a></li>
                                 <li><a href="{{ getUrl('/iroha') }}">監査役いろは</a></li>
                                 <li><a href="{{ getUrl('/blog') }}">ブログ</a></li>
+                                <li><a href="{{ getUrl('/dashboard') }}" target="_blank">Dashboard</a></li>
                                 <li><a href="{{ getUrl('auth/logout') }}">ログアウト</a></li>
                             </ul>
                         </li>

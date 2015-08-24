@@ -1,8 +1,16 @@
 @extends('app')
 
     @section('content')
-    <div class="register">
-        <h2 class="panel-head"><img src="/images/main/i-register.png">新規ユーザー登録</h2>
+    	<ul class="breadcrumb">
+        	<li><a href="{{getUrl('/')}}"><span class="octicon octicon-home"></span>Home</a></li>
+        	<li>ユーザー登録（内容確認）</li>
+    	</ul>
+    
+    <main class="page-ct register">
+    	<div class="main-head">
+        	<h1 class="panel-head"><img src="/images/main/i-register.png">新規ユーザー登録</h1>
+            <p></p>
+        </div>
         
         @include('shared.move_2')
         
@@ -80,16 +88,15 @@
             {!! Form::input('hidden', 'end', TRUE) !!}
             
             <div class="wrap-b">
-            {!! Form::submit('送 信', array('class'=>'send-btn pull-left', 'name' => '_apply')) !!}
-            {!! Form::submit('戻る', ['class'=>'back-btn pull-right', 'name' => '_return']) !!}
+            {!! Form::submit('送 信', array('class'=>'next-btn pull-left', 'name' => '_apply')) !!}
+            {!! Form::submit('戻 る', ['class'=>'back-btn pull-right', 'name' => '_return']) !!}
             </div>
             
         {!! Form::close() !!}
             
             
-            {{-- <a href="{{getUrl('/auth/register')}}" class="btn btn-default">戻る</a> --}}
+        {{-- <a href="{{getUrl('/auth/register')}}" class="btn btn-default">戻る</a> --}}
 
-	
 {{--
         {!! Form::open(array( 'url' => 'reservation/finish', 'method' => 'post' )) !!}
               
@@ -109,5 +116,6 @@
       
       	{!! Form::close() !!}
 --}}
-	</div>
-    @endsection
+
+	</main>
+@endsection

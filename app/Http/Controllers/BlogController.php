@@ -34,13 +34,15 @@ class BlogController extends Controller
     public function getIndex()
     {
     	$objs = $this -> blog -> orderBy('created_at','desc') -> paginate($this->pg);
-        return view('blogs.index', compact('objs'));
+        //$objs = $this -> blog -> orderBy('created_at','desc') -> simplePaginate(3);
+        $headTitle = '管理者ブログ';
+        return view('blogs.index', ['objs'=>$objs, 'headTitle'=>$headTitle]);
     }
     
     public function show($post_id)
     {
-    	$obj = $this -> blog -> find($post_id);
-        return view('blogs.single', compact('obj'));
+    	$blogObj = $this -> blog -> find($post_id);
+        return view('blogs.single', compact('blogObj'));
     }
     
     public function getCategory($slug) {
@@ -54,9 +56,9 @@ class BlogController extends Controller
         
         $objs = $this->blog->whereIn('id', $blog_ids)->orderBy('created_at','desc') ->paginate($this->pg);
         
-        $title = 'カテゴリー：'. $cateObj->name;
+        $title = 'カテゴリー：'. $cateObj->c_name;
 
-        return view('blogs.archive', ['objs'=>$objs, 'title'=>$title]);
+        return view('blogs.index', ['objs'=>$objs, 'title'=>$title]);
     }
 
     /**

@@ -14,12 +14,14 @@
         <section class="topics">
         	<h2>TOPICS</h2>
             
-            @foreach($topicObj as $topic)
+            @foreach($topTopics as $topic)
             <article>
-                <h3><span>{{ getStrDate($topic->created_at) }}</span>{{ $topic -> title}}</h3>
+            	<span>{{ getStrDate($topic->created_at) }}</span>
+                <h3><a href="{{ getUrl('topics/'.$topic->id) }}">{{ $topic -> title}}</a></h3>
             </article>
             @endforeach
             
+            {{--
             <article>
                 <h3><span>2015年7月29日</span>トピックス２</h3>
             </article>
@@ -38,9 +40,9 @@
             <article>
                 <h3><span>2015年7月22日</span>トピックス１</h3>
             </article>
-
+			--}}
         	
-            <a href="{{getUrl('topics')}}" class="topic-link">過去のTOPICS一覧</a>
+            <a href="{{getUrl('topics')}}" class="topic-link">トピックス一覧</a>
     	</section>
         
         <section class="contents clearfix">

@@ -29,7 +29,8 @@ class TopicController extends Controller
     
     public function getIndex() {
     	$topics = $this -> topic -> orderBy('created_at','desc') ->paginate($this->pg);
-        return view('topics.index', ['topics'=>$topics]);
+        $headTitle = 'トピックス一覧';
+        return view('topics.index', ['topics'=>$topics, 'headTitle'=>$headTitle]);
     }
     
     public function show($id) {

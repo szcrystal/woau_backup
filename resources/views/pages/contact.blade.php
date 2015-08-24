@@ -1,30 +1,38 @@
 @extends('app')
 
 @section('content')
-<div class="contact">
-	<h2 class="panel-head"><img src="/images/main/i-mail.png">お問い合わせ</h2>
+	<ul class="breadcrumb">
+        <li><a href="{{getUrl('/')}}"><span class="octicon octicon-home"></span>Home</a></li>
+        <li>お問い合わせ</li>
+    </ul>
     
-    @include('shared.move_1')
-    
-    @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <strong>ご確認下さい！</strong><br /><br />
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
+    <main class="page-ct contact">
+    	<div class="main-head">
+        	<h1 class="panel-head">お問い合わせ</h1>
+            <p></p>
         </div>
-    @endif
-        	
-      
-    {!! Form::open(array(
-        'class'=>'form-d',
-        //'url' => '/confirm',
-        //'action' => 'PageController@postContact',
-    )) !!}
         
-    <table class="table-d">
+        @include('shared.move_1')
+        
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <strong>ご確認下さい！</strong><br /><br />
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+                
+          
+        {!! Form::open(array(
+            'class'=>'form-d',
+            //'url' => '/confirm',
+            //'action' => 'PageController@postContact',
+        )) !!}
+            
+        <table class="table-d">
             <colgroup>
                 <col class="cth">
                 <col class="ctd">
@@ -33,24 +41,24 @@
             <tbody>
                 <tr>
                     <th>お名前<em>必須</em></th>
-                  	<td>
+                    <td>
                         {!! Form::input('text', 'name', old('name'), ['class' => 'form-control']) !!}
-                  	</td>
-              	</tr>
+                    </td>
+                </tr>
 
-              	<tr>
-                  	<th>メールアドレス<em>必須</em></th>
-                  	<td>
+                <tr>
+                    <th>メールアドレス<em>必須</em></th>
+                    <td>
                       {!! Form::input('text', 'mail', old('mail'), ['class' => 'form-control', 'id'=>'inputEmail']) !!}
-                	</td>
-              	</tr>
+                    </td>
+                </tr>
 
-            	<tr>
-            		<th>お問い合わせ内容<br /></th>
-                  	<td>
-                    	{!! Form::textarea('note', old('note'), ['class' => 'form-control', 'rows'=>13]) !!}
-                	</td>
-            	</tr>
+                <tr>
+                    <th>お問い合わせ内容<br /></th>
+                    <td>
+                        {!! Form::textarea('note', old('note'), ['class' => 'form-control', 'rows'=>13]) !!}
+                    </td>
+                </tr>
               
               {{--
               <div class="form-group">
@@ -63,54 +71,54 @@
                             </label>
                         </div>
                     </div>
-            	</div>
+                </div>
               --}}
               
               </tbody>
             </table>
-              
+                  
             <div>
-                <button type="submit" class="center-block send-btn">内容を確認する</button>
+                <button type="submit" class="next-btn center-block">内容を確認する</button>
                 {{-- <button type="reset" class="btn btn-default">Reset</button> --}}
             </div>
           {!! Form::close() !!}
 
-      </div>
-      </div>
+		</main>
 
-<!--
-		<div class="col-lg-6">
-		<div class="well bs-component">
+
+    <!--
+        <div class="col-lg-6">
+        <div class="well bs-component">
 
         <form class="form-horizontal">
         <fieldset>
         <legend>Legend</legend>
 
         <div class="form-group">
-        	<label for="inputEmail" class="col-lg-2 control-label">Email</label>
-        	<div class="col-lg-10">
-        		<input type="text" class="form-control" id="inputEmail" placeholder="Email">
-        	</div>
+            <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+            </div>
         </div>
 
         <div class="form-group">
-        	<label for="inputPassword" class="col-lg-2 control-label">Password</label>
-        	<div class="col-lg-10">
-        		<input type="password" class="form-control" id="inputPassword" placeholder="Password">
-        		<div class="checkbox">
-        			<label>
-        				<input type="checkbox"> Checkbox
-        			</label>
-        		</div>
-        	</div>
+            <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+            <div class="col-lg-10">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Checkbox
+                    </label>
+                </div>
+            </div>
         </div>
 
         <div class="form-group">
-        	<label for="textArea" class="col-lg-2 control-label">Textarea</label>
-        	<div class="col-lg-10">
-        		<textarea class="form-control" rows="3" id="textArea"></textarea>
-        		<span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
-        	</div>
+            <label for="textArea" class="col-lg-2 control-label">Textarea</label>
+            <div class="col-lg-10">
+                <textarea class="form-control" rows="3" id="textArea"></textarea>
+                <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+            </div>
         </div>
 
         <div class="form-group">
@@ -161,6 +169,6 @@
 
         </div>
         </div>
--->
-</div>
+    -->
+    
 @endsection
