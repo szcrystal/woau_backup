@@ -511,6 +511,7 @@
                     $('.inBack .octicon').css({top:(h/2 - ph/2)-80, left:w/2 + pw/2 + 30 });
                     
                     $('.inBack .panel, .octicon-x').fadeIn(400);
+                    
                 });
                 
                 $('.inBack').click(function(e){

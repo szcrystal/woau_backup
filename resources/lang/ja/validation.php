@@ -106,6 +106,7 @@ return [
 
     'attributes' => [
     	'email' => 'メールアドレス',
+        'user_id' => 'ユーザーID（メールアドレス）',
         'password' => 'パスワード',
         'name' => 'お名前', // forお問い合わせ
         'mail' => 'メールアドレス',// forお問い合わせ

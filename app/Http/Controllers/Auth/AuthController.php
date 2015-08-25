@@ -128,7 +128,7 @@ class AuthController extends Controller
     public function postLogin(Request $request) {
     
     	$rules = [
-            'email' => 'required|email|max:255',
+            'user_id' => 'required|email|max:255',
             'password' => 'required|min:6',
         ];
         
@@ -137,7 +137,7 @@ class AuthController extends Controller
         $data = $request->all();
         
         //LogIn認証チェック : Registerの時点でpasswordはHashされている必要があり
-        if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']])) //password:ここでのhashは不要
+        if (Auth::attempt(['email' => $data['user_id'], 'password' => $data['password']])) //password:ここでのhashは不要
         {
         	return redirect()->intended('/');
         }

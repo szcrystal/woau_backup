@@ -60,8 +60,8 @@ button,
 input[type="submit"] {
 /*	-moz-transition: all 0.2s linear;*/
 /*    transition: all 0.2s linear;*/
-/*	-moz-transition: opacity 0.2s linear;*/
-/*    transition: opacity 0.2s linear;*/
+	-moz-transition: opacity 0.2s linear;
+    transition: opacity 0.2s linear;
     //font-family: "游ゴシック", "YuGothic", "Meiryo", sans-serif;
     //font-weight: normal;
 }
@@ -69,7 +69,7 @@ input[type="submit"] {
 a:hover,
 button:hover,
 input[type="submit"]:hover {
-    opacity: 0.7;
+    opacity: 0.65;
     text-decoration: none;
     outline: none;
 }
@@ -175,8 +175,8 @@ ul:after {
 #navmenu ul.main-m li a {
 	display: inline-block;
 	color: #555;
-/*    -moz-transition: color 0.2s linear;*/
-/*	transition: color 0.2s linear; */
+    -moz-transition: color 0.3s linear;
+	transition: color 0.3s linear; 
 }
 #navmenu ul.main-m li a:hover,
 #navmenu ul.main-m li a:hover span {
@@ -238,29 +238,30 @@ ul:after {
     50% { 
     	//-webkit-transform: translateY(-7px);
         -webkit-transform: scale(0.92);
-        opacity: 1;
+        //opacity: 1;
 	}
     100% {
        	//-webkit-transform: translateY(0);
         -webkit-transform: scale(1);
-        opacity: 1;
+        //opacity: 0.6;
     }
 }
 @keyframes scXy {
     50% {
        	transform: scale(0.92);
-        opacity: 1;
+        //opacity: 1;
     }
     100% {
 		transform: scale(1);
-        opacity: 1;
+        //opacity: 0.7;
     }
 }
 #navmenu ul.login-m a:hover {
 /*	-webkit-transform: rotateZ(20deg);*/ /* transformはinlineには効かない */
 /*    transform: rotateZ(20deg);*/
 	-webkit-animation: scXy 0.3s ease 0s 1 normal forwards;
-	animation: scXy 0.3s ease 0s 1 normal forwards;	
+	animation: scXy 0.3s ease 0s 1 normal forwards;
+    opacity: 0.65;
 }
 
 /* Carousel */
@@ -444,8 +445,8 @@ div.person {
 }
 .dropdown-menu li a {
 	color: #525252;
-/*	-moz-transition: all 0.2s linear;*/
-/*	transition: all 0.2s linear;*/
+	-moz-transition: color 0.2s linear;
+	transition: color 0.2s linear;
 }
 .dropdown-menu li a:hover {
 	color: #fe5c26;
@@ -731,7 +732,7 @@ a.topic-link {
     font-weight: bold;
     text-align: center;
     font-size: 1em;
-    //font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
+    font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
     //line-height: 1.2em;
     //left: 10%;
     //border: 1px solid red;
@@ -783,7 +784,7 @@ a.topic-link {
 /*	animation: scaleXy 0.3s ease 0s 1 normal forwards;*/
 	-webkit-transform: rotateZ(5deg);
     transform: rotateZ(5deg);
-    opacity: 1;
+    opacity: 0.7;
     //-webkit-transform: scale(0.97);
     //transform: scale(0.97);
 }
@@ -840,6 +841,16 @@ a.topic-link {
 
 .page-ct h1 {
 	font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
+}
+@media all and (-ms-high-contrast:none){ /* IE10-11 */
+      .page-ct h1 {
+        font-weight: bold;
+      }
+}
+@supports (-ms-accelerator:true) { /* Edge */
+	.page-ct h1 {
+		font-weight: bold;
+	}
 }
 .page-ct h2 {
 	//font-weight: bold;
@@ -990,12 +1001,12 @@ h1.main-title {
 	margin-bottom: 0.7em;
 }
 .main-head p {
-	font-size: 0.95em;
-/*    color: #888;*/
+	font-size: 1em;
+	color: #66625E;
 }
 .topics .main-head {
 	background: url(../images/main/about/file.png) 40% 0 no-repeat;
-    background-size: 12% auto;
+    background-size: 116px auto;
 }
 .study .main-head {
 	background: url(../images/main/top_icons/study-gray-lg3.png) 40% 0 no-repeat;
@@ -1009,8 +1020,8 @@ h1.main-title {
 	margin-left: 10em;
     width: 140px;
     height: auto;
-    -webkit-transform: rotateZ(-3deg);
-    transform: rotateZ(-3deg);
+    //-webkit-transform: rotateZ(-3deg);
+    //transform: rotateZ(-3deg);
 }
 .blog .main-head {
 	background: url(../images/main/top_icons/blog-gray-lg6.png) 35% -5px no-repeat;
@@ -1274,7 +1285,7 @@ aside li {
 }
 
 .single.topic-sgl {
-	background: url(../images/main/about/file.png) 30% 1% no-repeat;
+	background: url(../images/main/about/file.png) 26% 0 no-repeat;
     background-size: 116px auto;
 }
 .single.study-sgl {
@@ -1469,10 +1480,11 @@ h2.panel-head img {
 }
 .contact .main-head {
 	background: url(../images/main/form/mail.png) 37% -10px no-repeat;
-    background-size: 140px auto;
+    //background: url(../images/main/about/mail.png) 30% 10px no-repeat;
+    background-size: 130px auto;
 }
 .register .main-head {
-	background: url(../images/main/about/pc.png) 37% 10px no-repeat;
+	background: url(../images/main/about/pc.png) 37% 20px no-repeat;
     background-size: 148px auto;
 }
 
@@ -1765,7 +1777,7 @@ span.t-down:after {
     font-weight: bold;
     font-size: 1em;
     //font-family: "Hiragino Maru Gothic Pro", "Meiryo", sans-serif;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.05em;
     margin-top: 2em;
     padding: 0.3em 0 0.2em;
     color: #fff;
@@ -1785,7 +1797,7 @@ span.t-down:after {
 /*    color: #706356;*/
 /*    border: 5px solid #F47856;*/
 /*    border-radius: 0.5em;*/
-    font-weight: bold;
+    //font-weight: bold;
     border: 2px solid #F79B39;
     //border: 5px solid #AE9888;
     //color: #706356;
@@ -1968,6 +1980,10 @@ span.t-down:after {
     //border: 1px solid red;
     border-radius: 1em;
 }
+.panel a {
+	-moz-transition: none;
+    transition: none;
+}
 .new-regist {
     position: absolute;
     top: 45%;
@@ -2090,6 +2106,23 @@ span.t-down:after {
 .panel .forget-pass {
 	margin-bottom: 2em;
     color: #A59891/*#AA9992*/;
+}
+
+@media all and (-ms-high-contrast:none){ /* IE10-11 */
+    .panel {
+    	width: 540px;
+    }
+    .panel input[type="checkbox"] {
+        margin-top: 0.25em; 
+    }
+}
+@supports (-ms-accelerator:true) { /* Edge */
+	.panel {
+    	width: 540px;
+    }
+    .panel input[type="checkbox"] {
+        margin-top: 0.25em; 
+    }
 }
 
 

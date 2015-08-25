@@ -47,7 +47,7 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label">ユーザーID</label>
                         <div class="col-md-10">
-                            <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="メールアドレスを入力して下さい" autofocus>
+                            <input type="email" class="form-control" name="user_id" value="{{ old('user_id') }}" placeholder="メールアドレスを入力して下さい" autofocus>
                         </div>
                     </div>
 
@@ -59,7 +59,7 @@
                     </div>
                     
                     <div class="">
-                        <a class="btn btn-link pull-right" href="{{ getUrl('/password/email') }}">パスワードをお忘れですか？</a><br />
+                        <a class="pull-right" href="{{ getUrl('/password/email') }}"><span class="octicon octicon-issue-opened"></span> パスワードをお忘れですか？</a><br />
                     </div>
                     
                     <div class="">
