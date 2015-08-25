@@ -12,8 +12,8 @@
     
     <main class="page-ct study-entry">
     	<div class="main-head">
-        	<h1 class="panel-head"><img src="/images/main/i-study.png">{{$obj->title}} 参加お申し込み</h1>
-            <p></p>
+        	<h1 class="panel-head">{{$obj->title}} 参加お申し込み</h1>{{-- <img src="/images/main/i-study.png"> --}}
+            <p>ここに注意事項など・・<br>ここに注意事項や説明など・・</p>
         </div>
         
         @include('shared.move_1')

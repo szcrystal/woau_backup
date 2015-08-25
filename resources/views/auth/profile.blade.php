@@ -142,7 +142,7 @@
 			</section>
               
         
-        <section>
+        <section id="entry-company">
             <h2 class="page-header">応募した企業</h2> 
             
             @if($jobObjs -> isEmpty())
@@ -196,7 +196,7 @@
         </section>
          
 
-        <section>
+        <section id="entry-study">
             <h2 class="page-header">申し込みをした勉強会</h2>
             
             @if($studyObjs->isEmpty())

@@ -58,8 +58,10 @@ a {
 a,
 button,
 input[type="submit"] {
-	-moz-transition: all 0.2s linear;
-    transition: all 0.2s linear;
+/*	-moz-transition: all 0.2s linear;*/
+/*    transition: all 0.2s linear;*/
+/*	-moz-transition: opacity 0.2s linear;*/
+/*    transition: opacity 0.2s linear;*/
     //font-family: "游ゴシック", "YuGothic", "Meiryo", sans-serif;
     //font-weight: normal;
 }
@@ -67,7 +69,7 @@ input[type="submit"] {
 a:hover,
 button:hover,
 input[type="submit"]:hover {
-    opacity: 0.6;
+    opacity: 0.7;
     text-decoration: none;
     outline: none;
 }
@@ -173,8 +175,8 @@ ul:after {
 #navmenu ul.main-m li a {
 	display: inline-block;
 	color: #555;
-/*    -moz-transition: all 0.2s linear;*/
-/*	transition: all 0.2s linear; */
+/*    -moz-transition: color 0.2s linear;*/
+/*	transition: color 0.2s linear; */
 }
 #navmenu ul.main-m li a:hover,
 #navmenu ul.main-m li a:hover span {
@@ -241,7 +243,7 @@ ul:after {
     100% {
        	//-webkit-transform: translateY(0);
         -webkit-transform: scale(1);
-        opacity: 0.6;
+        opacity: 1;
     }
 }
 @keyframes scXy {
@@ -251,7 +253,7 @@ ul:after {
     }
     100% {
 		transform: scale(1);
-        opacity: 0.6;
+        opacity: 1;
     }
 }
 #navmenu ul.login-m a:hover {
@@ -318,13 +320,13 @@ ul:after {
     	-webkit-transform: translateY(0);
     }
     24% {
-    	-webkit-transform: translateY(-10px);
+    	-webkit-transform: translateY(-12px);
     }
     28% {
     	-webkit-transform: translateY(0);
     }
     32% {
-    	-webkit-transform: translateY(-10px);
+    	-webkit-transform: translateY(-12px);
     }
     36% {
        	-webkit-transform: translateY(0);
@@ -335,13 +337,13 @@ ul:after {
     	transform: translateY(0);
     }
     24% {
-    	transform: translateY(-10px);
+    	transform: translateY(-12px);
     }
     28% {
     	transform: translateY(0);
     }
     32% {
-    	transform: translateY(-10px);
+    	transform: translateY(-12px);
     }
     36% {
        	transform: translateY(0);
@@ -434,7 +436,7 @@ div.person {
 
 .dropdown-menu {
 	margin-top: 1em;
-    background: #FDFBF8;
+    background: #fefefe/*#FDFBF8*/;
     border: 3px solid #5B5D70;
     border-radius: 0.5em;
     box-sizing: border-box;
@@ -442,8 +444,8 @@ div.person {
 }
 .dropdown-menu li a {
 	color: #525252;
-	-moz-transition: all 0.2s linear;
-	transition: all 0.2s linear;
+/*	-moz-transition: all 0.2s linear;*/
+/*	transition: all 0.2s linear;*/
 }
 .dropdown-menu li a:hover {
 	color: #fe5c26;
@@ -456,6 +458,7 @@ div.person {
 /*}*/
 
 a.arrow-white {
+	margin-left: 1.5em;
 	color: #fff;
     text-decoration: none;
     background: url(../images/main/arrow-white.png) 0.5em 47% no-repeat;
@@ -484,7 +487,7 @@ a.arrow-white {
 .container-fluid {
 	background: #fcfaf7;
     margin: 0;
-    padding-bottom: 5em;
+    padding-bottom: 3em;
     /*#FCFAF7*/
     //border: 1px solid green;
 }
@@ -493,6 +496,9 @@ a.arrow-white {
     clear: both;
     content: "";
     height: 0;
+}
+.main .container-fluid {
+	padding-bottom: 7em;
 }
 .navbar .container-fluid {
 	//background: url(../images/main/orange-tiles-s.png);	
@@ -553,15 +559,32 @@ a.arrow-white {
 }
 .user section.jobs > div {
 	width: 100%;
+    min-height: 30em;
     padding: 1.2em 1.5em 1.5em;
 	border: 2px solid #838383;
-    border-radius: 3px;
+    border-radius: 0.3em;
     background: #fefefe;
 }
-.user article h3 {
+.user article,
+.topics article {
+	margin-bottom: 1em;
+}
+.user article a,
+.topics article a {
+	display: inline-block;
+    //border: 1px solid red;
+}
+.user article h3,
+.topics article h3 {
+	font-size: 1.05em;
+    line-height: 1.4em;
+    margin: 0;
+    color: #6a6a6a;
+}
+.user article small,
+.topics article small {
 	font-size: 1em;
-    margin: 1.3em 0 0.2em;
-    //color: #838383;
+	color: #2E81C9;
 }
 .user section.contents {
 	float: right;
@@ -621,10 +644,10 @@ a.arrow-white {
 .guest section.topics {
 	float: left;
 	width: 44%;
-    height: auto;
+    min-height: 30em;
     padding: 1.5em;
 	border: 2px solid #838383;
-    border-radius: 3px;
+    border-radius: 0.3em;
     background: #fefefe;
 }
 
@@ -637,16 +660,14 @@ a.arrow-white {
     letter-spacing: 0.05em;
 }
 
-.topics article h3 {
-	font-size: 1.05em;
-    margin: 0.2em 0 0.8em;
-}
-.topics article h3 a {
-	color: #6a6a6a;
-}
-.topics article span {
+/*.topics article h3 {*/
+/*	font-size: 1.05em;*/
+/*    line-height: 1.4em;*/
+/*    //margin: 0 0 0.8em;*/
+/*    color: #6a6a6a;*/
+/*}*/
+.topics article small {
 	color: #FE4A0F;
-    margin-right: 2em;
 }
 a.topic-link {
 	display: inline-block;
@@ -681,7 +702,7 @@ a.topic-link {
     margin: 1em 3.3% 0 0;
     //background: url(../images/main/wave-tile-gray.png), #75B188;
     float: left;
-    position: relative;
+    //position: relative;
     //border-radius: 10px;
     //box-shadow: -2px -2px 3px #59A272 inset, 2px 2px 3px #59A272 inset;
     //border: 3px solid #59A272;
@@ -692,7 +713,7 @@ a.topic-link {
 }
 .link-box a {
 	display: block;
-    position: relative;
+    //position: relative;
     width: 100%;
     height: 100%;
     color: #fff;
@@ -700,20 +721,20 @@ a.topic-link {
 	transition: all 0.2s linear;
 }
 .link-box a span {
-	position: absolute;
-    top: 80%;
-    left: 0;
+	//position: absolute;
+    //top: 80%;
+    //left: 0;
     color: #fff;
     display: inline-block;
     width: 100%;
-    margin: 0 auto 0;
-    font-family: sans-serif;
-    font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
+    margin: 90% auto 0;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1em;
+    //font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
+    //line-height: 1.2em;
     //left: 10%;
     //border: 1px solid red;
-    text-align: center;
-    font-size: 0.95em;
-    line-height: 1.2em;
     -moz-transition: all 0.2s linear;
 	transition: all 0.2s linear;       
 }
@@ -762,12 +783,12 @@ a.topic-link {
 /*	animation: scaleXy 0.3s ease 0s 1 normal forwards;*/
 	-webkit-transform: rotateZ(5deg);
     transform: rotateZ(5deg);
-    opacity: 0.65;
+    opacity: 1;
     //-webkit-transform: scale(0.97);
     //transform: scale(0.97);
 }
 .link-box a:hover span {
-	opacity: 0.5;
+	opacity: 1;
     //color: #fff;
     //font-weight: bold;
 }
@@ -821,6 +842,7 @@ a.topic-link {
 	font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
 }
 .page-ct h2 {
+	//font-weight: bold;
 	font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
 	//font-family: "游ゴシック", "YuGothic", "Meiryo", sans-serif;
 }
@@ -869,9 +891,9 @@ a.topic-link {
 
 .about .intro-ct div:first-of-type,
 .about .sub-ct div:first-of-type {
-	width: 63.5%;
+	width: 60%;
     margin-right: 3.5%;
-    padding-left: 2em;
+    padding-left: 0.3em;
     float: left;
     //border: 1px solid red;
 }
@@ -885,7 +907,7 @@ a.topic-link {
 }
 .about .main-ct {
 	width: 67%;
-    margin: 4em auto 0;
+    margin: 6em auto 0;
 }
 .about .main-ct div {
 	border: 1px solid #fe5c26;
@@ -976,11 +998,23 @@ h1.main-title {
     background-size: 12% auto;
 }
 .study .main-head {
-	background: url(../images/main/top_icons/study-gray-lg2.png) 40% 0 no-repeat;
+	background: url(../images/main/top_icons/study-gray-lg3.png) 40% 0 no-repeat;
+    background-size: 140px auto;
+}
+/*.job .main-head {*/
+/*	background: url(../images/main/about/company.png) 40% 0 no-repeat;*/
+/*    background-size: 140px auto;*/
+/*}*/
+.job .main-head img {
+	margin-left: 10em;
+    width: 140px;
+    height: auto;
+    -webkit-transform: rotateZ(-3deg);
+    transform: rotateZ(-3deg);
 }
 .blog .main-head {
-	background: url(../images/main/top_icons/blog-gray-lg2.png) 35% 0 no-repeat;
-    background-size: 12% auto;
+	background: url(../images/main/top_icons/blog-gray-lg6.png) 35% -5px no-repeat;
+    background-size: 140px auto;
     min-height: 10em;
     margin-bottom: 1em;
 }
@@ -1113,6 +1147,10 @@ article.archive:after {
 .study-sgl header small  {
 	background: url(../images/main/wave-tile-white.png), #529ad7; /* blue */
 }
+.job header small,
+.job-sgl header small  {
+	background: url(../images/main/wave-tile-white.png), #529ad7; /* blue */
+}
 .blog header small,
 .blog-sgl header small {
 	background: url(../images/main/wave-tile-white.png), #AF9889; /* #F7B831 */
@@ -1234,13 +1272,19 @@ aside li {
     padding-bottom: 1.0em;
     margin-bottom: 2em;
 }
-.single.study-sgl {
-	background: url(../images/main/top_icons/study-gray-lg2.png) 30% 1% no-repeat;
-    background-size: 100px auto;
-}
+
 .single.topic-sgl {
 	background: url(../images/main/about/file.png) 30% 1% no-repeat;
+    background-size: 116px auto;
+}
+.single.study-sgl {
+	background: url(../images/main/top_icons/study-gray-lg3.png) 30% 1% no-repeat;
+    //background: url(../images/main/about/pc.png) 30% 1% no-repeat;
     background-size: 100px auto;
+}
+.single.job-sgl {
+	background: url(../images/main/about/company.png) 3% 1% no-repeat;
+    background-size: 140px auto;
 }
 .single header small {
 	display: block;
@@ -1322,7 +1366,7 @@ aside li {
 
 /* Footer */
 #colop {
-	padding-bottom: 0.7em;
+	padding-bottom: 1em;
     //border: 3px solid green;
     background: url(../images/main/foot-tile.png);
     //position: relative;
@@ -1330,7 +1374,7 @@ aside li {
 #colop > div {
 	/* width first specify */
 	//width: 1100px;
-	padding: 3.5em 0 3.5em;
+	padding: 3.8em 0;
     margin: auto;
     //position: relative;
     //border: 1px solid red;
@@ -1339,12 +1383,10 @@ aside li {
 	float: left;
     //border: 1px solid red;
 }
-
 #colop ul {
 	float: left;
     //font-size: 0.95em;
 	list-style: none;
-    
 }
 #colop ul:after {
 	display:block;
@@ -1354,8 +1396,8 @@ aside li {
 }
 #colop div > ul > li {
 	float: left;
+    margin: 0;
     //border: 1px solid red;
-    margin: 0 1em;
 }
 #colop div > ul ul {
 	padding-left: 0;
@@ -1417,14 +1459,43 @@ h2.panel-head img {
     margin-right: 0.5em;
 }
 */
-
+.contact .main-head,
+.register .main-head,
+.study-entry .main-head,
+.job-entry .main-head {
+	min-height: 8em;
+    margin-bottom: 4em;
+    //border: 1px solid red;
+}
 .contact .main-head {
-	background: url(../images/main/form/mail.png) 57% -10px no-repeat;
+	background: url(../images/main/form/mail.png) 37% -10px no-repeat;
     background-size: 140px auto;
-    //border: 1px solid #fff;
-    min-height: 8em;
+}
+.register .main-head {
+	background: url(../images/main/about/pc.png) 37% 10px no-repeat;
+    background-size: 148px auto;
 }
 
+.job-entry .main-head {
+/*	background: url(../images/main/about/entry.png) 87% 15px no-repeat;*/
+/*    background-size: 91px auto;*/
+}
+.study-entry .main-head img {
+	margin-left: 2em;
+    width: 140px;
+    height: auto;
+    -webkit-transform: rotateZ(-5deg);
+}
+.job-entry .main-head img {
+	margin-left: 2em;
+    width: 85px;
+    height: auto;
+}
+.study-entry .main-head p,
+.job-entry .main-head p {
+	margin-top: 0.3em;
+    margin-left: 0.3em;
+}
 
 
 .movement {
@@ -1482,12 +1553,15 @@ h2.panel-head img {
     margin: 0 0 0 0.2em;
     //padding-top: 1.5em;
 }
-.movement > div.here-is span.step {
-	border-color: #fff;
-}
+
 .movement > div span.octicon {
 	font-size: 1.7em;
     margin-right: 0.5em;
+}
+.movement > div.here-is {
+	font-size: 1.1em;
+    margin-top: -0.12em;
+	//box-shadow: 1px 1px 3px #aaa;
 }
 .movement > div.here-is span.step {
 	border-color: #706356;
@@ -1800,6 +1874,10 @@ span.t-down:after {
 .alert {
 	border-radius: 5px;
 }
+.alert-success,
+.alert-danger {
+	background-color: #fefefe;
+}
 
 /* 確認画面 */
 .wrap-b {
@@ -1877,6 +1955,7 @@ span.t-down:after {
     padding: 1.2em 2.5em;
     display: inline-block;
     font-weight: bold;
+    font-family: "Hiragino Maru Gothic Pro", "Meiryo", sans-serif;
 }
 .panel {
 	width: 520px; /* 50% */

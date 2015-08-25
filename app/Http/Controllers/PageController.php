@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Page;
 use App\Topic;
+use App\Job;
 use App\Siteinfo;
 
+use Auth;
 use Mail;
 
 use Illuminate\Http\Request;
@@ -18,9 +20,10 @@ class PageController extends Controller
 {
 	protected $page;
     
-    public function __construct(Page $page, Topic $topic, Siteinfo $siteinfo) {
+    public function __construct(Page $page, Topic $topic, Job $job, Siteinfo $siteinfo) {
     	$this -> page = $page;
         $this -> topic = $topic;
+        $this -> job = $job;
         //$this -> in = array('name','mail','note'); //contact input name=""のkey
         
         $this -> pg = $siteinfo->first()->value('show_count');
@@ -29,16 +32,22 @@ class PageController extends Controller
     public function getIndex()
     {
     	//$pages = $this -> page -> orderBy('created_at','desc') ->paginate(5);
-        $obj = Page::where('url_name', '') -> first();
-        $topTopics = $this -> topic -> orderBy('created_at','desc') ->take(5) ->get();
+        $arr['obj'] = Page::where('url_name', '') -> first();
+        $arr['topTopics'] = $this -> topic -> orderBy('created_at','desc') ->take(5) ->get();
         
+        if($user = Auth::user()) {
+        	//$user = Auth::user();
+	        $arr['jobs'] = $this -> job ->orderBy('created_at','desc') ->take(5) ->get();
+            $arr['jobCount'] = $user->jobentries()->count();
+            $arr['studyCount'] = $user->studyentries()->count();
+    	}    
         //$pages[]= compact('top');
         //$pages[] = compact('topixObj');
         
         //$headTitle = '';
-        $headDesc = Siteinfo::first()->value('site_description');
+        $arr['headDesc'] = Siteinfo::first()->value('site_description');
         
-        return view('pages.index', ['obj'=>$obj, 'topTopics'=>$topTopics, 'headDesc'=>$headDesc]); //['top'=>$top, 'topixObj'=>$topixObj]
+        return view('pages.index', $arr); //['top'=>$top, 'topixObj'=>$topixObj]
         //return view('pages.index', compact('pages')); //配列を一つにして渡す場合 compact('pages')とする
     }
 

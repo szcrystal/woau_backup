@@ -4125,9 +4125,10 @@ a.thumbnail.active {
   color: inherit;
 }
 .alert-success {
-  background-color: #dff0d8;
-  border-color: #d6e9c6;
-  color: #3c763d;
+/*  background-color: #dff0d8;*/
+	background: #fefefe;
+  border-color: #bbb/*#d6e9c6*/;
+  color: #4EADAB/*#3c763d*/;
 }
 .alert-success hr {
   border-top-color: #c9e2b3;
@@ -4158,7 +4159,8 @@ a.thumbnail.active {
   color: #66512c;
 }
 .alert-danger {
-  background-color: #f2dede;
+/*  background-color: #f2dede;*/
+	background: #fefefe;
   border-color: #ebccd1;
   color: #a94442;
 }

@@ -42,7 +42,7 @@ class Job extends Model
     protected $hidden = ['job_number', ];
     
     
-    public function Jobentry() {
+    public function jobentry() {
     	return $this->hasMany('App\Jobentry');
     }
     

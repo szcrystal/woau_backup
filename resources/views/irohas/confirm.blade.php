@@ -12,7 +12,7 @@
         
    <main class="page-ct study-entry">
     	<div class="main-head">
-        	<h1 class="panel-head"><img src="/images/main/i-study.png">{{$datas['study_name']}} 参加お申し込み</h1>
+        	<h1 class="panel-head">{{$datas['study_name']}} 参加お申し込み</h1>
             <p></p>
         </div>
         

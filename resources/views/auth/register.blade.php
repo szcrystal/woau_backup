@@ -7,19 +7,20 @@
         <li>ユーザー登録</li>
     </ul>
 
-	@if(isset($userObj))
-    <a href="{{getUrl('profile/'.$userObj->user_number)}}" class="btn btn-default">«プロフィールへ戻る</a>
-    @endif
+	
 
     <main class="page-ct register">
     	<div class="main-head">
-        	<h1 class="panel-head"><img src="/images/main/i-register.png">
+        	<h1 class="panel-head">{{--<img src="/images/main/i-register.png">--}}
                 @if(isset($userObj))
 					ユーザー登録情報の編集
                 @else
                 	新規ユーザー登録
                 @endif</h1>
-            <p></p>
+            <p>注意事項等あれば、ここに記載</p>
+            @if(isset($userObj))
+            <a href="{{getUrl('profile/'.$userObj->user_number)}}" class="back-tx">プロフィールへ戻る</a>
+            @endif
         </div>
                 
         @include('shared.move_1')

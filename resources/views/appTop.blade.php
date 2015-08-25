@@ -4,7 +4,7 @@
 
 {{-- @if (Request::is('/'))  --}}
 <body class="home">
-<div id="o-belt"></div>
+	<div id="o-belt"></div>
 {{--
 @if(getenv('LARAVEL_ENV') != 'heroku')
 @include('shared.nav_1')
@@ -33,8 +33,8 @@
         @if(Auth::user())
         <div id="user-belt">
         	<div>
-            	{{ Auth::user()->name }} さん
-                <span>ユーザー情報変更</span>
+            	ユーザー：{{ Auth::user()->name }} さん
+                {{--<span>ユーザー情報変更</span>--}}
                 <a href="{{ getUrl('/auth/logout')}}" class="arrow-white">ログアウト</a>
             </div>
         </div>
@@ -46,25 +46,14 @@
                     <section class="jobs">
                         <h2><span class="octicon octicon-primitive-square"></span>新着求人</h2>
                     	<div class="clearfix">
-                        @foreach($topTopics as $topic)
+                        @foreach($jobs as $job)
                             <article>
-                                <h3><a href="">{{ getStrDate($topic->title) }}</a></h3>
-                                {!! $topic -> intro_content !!}
+                            	<a href="{{getUrl('recruit/job/'.$job->job_number)}}">
+                                <small>{{ getStrDate($job->created_at) }}</small>
+                                <h3>{!! $job ->title  !!}</h3>
+                                </a>
                             </article>
                         @endforeach
-                        
-                        <article>
-                            <h3><a href="">1970年1月1日</a></h3>
-                            ジョブタイトル
-                        </article>
-                        <article>
-                            <h3><a href="">1970年1月1日</a></h3>
-                            ジョブタイトル
-                        </article>
-                        <article>
-                            <h3><a href="">1970年1月1日</a></h3>
-                            ジョブタイトル
-                        </article>
                     
                         <a href="{{getUrl('recruit')}}" class="user-link">求人情報一覧</a>
                         </div>
@@ -73,8 +62,8 @@
                     <section class="contents clearfix">
                     	<div class="profile">
                         	<p><a href="{{ getUrl('profile/'.Auth::user()->user_number)}}" class="user-link">ユーザー情報</a></p>
-                            <p><a href="" class="user-link">応募企業数</a><span>件</span></p>
-                            <p><a href="" class="user-link">参加勉強会数</a><span>件</span></p>
+                            <p><a href="{{getUrl('profile/'.Auth::user()->user_number.'#entry-company')}}" class="user-link">応募企業数</a><span>{{$jobCount}}件</span></p>
+                            <p><a href="{{getUrl('profile/'.Auth::user()->user_number.'#entry-study')}}" class="user-link">参加勉強会数</a><span>{{$studyCount}}件</span></p>
                     	</div>
                     
                 		<div class="clearfix">
@@ -105,7 +94,7 @@
                 </div>
             </div>
 
-    </div><!-- container -->
+    	</div><!-- container -->
     
     @include('shared.footer')
     

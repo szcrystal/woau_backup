@@ -7,10 +7,11 @@
         <li>求人情報一覧</li>
     </ul>
     
-    <main class="page-ct topics">
+    <main class="page-ct job">
         	<div class="main-head clearfix">
         		<h1>求人情報一覧</h1>
-    			<p>監査役を応募している企業情報を掲載しています。</p>
+                <img src="{{asset('images/main/about/company.png')}}">
+    			<p>監査役を応募している企業情報を掲載しています。<br>・・・不要なら削除</p>
                 {!! $jobs->render() !!}
             </div>
     

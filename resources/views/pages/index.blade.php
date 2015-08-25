@@ -1,7 +1,7 @@
 @extends('appTop')
 {{-- Main top page (roop data) --}}
 
-	@section('content')
+@section('content')
     
     	<?php 
         	if(isset($obj->img_link)) {
@@ -16,31 +16,12 @@
             
             @foreach($topTopics as $topic)
             <article>
-            	<span>{{ getStrDate($topic->created_at) }}</span>
-                <h3><a href="{{ getUrl('topics/'.$topic->id) }}">{{ $topic -> title}}</a></h3>
+            	<a href="{{ getUrl('topics/'.$topic->id) }}">
+            		<small>{{ getStrDate($topic->created_at) }}</small>
+                	<h3>{{ $topic -> title}}</h3>
+                </a>
             </article>
             @endforeach
-            
-            {{--
-            <article>
-                <h3><span>2015年7月29日</span>トピックス２</h3>
-            </article>
-            <article>
-                <h3><span>2015年7月22日</span>トピックス１</h3>
-            </article>
-            <article>
-                <h3><span>2015年7月29日</span>トピックス２</h3>
-            </article>
-            <article>
-                <h3><span>2015年7月22日</span>トピックス１</h3>
-            </article>
-            <article>
-                <h3><span>2015年7月29日</span>トピックス２</h3>
-            </article>
-            <article>
-                <h3><span>2015年7月22日</span>トピックス１</h3>
-            </article>
-			--}}
         	
             <a href="{{getUrl('topics')}}" class="topic-link">トピックス一覧</a>
     	</section>
@@ -57,8 +38,7 @@
             </div>
 
             <div class="link-box">
-            	<a href="{{getUrl('company')}}"><span>運営会社</span></a>
-                
+            	<a href="{{getUrl('company')}}"><span>運営会社</span></a>  
             </div>
             
 
@@ -67,8 +47,6 @@
         	--}}
             
         </section>
-        
-        
-          
-    @endsection
+      
+@endsection
 

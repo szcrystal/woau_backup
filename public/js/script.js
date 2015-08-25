@@ -499,34 +499,36 @@
                 $('body').append('<div class="inBack"></div>');
                 $('html,body').css({overflow:'hidden'});
                 
-                $('.inBack').css({height:h}).fadeIn(500);
+                $('.inBack').css({height:h}).fadeIn(400);
                 
                 $('.inBack').load('/auth/login/ .panel', function(){
-                	var pw = $('.panel').width();
+                    var pw = $('.panel').width();
                     var ph = $('.panel').height();
-                	
+                    
                     $('.inBack').append('<span class="octicon octicon-x"></span>');
                     
                     $('.inBack .panel').addClass('addPanel').css({top:(h/2 - ph/2)-100, left:w/2 - pw/2}); 
                     $('.inBack .octicon').css({top:(h/2 - ph/2)-80, left:w/2 + pw/2 + 30 });
                     
-                    $('.inBack .panel, .octicon-x').fadeIn(300);
+                    $('.inBack .panel, .octicon-x').fadeIn(400);
                 });
                 
                 $('.inBack').click(function(e){
-                	var t = $(e.target).not('span');
+                    var t = $(e.target).not('span');
                     
-                	if(!t.parents().hasClass('panel')) {
+                    if(!t.parents().hasClass('panel')) {
                         history.pushState('', 'cancel', url);
                         
                         $('html,body').css({overflow:'visible'});
                         
                         $(this).fadeOut(400, function(){
-                        	$('.inBack .panel').removeClass('addPanel');
+                            $('.inBack .panel').removeClass('addPanel');
                             $(this).remove();
                         });
                     }
                 });
+                
+                
                 
                 
 //                $('#content').load('/wp-content/themes/twentyfifteen/page.php', data, function(){
@@ -541,6 +543,18 @@
             	return false;
             });
         },
+        
+        aLink: function() {
+        	$('a').on({
+            	mouseover: function(){
+                	$(this).stop().fadeTo(200, 0.7);
+                },
+                mouseout: function(){
+                	$(this).stop().fadeTo(200, 1);
+                }
+            });
+        },
+        
         
     } //return
 })(); //var waDo
@@ -560,6 +574,7 @@ $(function(){
     waDo.paginateStyle();
     waDo.dropDown();
     waDo.loginFunc();
+    //waDo.aLink();
 }); //doc.ready
 
 

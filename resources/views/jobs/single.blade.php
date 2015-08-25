@@ -10,8 +10,7 @@
         
         <ul class="breadcrumb">
             <li><a href="{{getUrl('/')}}"><span class="octicon octicon-home"></span>Home</a></li>
-            <li><a href="{{getUrl('iroha')}}">監査役いろは</a></li>
-            <li><a href="{{getUrl('iroha/study')}}">勉強会一覧</a></li>
+            <li><a href="{{getUrl('recruit')}}">求人情報一覧</a></li>
             <li>@if($singleObj->sub_title != ''){{$singleObj->sub_title}}
             @else{{$singleObj->title}}@endif</li>
         </ul>
@@ -19,12 +18,12 @@
         {{-- <a href="{{url('recruit/entry/'.$singleObj->job_number)}}" class="btn btn-success">この求人に応募する</a> --}}
         <a href="{{ getUrl('recruit') }}" class="center-block back-tx">企業情報一覧へ戻る</a>
         
-        <article style="text-align:left;" class="single study-sgl">
+        <article style="text-align:left;" class="single job-sgl">
             <header>
             	<small>{!! getStrDate($singleObj->created_at, 'slash') !!}</small>
                 <a href="{{ getUrl('recruit/entry/'.$singleObj->job_number) }}" class="edit-btn">この求人に応募する</a>
-                <h2>{{$singleObj -> company_name}}</h2>
-                <h3>{{$singleObj->title}}</h3>
+                <h2 style="text-align:left; width: 100%;">{{$singleObj -> company_name}}</h2>
+                <h3 style="text-align:left;">{{$singleObj->title}}</h3>
                 
             </header>
             

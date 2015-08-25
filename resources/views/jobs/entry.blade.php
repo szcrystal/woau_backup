@@ -11,8 +11,9 @@
 
 	<main class="page-ct job-entry">
     	<div class="main-head">
-        	<h1 class="panel-head"><img src="/images/main/i-job.png">{{$singleObj -> company_name}}へ応募する</h1>
-            <p>説明や注意事項等あればここに記載</p>
+        	<h1 class="panel-head">{{$singleObj -> company_name}}へ応募する</h1>{{-- <img src="/images/main/i-job.png"> --}}
+            {{--<img src="/images/main/about/entry.png">--}}
+            <p>説明や注意事項等あればここに記載<br>必ず添付ファイルを添付して下さい　など・・？</p>
         </div>
     
         @include('shared.move_1')
