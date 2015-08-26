@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-	<main class="wrap-login">
+	<main class="wrap-reset">
     	<h1 class="main-title">パスワードをリセット</h1>
 
 		<div class="panel center-block clearfix">
@@ -30,22 +30,22 @@
                     <p class="forget-pass">メールアドレスと新しいパスワードを入力して下さい。</p>
 
                     <div class="form-group">
-                        <label class="col-md-10 control-label">メールアドレス</label>
-                        <div class="col-md-12">
+                        <label class="col-md-3 control-label">メールアドレス</label>
+                        <div class="col-md-9">
                             <input type="email" class="form-control" name="email" value="{{ old('email') }}">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-10 control-label">新しいパスワード</label>
-                        <div class="col-md-12">
+                        <label class="col-md-3 control-label">新パスワード</label>
+                        <div class="col-md-9">
                             <input type="password" class="form-control" name="password">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-10 control-label">新しいパスワード（確認用）</label>
-                        <div class="col-md-12">
+                        <label class="col-md-3 control-label">新パスワード（確認用）</label>
+                        <div class="col-md-9">
                             <input type="password" class="form-control" name="password_confirmation">
                         </div>
                     </div>

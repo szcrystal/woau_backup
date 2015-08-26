@@ -3,18 +3,8 @@
 @section('content')
 	<main class="wrap-login">
     	<h1 class="main-title">ログイン</h1>
-    
-        <div class="new-regist">
-            <a href="{{getUrl('auth/register')}}">
-            <p>未登録の方は..
-            <img src="{{asset('images/main/person.png')}}">
-            <span>新規登録</span> へ
-            </p>
-            </a>
-        </div>
 
-        <div class="panel center-block clearfix">
-            
+        <div class="panel clearfix">
             <div class="panel-heading">
                 {{-- <img src="/images/main/i-lock.png"> --}}
                 <h2></h2>
@@ -54,15 +44,15 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label">パスワード</label>
                         <div class="col-md-10">
-                            <input type="password" class="form-control" name="password" placeholder="6文字以上">
+                            <input type="password" class="form-control" name="password" placeholder="6文字以上を入力して下さい">
                         </div>
                     </div>
                     
-                    <div class="">
+                    <div>
                         <a class="pull-right" href="{{ getUrl('/password/email') }}"><span class="octicon octicon-issue-opened"></span> パスワードをお忘れですか？</a><br />
                     </div>
                     
-                    <div class="">
+                    <div>
                         <div class="col-md-12">
                             <div class="checkbox">
                                 <label>
@@ -85,6 +75,15 @@
                 <a class="link-btn" href="{{ getUrl('/auth/register') }}">新規登録</a> --}}
             </div>
             
+        </div>
+        
+        <div class="new-regist">
+            <a href="{{getUrl('auth/register')}}">
+            <p>未登録の方は..
+            <img src="{{asset('images/main/person.png')}}">
+            <span>新規登録</span> へ
+            </p>
+            </a>
         </div>
     
     </main>

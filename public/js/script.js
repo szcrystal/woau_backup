@@ -508,8 +508,8 @@
                     
                     $('.inBack').append('<span class="octicon octicon-x"></span>');
                     
-                    $('.inBack .panel').addClass('addPanel').css({top:(h/2 - ph/2)-100, left:w/2 - pw/2}); 
-                    $('.inBack .octicon').css({top:(h/2 - ph/2)-80, left:w/2 + pw/2 + 30 });
+                    $('.inBack .panel').addClass('addPanel').css({top:(h/2 - ph/2)-100, left:w/2 - pw/2 -17}); 
+                    $('.inBack > .octicon').css({top:(h/2 - ph/2)-80, left:w/2 + pw/2 + 30 });
                     
                     $('.inBack .panel, .octicon-x').fadeIn(400);
                     

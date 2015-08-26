@@ -148,7 +148,7 @@
             @if($jobObjs -> isEmpty())
             <p style="padding-bottom: 2em;">{{$user->name}}さんが応募した案件はまだありません。<br>
             気になる案件がありましたら応募してみましょう。<br>
-            <a href="{{getUrl('recruit')}}" class="conf-btn" style="margin-top: 1em;">企業情報一覧 »</a></p>
+            <a href="{{getUrl('recruit')}}" class="conf-btn" style="margin-top: 1em; padding-left:1em; padding-right:1em;">案件一覧へ »</a></p>
             @else
             <div class="table-responsive">
                 <table class="table table-bordered entry-table">
@@ -202,7 +202,7 @@
             @if($studyObjs->isEmpty())
             <p>{{$user->name}}さんが申し込みをした勉強会はまだありません。<br>
             自分に役立つ勉強会を探して、ぜひ参加してみませんか？<br>
-            <a href="{{getUrl('iroha/study')}}" class="conf-btn" style="margin: 1em 0;">監査役いろは勉強会一覧 »</a></p>
+            <a href="{{getUrl('iroha/study')}}" class="conf-btn" style="margin: 1em 0; padding-left:1em; padding-right:1em;">勉強会一覧へ »</a></p>
             
             @else
             <div class="table-responsive">

@@ -275,7 +275,8 @@ ul:after {
     height: 373px;
     padding-top: 15px;
     box-sizing: content-box;
-    background: url(../images/main/banner-r50.png) no-repeat;
+    //background: url(../images/main/banner-r50.png) no-repeat;
+    background: url(../images/main/top-banner.png) no-repeat;
 	color: #fff/*#ff3f02*//*#ff3f02*/;
     margin: auto;
     
@@ -1954,7 +1955,10 @@ span.t-down:after {
     display: none;
     margin: 0;
 }
-.inBack .octicon {
+.addPanel label {
+	//color: #2a2a2a;
+}
+.inBack > .octicon {
 	position: absolute;
     z-index: 10000;
     display: none;
@@ -1965,7 +1969,8 @@ span.t-down:after {
 .wrap-login {
 	position: relative;
 }
-.wrap-login h1 {
+.wrap-login h1,
+.wrap-reset h1 {
 	background: url(../images/main/wave-tile-white.png), #fe5c26;
     color: #fff;
     font-size: 1.2em;
@@ -1978,15 +1983,19 @@ span.t-down:after {
     font-family: "Hiragino Maru Gothic Pro", "Meiryo", sans-serif;
 }
 .panel {
-	width: 520px; /* 50% */
-    padding: 1em;
+	width: 540px; /* 50% */
+    padding: 17px;
     border-bottom: 0;
     box-shadow: none;
-    margin-top: 4%;
+    margin: 4% auto 0;
     //margin-left: 420px;
     background: url(../images/main/orange-tiles-s.png);
     //border: 1px solid red;
     border-radius: 1em;
+    
+}
+.wrap-reset .form-group:nth-of-type(3) .control-label {
+	line-height: 1.4em;
 }
 .panel a {
 	-moz-transition: none;
@@ -1994,26 +2003,24 @@ span.t-down:after {
 }
 .new-regist {
     position: absolute;
-    top: 45%;
+    top: 55%;
     left: 0.5em;
 }
 .new-regist a {
 	display: inline-block;
 }
 .new-regist p {
-	width: 200px;
-	position: relative;
-	z-index: 99;
+	width: 13em;
     font-size: 1em;
     font-weight: bold;
     color: #705B54;
     background: #fefefe;
-    border: 3px solid #A59891; /* #706764 */
+    border: 2px solid #A59891; /* #706764 */
     border-radius: 1em;
     padding: 0.5em 1.5em;
     text-align: center;
-    -webkit-transform: rotateZ(-8deg);
-    transform: rotateZ(-8deg);
+    -webkit-transform: rotateZ(-9deg);
+    transform: rotateZ(-9deg);
 }
 .new-regist p span {
 	font-size: 1.1em;
@@ -2062,9 +2069,8 @@ span.t-down:after {
 /*	border: 1px solid #aaa;*/
 /*    padding: 1em 0.5em 0 1.5em;*/
 }
-.panel-body .conf-btn,
-.new-regist .conf-btn {
-	width: auto;
+.panel-body .conf-btn {
+	min-width: 11em;
     line-height: 3.2em;
     font-size: 1.05em;
     padding: 0 2.8em;
@@ -2072,17 +2078,6 @@ span.t-down:after {
     //border-color: #FD8466;
     display: block;
     margin: 2em auto 0;
-    
-}
-.new-regist .conf-btn {
-	border-color: #888;
-    background: #fefefe;
-    padding: 0 2em;
-    text-align: center;
-    color: #888;
-    margin: 0 auto;
-    position: relative;
-	z-index: 99;
 }
 .panel .control-label {
 	text-align: left;

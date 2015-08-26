@@ -36,9 +36,11 @@
         </ul>
     </aside>
     
+    {{--
     <aside>
         <h3><span class="octicon octicon-tag"></span>Archive</h3>
     </aside>
+    --}}
     
     <aside>
         <h3><span class="octicon octicon-tag"></span>監査役について</h3>
