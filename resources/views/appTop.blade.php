@@ -44,7 +44,7 @@
             	
                 <div class="user clearfix">
                     <section class="jobs">
-                        <h2><span class="octicon octicon-primitive-square"></span>新着求人</h2>
+                        <h2><span class="octicon octicon-primitive-square"></span>新着案件</h2>
                     	<div class="clearfix">
                         @foreach($jobs as $job)
                             <article>
@@ -55,19 +55,19 @@
                             </article>
                         @endforeach
                     
-                        <a href="{{getUrl('recruit')}}" class="user-link">求人情報一覧</a>
+                        <a href="{{getUrl('recruit')}}" class="user-link">案件情報一覧</a>
                         </div>
                     </section>
                     
                     <section class="contents clearfix">
                     	<div class="profile">
                         	<p><a href="{{ getUrl('profile/'.Auth::user()->user_number)}}" class="user-link">ユーザー情報</a></p>
-                            <p><a href="{{getUrl('profile/'.Auth::user()->user_number.'#entry-company')}}" class="user-link">応募企業数</a><span>{{$jobCount}}件</span></p>
+                            <p><a href="{{getUrl('profile/'.Auth::user()->user_number.'#entry-company')}}" class="user-link">応募案件数</a><span>{{$jobCount}}件</span></p>
                             <p><a href="{{getUrl('profile/'.Auth::user()->user_number.'#entry-study')}}" class="user-link">参加勉強会数</a><span>{{$studyCount}}件</span></p>
                     	</div>
                     
                 		<div class="clearfix">
-                        	<h2><span class="octicon octicon-primitive-square"></span>会員向けコンテンツ</h2>
+                        	<h2><span class="octicon octicon-primitive-square"></span>ユーザー向けコンテンツ</h2>
 	                        <div class="link-box">
                                 <a href="{{getUrl('iroha')}}"><span>監査役いろは</span></a>
                             </div>

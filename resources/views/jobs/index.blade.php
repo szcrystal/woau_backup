@@ -4,14 +4,14 @@
 @section('content')
 	<ul class="breadcrumb">
         <li><a href="{{getUrl('/')}}"><span class="octicon octicon-home"></span>Home</a></li>
-        <li>求人情報一覧</li>
+        <li>案件情報一覧</li>
     </ul>
     
     <main class="page-ct job">
         	<div class="main-head clearfix">
-        		<h1>求人情報一覧</h1>
+        		<h1>案件情報一覧</h1>
                 <img src="{{asset('images/main/about/company.png')}}">
-    			<p>監査役を応募している企業情報を掲載しています。<br>・・・不要なら削除</p>
+    			<p>監査役を応募している企業情報を掲載しています。</p>
                 {!! $jobs->render() !!}
             </div>
     

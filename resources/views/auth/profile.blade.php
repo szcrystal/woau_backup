@@ -143,11 +143,11 @@
               
         
         <section id="entry-company">
-            <h2 class="page-header">応募した企業</h2> 
+            <h2 class="page-header">応募した案件</h2> 
             
             @if($jobObjs -> isEmpty())
-            <p style="padding-bottom: 2em;">{{$user->name}}さんが応募した企業はまだありません。<br>
-            気になる企業がありましたら応募してみましょう。<br>
+            <p style="padding-bottom: 2em;">{{$user->name}}さんが応募した案件はまだありません。<br>
+            気になる案件がありましたら応募してみましょう。<br>
             <a href="{{getUrl('recruit')}}" class="conf-btn" style="margin-top: 1em;">企業情報一覧 »</a></p>
             @else
             <div class="table-responsive">

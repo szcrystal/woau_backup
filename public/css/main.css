@@ -443,6 +443,9 @@ div.person {
     box-sizing: border-box;
     min-width: 10.7em;
 }
+.dropdown-menu li a:before {
+	content: "・";
+}
 .dropdown-menu li a {
 	color: #525252;
 	-moz-transition: color 0.2s linear;
@@ -900,8 +903,8 @@ a.topic-link {
 	//border: 1px solid pink;
 }
 
-.about .intro-ct div:first-of-type,
-.about .sub-ct div:first-of-type {
+.about .intro-ct p:first-of-type,
+.about .sub-ct p:first-of-type {
 	width: 60%;
     margin-right: 3.5%;
     padding-left: 0.3em;
@@ -917,13 +920,13 @@ a.topic-link {
 	margin-top: -6em;
 }
 .about .main-ct {
-	width: 67%;
-    margin: 6em auto 0;
+	width: 85%;
+    margin: 5em auto 0;
 }
 .about .main-ct div {
 	border: 1px solid #fe5c26;
     margin-bottom: 8em;
-    padding: 0 4em 2em;
+    padding: 0 2em 2em;
 }
 .about .main-ct div h3 {
 	font-weight: 300;
@@ -948,11 +951,16 @@ a.topic-link {
     font-size: 1.2em;
     line-height: 1.7em;
     color: #5a5a5a;
-    width: 70%;
+    width: 45%;
+    margin-top: 1em;
+    //border: 1px solid red;
 }
 .about .main-ct div img {
 	float: right;
-    margin-top: -1.3em;
+    margin-top: 0;
+}
+.about .main-ct div:last-of-type img {
+	margin-right: 2.5em;
 }
 
 /* Privacy */
@@ -1275,7 +1283,7 @@ aside li {
 
 /* Single */
 .single {
-	margin-top: 2em;
+	margin-top: 4em;
 }
 .single header {
 	text-align: center;

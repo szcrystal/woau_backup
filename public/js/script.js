@@ -474,6 +474,7 @@
                 $('.dd-toggle').not(this).next('ul:visible').fadeOut(speed);
             	$(this).next('ul').fadeToggle(speed);
                 
+                return false;
             });
             
             $('body').click(function(e){

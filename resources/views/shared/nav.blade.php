@@ -31,10 +31,10 @@
 <div id="user-belt">
 	<ul>
     	<li class="dropdown">
-        	<a href="{{getUrl('recruit')}}" class="dd-toggle" data-toggle="dropdown" role="button" aria-expanded="false">求人情報<span class="octicon octicon-chevron-down"></span></a>
+        	<a href="{{getUrl('recruit')}}" class="dd-toggle" data-toggle="dropdown" role="button" aria-expanded="false">案件情報<span class="octicon octicon-chevron-down"></span></a>
         	<ul class="dropdown-menu" role="menu">
-                <li><a href="{{getUrl('recruit')}}">・新着求人</a></li>
-                <li><a href="{{getUrl('recruit')}}">・求人一覧</a></li>
+                <li><a href="{{getUrl('recruit')}}">新着案件</a></li>
+                <li><a href="{{getUrl('recruit')}}">案件一覧</a></li>
             </ul>
         </li>
     	<li class="dropdown"><a href="{{getUrl('iroha')}}" class="dd-toggle" data-toggle="dropdown" role="button" aria-expanded="false">監査役いろは<span class="octicon octicon-chevron-down"></span></a>
@@ -44,9 +44,9 @@
                     //$irohaObjs = $this -> iroha -> where('slug', 'irohas') -> orderBy('created_at', 'desc') -> get();
                 ?>
                 @foreach($irohas as $iroha)
-                <li><a href="{{getUrl('iroha/'.$iroha->url_name)}}">・{{ $iroha->sub_title }}</a></li>
+                <li><a href="{{getUrl('iroha/'.$iroha->url_name)}}">{{ $iroha->sub_title }}</a></li>
                 @endforeach
-                <li><a href="{{getUrl('iroha/study')}}">・勉強会一覧</a></li>
+                <li><a href="{{getUrl('iroha/study')}}">勉強会一覧</a></li>
             </ul>
         </li>
     	<li><a href="{{getUrl('blog')}}">ブログ</a></li>
