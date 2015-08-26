@@ -29,6 +29,8 @@
             </footer>
         </article>
     
+        
+        {{--
         <ul>
         @if(isset($links))
         @foreach($links as $link)
@@ -38,7 +40,7 @@
         
             <li><a href="{{getUrl('iroha/study')}}">監査役勉強会一覧</a></li>
         </ul>
-        
+        --}}
 <?php
  /*  
 

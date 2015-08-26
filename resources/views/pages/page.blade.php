@@ -15,14 +15,16 @@
             ?>
         
     		<article class="page-ct{{" ".$pageObj->url_name}}">
-            	@if(Request::is('about'))
-                <h1 class="main-title">{{$pageObj->title}}</a></h1>
+            	@if(! Request::is('privacy') && ! Request::is('company'))
+                <h1 class="main-title">
                 @else
-        		<h1>{{$pageObj->title}}</a></h1>
+        		<h1>
                 @endif
+                {{$pageObj->title}}</h1>
+                
                 @if($pageObj->intro_content != '')
                 <section class="intro-ct">
-                	{!! $pageObj->intro_content !!} {{-- HTMLentity()のエスケープをさせない --}}
+                	{!! $pageObj->intro_content !!}
                 </section>
                 @endif
                 

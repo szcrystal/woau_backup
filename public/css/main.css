@@ -900,13 +900,20 @@ a.topic-link {
 	//border: 1px solid blue;
     padding-bottom: 2em;
 }
+.intro-ct:after {
+	display: block;
+    clear: both;
+    content: "";
+    height: 0;
+}
 .main-ct {
 	//border: 1px solid pink;
 }
 
 .about .intro-ct p:first-of-type,
 .about .sub-ct p:first-of-type {
-	width: 60%;
+	width: 57%;
+    margin-top: 1.5em;
     margin-right: 3.5%;
     padding-left: 0.3em;
     float: left;
@@ -918,7 +925,8 @@ a.topic-link {
     height: auto;
 }
 .about .intro-ct img {
-	margin-top: -6em;
+	margin: -2em 2em 0 0;
+    float: right;
 }
 .about .main-ct {
 	width: 85%;
