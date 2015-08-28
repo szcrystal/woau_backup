@@ -51,9 +51,8 @@
             </ul>
         @endif
         
-        {{-- <span class="octicon octicon-chevron-up"></span> --}}
     </div>
 	<p><small>Copyright 2015 woman x auditor All rights reserved.</small></p>
     
-    
+    <span class="toTop octicon octicon-chevron-up"></span>
 </footer>

@@ -11,7 +11,7 @@
         <ul class="breadcrumb">
             <li><a href="{{getUrl('/')}}"><span class="octicon octicon-home"></span>Home</a></li>
             <li><a href="{{getUrl('recruit')}}">案件情報一覧</a></li>
-            <li>@if($singleObj->sub_title != ''){{$singleObj->sub_title}}
+            <li>@if($singleObj->company_name != ''){{$singleObj->company_name}}
             @else{{$singleObj->title}}@endif</li>
         </ul>
         

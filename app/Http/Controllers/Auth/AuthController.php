@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Page;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -168,12 +169,20 @@ class AuthController extends Controller
 //            $sess[$val] = $request->session()->pull($val, '');
 //        }
     	
-        return view('auth.register', compact('sess'));
+        //$obj = Page::where('url_name', $request->path()) -> first();
+        //$headTitle = '新規'.$obj -> title;
+        //$intro_ct = $obj -> intro_content;
+        
+        $headTitle = '新規ユーザー登録';
+        
+        return view('auth.register', ['headTitle'=>$headTitle/*, 'intro_ct'=>$intro_ct*/]);
     }
     
     
     //New Register Confirm
     public function postRegister(Request $request) {
+    	
+        $headTitle = '新規ユーザー登録';
     
     	if($request->input('end') == TRUE) { //ConfirmからのPOST送信時 送信or戻る
         	if( $request->input('_return') !== null ) { //戻るボタンを押した時
@@ -229,7 +238,7 @@ class AuthController extends Controller
                 
                 Auth::login($user);
                             
-                return view('auth.registerEnd') ->with(compact('data'));
+                return view('auth.registerEnd', ['data'=>$data, 'headTitle'=>$headTitle]);
             }
         }
         else { //Confirm
@@ -244,7 +253,7 @@ class AuthController extends Controller
             $datas = $request->all(); //requestから配列として$dataにする
             session($datas);
                         
-            return view('auth.confirm') -> with(compact('datas')); //配列なので、view遷移後はdatas[name]で取得する
+            return view('auth.confirm', ['datas'=>$datas, 'headTitle'=>$headTitle]); //配列なので、view遷移後はdatas[name]で取得する
         }
             //return redirect()->to('confirm');
             //return redirect('/contact');

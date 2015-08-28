@@ -4,30 +4,28 @@
 
 	<ul class="breadcrumb">
         <li><a href="{{getUrl('/')}}"><span class="octicon octicon-home"></span>Home</a></li>
-        <li>ユーザー登録</li>
+        @if(isset($userObj))
+        <li><a href="{{getUrl('profile/'.$userObj->user_number)}}">ユーザー情報</a></li>
+        @endif
+        <li>{{$headTitle}}</li>
     </ul>
-
-	
 
     <main class="page-ct register">
     	<div class="main-head">
-        	<h1 class="panel-head">{{--<img src="/images/main/i-register.png">--}}
-                @if(isset($userObj))
-					ユーザー登録情報の編集
-                @else
-                	新規ユーザー登録
-                @endif</h1>
-            <p>注意事項等あれば、ここに記載</p>
-            @if(isset($userObj))
-            <a href="{{getUrl('profile/'.$userObj->user_number)}}" class="back-tx">プロフィールへ戻る</a>
+        	<h1 class="panel-head">{{$headTitle}}</h1>{{--<img src="/images/main/i-register.png">--}}
+            <p>注意事項等あればここに記載</p>
+            {{--
+            @if(isset($intro_ct) && $intro_ct != '')
+            <p>{!! nb($intro_ct) !!}</p>
             @endif
+            --}}
         </div>
                 
         @include('shared.move_1')
         
         @if (count($errors) > 0)
             <div class="alert alert-danger">
-                <strong>ご確認ください!</strong> <br><br>
+                <strong>ご確認ください!</strong> <br>
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -228,6 +226,10 @@
             </button>
             
         {!! Form::close() !!}
+        
+        @if(isset($userObj))
+            <a href="{{getUrl('profile/'.$userObj->user_number)}}" class="back-tx">ユーザー情報へ戻る</a>
+        @endif
 				
     </main>
 

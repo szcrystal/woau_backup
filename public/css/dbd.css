@@ -4,7 +4,6 @@ CSS for DashBoard
 */
 html {
 	//font-family: "Meiryo", sans-serif;
-   
 }
 a:hover,
 a:focus,
@@ -45,6 +44,10 @@ textarea#main_content {
     border-radius: 2em;
 }
 */
+textarea {
+	resize: vertical;
+}
+
 .wrap-panel {
 	margin-top: 15%;
 }
@@ -242,10 +245,6 @@ h2.page-header {
 .site-info .octicon {
 	font-size: 1.2em;
 }
-
-
-
-
 
 
 /* sidebar */

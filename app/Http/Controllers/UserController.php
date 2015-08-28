@@ -39,7 +39,7 @@ class UserController extends Controller
     	
         if(Auth::user()->user_number == $user_number) {
     		$userObj = User::where('user_number', $user_number) -> first();
-            $headTitle = 'ユーザー情報編集';
+            $headTitle = 'ユーザー情報の編集';
         	return view('auth.register', ['userObj'=>$userObj, 'headTitle'=>$headTitle]);
         }
         else {

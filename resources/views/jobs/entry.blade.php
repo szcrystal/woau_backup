@@ -4,9 +4,9 @@
 	<ul class="breadcrumb">
         <li><a href="{{getUrl('/')}}"><span class="octicon octicon-home"></span>Home</a></li>
         <li><a href="{{getUrl('recruit')}}">求人情報一覧</a></li>
-        <li><a href="{{getUrl('recruit/job/'.$singleObj->job_number)}}">@if($singleObj->sub_title != ''){{$singleObj->sub_title}}
+        <li><a href="{{getUrl('recruit/job/'.$singleObj->job_number)}}">@if($singleObj->company_name != ''){{$singleObj->company_name}}
         @else{{$singleObj->title}}@endif</a></li>
-        <li>応募</li>
+        <li>案件に応募する</li>
     </ul>
 
 	<main class="page-ct job-entry">

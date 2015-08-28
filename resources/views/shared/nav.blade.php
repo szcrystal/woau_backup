@@ -40,7 +40,7 @@
     	<li class="dropdown"><a href="{{getUrl('iroha')}}" class="dd-toggle" data-toggle="dropdown" role="button" aria-expanded="false">監査役いろは<span class="octicon octicon-chevron-down"></span></a>
         	<ul class="dropdown-menu" role="menu">
             	<?php
-                	$irohas = App\Iroha::where('slug', 'irohas') -> get();
+                	$irohas = App\Iroha::where('slug', 'irohas') ->get();
                     //$irohaObjs = $this -> iroha -> where('slug', 'irohas') -> orderBy('created_at', 'desc') -> get();
                 ?>
                 @foreach($irohas as $iroha)

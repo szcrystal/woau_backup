@@ -9,7 +9,7 @@
     
     <main class="page-ct job">
         	<div class="main-head clearfix">
-        		<h1>案件情報一覧</h1>
+        		<h1>{{$headTitle}}</h1>
                 <img src="{{asset('images/main/about/company.png')}}">
     			<p>監査役を応募している案件情報を掲載しています。</p>
                 {!! $jobs->render() !!}

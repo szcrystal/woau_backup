@@ -32,7 +32,9 @@ class JobController extends Controller
 	
 	public function getIndex() {
     	$jobs = $this -> job -> orderBy('created_at','desc') ->paginate($this->pg);
-        return view('jobs.index', compact('jobs'));
+        $headTitle = '案件情報一覧';
+        
+        return view('jobs.index', ['jobs'=>$jobs, 'headTitle'=>$headTitle]);
     }
 
 	public function getJobs() {
@@ -47,10 +49,11 @@ class JobController extends Controller
     
     public function getJob($job_number) { //一覧のjobsとダブルとエラーになるのでネーミングはgetJobにて
     	//if($job_number) {
-        	$singleObj = Job::where('job_number', $job_number) -> first();
+        	$singleObj = $this->job->where('job_number', $job_number) -> first();
+            $headTitle = $singleObj -> company_name;
         	//$singleObj = $this -> job -> find($jobObj->id);
-        
-        	return view('jobs.single') -> with(compact('singleObj'));
+        	
+        	return view('jobs.single', ['singleObj'=>$singleObj, 'headTitle'=>$headTitle]);
 //        }
 //        else {
 //        	//$jc = new JobController;
@@ -61,13 +64,14 @@ class JobController extends Controller
     
     public function getEntry(Request $request, $job_number) {
     	$singleObj = Job::where('job_number', $job_number) -> first();
-        $headTitle = '求人に応募する';
+        $headTitle = '案件に応募する';
         return view('jobs.entry', ['singleObj'=>$singleObj, 'headTitle'=>$headTitle]);
     }
     
     public function postEntry(Request $request, $job_number) { //ORG:postIndex
     
     	$obj = $this -> job ->where('job_number', $job_number) -> first();
+        $headTitle = '案件に応募する';
     
     	//お問い合わせ最終ページの表示：Finish Page
     	if($request->input('end') == TRUE) { //finishページ
@@ -124,7 +128,7 @@ class JobController extends Controller
                 //['user_id', 'user_name', 'user_mail', 'job_id', 'company_name', 'note', 'attach_path'];
 
                 //session()->forget($this->in);
-                return view('jobs.finish') -> with(compact('obj'));
+                return view('jobs.finish', ['obj'=>$obj, 'headTitle'=>$headTitle]);
             }
         }
     	else { //確認ページ：Confirm Page
@@ -152,7 +156,7 @@ class JobController extends Controller
             	if($key != 'add_file')
 		            session([$key=>$val]);
             }
-            return view('jobs.confirm', ['datas'=>$datas, 'obj'=>$obj]); //配列なので、view遷移後はdatas[name]で取得する
+            return view('jobs.confirm', ['datas'=>$datas, 'obj'=>$obj, 'headTitle'=>$headTitle]); //配列なので、view遷移後はdatas[name]で取得する
             //return redirect()->to('confirm');
         }
 	}
