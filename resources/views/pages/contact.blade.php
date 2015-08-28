@@ -10,10 +10,11 @@
     	<div class="main-head">
         	<h1 class="panel-head">お問い合わせ</h1>
             
+            {{--
             @if(isset($intro_ct) && $intro_ct != '')
             <p>{!! nb($intro_ct) !!}</p>
             @endif
-            
+            --}}
         </div>
         
         @include('shared.move_1')

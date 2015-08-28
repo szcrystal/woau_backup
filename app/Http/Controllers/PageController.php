@@ -65,12 +65,13 @@ class PageController extends Controller
             */
             //session()->forget(['name','mail','note']);
             
-            $obj = $this->page -> where('url_name', $request->path()) -> first();
+//            $obj = $this->page -> where('url_name', $request->path()) -> first();
+//            $headTitle = $obj -> title;
+//            $intro_ct = $obj -> intro_content;
             
-            $headTitle = $obj -> title;
-            $intro_ct = $obj -> intro_content;
+            $headTitle = 'お問い合わせ';
             
-            return view('pages.contact', ['headTitle'=>$headTitle, 'intro_ct'=>$intro_ct]);
+            return view('pages.contact', ['headTitle'=>$headTitle/*, 'intro_ct'=>$intro_ct*/]);
         }
         else {
         	$pageObj = Page::where('url_name', $url_name) -> first();
