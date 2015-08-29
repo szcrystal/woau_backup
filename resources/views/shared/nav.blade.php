@@ -1,3 +1,7 @@
+<header id="head">
+    <h1><a href="{{ getUrl('/')}}"><img src="{{url('/images/main/logo-top.png')}}" /></a></h1>
+</header>
+
 <nav id="navmenu" class="clearfix">
     <ul class="main-m">
         <li><a href="{{getUrl('/')}}">ホーム<span>Home</span></a></li>

@@ -21,20 +21,21 @@
 							</ul>
 						</div>
 					@endif
-                    
+                    {{--
                     <script>
                     	$(function(){
                         	$('input:eq(1)').focus();
                         });
                     </script>
-                                       
+                    --}}                  
+                    
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/dashboard/login') }}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                         <div class="form-group">
                             <label class="col-md-4 control-label">メールアドレス</label>
                             <div class="col-md-6">
-                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                                <input type="email" class="form-control" name="email" value="{{ old('email') }}" autofocus>
                             </div>
                         </div>
 

@@ -11,6 +11,7 @@ use App\Iroha;
 use App\Studyentry;
 use App\Siteinfo;
 
+use Auth;
 use Mail;
 
 class IrohaController extends Controller
@@ -58,8 +59,23 @@ class IrohaController extends Controller
 //    }
     
     public function getStudy($id) {
-    	$atcl = $this -> iroha -> find($id);
-        return view('irohas.single', compact('atcl'));
+    	$arr['atcl'] = $this -> iroha -> find($id);
+        
+        if($user = Auth::user()) {
+            $entry = $user -> studyentries() -> where('iroha_id', $arr['atcl']->id) -> first();
+            /* 
+            $entry = $user -> jobentries; //リレーションJobEntriesのuser_idに対してgetするだけならプロパティ(メソッド()なし)として取得出来る
+            foreach($entry as $en) {
+                echo $en -> company_name;
+            }
+            */
+            if(isset($entry)) { //first()で取得したものはオブジェクト、get()で取得したものはコレクション isEmpty()はコレクションに対してのみ使える
+                $arr['already'] = '参加申込み済みです';
+            }
+        }
+        
+        
+        return view('irohas.single', $arr);
     }
     
     //勉強会参加フォーム

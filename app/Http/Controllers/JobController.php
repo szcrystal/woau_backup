@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use App\Job;
 use App\Siteinfo;
 use App\Jobentry;
+use App\User;
 use Auth;
 use Mail;
 use Input;
@@ -49,11 +50,28 @@ class JobController extends Controller
     
     public function getJob($job_number) { //一覧のjobsとダブルとエラーになるのでネーミングはgetJobにて
     	//if($job_number) {
-        	$singleObj = $this->job->where('job_number', $job_number) -> first();
-            $headTitle = $singleObj -> company_name;
+            $singleObj = $this->job->where('job_number', $job_number) -> first();
         	//$singleObj = $this -> job -> find($jobObj->id);
+
+            $arr['singleObj'] = $singleObj;
+            $arr['headTitle'] = $singleObj -> company_name;
+            
+            if($user = Auth::user()) {
+            	$entry = $user -> jobentries() -> where('job_id', $singleObj->id) -> first();
+                
+                /* 
+                $entry = $user -> jobentries; //リレーションJobEntriesのuser_idに対してgetするだけならプロパティ(メソッド()なし)として取得出来る
+                foreach($entry as $en) {
+                	echo $en -> company_name;
+                }
+                */
+                
+                if(isset($entry)) { //first()で取得したものはオブジェクト、get()で取得したものはコレクション isEmpty()はコレクションに対してのみ使える
+                	$arr['already'] = 'この案件は応募済みです';
+                }
+            }
         	
-        	return view('jobs.single', ['singleObj'=>$singleObj, 'headTitle'=>$headTitle]);
+        	return view('jobs.single', $arr);
 //        }
 //        else {
 //        	//$jc = new JobController;

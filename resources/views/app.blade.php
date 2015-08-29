@@ -12,13 +12,8 @@
 {{-- @include('shared.nav_1') --}}
 
     <div id="page">
-    
-    	<div id="head">
-        	<h1><a href="{{ getUrl('/')}}"><img src="{{url('/images/main/logo-top.png')}}" /></a></h1>
-        </div>
         
         @include('shared.nav')
-
         
     	<div class="container-fluid">
 			

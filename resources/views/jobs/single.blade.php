@@ -20,10 +20,13 @@
         <article style="text-align:left;" class="single job-sgl">
             <header>
             	<small>{!! getStrDate($singleObj->created_at, 'slash') !!}</small>
-                <a href="{{ getUrl('recruit/entry/'.$singleObj->job_number) }}" class="edit-btn">この案件に応募する</a>
+                @if(isset($already))
+                	<span class="done-btn">{{$already}}</span>
+                @else
+                	<a href="{{ getUrl('recruit/entry/'.$singleObj->job_number) }}" class="edit-btn">この案件に応募する</a>
+                @endif
                 <h2 style="text-align:left; width: 100%;">{{$singleObj -> company_name}}</h2>
                 <h3 style="text-align:left;">{{$singleObj->title}}</h3>
-                
             </header>
             
             <section style="text-align:left;">
@@ -36,7 +39,9 @@
             
                 {{$singleObj->sub_comment}}
             </section>
-            <br><br>
+            
+            <section>
+            <div class="imghere">企業の画像やロゴなど・・？？</div>
             <div class="table-responsive">
                 <table class="table table-bordered company-table">
                     <colgroup>
@@ -53,24 +58,33 @@
                             <td>9:00〜</td>
                         </tr>
                         <tr>
-                            <th scope="row">その他A</th>
+                            <th scope="row">項目A</th>
                             <td>・・・</td>
                         </tr>
                         <tr>
-                            <th scope="row">その他B</th>
+                            <th scope="row">項目B</th>
+                            <td>・・・</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">項目C</th>
                             <td>・・・</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+            </section>
 
             
             
             
             <footer>
-            	<a href="{{ getUrl('recruit/entry/'.$singleObj->job_number) }}" class="edit-btn">この案件に応募する</a>   
+            	@if(isset($already))
+                <span class="done-btn">{{$already}}</span>
+                @else
+            	<a href="{{ getUrl('recruit/entry/'.$singleObj->job_number) }}" class="edit-btn">この案件に応募する</a> 
+                @endif  
                 {{-- pager('irohas', $singleObj->id) --}}
-                <a href="{{ getUrl('recruit') }}" class="center-block back-tx">案件情報一覧へ戻る</a>
+                <a href="{{ getUrl('recruit') }}" class="back-tx">案件情報一覧へ戻る</a>
 
             	{{-- 
             	@foreach($singleArr as $single)

@@ -111,6 +111,29 @@ ul:after {
     //border: 1px solid orange;
 }
 
+.send-btn,
+.link-btn,
+.back-btn,
+.next-btn,
+.edit-btn,
+.conf-btn,
+.page-ct h2,
+.link-box a span,
+a.topic-link,
+.user a.user-link
+/*#user-belt,*/
+/*#navmenu,*/
+/*.home #cal p:last-of-type*/ {
+	font-family: "游ゴシック", "YuGothic", "Meiryo", sans-serif;
+	//font-family: "Hiragino Maru Gothic Pro", "Meiryo", sans-serif;
+}
+#navmenu,
+#user-belt/*,
+#colop li a*/ {
+	font-family: "Hiragino Maru Gothic Pro", "Meiryo", sans-serif;
+}
+
+
 #head {
 	/* width first specify */
 	//width: 1100px;
@@ -140,7 +163,7 @@ ul:after {
     margin: 0 auto 1em;
     padding-bottom: 0.2em;
     font-weight: normal;
-    font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
+    //font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
     //border: 1px solid red;
 }
 #navmenu ul {
@@ -179,10 +202,13 @@ ul:after {
 	transition: color 0.3s ease;
     -webkit-transition: color 0.3s ease;
 }
-#navmenu ul.main-m li a:hover,
+#navmenu ul.main-m li a:hover {
+    color: #ff3f00;
+    opacity: 1;
+}
 #navmenu ul.main-m li a:hover span {
 	color: #ff3f00;
-    opacity: 1;
+    //opacity: 1;
 }
 @media all and (-ms-high-contrast:none){ /* IE10-11 */
 	#navmenu ul.main-m li a {
@@ -377,7 +403,7 @@ div.person {
 /* Belt for auth */
 #user-belt {
 	//height: 3em;
-    font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
+    //font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
     background: url(../images/main/foot-tile.png);
     //background: url(../images/main/orange-tiles.png);
     //border: 1px solid #fe5c26;
@@ -422,7 +448,7 @@ div.person {
     padding: 0.25em 2.2em 0.15em;
     min-width: 10.5em;
     margin: 0;
-    border: 1px solid #333/*#63524E*/;
+    //border: 1px solid #333/*#63524E*/;
     background: #fefefe;
     //color:#fff;
     border-radius: 0.5em;
@@ -443,7 +469,7 @@ div.person {
 }
 .main #user-belt .dropdown > a > .octicon {
 	position: absolute;
-    top: 0.5em;
+    top: 0.45em;
     right: 0.8em;
 }
 .main #user-belt .dropdown {
@@ -595,7 +621,7 @@ a.arrow-white {
 }
 .user article h3,
 .topics article h3 {
-	font-size: 1.05em;
+	font-size: 1em;
     line-height: 1.4em;
     margin: 0;
     color: #6a6a6a;
@@ -624,13 +650,16 @@ a.arrow-white {
 }
 .user section.contents > div:last-of-type > h2 {
 	font-size: 0.97em;
-    //margin-bottom: 0.2em;
+    margin: 1em 0 0.7em;
     padding-bottom: 0;
 }
 .user section.contents > div:last-of-type .link-box {
 	margin-top: 0;
 }
-
+.user a.user-link,
+.guest a.topic-link {
+	font-size: 1.05em;
+}
 .user a.user-link {
 	display: inline-block;
     background: -moz-linear-gradient(top, #F2A048, #F48013);
@@ -638,16 +667,16 @@ a.arrow-white {
 	border-radius: 9px;
     text-align: center;
     //box-shadow: -1px -1px 1px #5f5f5f inset, 1px 1px 1px #aaa inset;
-    border: 1px solid #aaa;
+    //border: 1px solid #aaa;
     color: #fff;
     text-decoration: none;
-    font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
+    //font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
 }
 .user section.jobs a.user-link {
 	width: 11.5em;
     float: right;
     text-align: left;
-    padding: 0.35em 1.8em;
+    padding: 0.3em 1.8em 0.35em;
     background: #5f5f5f;
     background: url(../images/main/double-arrow.png) 90% 45% no-repeat, -moz-linear-gradient(top, #8d8d8d, #5f5f5f);
     background: url(../images/main/double-arrow.png) 90% 45% no-repeat, linear-gradient(to bottom, #8d8d8d, #5f5f5f);
@@ -656,7 +685,7 @@ a.arrow-white {
     width: 28%;
     font-size: 0.95em;
     margin-right: 0.7em;
-    padding: 0.35em 0.7em;
+    padding: 0.3em 0.7em 0.35em;
 }
 
 /* Guest */
@@ -688,7 +717,7 @@ a.arrow-white {
 .topics article small {
 	color: #FE4A0F;
 }
-a.topic-link {
+.guest a.topic-link {
 	display: inline-block;
     margin-top: 0.5em;
 	border-radius: 9px;
@@ -701,7 +730,8 @@ a.topic-link {
 	float: right;
     background: url(../images/main/double-arrow-gray.png) 93% 47% no-repeat;
     border: 3px solid #7c7c7c;
-    font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
+    font-size: 1.05em;
+    //font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
 }
 .guest section.contents {
 	float: right;
@@ -718,7 +748,7 @@ a.topic-link {
     */
     width: 130px;
     height: 160px;
-    margin: 1em 3.3% 0 0;
+    margin: 1em 3.7% 0 0;
     //background: url(../images/main/wave-tile-gray.png), #75B188;
     float: left;
     //position: relative;
@@ -747,10 +777,10 @@ a.topic-link {
     display: inline-block;
     width: 100%;
     margin: 90% auto 0;
-    font-weight: bold;
+    //font-weight: bold;
     text-align: center;
     font-size: 1em;
-    font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
+    //font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
     //line-height: 1.2em;
     //left: 10%;
     //border: 1px solid red;
@@ -763,33 +793,21 @@ a.topic-link {
 	    font-weight: bold;
   }
 }
-@media all and (-ms-high-contrast:none){ /* IE10-11 */
-      .link-box a span {
-        font-weight: bold;
-      }
-}
-@supports (-ms-accelerator:true) { /* Edge */
-	.link-box a span {
-		font-weight: bold;
-	}
-}
 
 @-webkit-keyframes scaleXy {
 	0% { 
     	-webkit-transform: rotateZ(0);
 	}
     100% {
-       	-webkit-transform: rotateZ(5deg);
+       	-webkit-transform: rotateZ(6deg);
         opacity: 1;
     }
 }
 @keyframes scaleXy {
 	0% { 
-    	-webkit-transform: rotateZ(0);
 		transform: rotateZ(5deg);
 	}
     100% {
-       	-webkit-transform: rotateZ(5deg);
 		transform: rotateZ(5deg);
         opacity: 1;
     }
@@ -872,7 +890,7 @@ a.topic-link {
 }
 .page-ct h2 {
 	//font-weight: bold;
-	font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
+	//font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
 	//font-family: "游ゴシック", "YuGothic", "Meiryo", sans-serif;
 }
 .page-ct h3 {
@@ -892,7 +910,7 @@ a.topic-link {
 	border: 1px solid #fe5c26;
     border-width: 0 0 0 7px;
     padding: 0.5em 0.4em;
-    font-size: 1.2em;
+    font-size: 1.25em;
     color: #fe5c26;
 }
 .page-ct > section {
@@ -927,11 +945,14 @@ a.topic-link {
 .about .intro-ct p:first-of-type,
 .about .sub-ct p:first-of-type {
 	width: 57%;
-    margin-top: 1.5em;
+    margin-top: 1em;
     margin-right: 3.5%;
     padding-left: 0.3em;
     float: left;
     //border: 1px solid red;
+}
+.about .sub-ct p:first-of-type {
+	margin-top: 0em;
 }
 .about .intro-ct img,
 .about .sub-ct img {
@@ -1125,7 +1146,7 @@ article.archive:after {
 .archive header h2 {
 	display: block;
     margin: 0;
-    font-size: 1.1em;
+    
     line-height: 1.4em;
     color: #888;
 	float: left;
@@ -1150,6 +1171,7 @@ article.archive:after {
 	width: 77%;
 	padding: 1% 0 0.3em 0.4em;
     margin-left: 1em;
+    font-size: 1.25em;
     //height: 5.5em;
     //margin-top: 1.7em;
     //vertical-align: middle;
@@ -1314,7 +1336,12 @@ aside li {
     padding-bottom: 1.0em;
     margin-bottom: 2em;
 }
-
+.single header:after {
+	display: block;
+    clear: both;
+    content: "";
+    height: 0;
+}
 .single.topic-sgl {
 	background: url(../images/main/about/file.png) 26% 0 no-repeat;
     background-size: 116px auto;
@@ -1347,6 +1374,7 @@ aside li {
     font-size: 0.8em;
 }
 .single header h2 {
+	clear: both;
 	color: #fe5c26;
     font-size: 1.9em;
     width: 82%;
@@ -1377,6 +1405,34 @@ aside li {
     //height: 2em;
 }
 
+.job-sgl section {
+	text-align: left;
+    margin-bottom: 2em;
+    width: 70%;
+}
+.job-sgl section:last-of-type {
+	width: 100%;
+    margin-top: 3.5em;
+    //border: 1px solid red;
+}
+.job-sgl section:last-of-type:after {
+	display: block;
+    clear: both;
+    content: "";
+    height: 0;
+}
+.job-sgl section:last-of-type > .imghere {
+	width: 15em;
+    height: 15em;
+    float: left;
+    border: 1px solid #aaa;
+    background: #FDFAE3;
+    margin-right: 1.8em;
+}
+.job-sgl .table-responsive {
+	//float: right;
+    //width: 77%;
+}
 
 /* Study */
 /*
@@ -1427,7 +1483,8 @@ aside li {
 }
 #colop ul {
 	float: left;
-    //font-size: 0.95em;
+/*    font-size: 0.95em;*/
+    letter-spacing: 0.03em;
 	list-style: none;
 }
 #colop ul:after {
@@ -1454,9 +1511,10 @@ aside li {
 #colop > p {
 	text-align: center;
 	color: #fff;
+    font-weight: 400;
+    font-size:1.3em;
+    font-family: 'Josefin Sans', sans-serif;
 }
-
-
 #colop span.toTop {
 	display: none;
 	position: fixed;
@@ -1591,7 +1649,8 @@ h2.panel-head img {
     color: #706356;
     border: 5px solid #F47856;
     border-radius: 0.5em;
-    font-weight: bold;
+    //font-weight: bold;
+    //font-size: 1.1em;
 }
 .movement > div span.step {
 	font-weight: 400;
@@ -1604,7 +1663,9 @@ h2.panel-head img {
 }
 .movement > div span.step em {
 	//font-weight: bold;
+    //display: inline-block;
 	font-size: 1.4em;
+    //line-height: 1.4em;
     font-style: normal;
     margin: 0 0 0 0.2em;
     //padding-top: 1.5em;
@@ -1683,6 +1744,7 @@ h2.panel-head img {
 	border-radius: 0;
     box-shadow: none;
     border: 1px solid #aaa;
+    font-family: "游ゴシック", "YuGothic", "Meiryo", sans-serif;
 }
 .form-d input {
 	width: 75%;
@@ -1818,8 +1880,8 @@ span.t-down:after {
 .next-btn {
 	border-radius: 14px;
     text-align: center;
-    font-weight: bold;
-    font-size: 1em;
+    //font-weight: bold;
+    font-size: 1.1em;
     //font-family: "Hiragino Maru Gothic Pro", "Meiryo", sans-serif;
     letter-spacing: 0.05em;
     margin-top: 2em;
@@ -2107,7 +2169,7 @@ span.t-down:after {
 .panel-body .conf-btn {
 	min-width: 11em;
     line-height: 3.2em;
-    font-size: 1.05em;
+    font-size: 1.2em;
     padding: 0 2.8em;
     border-width: 5px;
     //border-color: #FD8466;
@@ -2129,11 +2191,12 @@ span.t-down:after {
     border-radius: 0.8em;
     box-shadow: none;
 }
+
 .panel input[type="checkbox"] {
-	width: auto;
-	height: auto;
-    line-height: auto;
-   	margin-top: 0.5em; 
+	top: 7px;
+    left: 15px;
+    width: 17px;
+    height: 17px;
 }
 .panel p {
 	margin: 1.0em 0 3em;
@@ -2230,12 +2293,12 @@ section.userinfo:after {
 }
 .edit-btn,
 .conf-btn {
-	color: #7F635A;
+	color: #704F43/*#704C3F*//*ORG:#7F635A*/;
     background: #FFF1DC;
     border-radius: 0.5em;
     border: 2px solid #FFA387;
     box-sizing: border-box;
-    font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
+    //font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
 }
 .edit-btn {
 /*	position: absolute;*/
@@ -2272,15 +2335,32 @@ section.userinfo:after {
     padding: 0.8em 1.5em;
 }
 
-.single header .edit-btn {
+.single header .edit-btn,
+.single header .done-btn {
+	//display: block;
 	float: right;
+    font-size: 1.05em;
+    margin-bottom: 2em;
     //padding: 1em 2em;
 }
-.single footer .edit-btn {
+.single footer .edit-btn,
+.single footer .done-btn {
 	display: block;
-    width: 15em;
+    width: 16em;
+    font-size: 1.05em;
     margin: 3em auto 2em;
     padding: 1em 2em;
+}
+
+.single .done-btn {
+	text-align: center;
+    padding: 0.5em 2em 0.4em;
+    text-decoration: none;
+	width: auto;
+    margin-bottom: 0.5em;
+    background: #e7e7e7;
+    color: #8a8a8a;
+    border-radius: 0.5em;
 }
 
 

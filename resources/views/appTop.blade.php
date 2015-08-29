@@ -10,13 +10,9 @@
 @include('shared.nav_1')
 @endif
 --}}
-
 {{-- @if(str_contains(Request::path(), 'auth')) if ($request->is('auth/*')) --}}
 
     <div id="page">
-    	<header id="head">
-        	<h1><a href="{{ getUrl('/')}}"><img src="{{url('/images/main/logo-top.png')}}" /></a></h1>
-        </header>
         
         @include('shared.nav')
         

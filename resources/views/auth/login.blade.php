@@ -56,7 +56,7 @@
                         <div class="col-md-12">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" name="remember"> ログイン状態を保存する
+                                    <input type="checkbox" name="remember">ログイン状態を保存する
                                 </label>
                             </div>
                         </div>
