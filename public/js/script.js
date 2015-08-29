@@ -497,42 +497,74 @@
             
             	history.pushState('', 'login', '/auth/login'); //詳細はbookにあり HTML5のHistoryAPIを使用してリロードなしのページ遷移が出来る
         		
-                $('body').append('<div class="inBack"></div>');
                 $('html,body').css({overflow:'hidden'});
                 
-                $('.inBack').css({height:h}).fadeIn(400);
+                $('body').append('<div class="inBack"></div>');
+                $('.inBack').css({height:h}).load('/auth/login/ .panel', function(){
                 
-                $('.inBack').load('/auth/login/ .panel', function(){
                     var pw = $('.panel').width();
                     var ph = $('.panel').height();
                     
-                    $('.inBack').append('<span class="octicon octicon-x"></span>');
+                    var up = (h/2 - ph/2)-160;
+                    var pad = 17;
                     
-                    $('.inBack .panel').addClass('addPanel').css({top:(h/2 - ph/2)-100, left:w/2 - pw/2 -17}); 
-                    $('.inBack > .octicon').css({top:(h/2 - ph/2)-80, left:w/2 + pw/2 + 30 });
+                    $(this).append('<span class="octicon octicon-x"></span>')
+                            .find('.panel').addClass('addPanel').css({top:up, left:w/2 - pw/2 -pad, opacity:0})
+                            .next('.octicon').css({top:up+pad, left:w/2 + pw/2 + 25 });
                     
-                    $('.inBack .panel, .octicon-x').fadeIn(400);
+                    //$('.inBack .panel').addClass('addPanel').css({top:up, left:w/2 - pw/2 -pad, opacity:0}); 
+                    //$('.inBack > .octicon').css({top:up+pad, left:w/2 + pw/2 + 25 });
                     
-                });
+                    //$('.inBack .panel');
+                    $(this).find('.panel, .octicon-x').show(0, function(){
+                        $(this).animate({top:'+=60', opacity:1}, 700, 'swing');
+                    });
                 
-                $('.inBack').click(function(e){
+               	}).fadeIn(300).click(function(e){
+                    
                     var t = $(e.target).not('span');
+                    var $inBack = $(this); 
                     
                     if(!t.parents().hasClass('panel')) {
-                        history.pushState('', 'cancel', url);
+                    	$inBack.find('.panel, .octicon-x').animate({top:'-=60', opacity:0}, 400, 'linear', function(){
+                            history.pushState('', 'cancel', url);
+                            
+                            $('html,body').css({overflow:'visible'});
+                            
+                            $inBack.fadeOut(400, function(){
+                                $(this).find('.panel').removeClass('addPanel').parent(this).remove();
+                                //$(this).remove();
+                            });
                         
-                        $('html,body').css({overflow:'visible'});
-                        
-                        $(this).fadeOut(400, function(){
-                            $('.inBack .panel').removeClass('addPanel');
-                            $(this).remove();
                         });
                     }
                 });
                 
                 
+                /*
+                $('.inBack').load('/auth/login/ .panel', function(){
+                    var pw = $('.panel').width();
+                    var ph = $('.panel').height();
+                    
+                    var up = (h/2 - ph/2)-170;
+                    var pad = 17;
+                    
+                    $('.inBack').append('<span class="octicon octicon-x"></span>');
+                    
+                    $('.inBack .panel').addClass('addPanel').css({top:up, left:w/2 - pw/2 -pad, opacity:0}); 
+                    $('.inBack > .octicon').css({top:up+pad, left:w/2 + pw/2 + 25 });
+                    
+                    //$('.inBack .panel');
+                    $('.inBack .panel, .octicon-x').fadeIn(0,function(){
+                    	$(this).animate({top:'+=70', opacity:1}, 500, 'linear');
+                    });
+                    
+                });
+                */
                 
                 
+                
+
 //                $('#content').load('/wp-content/themes/twentyfifteen/page.php', data, function(){
 //                                    $(this).fadeIn(600);
 //                                    
