@@ -2089,7 +2089,6 @@ span.t-down:after {
     background: url(../images/main/orange-tiles-s.png);
     //border: 1px solid red;
     border-radius: 1em;
-    
 }
 .wrap-reset .form-group:nth-of-type(3) .control-label {
 	line-height: 1.4em;
@@ -2168,13 +2167,14 @@ span.t-down:after {
 }
 .panel-body .conf-btn {
 	min-width: 11em;
-    line-height: 3.2em;
+    line-height: 2.8em;
     font-size: 1.2em;
     padding: 0 2.8em;
     border-width: 5px;
     //border-color: #FD8466;
     display: block;
     margin: 2em auto 0;
+    //border: 1px solid red;
 }
 .panel .control-label {
 	text-align: left;
