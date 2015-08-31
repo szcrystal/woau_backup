@@ -74,8 +74,10 @@ class PageController extends Controller
             return view('pages.contact', ['headTitle'=>$headTitle/*, 'intro_ct'=>$intro_ct*/]);
         }
         else {
-        	$pageObj = Page::where('url_name', $url_name) -> first();
-            return view('pages.page') -> with(compact('pageObj'));
+        	if($pageObj = Page::where('url_name', $url_name) -> first())
+	            return view('pages.page') -> with(compact('pageObj'));
+            else
+            	abort(404);
         }
 
     }

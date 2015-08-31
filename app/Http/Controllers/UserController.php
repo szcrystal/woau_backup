@@ -24,9 +24,9 @@ class UserController extends Controller
         	return view('auth.profile', compact('authProfile'));
         }
         else {
-            if(Auth::user()->user_number == $user_number) {
-            
-                $user = User::where('user_number', $user_number) -> first();
+        	$user = Auth::user();
+            if($user->user_number == $user_number) {
+                //$user = User::where('user_number', $user_number) -> first();
                 $jobObjs = $user -> jobentries;
                 $studyObjs = $user -> studyentries;
                 $headTitle = "ユーザー情報";
@@ -34,7 +34,8 @@ class UserController extends Controller
                 return view('auth.profile', ['user' => $user, 'jobObjs' => $jobObjs, 'studyObjs'=> $studyObjs, 'headTitle'=> $headTitle]);
             }
             else {
-                echo "Invalid Access : UserController->getEdit()"; //エラーページに遷移させるか
+                //echo "Invalid Access : UserController->getEdit()"; //エラーページに遷移させるか
+                abort(404);
             }
         }
     }
