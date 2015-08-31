@@ -19,17 +19,23 @@ class UserController extends Controller
     }
     
     public function getIndex($user_number) {
-    	if(Auth::user()->user_number == $user_number) {
-        
-    		$user = User::where('user_number', $user_number) -> first();
-            $jobObjs = $user -> jobentries;
-            $studyObjs = $user -> studyentries;
-            $headTitle = "ユーザー情報";
-        	
-            return view('auth.profile', ['user' => $user, 'jobObjs' => $jobObjs, 'studyObjs'=> $studyObjs, 'headTitle'=> $headTitle]);
+    	if($user_number == 59999) {
+        	$authProfile = '管理者用のこのページはありません';
+        	return view('auth.profile', compact('authProfile'));
         }
         else {
-        	echo "Invalid Access : UserController->getEdit()"; //エラーページに遷移させるか
+            if(Auth::user()->user_number == $user_number) {
+            
+                $user = User::where('user_number', $user_number) -> first();
+                $jobObjs = $user -> jobentries;
+                $studyObjs = $user -> studyentries;
+                $headTitle = "ユーザー情報";
+                
+                return view('auth.profile', ['user' => $user, 'jobObjs' => $jobObjs, 'studyObjs'=> $studyObjs, 'headTitle'=> $headTitle]);
+            }
+            else {
+                echo "Invalid Access : UserController->getEdit()"; //エラーページに遷移させるか
+            }
         }
     }
 

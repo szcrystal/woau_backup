@@ -7,8 +7,11 @@
             <li>ユーザー情報</li>
         </ul>
     
+    	@if(isset($authProfile))
+    		<h3>{{$authProfile}}</h3>
+    	@else
     	<article class="page-ct">
-        	<h1>{{$user->name}} さんのユーザー登録情報</h1>
+        	<h2>{{$user->name}} さんのユーザー登録情報</h2>
         	
             @if (session('status'))
                 <div class="alert alert-success">
@@ -242,6 +245,7 @@
         
     </article>
         
+	@endif
 
     {{--
         @foreach($userObj as $key => $val)

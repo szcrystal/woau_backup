@@ -23,7 +23,7 @@
             <a href="{{ getUrl('auth/login') }}" class="login">ログイン</a>
         </li>
         <li>
-            <p>登録すると<br>企業情報が閲覧可能！</p>
+            <p>登録すると<br>案件情報が閲覧可能！</p>
             <a href="{{ getUrl('auth/register') }}">新規登録</a>
         </li>
     @endif

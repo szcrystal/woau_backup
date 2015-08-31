@@ -3,13 +3,20 @@ main css
 */
 
 body {
-	//background: red;
     font-size: 1.5em;
 	line-height: 1.6em;
-    font-family: "游ゴシック", "YuGothic", "Meiryo", sans-serif;
     background: #fffdfc; /* #FFFDFC */
     color: #4e4e4e;
 }
+body {
+	font-family: "Meiryo", "游ゴシック", "YuGothic", sans-serif;
+    /* Win10 Default: "Yu Gothic UI", */
+}
+input,
+textarea { /* only Win */
+	font-family: "Meiryo", sans-serif;
+}
+
 @media all and (-ms-high-contrast:none){ /* IE10-11 */
       body {
         //font-weight: bold;
@@ -124,7 +131,8 @@ a.topic-link,
 /*#user-belt,*/
 /*#navmenu,*/
 /*.home #cal p:last-of-type*/ {
-	font-family: "游ゴシック", "YuGothic", "Meiryo", sans-serif;
+	font-family: "Meiryo", "游ゴシック", "YuGothic", sans-serif;
+	//font-family: "游ゴシック", "YuGothic", "Meiryo", sans-serif;
 	//font-family: "Hiragino Maru Gothic Pro", "Meiryo", sans-serif;
 }
 #navmenu,
@@ -132,7 +140,6 @@ a.topic-link,
 #colop li a*/ {
 	font-family: "Hiragino Maru Gothic Pro", "Meiryo", sans-serif;
 }
-
 
 #head {
 	/* width first specify */
@@ -787,10 +794,15 @@ a.arrow-white {
     -moz-transition: all 0.2s linear;
 	transition: all 0.2s linear;       
 }
-@media screen and (-webkit-min-device-pixel-ratio:0) { /* for Safari */
+@media screen and (-webkit-min-device-pixel-ratio:0) { /* for Safari not chrome */
   .link-box a span {
     	-webkit-transform: translateZ(0);
 	    font-weight: bold;
+  }
+}
+@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+  .link-box a span {
+	font-weight: normal;
   }
 }
 
@@ -825,10 +837,11 @@ a.arrow-white {
     //transform: scale(0.97);
 }
 .link-box a:hover span {
-	opacity: 1;
+	//opacity: 1;
     //color: #fff;
     //font-weight: bold;
 }
+
 
 .guest section.contents .link-box:first-of-type {
 	//background-color: #F7B154;
@@ -1744,7 +1757,7 @@ h2.panel-head img {
 	border-radius: 0;
     box-shadow: none;
     border: 1px solid #aaa;
-    font-family: "游ゴシック", "YuGothic", "Meiryo", sans-serif;
+    //font-family: "游ゴシック", "YuGothic", "Meiryo", sans-serif;
 }
 .form-d input {
 	width: 75%;
@@ -1764,7 +1777,7 @@ span.t-down:after {
 	display: inline-block;
 	content: "";
 	position: absolute;
-	top: -6px;
+	//top: -3px;
 	right: 0;
 	width: 15px;
 	height: 29px;
@@ -1773,6 +1786,11 @@ span.t-down:after {
 	background: url(../images/main/triangle_down.png) 1px 50% no-repeat, #aaa;
 	background-size: 13px, 13px;
 	pointer-events: none;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	::i-block-chrome, span.t-down:after {
+		top: -6px;
+	}
 }
 @-moz-document url-prefix() { /* FireFox */
   span.t-down:after {
@@ -2046,10 +2064,10 @@ span.t-down:after {
 .addPanel {
 	position: absolute;
     z-index: 9999;
-    top: 250px;
-    left: 30%;
-    opacity: 1;
-    display: none;
+    //top: 250px;
+    //left: 30%;
+    opacity: 0;
+    //display: none;
     margin: 0;
 }
 .addPanel label {
@@ -2058,7 +2076,8 @@ span.t-down:after {
 .inBack > .octicon {
 	position: absolute;
     z-index: 10000;
-    display: none;
+    opacity: 0;
+    //display: none;
     font-size:2.5em;
     font-weight: normal;
     color:#fefefe;

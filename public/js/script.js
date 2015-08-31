@@ -466,21 +466,51 @@
             $p.find('a[rel="next"]').empty().append('<img src="/images/main/double-arrow-gray.png">');
         },
         
-        
+        /*
         dropDown: function() {
         	var speed = 450;
+            var ease = 'easeInSine';
             
         	$('.dd-toggle').click(function(){
                 $('.dd-toggle').not(this).next('ul:visible').fadeOut(speed);
-            	$(this).next('ul').fadeToggle(speed);
-                
+                $(this).next('ul').fadeToggle(speed, ease);
+                            
                 return false;
             });
             
             $('body').click(function(e){
             	var t = $(e.target);
                 if(!t.parents().hasClass('dropdown')) {
-                	$('.dd-toggle').next('ul:visible').fadeOut(speed);
+                	$('.dd-toggle').next('ul:visible').fadeOut(speed, ease);
+                }
+            
+                
+            });  
+        },
+        */
+        
+        dropDown: function() {
+        	var speed = 450;
+            var ease = 'easeOutBack';
+            var easeBack = 'easeInBack';
+            
+        	$('.dd-toggle').click(function(){
+                $('.dd-toggle').not(this).next('ul:visible').slideUp(speed, easeBack);
+                
+                if($(this).next('ul').is(':hidden')) {
+	            	$(this).next('ul').slideDown(speed, ease);
+                    
+    			}
+                else {
+                	$(this).next('ul').slideUp(speed, easeBack);
+                }            
+                return false;
+            });
+            
+            $('body').click(function(e){
+            	var t = $(e.target);
+                if(!t.parents().hasClass('dropdown')) {
+                	$('.dd-toggle').next('ul:visible').slideUp(speed, easeBack);
                 }
             
                 
@@ -490,48 +520,101 @@
         loginFunc: function() {
         	$('.login').click(function(){
             	
-                url = location.href;
+                var url = location.href;
                 
-                h = $(window).height();
-                w = $(window).width();
+                var h = $(window).height();
+                var w = $(window).width();
             
             	history.pushState('', 'login', '/auth/login'); //詳細はbookにあり HTML5のHistoryAPIを使用してリロードなしのページ遷移が出来る
         		
                 $('html,body').css({overflow:'hidden'});
                 
+                /*
                 $('body').append('<div class="inBack"></div>');
-                $('.inBack').css({height:h}).load('/auth/login/ .panel', function(){
+                
+                var $inBack = $('.inBack');
+                
+                $inBack.css({height:h}).append('<span class="octicon octicon-x"></span>');
+                
+                
+                    
+                    //$('.inBack .panel').addClass('addPanel').css({top:up, left:w/2 - pw/2 -pad, opacity:0}); 
+                    //$('.inBack > .octicon').css({top:up+pad, left:w/2 + pw/2 + 25 });
+                    
+                $inBack.fadeIn(300, function(){
+                
+                	var pw = $('.panel').width();
+                    var ph = $('.panel').height();
+                    
+                    console.log(ph);
+                    
+                    var up = (h/2 - ph/2)-220;
+                    var pad = 17;
+                    
+                    $inBack.find('.panel').addClass('addPanel').css({top:up, left:w/2 - pw/2 -pad, opacity:0})
+                    $inBack.find('.octicon').css({top:up+pad, left:w/2 + pw/2 + 25, cursor:'pointer', opacity:0});
+                	
+                
+                    $(this).find('.panel, .octicon-x').show(0).animate({top:'+=120', opacity:1}, 1000, 'easeOutBack');
+                
+                }).click(function(e){
+                    
+                    var t = $(e.target).not('span');
+                     
+                    
+                    if(!t.parents().hasClass('panel')) {
+                    	$(this).find('.addPanel, .octicon-x').animate({top:'-=100', opacity:0}, 600, 'easeInBack', function(){
+                            history.pushState('', 'cancel', url);
+                            
+                            $('html,body').css({overflow:'visible'});
+                            
+                            $inBack.fadeOut(500, function(){
+                                $(this).find('.panel').removeClass('addPanel').next('.octicon').remove();
+                                //$(this).remove();
+                            });
+                        
+                        });
+                    }
+                });
+                */
+                
+                
+                
+                $('body').append('<div class="inBack"></div>');
+                
+                var $inBack = $('.inBack');
+                
+                $inBack.css({height:h}).load('/auth/login .panel', function(){
                 
                     var pw = $('.panel').width();
                     var ph = $('.panel').height();
                     
-                    var up = (h/2 - ph/2)-160;
+                    var up = (h/2 - ph/2)-320;
                     var pad = 17;
                     
                     $(this).append('<span class="octicon octicon-x"></span>')
                             .find('.panel').addClass('addPanel').css({top:up, left:w/2 - pw/2 -pad, opacity:0})
-                            .next('.octicon').css({top:up+pad, left:w/2 + pw/2 + 25 });
+                            .next('.octicon').css({top:up+pad, left:w/2 + pw/2 + 25, cursor:'pointer', opacity:0});
                     
                     //$('.inBack .panel').addClass('addPanel').css({top:up, left:w/2 - pw/2 -pad, opacity:0}); 
                     //$('.inBack > .octicon').css({top:up+pad, left:w/2 + pw/2 + 25 });
                     
                     //$('.inBack .panel');
-                    $(this).find('.panel, .octicon-x').show(0, function(){
-                        $(this).animate({top:'+=60', opacity:1}, 700, 'swing');
-                    });
+                    $(this).find('.panel, .octicon-x').animate({top:'+=220', opacity:1}, 800, 'easeOutBack');
+                    //});
                 
                	}).fadeIn(300).click(function(e){
                     
                     var t = $(e.target).not('span');
-                    var $inBack = $(this); 
+                     
                     
                     if(!t.parents().hasClass('panel')) {
-                    	$inBack.find('.panel, .octicon-x').animate({top:'-=60', opacity:0}, 400, 'linear', function(){
+                    	$(this).find('.panel, .octicon-x').animate({top:'-=100', opacity:0}, 600, 'easeInBack', function(){
                             history.pushState('', 'cancel', url);
                             
                             $('html,body').css({overflow:'visible'});
                             
-                            $inBack.fadeOut(400, function(){
+                            $inBack.fadeOut(500, function(){
                                 $(this).find('.panel').removeClass('addPanel').parent(this).remove();
                                 //$(this).remove();
                             });
@@ -595,7 +678,7 @@
             var tb = $('.toTop');
             
             tb.click( function() {
-                $('html, body').animate({ scrollTop:0 }, 700, 'swing', function(){
+                $('html, body').animate({ scrollTop:0 }, 1200, 'easeOutExpo', function(){ //ORG swing 700 / InOutcubic
                 	$(this).queue([]).stop();
                 });
             });
@@ -621,6 +704,7 @@
     	
 $(function(){
 	
+    //$(this).load('/auth/login/ .panel');
     
     waDo.dragdrop();
     

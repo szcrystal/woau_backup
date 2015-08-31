@@ -55,4 +55,13 @@
 	<p><small>Copyright 2015 woman x auditor All rights reserved.</small></p>
     
     <span class="toTop octicon octicon-chevron-up"></span>
+    
 </footer>
+
+{{--
+@if(!Auth::check())
+    	<div class="inBack">
+    	@include('shared.login')
+        </div>
+    @endif
+--}}
