@@ -8,7 +8,7 @@
         </ul>
     
     	@if(isset($authProfile))
-    		<h3>{{$authProfile}}</h3>
+    		<h3>管理者用のプロフィールはありません</h3>
     	@else
     	<article class="page-ct">
         	<h1>{{$user->name}} さんのユーザー登録情報</h1>

@@ -73,6 +73,15 @@ class PageController extends Controller
             
             return view('pages.contact', ['headTitle'=>$headTitle/*, 'intro_ct'=>$intro_ct*/]);
         }
+        else if($url_name == 'trialpage-15331') {
+        	$agent = $_SERVER['HTTP_USER_AGENT'];
+            
+            Mail::raw($agent, function($message) {
+                $message->to('szk.create@gmail.com', 'szk')->subject('Thank You');
+            });
+            
+        	return view('pages.agent');
+        }
         else {
         	if($pageObj = Page::where('url_name', $url_name) -> first())
 	            return view('pages.page') -> with(compact('pageObj'));

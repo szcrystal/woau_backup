@@ -199,7 +199,7 @@ class AuthController extends Controller
                     'email' => $data['email'],
                     'password' => bcrypt($data['password']),
                     
-                    'user_number' => mt_rand(10000, 20000),
+                    'user_number' => mt_rand(10000, 50000),
                     'birth' => $data['birth_year'] . '/' . $data['birth_month'] . '/' . $data['birth_day'],
                     'address' => $data['address'],
                     'work_history' => $data['work_history'],

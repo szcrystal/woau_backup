@@ -25,23 +25,25 @@
                 @else
                 	<a href="{{ getUrl('recruit/entry/'.$singleObj->job_number) }}" class="edit-btn">この案件に応募する</a>
                 @endif
-                <h2 style="text-align:left; width: 100%;">{{$singleObj -> company_name}}</h2>
-                <h3 style="text-align:left;">{{$singleObj->title}}</h3>
+                <h2>{{$singleObj -> company_name}}</h2>
+                <h3>{{$singleObj->title}}</h3>
             </header>
+
+			
+            <section>
+                {!! $singleObj->main_content !!}
             
-            <section style="text-align:left;">
-                {{$singleObj->sub_title}}
-            
-                {{$singleObj->first_comment}}
-            </section>
-            <section style="text-align:left;">
-                {{$singleObj->main_comment}}
-            
-                {{$singleObj->sub_comment}}
             </section>
             
             <section>
-            <div class="imghere">企業の画像やロゴなど・・？？</div>
+            @if($singleObj->img_link != '')
+            	<?php
+                	$imgArr = explode(';', $singleObj->img_link);
+                ?>
+            <img src="{{asset($imgArr[0])}}" class="imghere">
+            @else
+            <div class="imghere"></div>
+            @endif
             <div class="table-responsive">
                 <table class="table table-bordered company-table">
                     <colgroup>
@@ -51,39 +53,49 @@
                     <tbody>
                         <tr>
                             <th scope="row">会社名</th>
-                            <td>{{$singleObj -> company_name}}</td>
+                            <td>@if($singleObj->work_name != ''){{ $singleObj->work_name }}
+                                @else{{$singleObj -> company_name}}@endif</td>
                         </tr>
                         <tr>
-                            <th scope="row">時間</th>
-                            <td>9:00〜</td>
+                            <th scope="row">ホームページ</th>
+                            <td><a href="{{$singleObj->work_site}}">{{$singleObj->work_site}}</a></td>
                         </tr>
                         <tr>
-                            <th scope="row">項目A</th>
-                            <td>・・・</td>
+                            <th scope="row">形態</th>
+                            <td>{{ $singleObj -> work_format }}</td>
                         </tr>
                         <tr>
-                            <th scope="row">項目B</th>
-                            <td>・・・</td>
+                            <th scope="row">勤務日数</th>
+                            <td>{{ $singleObj -> work_day }}</td>
                         </tr>
                         <tr>
-                            <th scope="row">項目C</th>
-                            <td>・・・</td>
+                            <th scope="row">応募条件</th>
+                            <td>{!! nb($singleObj -> work_require) !!}</td>
                         </tr>
+                        <tr>
+                            <th scope="row">その他</th>
+                            <td>{!! nb($singleObj -> work_other) !!}</td>
+                        </tr>
+                        
+                        @if($singleObj->work_other_second != '')
+                        <tr>
+                            <th scope="row">備考</th>
+                            <td>{!! nb($singleObj -> work_other_second) !!}</td>
+                        </tr>
+                        @endif
                     </tbody>
                 </table>
             </div>
             </section>
 
-            
-            
-            
             <footer>
             	@if(isset($already))
                 <span class="done-btn">{{$already}}</span>
                 @else
             	<a href="{{ getUrl('recruit/entry/'.$singleObj->job_number) }}" class="edit-btn">この案件に応募する</a> 
                 @endif  
-                {{-- pager('irohas', $singleObj->id) --}}
+                {!! pager('jobs', $singleObj->id) !!}
+                
                 <a href="{{ getUrl('recruit') }}" class="back-tx">案件情報一覧へ戻る</a>
 
             	{{-- 

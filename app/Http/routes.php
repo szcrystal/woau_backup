@@ -168,20 +168,37 @@ function pager($table, $id_arg) {
     
 	$format = '<ul class="pager">';
     
-    if(isset($prev)) {
-    	$link = ($table == 'irohas') ? 'iroha/'. $prev->slug : $prev->slug;
-    	$format .= '<li><a href="' . getUrl($link.'/'.$prev->id) . '" rel="prev">PREV</a></li>';
-    }
-    else
-        $format .= '<li class="disabled"><span>PREV</span></li>';
+    function linkFunc($arg, $table) {
+    	if($table == 'irohas') 
+        	$link = 'iroha/'. $arg->slug . '/' . $arg->id;
         
-    if(isset($next)) {
-    	$link = ($table == 'irohas') ? 'iroha/'. $next->slug : $next->slug;
-        $format .= '<li><a href="'. getUrl($link.'/'.$next->id) .'" rel="next">NEXT</a></li>';
+        elseif($table == 'jobs') 
+        	$link = 'recruit/job/' . $arg->job_number;
+        
+        else 
+            $link = $arg->slug.'/'.$arg->id;
+            
+        return $link;
     }
-    else
+    
+    
+    
+    if(isset($prev)) {
+    	$format .= '<li><a href="' . getUrl(linkFunc($prev, $table)) . '" rel="prev">PREV</a></li>';
+    }
+    else {
+        $format .= '<li class="disabled"><span>PREV</span></li>';
+    }
+    
+    if(isset($next)) {
+    	
+    	//$link = ($table == 'irohas') ? 'iroha/'. $next->slug : $next->slug;
+        $format .= '<li><a href="'. getUrl(linkFunc($next, $table)) .'" rel="next">NEXT</a></li>';
+    }
+    else {
         $format .= '<li class="disabled"><span>NEXT</span></li>';
-
+	}
+    
     $format .= '</ul>'."\n";
     
     return $format;

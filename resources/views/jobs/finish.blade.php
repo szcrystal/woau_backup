@@ -12,7 +12,7 @@
     
     <main class="page-ct job-entry">
     	<div class="main-head">
-        	<h1 class="panel-head">{{$obj->title}}へ応募する</h1>
+        	<h1 class="panel-head">{{$obj->company_name}}へ応募する</h1>
             {{--<img src="/images/main/about/entry.png">--}}
         </div>
                 

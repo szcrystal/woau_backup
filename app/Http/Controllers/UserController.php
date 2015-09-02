@@ -19,8 +19,8 @@ class UserController extends Controller
     }
     
     public function getIndex($user_number) {
-    	if($user_number == 59999) {
-        	$authProfile = '管理者用のこのページはありません';
+    	if($user_number == 59999 && getenv('LARAVEL_ENV') == 'heroku') {
+        	$authProfile = '管理者用のプロフィールページはありません';
         	return view('auth.profile', compact('authProfile'));
         }
         else {

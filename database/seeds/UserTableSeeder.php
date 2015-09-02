@@ -51,16 +51,17 @@ class UserTableSeeder extends Seeder
             'updated_at' => new DateTime
         ]);
         
+        /*
         DB::table('jobs')->insert([
             'company_name' => '株式会社セレクティ',
-            'job_number' => '15151',
+            'job_number' => '151515',
             'title' => '医療事務【資格を生かして働く♪ 勤務地多数あり★実務未経験OK】',
             'first_comment' => '“はたらく”の様々なこだわりに応えます！出産後のライフスタイルの変化にも柔軟にお応えしますので、お気軽にご相談ください♪',
             'main_comment' => '勤務地	首都圏、関西、東北エリアでお仕事をご紹介しています！',
             'created_at' => new DateTime,
             'updated_at' => new DateTime,
         ]);
-        
+        */
         DB::table('pages')->insert([
             'title' => '公認会計士のスキルを監査役として生かしたい',
             'sub_title' => 'woman x auditor',

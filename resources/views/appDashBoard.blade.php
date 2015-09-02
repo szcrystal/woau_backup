@@ -31,7 +31,7 @@
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
     <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
-    <script src="{{ asset('/js/script.js') }}"></script>
+    <script src="{{ asset('/js/dbd_script.js') }}"></script>
     <script src="{{ asset('/ckeditor/ckeditor.js') }}"></script>
     
     <!-- Latest compiled and minified JavaScript -->
@@ -134,13 +134,22 @@
           </ul>
           
           <ul class="nav nav-sidebar">
-            <li{!!addCurrent('jobs')!!}><a href="{{url('/dashboard/jobs')}}" class="onSlide"><span class="octicon octicon-file-directory"></span>求人情報</a></li>
+            <li{!!addCurrent('jobs')!!}><a href="{{url('/dashboard/jobs')}}" class="onSlide"><span class="octicon octicon-file-directory"></span>案件情報</a></li>
             <li>
-            	<ul class="slide">
-                    <li><a href="#">求人情報一覧</a></li>
-                    <li><a href="#">新規追加</a></li>
-                    <li><a href="#">求人応募者一覧</a></li>
+            	@if(getenv('LARAVEL_ENV') == 'heroku')
+                <ul class="slide">
+                    <li><a href="">案件情報一覧</a></li>
+                    <li><a href="">新規案件追加</a></li>
+                    <li><a href="">案件応募者一覧</a></li>
             	</ul>
+                
+                @else
+            	<ul class="slide">
+                    <li><a href="{{url('/dashboard/jobs')}}">案件情報一覧</a></li>
+                    <li><a href="{{url('/dashboard/jobs-add')}}">新規案件追加</a></li>
+                    <li><a href="{{url('/dashboard/jobs-entry')}}">案件応募者一覧</a></li>
+            	</ul>
+                @endif
             </li>
           </ul>
           

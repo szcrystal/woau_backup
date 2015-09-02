@@ -265,6 +265,63 @@ class DashBoardController extends Controller
     }
     
     
+    /* Jobs ***** */
+    //index
+    public function getJobs(Request $request) {
+    	if($request -> has('s')) {
+        	$objs = $this -> returnSearchObj('jobs', $request->input('s'));
+            return view('dbd_pages.pages', ['objs'=>$objs[0], 'searchStr' => $objs[1]]);
+        }
+    	else {
+    		$objs = $this -> job -> orderBy('created_at','desc') ->paginate($this->pg);
+        	return view('dbd_jobs.jobs')->with(compact('objs'));
+        }
+    }
+    //Jobs add
+    public function getJobsAdd() {
+    	$slug = 'jobs';
+        return view('dbd_jobs.jobform', ['slug'=>$slug]);
+    }
+    
+    public function postJobsAdd(Request $request) {
+    	$rules = [
+            'company_name' => 'required|min:3',
+        ];
+        $this->validate($request, $rules);
+        
+
+    	$data = $request->all(); //requestから配列として$dataにする
+        $data['job_number'] = mt_rand(600000, 999999);
+        $this->job->fill($data); //モデルにセット
+        $this->job->save(); //モデルからsave
+        
+        $id = $this->job->id;
+        
+    	return redirect('dashboard/jobs-edit/'."$id")->with('status', '案件が追加されました！');
+    }
+    
+    //Jobs Edit
+    public function getJobsEdit($id) {
+    	$article = $this->job->find($id);
+        
+        //$bytes = random_bytes(5);
+		//$bytes = bin2hex(mt_rand());
+        $bytes = md5(uniqid(rand(), TRUE));
+        session(['del_key' => $bytes]);
+        
+        return view('dbd_jobs.jobform', compact('article'));
+    }
+
+    public function postJobsEdit(Request $request, $id) {
+    	$article = $this->job->find($id);
+        $data = $request->all(); //$data:配列
+        $article->fill($data);
+        $article->save();
+        
+        //print_r($data);
+        return redirect('dashboard/jobs-edit/'.$id)->with('status', '案件情報が更新されました！');
+    }
+    
     
     /* Topics ***** */
     //index

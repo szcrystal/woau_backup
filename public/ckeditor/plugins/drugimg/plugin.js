@@ -5,20 +5,26 @@ CKEDITOR.plugins.add( 'drugimg', {
         
         editor.addCommand( 'drugimg', {
             exec: function( editor ) {
+                $('.imgArea-job:visible').hide(); //Job用の画像エリアを隠す
+                
+                $('.imgArea').find('#dropArea').find('img').remove(); //dropArea内の画像はOpen時に全て消す
+                
                 
             	$('.container-fluid').append('<div class="plugBack"></div>'); //白背景追加
                 $('.plugBack').css({ height:$(window).height() });         
                 //.plugBackのcssはdbd.cssに入れている
-
+				
+                $('html,body').css({overflow:'hidden'});
+                
                 $('.imgArea').addClass('plug')
-                			//.css({opacity:1})
                 			.append('<button style="margin-right:1em;" class="addBtn btn btn-success">O K</button>')
                             .append('<button class="closeBtn btn btn-default">キャンセル</button>');
+                //$('.plug').css({top:0, left:0});
                 //$('.plug').find('.preImg').hide();
                 
                 $('.addBtn').click(function(){
-                	var str = $('code.addCode').text();
-                    editor.insertHtml( str );
+                	var str = $('code.addCode').text(); //コードエリア内に書き出すソースをテキストとして取得する
+                    editor.insertHtml( str ); //エディタに入れる
                     backAll();
                     return false;
                 });
@@ -27,12 +33,16 @@ CKEDITOR.plugins.add( 'drugimg', {
                 	backAll();
                     return false;
                 }); 
-                
+                                
                 function backAll() {
-                	$('.imgArea').removeClass('plug');
+                	$('.imgArea').removeClass('plug').find('#del_btn').hide();
+                    $('#codeArea').find('code').empty(); //CodeArea内のソースコードを消す
+
                     $('.addBtn').remove()
                     $('.closeBtn').remove();
                     $('.plugBack').remove();
+                    $('html,body').css({overflow:'visible'});
+                    $('.imgArea-job:hidden').show();
                 }
             }
         });

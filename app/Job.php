@@ -17,11 +17,17 @@ class Job extends Model
     						'job_number',
                             'company_name',
                             'title',
-                            
                             'sub_title',
-                            'first_comment',
-                            'main_comment',
-                            'sub_comment',
+                            'main_content',
+                            'work_name', 
+							'work_site', 
+                            'work_format',
+                            'work_day',	 
+                            'work_require', 
+                            'work_other', 
+                            'work_other_second', 
+                            'img_link',
+                            'slug',
                         ];
                             
 //    $table->increments('id');

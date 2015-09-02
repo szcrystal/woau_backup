@@ -21,10 +21,15 @@ CKEDITOR.editorConfig = function( config ) {
     //config.bodyClass = 'con';
     //config.fontSize_sizes = "1em";
     //config.editor.dataProcessor.writer.indentationChars = ''; //インデントなしにする
-    config.extraPlugins = 'debug_css';
-    config.extraPlugins = 'drugimg';
     
+    //config.extraPlugins = 'debug_css'; //css２つ読み込み用
     config.contentsCss = ['/css/app.css','/css/main.css'];
+    
+    //if(! location.pathname.indexOf('jobs') > 0) {
+    config.extraPlugins = 'drugimg';
+    //}
+    //console.log(location.pathname.indexOf('jobs'));
+    
     
     config.toolbarGroups = [
 		{ name: 'clipboard', groups: [ 'undo', 'clipboard' ] },
