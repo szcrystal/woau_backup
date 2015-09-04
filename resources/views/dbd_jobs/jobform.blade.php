@@ -1,7 +1,7 @@
 @extends('appDashBoard')
 
 @section('content')
-	<h2 class="page-header"><span class="mega-octicon octicon-file-directory"></span>{{ isset($article) ? '案件情報 編集':'案件情報 新規追加'}}</h2>
+	<h2 class="page-header"><span class="mega-octicon octicon-file-directory"></span> {{ isset($article) ? '案件情報 編集':'案件情報 新規追加'}}</h2>
     
     	@if (count($errors) > 0)
             <div class="alert alert-danger">
@@ -56,13 +56,13 @@
               {!! Form::input('text', 'title', isset($article) ? $article->title : null, ['class' => 'form-control']) !!}
           </div>
           <div class="form-group">
-              <label>サブタイトル（リンク名などに使用されます）</label>
+              <label>サブタイトル（リンク名などに使用されます。ページ内には表示されません。）</label>
               {!! Form::input('text', 'sub_title', isset($article) ? $article->sub_title : null, ['class' => 'form-control']) !!}
           </div>
           
           @include('dbd_shared.mainContent')
           
-          <label style="margin: 2em 0;">*以下の項目はテーブル内に表示されます ******************</label>
+          <label style="margin: 2em 0;">*以下の項目はテーブル内に表示されます ----------------------</label>
           <div class="form-group">
               <label>企業名（上記の企業名と同様であれば未記入）</label>
               {!! Form::input('text', 'work_name', isset($article) ? $article->work_name : null, ['class' => 'form-control']) !!}
@@ -71,7 +71,7 @@
           
           <div class="form-group">
               <label>ホームページ</label>
-              {!! Form::input('text', 'work_site', isset($article) ? $article->work_site : null, ['class' => 'form-control']) !!}
+              {!! Form::input('text', 'work_site', isset($article) ? $article->work_site : null, ['class' => 'form-control', 'placeholder'=>'http〜から入力して下さい']) !!}
           </div>
 
 			<div class="form-group">
@@ -93,14 +93,15 @@
               <label>その他</label>
               {!! Form::textarea('work_other', isset($article) ? $article->work_other : null, ['class' => 'form-control', 'rows'=> 20]) !!}
           </div>
-          
+          {{--
           <div class="form-group">
               <label>その他（予備）</label>
               {!! Form::textarea('work_other_second', isset($article) ? $article->work_other_second : null, ['class' => 'form-control', 'rows'=> 10]) !!}
           </div>
-
-        	@include('dbd_shared.imageJob')
+			--}}
             
+            @include('dbd_shared.imageJob')
+
             @include('dbd_shared.image')
 
           

@@ -46,7 +46,7 @@
               {!! Form::input('text', 'title', isset($article) ? $article->title : null, ['required', 'class' => 'form-control']) !!}
           </div>
           <div class="form-group">
-              <label>サブタイトル</label>
+              <label>サブタイトル（リンク名などに使用されます。ページ内には表示されません。）</label>
               {!! Form::input('text', 'sub_title', isset($article) ? $article->sub_title : null, ['class' => 'form-control']) !!}
           </div>
           {{--
@@ -63,10 +63,12 @@
           
           @include('dbd_shared.mainContent')
           
+          {{--
           <div class="form-group">
               <label>サブコンテンツ</label>
               {!! Form::textarea('sub_content', isset($article) ? $article->sub_content : null, ['class' => 'form-control']) !!}
           </div>
+          --}}
           <br />
 
         	@include('dbd_shared.image')

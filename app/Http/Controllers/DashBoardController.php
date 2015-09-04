@@ -12,6 +12,7 @@ use App\Cate;
 use App\CateRelation;
 use App\Siteinfo;
 use App\Studyentry;
+use App\Jobentry;
 use Auth;
 use DB;
 use Storage;
@@ -66,6 +67,7 @@ class DashBoardController extends Controller
             return view('dashboard.index', ['userObjs'=>$userObjs, 'jobObjs'=>$jobObjs ]);
         }
     }
+
     
     public function returnSearchObj($table_name, $search) {
             
@@ -320,6 +322,28 @@ class DashBoardController extends Controller
         
         //print_r($data);
         return redirect('dashboard/jobs-edit/'.$id)->with('status', '案件情報が更新されました！');
+    }
+    
+    //study user
+    public function getJobsEntry(Request $request, $job_id = null) {
+    	if($request -> has('s')) {
+        	$objs = $this -> returnSearchObj('jobentries', $request->input('s'));
+            return view('dbd_jobs.jobEntry', ['objs'=>$objs[0], 'searchStr' => $objs[1]]);
+        }
+    	else {
+            if(isset($job_id)) {
+            	$job = $this->job->find($job_id);
+                $job_name = $job->company_name;
+                
+                $objs = $job -> jobentry()->paginate($this->pg);
+                
+                return view('dbd_jobs.jobEntry', ['objs'=>$objs, 'job_name'=>$job_name]);
+            }
+            else {
+                $objs = Jobentry::paginate($this->pg);
+                return view('dbd_jobs.jobEntry', ['objs'=>$objs]);
+            }
+        }
     }
     
     

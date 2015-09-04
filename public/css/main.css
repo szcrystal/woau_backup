@@ -136,9 +136,11 @@ a.topic-link,
 	//font-family: "Hiragino Maru Gothic Pro", "Meiryo", sans-serif;
 }
 #navmenu,
-#user-belt/*,
+.main #user-belt,
+/*.home #cal p,
 #colop li a*/ {
-	font-family: "Hiragino Maru Gothic Pro", "Meiryo", sans-serif;
+	//font-family: "Hiragino Maru Gothic Pro", "Meiryo", sans-serif;
+    font-family: "Meiryo", "游ゴシック", "YuGothic", sans-serif;
 }
 
 #head {
@@ -320,10 +322,10 @@ a.topic-link,
 .home #cal > div {
 	max-width: 1050px;
     height: 373px;
-    padding-top: 15px;
+    padding-top: 13px;
     box-sizing: content-box;
     //background: url(../images/main/banner-r50.png) no-repeat;
-    background: url(../images/main/top-banner.png) no-repeat;
+    background: url(../images/main/bn-regular.png) no-repeat;
 	color: #fff/*#ff3f02*//*#ff3f02*/;
     margin: auto;
     
@@ -339,6 +341,7 @@ a.topic-link,
     font-size: 1.9em;
     line-height: 1.5em;
     letter-spacing: 0.08em;
+    //font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
 }
 .home #cal p + hr {
     /*margin: 0;
@@ -400,6 +403,7 @@ a.topic-link,
 }
 div.person {
 	background: url(../images/main/person.png) no-repeat;
+    background-size: 100% auto;
 	margin-top: 37px;
     width: 122px;
     height: 136px;
@@ -415,9 +419,14 @@ div.person {
     //background: url(../images/main/orange-tiles.png);
     //border: 1px solid #fe5c26;
     //border-width: 2px 0;
-    padding: 0.5em 0;
+    //padding: 0.5em 0;
     font-size: 0.9em;
     
+}
+.home #user-belt {
+    padding: 0.35em 1em 0.45em;
+    color: #fff;
+    border-radius: 3px;
 }
 #user-belt > div {
 	/* width first specify */
@@ -450,7 +459,7 @@ div.person {
 }
 .main #user-belt > ul > li > a {
 	display: inline-block;
-	color: #525252;
+	color: #515151;
     text-align: center;
     padding: 0.25em 2.2em 0.15em;
     min-width: 10.5em;
@@ -458,7 +467,7 @@ div.person {
     //border: 1px solid #333/*#63524E*/;
     background: #fefefe;
     //color:#fff;
-    border-radius: 0.5em;
+    border-radius: 0.4em;
     //box-sizing: content-box;
 }
 .main #user-belt > ul > li:last-of-type {
@@ -510,19 +519,30 @@ div.person {
 /*}*/
 
 a.arrow-white {
-	margin-left: 1.5em;
+	//margin-left: 1.5em;
 	color: #fff;
     text-decoration: none;
     background: url(../images/main/arrow-white.png) 0.5em 47% no-repeat;
 }
 
-.home #user-belt > div > a {
+/*.home #user-belt > div > a {*/
+/*	border: 2px solid #fff;*/
+/*    border-radius: 0.3em;*/
+/*    padding: 0.5em 0.8em 0.5em 2em;*/
+/*    color: #fff;*/
+/*    text-decoration: none;*/
+/*    background: url(../images/main/arrow-white.png) 0.5em 47% no-repeat;*/
+/*}*/
+.home #user-belt > a.arrow-white {
+	float: right;
+    font-size: 0.95em;
 	border: 2px solid #fff;
     border-radius: 0.3em;
-    padding: 0.5em 0.8em 0.5em 2em;
+    padding: 0 0.8em 0 2.2em;
     color: #fff;
     text-decoration: none;
     background: url(../images/main/arrow-white.png) 0.5em 47% no-repeat;
+    background-size: 17px auto;
 }
 
 .guest-belt {
@@ -596,22 +616,28 @@ a.arrow-white {
 	float: left;
 	width: 44%;
     height: auto;
+    
+    min-height: 30em;
+    padding: 1.2em 1.5em 1.5em;
+	border: 2px solid #838383;
+    border-radius: 0.3em;
+    background: #fefefe;
     //box-sizing: none;
     //border: 1px solid blue;
 }
-.user section h2 {
-	font-size: 1.1em;
-    margin: 0 0 0.3em;
-    //background: #fcfaf7;
-    //border: 1px solid red;
-}
+/*.user section h2 {*/
+/*	font-size: 1.1em;*/
+/*    margin: 0 0 0.3em;*/
+/*    //background: #fcfaf7;*/
+/*    //border: 1px solid red;*/
+/*}*/
 .user section h2 span {
 	font-size: 1.3em;
     margin-right: 0.5em;
 }
 .user section.jobs > div {
 	width: 100%;
-    min-height: 30em;
+    min-height: 25em;
     padding: 1.2em 1.5em 1.5em;
 	border: 2px solid #838383;
     border-radius: 0.3em;
@@ -636,25 +662,41 @@ a.arrow-white {
 .user article small,
 .topics article small {
 	font-size: 1em;
-	color: #2E81C9;
+	color: #37BAB1/*#2E81C9*/;
 }
 .user section.contents {
 	float: right;
 	height: auto;
-    width: 54%;
-    padding: 0 0 0 2.5em;
-    //border: 1px solid #838383;
+    width: 50%;
+    //margin-top: 1.7em;
+    //padding: 0 1.5em 0 1.5em;
+    //background: rgba(0,0,0,0.02);
+    //border: 2px solid #afafaf;
 }
-.user section.contents .profile {
-	margin-top: 1.7em;
-}
-.user section.contents .profile p {
-	margin-bottom: 0.5em;	
-}
-.user section.contents > div:last-of-type {
-	margin-top: 1.5em;
+.user section.contents > div {
+	//padding: 1em 2em;
+    //border: 1px solid #cfcfcf;
+    //border-width: 0 1px 1px;
     //border: 1px solid red;
 }
+.user section.contents .profile {
+	margin: 1.8em 0 2.5em;
+    //background: url(../images/main/about/entry-top.png) 70% 20% no-repeat;
+    //border: 1px solid red;
+}
+.user section.contents .profile + div {
+	background: url(../images/main/about/entry-top.png) 30% 0 no-repeat;
+    padding-left: 50%;
+    margin-top: 3.5em;
+}
+.user section.contents .profile + div p {
+	font-size: 0.9em;
+}
+.user section.contents .profile p {
+	margin-bottom: 0.5em;
+    
+}
+
 .user section.contents > div:last-of-type > h2 {
 	font-size: 0.97em;
     margin: 1em 0 0.7em;
@@ -668,20 +710,29 @@ a.arrow-white {
 	font-size: 1.05em;
 }
 .user a.user-link {
-	display: inline-block;
+	//display: inline-block;
     background: #6f6f6f;
-    background: -moz-linear-gradient(top, #8d8d8d, #5f5f5f);
-    background: linear-gradient(to bottom, #8d8d8d, #5f5f5f);
+    background-color: #6f6f6f;
+    background-repeat: no-repeat;
+    background-position: 90% 45%;
+    background-image: url(../images/main/double-arrow.png);
+    background: url(../images/main/double-arrow.png) 90% 45% no-repeat, -moz-linear-gradient(top, #8d8d8d, #5f5f5f);
+    background: url(../images/main/double-arrow.png) 95% 45% no-repeat, linear-gradient(to bottom, #8d8d8d, #5f5f5f);;
+    //background-size: 9% auto;
+    //border: 2px solid #6f6f6f;
+/*    background: -moz-linear-gradient(top, #8d8d8d, #5f5f5f);*/
+/*    background: linear-gradient(to bottom, #8d8d8d, #5f5f5f);*/
 	border-radius: 9px;
     text-align: center;
     //box-shadow: -1px -1px 1px #5f5f5f inset, 1px 1px 1px #aaa inset;
     //border: 1px solid #aaa;
-    color: #fff;
+    //color: #fff;
     text-decoration: none;
     //font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
 }
 .user section.jobs a.user-link {
 	width: 11.5em;
+    /*
     float: right;
     text-align: left;
     padding: 0.3em 1.8em 0.35em;
@@ -691,12 +742,69 @@ a.arrow-white {
     background-image: url(../images/main/double-arrow.png);
     background: url(../images/main/double-arrow.png) 90% 45% no-repeat, -moz-linear-gradient(top, #8d8d8d, #5f5f5f);
     background: url(../images/main/double-arrow.png) 90% 45% no-repeat, linear-gradient(to bottom, #8d8d8d, #5f5f5f);
+	*/
 }
-.user section.contents .profile a.user-link {
-    width: 28%;
-    font-size: 0.95em;
-    margin-right: 0.7em;
-    padding: 0.3em 0.7em 0.35em;
+/*.profile > span {*/
+/*	font-size: 8em;*/
+/*    color: rgba(0,0,0,0.1);*/
+/*    margin-right: 10px;*/
+/*    float: right;*/
+/*}*/
+.user section.contents a.u-link span {
+	margin: 0 0.5em 0 0;
+    //font-size: 1.5em;
+}
+/*.user section.contents a.user-link span:last-of-type {*/
+/*	float: right;*/
+/*}*/
+.user section.contents a.u-link {
+	display: inline-block;
+    width: 35%;
+    height: 2.6em;
+    line-height: 2.4em;
+    font-size: 1em;
+    margin: 0 0.7em 0.5em 0;
+    padding-left: 1em;
+	border-radius: 0.8em;
+/*    width: 8em;*/
+/*    height: 8em;*/
+/*    line-height: 7em;*/
+    //border-radius: 50%;
+    background:/* url(../images/main/top_icons/0_u.png) 5% 45% no-repeat,*/ /*rgba(245, 235, 233, 0.4)*/#FFF9F2/*#FFF8EF*/;
+    //background-size: 8.5%; 
+    text-align: left;
+    //padding-left: 8%; 
+    color: #705950/*#704C3F*//*ORG:#7F635A*/;
+    border: 3px solid #F2D3AB/*#F4E1C3*/;
+    //background: #FFF1DC;
+    //border-radius: 0.5em;
+    //border: 2px solid #FFA387;
+    
+}
+.u-link span:first-of-type {
+	color: #ff9976;
+}
+.u-link span:last-of-type {
+	float: right;
+    line-height: 2.2em
+}
+.u-link + span {
+	font-size: 0.9em;
+}
+.user section.contents .profile + div a.u-link {
+	width: 100%;
+    margin: 0;
+    height: 2.8em;
+/*    background: url(../images/main/top_icons/0_b.png) 5% 45% no-repeat, rgba(245, 235, 233, 0.2);*/
+/*    background-size: 12%;*/
+}
+.user section.contents .profile + div a.u-link span {
+	font-size: 1.2em;
+    margin-right: 1em;
+}
+.user .profile {
+/*	background: url(../images/main/top_icons/0_u.png) no-repeat;*/
+/*    padding-left: 6em;*/
 }
 
 /* Guest */
@@ -710,7 +818,8 @@ a.arrow-white {
     background: #fefefe;
 }
 
-.guest section h2 {
+.guest section h2,
+.user section h2 {
 	color: #6a6a6a;
     border-bottom: 1px solid #6a6a6a;
     padding-bottom: 0.3em;
@@ -728,7 +837,8 @@ a.arrow-white {
 .topics article small {
 	color: #FE4A0F;
 }
-.guest a.topic-link {
+.guest a.topic-link,
+.user section.jobs a.user-link {
 	display: inline-block;
     margin-top: 0.5em;
 	border-radius: 9px;
@@ -767,6 +877,7 @@ a.arrow-white {
     //box-shadow: -2px -2px 3px #59A272 inset, 2px 2px 3px #59A272 inset;
     //border: 3px solid #59A272;
 }
+.link-box:nth-of-type(3),
 .link-box:last-of-type {
 	margin-right: 0;
     //border-color: red;
@@ -853,27 +964,27 @@ a.arrow-white {
     //border: 3px solid #C88E00;
 	//background: url(../images/main/top_icons/contact.png) 50% 50% no-repeat;
 }
-.user section.contents .link-box:first-of-type a {
+.guest section.contents .link-box:first-of-type a {
     background: url(/images/main/top_icons/iroha.png) no-repeat;
 }
 
-.user section.contents .link-box:nth-of-type(2) a {
+.guest section.contents .link-box:nth-of-type(2) a {
     background: url(/images/main/top_icons/study.png) no-repeat;
 }
 
-.user section.contents .link-box:nth-of-type(3) a {
+.guest section.contents .link-box:nth-of-type(3) a {
 	background: url(/images/main/top_icons/blog.png) no-repeat;
 }
 
-.guest section.contents .link-box:first-of-type a {
+.guest section.contents .link-box:nth-of-type(4) a {
     background: url(/images/main/top_icons/mail.png) no-repeat;
 }
 
-.guest section.contents .link-box:nth-of-type(2) a {
+.guest section.contents .link-box:nth-of-type(5) a {
     background: url(/images/main/top_icons/privacy.png) no-repeat;
 }
 
-.guest section.contents .link-box:nth-of-type(3) a {
+.guest section.contents .link-box:nth-of-type(6) a {
 	background: url(/images/main/top_icons/company.png) no-repeat;
 }
 
@@ -981,12 +1092,13 @@ a.arrow-white {
     float: right;
 }
 .about .main-ct {
-	width: 85%;
+	width: 100%;
     margin: 5em auto 0;
 }
 .about .main-ct div {
 	border: 1px solid #fe5c26;
-    margin-bottom: 8em;
+    width: 85%;
+    margin: 0 auto 8em;
     padding: 0 2em 2em;
 }
 .about .main-ct div h3 {
@@ -1072,6 +1184,7 @@ h1.main-title {
 .main-head p {
 	font-size: 1em;
 	color: #66625E;
+    margin-top: 0.6em;
 }
 .topics .main-head {
 	background: url(../images/main/about/file.png) 40% 0 no-repeat;
@@ -1510,7 +1623,7 @@ aside li {
 }
 #colop ul {
 	float: left;
-/*    font-size: 0.95em;*/
+    font-size: 1em;
     letter-spacing: 0.03em;
 	list-style: none;
 }
@@ -1526,7 +1639,7 @@ aside li {
     //border: 1px solid red;
 }
 #colop div > ul ul {
-	padding-left: 0;
+	padding-left: 1.2em;
 }
 #colop div > ul ul li {
 	//border: 1px solid blue;
@@ -2144,7 +2257,7 @@ span.t-down:after {
     font-weight: bold;
     color: #705B54;
     background: #fefefe;
-    border: 2px solid #A59891; /* #706764 */
+    border: 5px solid #F57D5D; /* #706764 */
     border-radius: 1em;
     padding: 0.5em 1.5em;
     text-align: center;
@@ -2157,9 +2270,9 @@ span.t-down:after {
 }
 .new-regist img {
 	display: block;
-    width: 110px;
+    width: 100px;
     height: auto;
-    margin: 0 0 1em 0.5em;
+    margin: 0 0 1em 1em;
 }
 
 .panel .panel-heading {
@@ -2184,8 +2297,8 @@ span.t-down:after {
     height: 100px;
     margin: -1.8em auto 0;
     //border: 1px solid #aaa;
-    background: url(../images/main/top_icons/lock-white.png) 50% 50% no-repeat, url(../images/main/orange-tiles-s.png) 10% 0;
-    //background-size: 60% auto;
+    background: url(../images/main/top_icons/lock-wh.png) center no-repeat, url(../images/main/orange-tiles-s.png) 10% 0;
+    //background-size: 65px auto;
 	border-radius: 50%;
 	//margin-right: 0.7em;
     //margin-bottom: 0.25em;

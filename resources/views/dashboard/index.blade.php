@@ -14,8 +14,8 @@
             <div class="col-xs-6 col-sm-3 placeholder">
             	<a href="{{getUrl('dashboard/job-add')}}" class="text-muted">
               	{{-- <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail"> --}}
-              	<h4><span class="mega-octicon octicon-file-directory"></span> 求人</h4>
-              	<p>新規求人を追加 <span class="octicon octicon-chevron-right"></span></p>
+              	<h4><span class="mega-octicon octicon-file-directory"></span> 案件</h4>
+              	<p>新規案件を追加 <span class="octicon octicon-chevron-right"></span></p>
               </a>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
@@ -48,10 +48,10 @@
     </div>
     
     <div class="pull-left col-md-4">
-	    <h4>登録求人数: @if(isset($jobObjs)) {{ $jobObjs->count() }} @else 0 @endif 社</h4>
+	    <h4>登録案件数: @if(isset($jobObjs)) {{ $jobObjs->count() }} @else 0 @endif 社</h4>
     	<div>
-        	<a href="{{getUrl('dashboard/jobs')}}" class="btn btn-d">求人情報一覧 »</a><br />
-            <h5>最近登録した求人</h5>
+        	<a href="{{getUrl('dashboard/jobs')}}" class="btn btn-d">案件情報一覧 »</a><br />
+            <h5>最近登録した案件</h5>
             @if(isset($jobObjs))
                 @foreach($jobObjs as $jobObj)
                 	<a href="{{getUrl('dashboard/jobs-edit/'.$jobObj->id)}}"><span class="octicon octicon-primitive-dot"></span> {{str_limit($jobObj->company_name, 30)}}</a><br />
