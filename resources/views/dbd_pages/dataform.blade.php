@@ -48,24 +48,24 @@
             
           <div class="form-group">
               <label>タイトル</label>
-              {!! Form::input('text', 'title', isset($article) ? $article->title : null, ['class' => 'form-control']) !!}
+              {!! Form::input('text', 'title', isset($article) ? $article->title : null, ['required', 'class' => 'form-control']) !!}
           </div>
           <div class="form-group">
               <label>サブタイトル（リンク名などに使用されます。ページ内には表示されません。）</label>
-              {!! Form::input('text', 'sub_title', isset($article) ? $article->sub_title : null, ['required', 'class' => 'form-control']) !!}
+              {!! Form::input('text', 'sub_title', isset($article) ? $article->sub_title : null, ['class' => 'form-control']) !!}
           </div>
           <div class="form-group">
               <label class="form-control-static">リンク名　{{ url('/') . '/' }}</label>
               @if(isset($article) && DB::table('siteinfos')->first()->top_id == $article->id)
             	<small>　※このページはTOPページです。リンク名は変更出来ません</small>
               @else
-              {!! Form::input('text', 'url_name', isset($article) ? $article->url_name : null, ['class' => 'i-radi']) !!}
+              {!! Form::input('text', 'url_name', isset($article) ? $article->url_name : null, ['required', 'class' => 'i-radi']) !!}
               @endif
           </div>
           
           <div class="form-group">
               <label>ヘッダーコンテンツ</label>
-              {!! Form::textarea('intro_content', isset($article) ? $article->intro_content : null, ['required', 'class' => 'form-control', 'rows'=>10]) !!}
+              {!! Form::textarea('intro_content', isset($article) ? $article->intro_content : null, ['class' => 'form-control', 'rows'=>10]) !!}
           </div>
           
           @include('dbd_shared.mainContent')
@@ -73,7 +73,7 @@
           {{--
           <div class="form-group">
               <label>サブコンテンツ</label>
-              {!! Form::textarea('sub_content', isset($article) ? $article->sub_content : null, ['required', 'class' => 'form-control']) !!}
+              {!! Form::textarea('sub_content', isset($article) ? $article->sub_content : null, ['class' => 'form-control']) !!}
           </div>
           --}}
 

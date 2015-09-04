@@ -48,7 +48,7 @@
                             <article>
                             	<a href="{{getUrl('recruit/job/'.$job->job_number)}}">
                                 <small>{{ getStrDate($job->created_at) }}</small>
-                                <h3>{!! $job ->title  !!}</h3>
+                                <h3>{{ $job->company_name }}<br><span>{{ $job ->title }}</span></h3>
                                 </a>
                             </article>
                         @endforeach

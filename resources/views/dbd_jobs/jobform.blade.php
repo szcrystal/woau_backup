@@ -71,7 +71,7 @@
           
           <div class="form-group">
               <label>ホームページ</label>
-              {!! Form::input('text', 'work_site', isset($article) ? $article->work_site : null, ['class' => 'form-control', 'placeholder'=>'http〜から入力して下さい']) !!}
+              {!! Form::input('text', 'work_site', isset($article) ? $article->work_site : null, ['class' => 'form-control', 'placeholder'=>'http://〜から入力して下さい']) !!}
           </div>
 
 			<div class="form-group">

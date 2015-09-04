@@ -53,7 +53,7 @@
           <div class="form-group">
               <label>リンク名</label>
               {{ url('/') . '/' }}
-              {!! Form::input('text', 'url_name', isset($article) ? $article->url_name : null, ['required', 'class' => '']) !!}
+              {!! Form::input('text', 'url_name', isset($article) ? $article->url_name : null, ['class' => '']) !!}
           </div>
           --}}
           <div class="form-group">

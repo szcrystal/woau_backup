@@ -1,7 +1,7 @@
 <div class="form-group">
     <label>メインコンテンツ</label>
 
-    {!! Form::textarea('main_content', isset($article) ? $article->main_content : null, ['id'=>'main_content','class'=>'', 'rows'=>30]) !!}
+    {!! Form::textarea('main_content', isset($article) ? $article->main_content : null, ['id'=>'main_content','class'=>'', 'rows'=>35]) !!}
 
     <script>
         // Replace the <textarea id="editor1"> with a CKEditor

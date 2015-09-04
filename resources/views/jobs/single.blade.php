@@ -40,7 +40,9 @@
             	<?php
                 	$imgArr = explode(';', $singleObj->img_link);
                 ?>
-            <img src="{{asset($imgArr[0])}}" class="imghere">
+            <div class="imghere">
+            	<img src="{{asset($imgArr[0])}}">
+            </div>
             @else
             <div class="imghere"></div>
             @endif
