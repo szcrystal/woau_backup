@@ -38,7 +38,7 @@
                 </div>
                 @if(isset($article))
                 <div class="pull-left">
-                    <a href="{{ getUrl($article->url_name) }}" style="margin-left: 1em;" class="btn btn-warning btn-sm" target="_blank"><span class="octicon octicon-arrow-right"></span>サイトを確認</a>
+                    <a href="{{ getUrl('recruit/job/'.$article->job_number) }}" style="margin-left: 1em;" class="btn btn-warning btn-sm" target="_blank"><span class="octicon octicon-arrow-right"></span>サイトを確認</a>
                 </div>
                 @endif
 				<div class="pull-right col-md-2">{{-- col-md-offset-10 --}}

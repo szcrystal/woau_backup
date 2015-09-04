@@ -7,8 +7,10 @@
                 
         <div class="new-regist">
             <a href="{{getUrl('auth/register')}}">
-            <p>未登録の方は..
+            <p>
+            未登録の方は..
             <img src="{{asset('images/main/person.png')}}">
+            
             <span>新規登録</span> へ
             </p>
             </a>

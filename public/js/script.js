@@ -22,8 +22,8 @@
             $p.find('a[rel="next"]').empty().append('<img src="/images/main/double-arrow-gray.png">');
         },
         
-        /*
-        dropDown: function() {
+        
+        dropDownFade: function() {
         	var speed = 450;
             var ease = 'easeInSine';
             
@@ -43,9 +43,9 @@
                 
             });  
         },
-        */
         
-        dropDown: function() {
+        
+        dropDownSlide: function() {
         	var speed = 450;
             var ease = 'easeOutBack';
             var easeBack = 'easeInBack';
@@ -272,7 +272,8 @@ $(function(){
     //waDo.insertLink();
     
     waDo.paginateStyle();
-    waDo.dropDown();
+    waDo.dropDownFade();
+    //waDo.dropDownSlide();
     waDo.loginFunc();
     waDo.scrollFunc();
     

@@ -1571,7 +1571,7 @@ aside li {
 }
 .job-sgl section:last-of-type > .imghere {
 	width: 230px;
-    height: auto;
+    min-height: 230px;
     line-height: 15em;
     text-align: center;
     float: left;
@@ -2267,27 +2267,29 @@ span.t-down:after {
 	display: inline-block;
 }
 .new-regist p {
-	width: 13em;
+	width: 13.5em;
+    //height: 13em;
     font-size: 1em;
     font-weight: bold;
     color: #705B54;
-    background: #fefefe;
-    border: 5px solid #F57D5D; /* #706764 */
-    border-radius: 1em;
-    padding: 0.5em 1.5em;
-    text-align: center;
+    background: #FFFCFB;
+    border: 10px solid #FFA286; /* #706764 */
+    border-radius: 1.5em;
+    padding: 0.5em 1.5em 0.5em;
+    text-align: left;
     -webkit-transform: rotateZ(-9deg);
     transform: rotateZ(-9deg);
 }
 .new-regist p span {
-	font-size: 1.1em;
+	font-size: 1.2em;
     text-decoration: underline;
+    margin-left: 1.5em;
 }
 .new-regist img {
 	display: block;
     width: 100px;
     height: auto;
-    margin: 0 0 1em 1em;
+    margin: 0em 0 0.3em 1em;
 }
 
 .panel .panel-heading {
