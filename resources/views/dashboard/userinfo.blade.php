@@ -3,7 +3,7 @@
 @section('content')
 
 		
-        <h1 class="page-header"><span class="mega-octicon octicon-person"></span> 登録ユーザー一覧</h1>
+        <h1 class="page-header"><span class="mega-octicon octicon-person"></span>登録ユーザー一覧</h1>
     	
         @include('dbd_shared.search')
         
@@ -57,10 +57,10 @@
                                     {{$user->address}}
                                 </td>
                                 <td>
-                                    {{$user->work_history}}
+                                    {!! mbsub($user->work_history) !!}
                                 </td>
                                 <td>
-                                    {{$user->office_posi}}
+                                    {!! mbsub($user->office_posi) !!}
                                 </td>
                                 <td>
                                     {{$user->is_trip}}
@@ -72,10 +72,10 @@
                                     {{$user->get_year}}
                                 </td>
                                 <td>
-                                    {{$user->exp_type}}
+                                    {!! mbsub($user->exp_type) !!}
                                 </td>
                                 <td>
-                                    {{$user->audit_posi}}
+                                    {!! mbsub($user->audit_posi) !!}
                                 </td>
                                 <td>
                                     {{ getStrDate($user->created_at) }}

@@ -609,7 +609,7 @@ a.arrow-white {
 	padding: 1.8em 0;
 }
 .user {
-	border-bottom: 1px solid #838383;
+	//border-bottom: 1px solid #838383;
     //border: 1px solid red;
 }
 .user section.jobs {

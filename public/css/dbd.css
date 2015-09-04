@@ -185,6 +185,10 @@ h2.page-header {
     //font-size: 1.4em;
     //padding-top: 1em;
 }
+h1.page-header > span,
+h2.page-header > span {
+	margin-right: 0.6em;
+}
 
 
 /* user all */

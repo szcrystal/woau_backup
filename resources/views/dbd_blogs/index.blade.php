@@ -3,7 +3,7 @@
 	@section('content')
     
     
-        <h1 class="page-header"><span class="mega-octicon octicon-file-text"></span> ブログ一覧</h1>
+        <h1 class="page-header"><span class="mega-octicon octicon-file-text"></span>ブログ一覧</h1>
     	
          @if (session('status'))
             <div class="alert alert-warning">

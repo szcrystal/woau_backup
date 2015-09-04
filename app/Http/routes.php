@@ -182,7 +182,6 @@ function pager($table, $id_arg) {
     }
     
     
-    
     if(isset($prev)) {
     	$format .= '<li><a href="' . getUrl(linkFunc($prev, $table)) . '" rel="prev">PREV</a></li>';
     }
@@ -202,6 +201,14 @@ function pager($table, $id_arg) {
     $format .= '</ul>'."\n";
     
     return $format;
+}
+
+//DashBoardのuserinfo一覧で使用 長文を抜粋する
+function mbsub($arg) {
+	if(mb_strlen($arg) > 80)
+		return mb_substr($arg, 0, 80) . "..";
+    else
+    	return $arg;
 }
 
 

@@ -1,7 +1,7 @@
 @extends('appDashBoard')
 
 @section('content')
-	<h2 class="page-header"><span class="octicon octicon-book"></span>固定ページ 新規追加</h2>
+	<h2 class="page-header"><span class="octicon octicon-book"></span>{{ isset($article) ? '固定ページ 編集':'固定ページ 新規追加'}}</h2>
     
     	@if (count($errors) > 0)
             <div class="alert alert-danger">

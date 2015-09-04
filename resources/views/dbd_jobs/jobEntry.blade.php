@@ -3,7 +3,7 @@
 @section('content')
 
 		
-        <h1 class="page-header"><span class="mega-octicon octicon-repo"></span> 案件応募者一覧</h1>
+        <h1 class="page-header"><span class="mega-octicon octicon-file-directory"></span> 案件応募者一覧</h1>
     	
         @include('dbd_shared.search')
 
