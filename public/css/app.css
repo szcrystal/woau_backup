@@ -3748,6 +3748,10 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 	margin-top: -3px;
     margin-right: 0.3em;
 }
+.breadcrumb .octicon-home {
+	font-weight: bold;
+    font-size: 1.2em;
+}
 
 .pagination {
   display: inline-block;

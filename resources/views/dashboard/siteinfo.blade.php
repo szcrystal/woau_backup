@@ -1,7 +1,7 @@
 @extends('appDashBoard')
 
 @section('content')
-	<h2 class="page-header"><span class="mega-octicon octicon-device-desktop"></span> サイト情報の編集</h2>
+	<h2 class="page-header"><span class="mega-octicon octicon-device-desktop"></span>サイト情報の編集</h2>
     
     	@if (count($errors) > 0)
             <div class="alert alert-danger">
@@ -77,7 +77,7 @@
           
           
           <div class="form-group">
-              <label class="col-sm-3 control-label">検索エンジンの<br />インデックスを許可</label>
+              <label class="col-sm-3 control-label">検索エンジンの<br />インデックスをON</label>
               	<div class="col-sm-2">
                 {!! Form::checkbox('seo_sw', 1, (isset($article) && $article->seo_sw) ? true : false, ['style'=>'margin-top:1em;']) !!}
                 </div>
@@ -101,7 +101,7 @@
           </div>
           
           <div class="form-group">
-              <label>企業応募</label>
+              <label>案件応募</label>
               {!! Form::textarea('mail_jobentry', isset($article) ? $article->mail_jobentry : null, ['class' => 'form-control']) !!}
           </div>
           

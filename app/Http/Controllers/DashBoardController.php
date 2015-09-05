@@ -67,6 +67,10 @@ class DashBoardController extends Controller
             return view('dashboard.index', ['userObjs'=>$userObjs, 'jobObjs'=>$jobObjs ]);
         }
     }
+    
+    public function show($id) {
+    	abort(500);
+    }
 
     
     public function returnSearchObj($table_name, $search) {
@@ -76,6 +80,8 @@ class DashBoardController extends Controller
             
             else if($table_name == 'study') 
             	$query = DB::table('irohas') ->where('slug', 'study');
+                
+            //else if($table_name == 'jobs')
             
             else 
             	$query = DB::table($table_name);
@@ -105,13 +111,31 @@ class DashBoardController extends Controller
                                 ->orWhere('note', 'like', $this->val);
                                 //->orWhere('created_at', 'like', $this->val);
                     }
+                    elseif($table_name == 'jobs') {
+                    	$query ->where('id', $this->val)
+                    			->orWhere('job_number', $this->val)
+                                ->orWhere('company_name', 'like', $this->val)
+                                ->orWhere('title', 'like', $this->val)
+                                ->orWhere('sub_title', 'like', $this->val)
+                                ->orWhere('main_content', 'like', $this->val)
+                                ->orWhere('work_name', 'like', $this->val)
+                                ->orWhere('work_site', 'like', $this->val)
+                                ->orWhere('work_format', 'like', $this->val)
+                                ->orWhere('work_day', 'like', $this->val)
+                                ->orWhere('main_content', 'like', $this->val)
+                                ->orWhere('work_name', 'like', $this->val)
+                                ->orWhere('work_site', 'like', $this->val)
+                                ->orWhere('work_format', 'like', $this->val);
+                                
+                                //->orWhere('created_at', 'like', $this->val);
+                    }
                     else {
                         $query ->where(function($query) { 
                             $query ->where('title', 'like', $this->val)
                                     ->orWhere('sub_title', 'like', $this->val)
                                     ->orWhere('intro_content', 'like', $this->val)
-                                    ->orWhere('main_content', 'like', $this->val)
-                                    ->orWhere('sub_content', 'like', $this->val);
+                                    ->orWhere('main_content', 'like', $this->val);
+                                    //->orWhere('sub_content', 'like', $this->val);
                         });
                     }//else
                 }
@@ -133,13 +157,29 @@ class DashBoardController extends Controller
                             ->orWhere('note', 'like', $this->val);
                             //->orWhere('created_at', 'like', $this->val);
                 }
+                elseif($table_name == 'jobs') {
+                    $query ->where('id', $this->val)
+                    		->orWhere('job_number', $this->val)
+                            ->orWhere('company_name', 'like', $this->val)
+                            ->orWhere('title', 'like', $this->val)
+                            ->orWhere('sub_title', 'like', $this->val)
+                            ->orWhere('main_content', 'like', $this->val)
+                            ->orWhere('work_name', 'like', $this->val)
+                            ->orWhere('work_site', 'like', $this->val)
+                            ->orWhere('work_format', $this->val)
+                            ->orWhere('work_day', 'like', $this->val)
+                            ->orWhere('main_content', 'like', $this->val)
+                            ->orWhere('work_name', 'like', $this->val)
+                            ->orWhere('work_site', 'like', $this->val)
+                            ->orWhere('work_format', 'like', $this->val);
+                }
                 else {
             		$query -> where(function($query) {
                         $query -> where('title', 'like', $this->val)
                                -> orWhere('sub_title', 'like', $this->val)
                                -> orWhere('intro_content', 'like', $this->val)
-                               -> orWhere('main_content', 'like', $this->val)
-                               -> orWhere('sub_content', 'like', $this->val);
+                               -> orWhere('main_content', 'like', $this->val);
+                               //-> orWhere('sub_content', 'like', $this->val);
                     });
                 }//else
             }
@@ -228,7 +268,9 @@ class DashBoardController extends Controller
             return view('dashboard.delete',['article'=>$article, 'p_type'=>$p_type]);
         }
         else { //GET[t]値が無い
-        	echo "Invalid Access: 1100<br />削除出来ません。<br /><a href='/dashboard'>Dashboard Topへ戻る</a>";
+        	//$text = "Invalid Access: 1100<br />削除出来ません。<br /><a href='/dashboard'>Dashboard Topへ戻る</a>";
+            //return response()->view('errors.500', ['text'=>$text])->header('status', 500);
+        	abort(500, "Invalid Access: 1100<br />削除出来ません。<br /><a href='/dashboard'>Dashboard Topへ戻る</a>");
         }
     }
     
@@ -247,9 +289,12 @@ class DashBoardController extends Controller
             elseif($p_type == 'blog')
                 $delObj = $this->blog->find($id);
             
-    
         	$data = $request->all();
-            $title = $delObj -> title;
+            
+            if($p_type == 'jobs')
+    			$title = $delObj -> company_name;        
+            else
+	            $title = $delObj -> title;
         
             if($data['del_key'] == session('del_key')) {
                 $delObj->delete();
@@ -258,11 +303,11 @@ class DashBoardController extends Controller
                 return redirect('/dashboard/'.$p_type) -> with('status', '『' .$title.'』が削除されました。');
             }
             else { //session 不一致
-                echo "Invalid Access: 1102<br />削除出来ません。<br /><a href='/dashboard'>Dashboard Topへ戻る</a>";
+                abort(500, "Invalid Access: 1102<br />削除出来ません。<br /><a href='/dashboard'>Dashboard Topへ戻る</a>");
             }
         }
         else { //POST[t]値が無い
-        	echo "Invalid Access: 1101<br />削除出来ません。<br /><a href='/dashboard'>Dashboard Topへ戻る</a>";
+        	abort(500, "Invalid Access: 1101<br />削除出来ません。<br /><a href='/dashboard'>Dashboard Topへ戻る</a>");
         }
     }
     
@@ -272,7 +317,7 @@ class DashBoardController extends Controller
     public function getJobs(Request $request) {
     	if($request -> has('s')) {
         	$objs = $this -> returnSearchObj('jobs', $request->input('s'));
-            return view('dbd_pages.pages', ['objs'=>$objs[0], 'searchStr' => $objs[1]]);
+            return view('dbd_jobs.jobs', ['objs'=>$objs[0], 'searchStr' => $objs[1]]);
         }
     	else {
     		$objs = $this -> job -> orderBy('created_at','desc') ->paginate($this->pg);
@@ -1007,10 +1052,10 @@ class DashBoardController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
-    {
-        //
-    }
+//    public function show($id)
+//    {
+//        //
+//    }
 
     /**
      * Show the form for editing the specified resource.

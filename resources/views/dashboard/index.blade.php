@@ -48,7 +48,7 @@
     </div>
     
     <div class="pull-left col-md-4">
-	    <h4>登録案件数: @if(isset($jobObjs)) {{ $jobObjs->count() }} @else 0 @endif 社</h4>
+	    <h4>登録案件数: @if(isset($jobObjs)) {{ $jobObjs->count() }} @else 0 @endif 件</h4>
     	<div>
         	<a href="{{getUrl('dashboard/jobs')}}" class="btn btn-d">案件情報一覧 »</a><br />
             <h5>最近登録した案件</h5>
@@ -77,7 +77,7 @@
     
     <br />
     
-    <h4>更新する項目の内容</h4>
+    <h4><span class="octicon octicon-primitive-dot"></span>更新する項目の内容</h4>
     <div class="table-responsive">
         <table class="table table-striped table-bordered">
           <thead>
@@ -86,7 +86,7 @@
               <th class="col-md-3">サブタイトル</th>
               <th>ヘッダーコンテンツ</th>
               <th>メインコンテンツ</th>
-              <th>フッターコンテンツ</th>
+              <th></th>
               
             </tr>
           </thead>
@@ -99,17 +99,17 @@
                 	メインのタイトル
                 </td>
     			<td>
-	        		メニューなどに表示されるリンク名。コンテンツ内には表示されません。
+	        		メニューなどに表示されるリンク名。コンテンツ内には表示されません
                 </td>
                                     
                 <td>
-                	前置き説明など、前章に当たるコンテンツ。
+                	前置き説明など、前章に当たるコンテンツ
                 </td>
                 <td>
                 	メインのコンテンツ
                 </td>
                 <td>
-                	補足説明など、終章に当たるコンテンツ。
+                	変更後は必ず更新ボタンを押して下さい
                 </td>
         	</tr>
         

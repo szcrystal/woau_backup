@@ -24,7 +24,7 @@
                 <table class="table table-striped table-bordered">
                       <thead>
                         <tr>
-                        	<th>勉強会ID</th>
+                        	<th>案件ID</th>
                               <th class="col-md-2">企業名</th>
                               <th class="col-md-2">応募者名</th>
                               <th>メールアドレス</th>

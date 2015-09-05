@@ -2,10 +2,9 @@
 
 	@section('content')
     
-    
-        <h1 class="page-header"><span class="mega-octicon octicon-file-text"></span>ブログ一覧</h1>
-    	
-         @if (session('status'))
+        @include('dbd_shared.title')    	
+        
+        @if (session('status'))
             <div class="alert alert-warning">
                 {{ session('status') }}
             </div>

@@ -22,15 +22,10 @@
         	$link = '';
     ?>
 	
+    
     @if(isset($searchStr))
     <a href="{{ getUrl('dashboard/'.$link) }}" class="btn btn-success pull-left btn-sm"><span class="octicon octicon-triangle-left"></span>一覧へ戻る</a>
-    <p style="color: #555;margin-left: 0.5em;" class="pull-left lead">
-        @if($objs->total() == 0)
-            [ {{$searchStr}} ]の検索結果：条件に合うデータがありません。
-        @else
-        ［ {{$searchStr}} ］の検索結果：{{ $objs->total() }}件 {{-- paginateのヘルパー --}}
-        @endif
-    </p>
+    
     @endif
     
     <div class="pull-right lead">
@@ -39,6 +34,16 @@
             <input type="search" name="s" class="form-control" placeholder="Search...">
             <button type="submit" class="btn btn-default text-center"><span style="color:#555; margin:0;" class="octicon octicon-search"></span></button>
         </form>
-    </div> 
+    </div>
 </div>
+    
+    @if(isset($searchStr))
+    <p style="color:#555; font-weight:bold; margin-left:0;" class="lead">
+        @if($objs->total() == 0)
+        [ {{$searchStr}} ] の検索結果：条件に合うデータがありません。
+        @else
+        [ {{$searchStr}} ] の検索結果：{{ $objs->total() }}件 {{-- paginateのヘルパー --}}
+        @endif
+    </p>
+    @endif
 

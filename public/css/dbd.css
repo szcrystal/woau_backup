@@ -133,7 +133,7 @@ input, textarea {
     margin-top: 1.5em;
 }
 .btn-d {
-	background: #F4F4DC;
+	background: #EFF9F7;
     border: 1px solid #ccc;
     color: #555;
 }
@@ -179,7 +179,7 @@ th.sz-w {
 	border-color: #ddd;
 }
 h1.page-header {
-	//font-size: 2.0em;
+	font-size: 2.4em;
 }
 h2.page-header {
     //font-size: 1.4em;
@@ -189,7 +189,11 @@ h1.page-header > span,
 h2.page-header > span {
 	margin-right: 0.6em;
 }
-
+.mega-octicon.octicon-home {
+	font-weight: bold;
+    font-size: 1.2em;
+    //color: red;
+}
 
 /* user all */
 .user-info thead th,

@@ -2,8 +2,7 @@
 
 	@section('content')
     
-    
-        <h1 class="page-header"><span class="mega-octicon octicon-info"></span> 監査役いろは一覧</h1>
+    	@include('dbd_shared.title')
         
         @if (session('status'))
             <div class="alert alert-warning">

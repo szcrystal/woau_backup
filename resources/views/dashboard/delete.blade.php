@@ -2,11 +2,11 @@
 
 @section('content')
 	
-    <p style="font-size: 1.2em;">
+    <h1 class="page-header">
     @if($p_type== 'pages')
     	<span class="octicon octicon-book"></span>固定ページ
     @elseif($p_type== 'jobs')
-    	<span class="octicon octicon-file-directory"></span>求人情報
+    	<span class="octicon octicon-file-directory"></span>案件情報
     @elseif($p_type== 'topics')
     	<span class="octicon octicon-megaphone"></span>トピックス
     @elseif($p_type == 'irohas')
@@ -16,8 +16,14 @@
     @elseif($p_type== 'blog')
     	<span class="octicon octicon-file-text"></span>ブログ
     @endif
-    </p>
-	<h2 class="sub-header">{{$article->title}}</h2>
+    </h1>
+
+	<h2 style="margin-top:1.5em;" class="sub-header">
+    @if($p_type == 'jobs')
+    {{$article->company_name}}
+    @else
+    {{$article->title}}
+    @endif</h2>
     
     <p>{!! nb(str_limit(trim(strip_tags($article->main_content)), 170)) !!}</p>
     
