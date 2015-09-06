@@ -29,16 +29,18 @@
 頂きました内容は下記となります。<br /><br />
 
 ◆お名前：<br />
-{{$name}}<br />
+{{$name}}<br /><br />
 
 ◆メールアドレス：<br />
-{{$mail}}<br />
+{{$mail}}<br /><br />
 
 ◆お問い合わせ内容：<br />
 {!! nl2br($note) !!}
 <br /><br /><br /><br />
 
+
 {!! nl2br($info->mail_footer) !!}
+
 <br /><br />
 
 @endif

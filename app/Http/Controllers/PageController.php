@@ -116,7 +116,7 @@ class PageController extends Controller
                 
                 Mail::send('emails.contact', $data, function($message) use ($data) //引数について　http://readouble.com/laravel/5/1/ja/mail.html
                 {
-                    $message->from($data['info']->site_email, 'Woman x Auditor');
+                    $message->from($data['info']->site_email, 'woman x auditor');
                     
                     //$dataは連想配列としてメールテンプレviewに渡され、その配列のkey名を変数（$name $mailなど）としてview内で取得出来る
                     $message->to($data['mail'], $data['name'])->subject('【woman x auditor】お問い合わせありがとうございます');
@@ -126,8 +126,8 @@ class PageController extends Controller
                 $data['is_user'] = 0;
                 Mail::send('emails.contact', $data, function($message) use ($data)
                 {
-                    $message->from($data['info']->site_email, 'Woman x Auditor');
-                    $message->to($data['info']->site_email, 'woman x auditor 管理者')->subject('【woman x auditor】お問い合わせがありました');
+                    $message->from($data['info']->site_email, 'woman x auditor');
+                    $message->to($data['info']->site_email, 'woman x auditor 管理者')->subject('お問い合わせがありました - woman x auditor -');
                 });
                 
                 //session()->forget($this->in);
@@ -144,12 +144,14 @@ class PageController extends Controller
             
             $datas = $request->all(); //requestから配列として$dataにする
             
+            /* 現在Sessionは使用していない
             foreach($datas as $key => $val) {
             	$arr[] = $key;
                 //$request->session()->flash($key, $val);
                 //$_SESSION[$key] = $val;
             }
-            session($datas);
+            */
+            //session($datas);
             //$request->session()->keep($arr);
             //'name', $datas['name']);
             return view('pages.confirm')-> with(compact('datas')); //配列なので、view遷移後はdatas[name]で取得する

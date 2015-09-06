@@ -127,7 +127,7 @@ class JobController extends Controller
                 Mail::send('emails.jobentry', $data, function($message) use ($data) //引数について　http://readouble.com/laravel/5/1/ja/mail.html
                 {
                     $message->from($data['info']->site_email, 'woman x auditor');
-                    $message->to($data['mail'], $data['name'])->subject('【woman x auditor】応募が完了しました');
+                    $message->to($data['mail'], $data['name'])->subject('【woman x auditor】'.$data['comp_name'].'への応募が完了しました');
                     //$message->attach($data['realPath'], ['as'=>$data['orgName']]); //,['as'=>'eee', 'mime'=>'image/png']
                 });
                 
@@ -135,8 +135,9 @@ class JobController extends Controller
                 $data['is_user'] = 0;
                 Mail::send('emails.jobentry', $data, function($message) use ($data, $request)
                 {
+                	$message->from($data['info']->site_email, 'woman x auditor');
                     //$dataは連想配列としてメールテンプレviewに渡され、その配列のkey名を変数（$name $mailなど）としてview内で取得出来る
-                    $message->to($data['info']->site_email, 'woman x auditor 管理者')->subject('【woman x auditor】'.$data['name'] . 'さんより企業への応募がありました');
+                    $message->to($data['info']->site_email, 'woman x auditor 管理者')->subject(/*.$data['name'] .*/'案件の応募がありました - woman x auditor -');
                     if (isset($data['realPath'])) {
                         //if(isset($data['realPath']) && isset())
                         $message->attach($data['realPath'], ['as'=>$data['orgName']]); //,['as'=>'eee', 'mime'=>'image/png']

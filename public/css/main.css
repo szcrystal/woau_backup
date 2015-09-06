@@ -250,11 +250,12 @@ a.topic-link,
 #navmenu ul.login-m p {
 	font-weight: bold;
 	font-size: 0.8em;
-    line-height: 1.45em;
+    line-height: 1.5em;
     margin: 0 0 0.45em 5px;
 }
 #navmenu ul.login-m li span {
 	font-size: 1.2em;
+    line-height: 1.3em;
 }
 #navmenu ul.login-m li a {
 	border-radius: 0.6em;
@@ -2191,6 +2192,23 @@ span.t-down:after {
 	display: block;
     width: 10em;
     margin: auto;
+}
+.send-end + div .octicon {
+	margin-right: 0.3em;
+}
+.register .send-end img {
+	float: left;
+    width: 145px;
+    height: auto;
+    margin: 1em 4em 0 20%;
+    
+}
+.register .send-end > p {
+	text-align: left;
+}
+.register .send-end > p > strong {
+	display: inline-block;
+	margin: 0.8em 0;
 }
 
 /* LogIn ***************** */

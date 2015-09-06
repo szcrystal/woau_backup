@@ -112,7 +112,7 @@ class IrohaController extends Controller
                     $message->from($data['info']->site_email, 'woman x auditor');
                     
                     //$dataは連想配列としてメールテンプレviewに渡され、その配列のkey名を変数（$name $mailなど）としてview内で取得出来る
-                    $message->to($data['mail'], $data['name'])->subject('【woman x auditor】お申し込みありがとうございます');
+                    $message->to($data['mail'], $data['name'])->subject('【woman x auditor】勉強会のお申し込みが完了しました');
                     //$message->attach($pathToFile);
                 });
                 
@@ -121,7 +121,7 @@ class IrohaController extends Controller
                 Mail::send('emails.studyentry', $data, function($message) use ($data)
                 {
                     $message->from($data['info']->site_email, 'woman x auditor');
-                    $message->to($data['info']->site_email, 'woman x auditor 管理者')->subject('【woman x auditor】勉強会へのお申し込みがありました');
+                    $message->to($data['info']->site_email, 'woman x auditor 管理者')->subject('勉強会の申し込みがありました - woman x auditor -');
                 });
                 
                 $this -> studyentry -> create([
@@ -148,7 +148,7 @@ class IrohaController extends Controller
             
             $datas = $request->all(); //requestから配列として$dataにする
             
-            session($datas);
+            //session($datas);
             
             return view('irohas.confirm', ['datas'=>$datas, 'obj'=>$obj]);
             //return view('irohas.confirm')-> with(compact('datas')); //配列なので、view遷移後はdatas[name]で取得する

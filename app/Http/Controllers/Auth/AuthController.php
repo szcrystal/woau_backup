@@ -223,6 +223,7 @@ class AuthController extends Controller
                 $data['is_user'] = 1;
                 Mail::send('emails.register', $data, function($message) use ($data) //引数について　http://readouble.com/laravel/5/1/ja/mail.html
                 {
+                	$message->from($data['info']->site_email, 'woman x auditor');
                     //$dataは連想配列としてメールテンプレviewに渡され、その配列のkey名を変数（$name $mailなど）としてview内で取得出来る
                     $message->to($data['email'], $data['name'])->subject('【woman x auditor】ユーザー登録が完了しました');
                     //$message->attach($pathToFile);
@@ -232,9 +233,9 @@ class AuthController extends Controller
                 $data['is_user'] = 0;
                 Mail::send('emails.register', $data, function($message) use ($data)
                 {
-                    $message->to($data['info']->site_email, 'woman x auditor 管理者')->subject('【woman x auditor】ユーザー登録がありました');
+                	$message->from($data['info']->site_email, 'woman x auditor');
+                    $message->to($data['info']->site_email, 'woman x auditor 管理者')->subject('ユーザー登録がありました - woman x auditor -');
                 });
-                
                 
                 Auth::login($user);
                             
@@ -251,14 +252,22 @@ class AuthController extends Controller
             $this->validate($request, $rules);
             
             $datas = $request->all(); //requestから配列として$dataにする
-            session($datas);
+            //session($datas);
                         
             return view('auth.confirm', ['datas'=>$datas, 'headTitle'=>$headTitle]); //配列なので、view遷移後はdatas[name]で取得する
         }
             //return redirect()->to('confirm');
             //return redirect('/contact');
     }
- 
+    
+    /*
+    public function getAaa() {
+    	$data['name'] = 'aaa';
+        $data['email'] = 'aaa@aaa.aaa';
+        $headTitle = 'aaaaa';
+    	return view('auth.registerEnd', ['data'=>$data, 'headTitle'=>$headTitle]);
+    }
+ 	*/
 /*
     //New Register Finish
     public function postRegisterEnd(Request $request) {

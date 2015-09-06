@@ -11,17 +11,17 @@
             <p></p>
         </div>
         
-        
         @include('shared.move_3')
         
         <div class="send-end">
             <img src="/images/main/il-comp.png"><br>
-            <span>送信完了</span><br>
-            お問い合わせありがとうございました
+            <span>送信完了</span><br><br>
+            お問い合わせありがとうございました。<br>
+            記載頂いたメールアドレス宛に確認メールを自動送信しております。<br>そちらも合わせてご確認下さい。
         </div>
 
         <div>
-            <a href="{{ getUrl('/') }}" class="edit-btn">HOMEへ</a>
+            <a href="{{ getUrl('/') }}" class="edit-btn"><span class="octicon octicon-mail-reply"></span>HOMEへ</a>
         </div>
     </main>
 @endsection

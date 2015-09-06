@@ -14,20 +14,18 @@
         @include('shared.move_3')
         
         <div class="send-end">
-    		<img src="/images/main/il-comp.png"><br>
+    		<img src="/images/main/person.png">
+            <p>
 	        <span>登録完了</span><br>
-    	    こんにちは、{{$data['name']}}さん<br />
-            {{$data['name']}}さんのユーザー登録が完了しました。<br />
-            ユーザーID（メールアドレス）：{{$data['email']}}
+            <strong>ユーザーID（メールアドレス）：{{$data['email']}}</strong><br>
+    	    こんにちは、{{$data['name']}}さん<br>
+            {{$data['name']}}さんのユーザー登録が完了しました。<br>
+            これから、案件情報や勉強会などのユーザー向けコンテンツがご覧になれます。
+            </p>
 	    </div>
 
         <div>
-            <a href="/" class="edit-btn">HOMEへ</a>
+            <a href="{{ getUrl('/') }}" class="edit-btn"><span class="octicon octicon-mail-reply"></span>HOMEへ</a>
         </div>
-            {{--
-            こんにちは、{{$data['name']}}さん<br />
-            {{$data['name']}}さんの登録が完了しました。<br />
-            会員ID：{{$data['email']}}
-            --}}
     </main>      
 @endsection

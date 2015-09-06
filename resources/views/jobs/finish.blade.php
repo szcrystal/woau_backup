@@ -20,12 +20,14 @@
         
     	<div class="send-end">
 	        <img src="{{asset('images/main/il-comp.png')}}"><br>
-	        <span>送信完了</span><br>
-    	    ご応募ありがとうございました
+	        <span>応募完了</span><br><br>
+    	    {{$obj->company_name}}
+            の応募をお受け致しました。<br>
+            確認メールを送信しておりますので、そちらも合わせてご確認下さい。
     	</div>
 
         <div>
-            <a href="{{getUrl('/')}}" class="edit-btn">HOMEへ</a>
+            <a href="{{getUrl('/')}}" class="edit-btn"><span class="octicon octicon-mail-reply"></span>HOMEへ</a>
         </div>
 	</main>
 @endsection
