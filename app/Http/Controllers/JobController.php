@@ -84,6 +84,7 @@ class JobController extends Controller
     	$singleObj = Job::where('job_number', $job_number) -> first();
         $headTitle = '案件に応募する';
         return view('jobs.entry', ['singleObj'=>$singleObj, 'headTitle'=>$headTitle]);
+        //echo $_SERVER['DOCUMENT_ROOT'];
     }
     
     public function postEntry(Request $request, $job_number) { //ORG:postIndex
@@ -94,6 +95,19 @@ class JobController extends Controller
     	//お問い合わせ最終ページの表示：Finish Page
     	if($request->input('end') == TRUE) { //finishページ
         	if($request->input('_return') !== null ) { //戻るボタンを押した時
+            	
+                //添付したファイルの削除動作 戻る時に削除する
+                $name = $request->input('realPath');
+                if(file_exists($name)) {
+                    if(unlink($name)) 
+                        echo "Done Delete"; //ここをLogに書き出したい
+                    else 
+                        echo "No Delete";
+                }
+                else {
+                    echo "No Such File";
+                }
+                
                 return back() -> withInput(); //withInput: old()にデータを渡す（sessionで）
             }
             else { //最終ページ：Finish
@@ -162,7 +176,8 @@ class JobController extends Controller
             // 'add_file' => object(UploadedFile),
             if ($request->hasFile('add_file')) {
                 $name = Input::file('add_file')->getClientOriginalName();
-                $file = Input::file('add_file') -> move('images/temps/'.$datas['user_number'], $name);
+                $file = Input::file('add_file') -> move('../../temps/'.$datas['user_number'], $name); //woauの並びに作る woauから外せばgit addの対象からも外れるので
+                //$file = Input::file('add_file') -> move('images/temps/'.$datas['user_number'], $name);
                 $realPath = $file->getRealPath();
                 //echo $name = Input::file('add_file')->getClientOriginalName();
                 
@@ -170,10 +185,11 @@ class JobController extends Controller
                 $datas['orgName'] = $name;
             }
             
-            foreach($datas as $key => $val) {
-            	if($key != 'add_file')
-		            session([$key=>$val]);
-            }
+//            foreach($datas as $key => $val) {
+//            	if($key != 'add_file')
+//		            session([$key=>$val]);
+//            }
+
             return view('jobs.confirm', ['datas'=>$datas, 'obj'=>$obj, 'headTitle'=>$headTitle]); //配列なので、view遷移後はdatas[name]で取得する
             //return redirect()->to('confirm');
         }

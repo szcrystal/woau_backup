@@ -280,7 +280,7 @@
                     /* Ajax */
                     $.ajax({
                         type: "POST",
-                        url: '/upload.php', //laravelではweb rootからのフルパスが安全
+                        url: '/script/upload.php', //laravelではweb rootからのフルパスが安全
                         data: datas, //datas:<input type="file" .. />をupload.phpにPOSTするということ
                         processData: false,
                         contentType: false,

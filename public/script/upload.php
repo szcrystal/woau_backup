@@ -10,10 +10,10 @@ $i = 0;
 while($i < $count) {
 	
     if($_POST['slug_type'] == 'jobs') {
-    	$directory = 'images/upload/jobs/'; //directoryを事前に作る必要あり
+    	$directory = '../images/upload/jobs/'; //directoryを事前に作る必要あり
     }
     else {
-    	$directory = 'images/upload/';
+    	$directory = '../images/upload/';
     }
     
 	$moveTo = $directory . $_FILES['files']['name'][$i];

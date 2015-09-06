@@ -157,7 +157,7 @@
                             	<span>{{ $jobObj->attach_name }}</span><br />
                                 
                                 @if(isset($jobObj->attach_name))
-                                <form id="dlFile" method="post" action="/download.php"> {{-- method="post" action="/download.php" --}}
+                                <form id="dlFile" method="post" action="/script/download.php"> {{-- method="post" action="/download.php" --}}
                                 
                                 	<input type="hidden" name="fPath" value="{{ $jobObj->attach_path }}" />
                                     <input type="hidden" name="fName" value="{{ $jobObj->attach_name }}" />
