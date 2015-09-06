@@ -176,7 +176,12 @@ class JobController extends Controller
             // 'add_file' => object(UploadedFile),
             if ($request->hasFile('add_file')) {
                 $name = Input::file('add_file')->getClientOriginalName();
-                $file = Input::file('add_file') -> move('../../temps/'.$datas['user_number'], $name); //woauの並びに作る woauから外せばgit addの対象からも外れるので
+                if(getenv('LARAVEL_ENV') == 'heroku') {
+                	$file = Input::file('add_file') -> move('../temps/'.$datas['user_number'], $name);
+                }
+                else {
+	                $file = Input::file('add_file') -> move('../../temps/'.$datas['user_number'], $name); //woauの並びに作る woauから外せばgit addの対象からも外れるので
+                }
                 //$file = Input::file('add_file') -> move('images/temps/'.$datas['user_number'], $name);
                 $realPath = $file->getRealPath();
                 //echo $name = Input::file('add_file')->getClientOriginalName();
