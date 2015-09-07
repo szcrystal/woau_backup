@@ -16,7 +16,7 @@
     	@if(isset($article))
             @if($article->img_link == '' || $article->img_link === null)
                 <span>追加する画像をここにドラッグして下さい…</span><br>
-                <span>横幅220pxもしくはそれ以上（正方形だと尚可）の画像にすると綺麗に出力されます。</span>
+                <span>画像のサイズを横幅220pxもしくはそれ以上にすると綺麗に出力されます。</span>
             @else
             
             <?php $imgArrs = explode(';', $article->img_link); 
@@ -30,7 +30,7 @@
             @endif
         @else
             <span>追加する画像をここにドラッグして下さい…</span><br>
-            <span>横幅220pxもしくはそれ以上（正方形だと尚可）の画像にすると綺麗に出力されます。</span>
+            <span>画像のサイズを横幅220pxもしくはそれ以上にすると綺麗に出力されます。</span>
         @endif
     </div>
 

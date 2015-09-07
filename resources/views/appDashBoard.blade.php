@@ -208,8 +208,8 @@
           --}}
           
           <ul class="nav nav-sidebar">
-            <li{!!addCurrent('siteinfo')!!}><a href="/dashboard/siteinfo"><span class="octicon octicon-device-desktop"></span>サイト情報/メール</a></li>
-            <li{!!addCurrent('register')!!}><a href="/dashboard/register"><span class="octicon octicon-key"></span>管理者追加</a></li>
+            <li{!!addCurrent('siteinfo')!!}><a href="/dashboard/siteinfo"><span class="octicon octicon-device-desktop"></span>サイト情報／メール</a></li>
+            <li{!!addCurrent('register')!!}><a href="/dashboard/register"><span class="octicon octicon-key"></span>管理者登録／一覧</a></li>
             <li{!!addCurrent('userinfo')!!}><a href="/dashboard/userinfo"><span class="octicon octicon-person"></span>登録ユーザー情報</a></li>
           </ul>
           

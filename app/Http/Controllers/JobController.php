@@ -131,6 +131,7 @@ class JobController extends Controller
                     //$message->attach($data['realPath'], ['as'=>$data['orgName']]); //,['as'=>'eee', 'mime'=>'image/png']
                 });
                 
+                
                 //for admin
                 $data['is_user'] = 0;
                 Mail::send('emails.jobentry', $data, function($message) use ($data, $request)
@@ -138,7 +139,7 @@ class JobController extends Controller
                 	$message->from($data['info']->site_email, 'woman x auditor');
                     //$dataは連想配列としてメールテンプレviewに渡され、その配列のkey名を変数（$name $mailなど）としてview内で取得出来る
                     $message->to($data['info']->site_email, 'woman x auditor 管理者')->subject(/*.$data['name'] .*/'案件の応募がありました - woman x auditor -');
-                    if (isset($data['realPath'])) {
+                    if(isset($data['realPath'])) {
                         //if(isset($data['realPath']) && isset())
                         $message->attach($data['realPath'], ['as'=>$data['orgName']]); //,['as'=>'eee', 'mime'=>'image/png']
                         //env('MAIL_USERNAME')
