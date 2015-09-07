@@ -179,7 +179,7 @@ th.sz-w {
 	border-color: #ddd;
 }
 h1.page-header {
-	font-size: 2.4em;
+	font-size: 2.3em;
 }
 h2.page-header {
     //font-size: 1.4em;
@@ -208,16 +208,19 @@ h2.page-header > span {
     margin-bottom: 1em;
 }
 .user-table {
-	margin: 1.5em 0;
+	margin: 1.5em 0 4em;
 }
 .user-table tr > th {
 	background: #f1f1f1;
 }
-.user-table tr {
-	min-height: 3.5em;
+.table.user-table > tbody > tr {
+	height: 4em;
+    vertical-align: top;
+    
 }
-.user-table td {
+.user-table > tbody > tr > td {
 	font-size: 1.1em;
+    padding-bottom: 1.5em;
 }
 .dlf {
 	float: right;
@@ -230,6 +233,11 @@ h2.page-header > span {
 	margin:0 5px;
     color:#327AB6;
 }
+.dlf:hover {
+	background: #e8e8e8;
+	opacity: 0.7;
+}
+
 
 /* btn */
 .w-btn {

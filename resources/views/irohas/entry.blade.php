@@ -91,6 +91,7 @@
                 <div>
                     {!! Form::hidden('iroha_id', $obj->id) !!}
                     {!! Form::hidden('user_id', Auth::user()->id) !!}
+                    {!! Form::hidden('user_number', Auth::user()->user_number) !!}
                     
                     <button type="submit" class="next-btn center-block">内容を確認する</button>
                     {{-- <button type="reset" class="btn btn-default">Reset</button> --}}

@@ -39,11 +39,11 @@
                 </tr>
                 <tr> 
                     <th scope="row">職歴</th>
-                    <td>{{ $datas['work_history'] }}</td>
+                    <td>{!! nb($datas['work_history']) !!}</td>
                 </tr>
                 <tr> 
                     <th scope="row">役職</th>
-                    <td>{{ $datas['office_posi'] }}</td>
+                    <td>{!! nb($datas['office_posi']) !!}</td>
                 </tr>
                 <tr> 
                     <th scope="row">出張の可否</th>
@@ -59,11 +59,11 @@
                 </tr>
                 <tr> 
                     <th scope="row">過去の経験監査業種</th>
-                    <td>{{ nb($datas['exp_type']) }}</td>
+                    <td>{!! nb($datas['exp_type']) !!}</td>
                 </tr>
                 <tr> 
                     <th scope="row">監査時のポジション</th>
-                    <td>{{ nb($datas['audit_posi']) }}</td>
+                    <td>{!! nb($datas['audit_posi']) !!}</td>
                 </tr>
 
               </tbody>

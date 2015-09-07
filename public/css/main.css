@@ -1903,12 +1903,12 @@ h2.panel-head img {
     //font-family: "游ゴシック", "YuGothic", "Meiryo", sans-serif;
 }
 .form-d input {
-	width: 75%;
+	width: 80%;
 	height: 2.8em;
     line-height: 1.5em;
 }
 .form-d textarea {
-	width: 95%;
+	width: 98%;
 	resize: vertical;
 }
 span.t-down {
@@ -2155,7 +2155,7 @@ span.t-down:after {
 }
 .alert-success,
 .alert-danger {
-	background-color: #fefefe;
+	//background-color: #fefefe;
 }
 
 /* 確認画面 */

@@ -13,7 +13,7 @@
     	<div class="main-head">
         	<h1 class="panel-head">{{$singleObj -> company_name}}へ応募する</h1>{{-- <img src="/images/main/i-job.png"> --}}
             {{--<img src="/images/main/about/entry.png">--}}
-            <p>説明や注意事項等あればここに記載<br>必ず添付ファイルを添付して下さい　など・・？</p>
+            <p>説明や注意事項等あればここに記載<br>必ず添付ファイルを添付して下さい<br>ユーザー登録が完了していないと応募が出来ません　など・・？</p>
         </div>
     
         @include('shared.move_1')

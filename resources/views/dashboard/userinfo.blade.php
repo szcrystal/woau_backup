@@ -20,13 +20,13 @@
                           <th style="min-width:15em;">メールアドレス</th>
                           <th style="min-width:9em;">生年月日</th>
                           <th style="min-width:6em;">所在地</th>
-                          <th style="min-width:6em;">職歴</th>
-                          <th style="min-width:6em;">役職</th>
+                          <th style="min-width:16em;">職歴</th>
+                          <th style="min-width:16em;">役職</th>
                           <th style="min-width:6em;">出張の可否</th>
                           <th style="min-width:8em;">英語能力</th>
                           <th style="min-width:8em;">資格取得年</th>
-                          <th style="min-width:15em;">過去の経験監査業種</th>
-                          <th style="min-width:15em;">監査時のポジション</th>
+                          <th style="min-width:16em;">過去の経験監査業種</th>
+                          <th style="min-width:16em;">監査時のポジション</th>
                           <th style="min-width:9em;">登録日時</th>
                           <th></th>
                         </tr>
@@ -69,7 +69,9 @@
                                     {{$user->eng_ability}}
                                 </td>
                                 <td>
-                                    {{$user->get_year}}
+                                	@if($user->get_year != 0)
+                                    {{$user->get_year}}年
+                                    @endif
                                 </td>
                                 <td>
                                     {!! mbsub($user->exp_type) !!}

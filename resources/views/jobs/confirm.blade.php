@@ -51,18 +51,6 @@
 
               </tbody>
         </table>
-              
-              
-        {{--
-        @foreach($datas as $key => $val)
-            @if($key != '_token')   
-                    <dt style="background-color:#eee;">{{$key}}</dt>
-                    <dd style="background-color:#fff;">{{$val}}</dd>
-
-            @endif
-        @endforeach
-        --}}
-
                 
             
         {!! Form::open(array( 

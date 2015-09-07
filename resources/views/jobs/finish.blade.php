@@ -21,8 +21,7 @@
     	<div class="send-end">
 	        <img src="{{asset('images/main/il-comp.png')}}"><br>
 	        <span>応募完了</span><br><br>
-    	    {{$obj->company_name}}
-            の応募をお受け致しました。<br>
+            案件の応募をお受け致しました。<br>
             確認メールを送信しておりますので、そちらも合わせてご確認下さい。
     	</div>
 

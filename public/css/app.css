@@ -4164,9 +4164,12 @@ a.thumbnail.active {
 }
 .alert-danger {
 /*  background-color: #f2dede;*/
-	background: #fefefe;
-  border-color: #ebccd1;
-  color: #a94442;
+	background-color: #FDE4E0; /* #F9EEEA*/
+  	//border-color: red;
+	color: #F20004;
+/*  color: #a94442;
+	border-color: #ebccd1;
+*/
 }
 .alert-danger hr {
   border-top-color: #e4b9c0;
@@ -4174,6 +4177,18 @@ a.thumbnail.active {
 .alert-danger .alert-link {
   color: #843534;
 }
+
+.alert > ul {
+	margin-top: 0.8em;
+    //list-style-type: disc;
+}
+.alert > ul li {
+	margin-bottom: 0.3em;
+}
+.alert > ul li:before {
+	content: "・";
+}
+
 @-webkit-keyframes progress-bar-stripes {
   from {
     background-position: 40px 0;

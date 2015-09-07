@@ -1,30 +1,35 @@
 <div class="clearfix">
 	<?php 
-    	if(Request::is('*/pages'))
-    		$link = 'pages';
-		else if(Request::is('*/jobs'))
-        	$link = 'jobs';
-        else if(Request::is('*/topics'))
-        	$link = 'topics';
-        else if(Request::is('*/irohas'))
-        	$link = 'irohas';
-        else if(Request::is('*/study'))
-        	$link = 'study';
-        else if(Request::is('*/blog'))
-        	$link = 'blog';
-        else if(Request::is('*/category'))
-        	$link = 'category';
-		else if(Request::is('*/userinfo'))
-        	$link = 'userinfo';
-        else if(Request::is('*/study-entry'))
-        	$link = 'study-entry';
-        else
-        	$link = '';
+//    	if(Request::is('*/pages'))
+//    		$link = 'pages';
+//		else if(Request::is('*/jobs'))
+//        	$link = 'jobs';
+//        else if(Request::is('*/jobs-entry'))
+//        	$link = 'jobs-entry';
+//        else if(Request::is('*/topics'))
+//        	$link = 'topics';
+//        else if(Request::is('*/irohas'))
+//        	$link = 'irohas';
+//        else if(Request::is('*/study'))
+//        	$link = 'study';
+//        else if(Request::is('*/blog'))
+//        	$link = 'blog';
+//        else if(Request::is('*/category'))
+//        	$link = 'category';
+//		else if(Request::is('*/userinfo'))
+//        	$link = 'userinfo';
+//        else if(Request::is('*/study-entry'))
+//        	$link = 'study-entry';
+//        else
+//        	$link = '';
+    
+    $link = Request::path();
+    //$link = str_replace('dashboard');
     ?>
 	
     
     @if(isset($searchStr))
-    <a href="{{ getUrl('dashboard/'.$link) }}" class="btn btn-success pull-left btn-sm"><span class="octicon octicon-triangle-left"></span>一覧へ戻る</a>
+    <a href="{{ getUrl(Request::path()) }}" class="btn btn-success pull-left btn-sm"><span class="octicon octicon-triangle-left"></span>一覧へ戻る</a>
     
     @endif
     

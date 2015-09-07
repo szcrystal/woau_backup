@@ -121,6 +121,8 @@ function getStrDate($dateArg, $type='') {
 	
     $past = getdate(strtotime($dateArg));
     
+    //echo strtotime($dateArg);
+    
 	if($type == 'dot') {
     	return $past['year']. '.' .$past['mon']. '.' . $past['mday'] .'';
     }
@@ -128,7 +130,10 @@ function getStrDate($dateArg, $type='') {
     	return "<em>".$past['year']. "</em><br>" .$past['mon'].'/'. $past['mday'] .'';
 	}
     else {
-		return $past['year'].'年'.$past['mon'].'月'. $past['mday'] .'日';
+    	if(strtotime($dateArg) > 0)
+			return $past['year'].'年'.$past['mon'].'月'. $past['mday'] .'日';
+        
+        //return date('Y年m月d日', strtotime($dateArg));
     }
 }
 
@@ -205,8 +210,8 @@ function pager($table, $id_arg) {
 
 //DashBoardのuserinfo一覧で使用 長文を抜粋する
 function mbsub($arg) {
-	if(mb_strlen($arg) > 80)
-		return mb_substr($arg, 0, 80) . "..";
+	if(mb_strlen($arg) > 75)
+		return mb_substr($arg, 0, 75) . "..";
     else
     	return $arg;
 }

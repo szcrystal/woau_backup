@@ -67,84 +67,34 @@ class DashBoardController extends Controller
             return view('dashboard.index', ['userObjs'=>$userObjs, 'jobObjs'=>$jobObjs ]);
         }
     }
-    
-    public function show($id) {
-    	abort(500);
-    }
 
     
     public function returnSearchObj($table_name, $search) {
             
-            if($table_name == 'irohas') 
-            	$query = DB::table($table_name) ->where('slug', 'irohas');
+        if($table_name == 'irohas') 
+            $query = DB::table($table_name) ->where('slug', 'irohas');
+        
+        else if($table_name == 'study') 
+            $query = DB::table('irohas') ->where('slug', 'study');
             
-            else if($table_name == 'study') 
-            	$query = DB::table('irohas') ->where('slug', 'study');
-                
-            //else if($table_name == 'jobs')
+        //else if($table_name == 'jobs')
+        
+        else 
+            $query = DB::table($table_name);
+        
+        //全角スペース時半角スペースに置き換える
+        if( str_contains($search, '　')) {
+            $search = str_replace('　', ' ', $search);
+        }
+        
+        if(str_contains($search, ' ')) { //半角スペース AND検索
+            $searchs = explode(' ', $search);
             
-            else 
-            	$query = DB::table($table_name);
-            
-            //全角スペース時半角スペースに置き換える
-            if( str_contains($search, '　')) {
-            	$search = str_replace('　', ' ', $search);
-            }
-        	
-            if(str_contains($search, ' ')) { //半角スペース AND検索
-        		$searchs = explode(' ', $search);
-                
-                foreach($searchs as $val) {
-                	$this->val = "%".$val."%";
-                    
-                    if($table_name == 'cates') {
-                    	$query ->where( function($query) { //where節をクロージャにした時に引数は1つまで。更にglobal変数が効かない
-                            $query ->where('c_name', 'like', $this->val)
-                                	->orWhere('slug', 'like', $this->val);
-                        });
-                    }
-                    elseif($table_name == 'studyentries') {
-                    	$query ->where('user_name', 'like', $this->val)
-                                ->orWhere('user_mail', 'like', $this->val)
-                                ->orWhere('iroha_id', 'like', $this->val)
-                                ->orWhere('study_name', 'like', $this->val)
-                                ->orWhere('note', 'like', $this->val);
-                                //->orWhere('created_at', 'like', $this->val);
-                    }
-                    elseif($table_name == 'jobs') {
-                    	$query ->where('id', $this->val)
-                    			->orWhere('job_number', $this->val)
-                                ->orWhere('company_name', 'like', $this->val)
-                                ->orWhere('title', 'like', $this->val)
-                                ->orWhere('sub_title', 'like', $this->val)
-                                ->orWhere('main_content', 'like', $this->val)
-                                ->orWhere('work_name', 'like', $this->val)
-                                ->orWhere('work_site', 'like', $this->val)
-                                ->orWhere('work_format', 'like', $this->val)
-                                ->orWhere('work_day', 'like', $this->val)
-                                ->orWhere('main_content', 'like', $this->val)
-                                ->orWhere('work_name', 'like', $this->val)
-                                ->orWhere('work_site', 'like', $this->val)
-                                ->orWhere('work_format', 'like', $this->val);
-                                
-                                //->orWhere('created_at', 'like', $this->val);
-                    }
-                    else {
-                        $query ->where(function($query) { 
-                            $query ->where('title', 'like', $this->val)
-                                    ->orWhere('sub_title', 'like', $this->val)
-                                    ->orWhere('intro_content', 'like', $this->val)
-                                    ->orWhere('main_content', 'like', $this->val);
-                                    //->orWhere('sub_content', 'like', $this->val);
-                        });
-                    }//else
-                }
-            }
-            else { //1word検索
-            	$this->val = "%".$search."%";
+            foreach($searchs as $val) {
+                $this->val = "%".$val."%";
                 
                 if($table_name == 'cates') {
-                    $query ->where( function($query) { 
+                    $query ->where( function($query) { //where節をクロージャにした時に引数は1つまで。更にglobal変数が効かない
                         $query ->where('c_name', 'like', $this->val)
                                 ->orWhere('slug', 'like', $this->val);
                     });
@@ -159,36 +109,98 @@ class DashBoardController extends Controller
                 }
                 elseif($table_name == 'jobs') {
                     $query ->where('id', $this->val)
-                    		->orWhere('job_number', $this->val)
+                            ->orWhere('job_number', $this->val)
                             ->orWhere('company_name', 'like', $this->val)
                             ->orWhere('title', 'like', $this->val)
                             ->orWhere('sub_title', 'like', $this->val)
                             ->orWhere('main_content', 'like', $this->val)
                             ->orWhere('work_name', 'like', $this->val)
                             ->orWhere('work_site', 'like', $this->val)
-                            ->orWhere('work_format', $this->val)
+                            ->orWhere('work_format', 'like', $this->val)
                             ->orWhere('work_day', 'like', $this->val)
                             ->orWhere('main_content', 'like', $this->val)
                             ->orWhere('work_name', 'like', $this->val)
                             ->orWhere('work_site', 'like', $this->val)
                             ->orWhere('work_format', 'like', $this->val);
+                            
+                            //->orWhere('created_at', 'like', $this->val);
+                }
+                elseif($table_name == 'jobentries') {
+                    $query ->where('id', $this->val)
+                            ->orWhere('user_id', $this->val)
+                            ->orWhere('user_name', 'like', $this->val)
+                            ->orWhere('user_mail', 'like', $this->val)
+                            ->orWhere('company_name', 'like', $this->val)
+                            ->orWhere('note', 'like', $this->val);
                 }
                 else {
-            		$query -> where(function($query) {
-                        $query -> where('title', 'like', $this->val)
-                               -> orWhere('sub_title', 'like', $this->val)
-                               -> orWhere('intro_content', 'like', $this->val)
-                               -> orWhere('main_content', 'like', $this->val);
-                               //-> orWhere('sub_content', 'like', $this->val);
+                    $query ->where(function($query) { 
+                        $query ->where('title', 'like', $this->val)
+                                ->orWhere('sub_title', 'like', $this->val)
+                                ->orWhere('intro_content', 'like', $this->val)
+                                ->orWhere('main_content', 'like', $this->val);
+                                //->orWhere('sub_content', 'like', $this->val);
                     });
                 }//else
             }
+        }
+        else { //1word検索
+            $this->val = "%".$search."%";
             
-            //$count = $query->count();
-            $pages = $query->paginate($this->pg);
-            $pages -> appends(['s' => $search]);
-            
-            return [$pages, $search];
+            if($table_name == 'cates') {
+                $query ->where( function($query) { 
+                    $query ->where('c_name', 'like', $this->val)
+                            ->orWhere('slug', 'like', $this->val);
+                });
+            }
+            elseif($table_name == 'studyentries') {
+                $query ->where('user_name', 'like', $this->val)
+                        ->orWhere('user_mail', 'like', $this->val)
+                        ->orWhere('iroha_id', 'like', $this->val)
+                        ->orWhere('study_name', 'like', $this->val)
+                        ->orWhere('note', 'like', $this->val);
+                        //->orWhere('created_at', 'like', $this->val);
+            }
+            elseif($table_name == 'jobs') {
+                $query ->where('id', $this->val)
+                        ->orWhere('job_number', $this->val)
+                        ->orWhere('company_name', 'like', $this->val)
+                        ->orWhere('title', 'like', $this->val)
+                        ->orWhere('sub_title', 'like', $this->val)
+                        ->orWhere('main_content', 'like', $this->val)
+                        ->orWhere('work_name', 'like', $this->val)
+                        ->orWhere('work_site', 'like', $this->val)
+                        ->orWhere('work_format', $this->val)
+                        ->orWhere('work_day', 'like', $this->val)
+                        ->orWhere('main_content', 'like', $this->val)
+                        ->orWhere('work_name', 'like', $this->val)
+                        ->orWhere('work_site', 'like', $this->val)
+                        ->orWhere('work_format', 'like', $this->val);
+            }
+            elseif($table_name == 'jobentries') {
+                    $query ->where('id', $this->val)
+                            ->orWhere('user_id', $this->val)
+                            ->orWhere('user_name', 'like', $this->val)
+                            ->orWhere('user_mail', 'like', $this->val)
+                            ->orWhere('company_name', 'like', $this->val)
+                            ->orWhere('note', 'like', $this->val);
+            }
+            else {
+                $query -> where(function($query) {
+                    $query -> where('title', 'like', $this->val)
+                           -> orWhere('sub_title', 'like', $this->val)
+                           -> orWhere('intro_content', 'like', $this->val)
+                           -> orWhere('main_content', 'like', $this->val);
+                           //-> orWhere('sub_content', 'like', $this->val);
+                });
+            }//else
+        }
+        
+        //$count = $query->count();
+        $pages = $query->paginate($this->pg);
+        $pages -> appends(['s' => $search]);
+        
+        return [$pages, $search];
     }
     
     
@@ -570,7 +582,6 @@ class DashBoardController extends Controller
     	else {
             if(isset($iroha_id)) {
                 $study_name = $this->iroha->find($iroha_id)->title;
-                
                 
                 $objs = Studyentry::where('iroha_id',$iroha_id)->paginate($this->pg);
                 

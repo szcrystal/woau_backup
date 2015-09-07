@@ -63,7 +63,7 @@
                             @endif
                         </th>
                         <td>
-                            {!! Form::input('password', 'password', null, ['class' => 'form-control', 'placeholder'=>'6文字以上で入力して下さい']) !!}
+                            {!! Form::input('password', 'password', null, ['class' => 'form-control', 'placeholder'=>'6文字以上を入力して下さい']) !!}
                         </td>
                     </tr>
                     
@@ -132,14 +132,14 @@
                     <tr>
                         <th>職歴</th>
                         <td>
-                            {!! Form::textarea('work_history', isset($userObj) ? $userObj->work_history : old('work_history'), ['class'=>'form-control','rows' => 8]) !!}
+                            {!! Form::textarea('work_history', isset($userObj) ? $userObj->work_history : old('work_history'), ['class'=>'form-control','rows' => 15]) !!}
                         </td>
                     </tr>
                         
                     <tr>
                         <th>役職</th>
                         <td>
-                            {!! Form::textarea('office_posi', isset($userObj) ? $userObj->office_posi : old('office_posi'), ['class'=>'form-control','rows' => 8]) !!}
+                            {!! Form::textarea('office_posi', isset($userObj) ? $userObj->office_posi : old('office_posi'), ['class'=>'form-control','rows' => 15]) !!}
                         </td>
                     </tr>
                         
@@ -202,14 +202,14 @@
                     <tr>
                         <th>過去の経験監査業種</th>
                         <td>
-                            {!! Form::textarea('exp_type', isset($userObj) ? $userObj->exp_type : old('exp_type'), ['class'=>'form-control','rows' => 8]) !!}
+                            {!! Form::textarea('exp_type', isset($userObj) ? $userObj->exp_type : old('exp_type'), ['class'=>'form-control','rows' => 15]) !!}
                         </td>
                     </tr>
                     
                     <tr>
                         <th>監査時のポジション</th>
                         <td>
-                            {!! Form::textarea('audit_posi', isset($userObj) ? $userObj->audit_posi : old('audit_posi'), ['class'=>'form-control','rows' => 8]) !!}
+                            {!! Form::textarea('audit_posi', isset($userObj) ? $userObj->audit_posi : old('audit_posi'), ['class'=>'form-control','rows' => 15]) !!}
                         </td>
                     </tr>
 
