@@ -1,5 +1,5 @@
 <header id="head">
-    <h1><a href="{{ getUrl('/')}}"><img src="{{url('/images/main/logo-top.png')}}" /></a></h1>
+    <h1><a href="{{ getUrl('/')}}"><img src="{{url('/images/main/logo-top.png')}}" alt="woman x auditor"></a></h1>
 </header>
 
 <nav id="navmenu" class="clearfix">
