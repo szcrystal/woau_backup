@@ -34,13 +34,16 @@
 @if(Auth::user() && ! Request::is('/'))
 <div id="user-belt">
 	<ul>
-    	<li class="dropdown">
+    	<li><a href="{{getUrl('recruit')}}">案件一覧</a></li>
+    	{{--
+        <li class="dropdown">
         	<a href="{{getUrl('recruit')}}" class="dd-toggle" data-toggle="dropdown" role="button" aria-expanded="false">案件情報<span class="octicon octicon-chevron-down"></span></a>
         	<ul class="dropdown-menu" role="menu">
                 <li><a href="{{getUrl('recruit')}}">新着案件</a></li>
                 <li><a href="{{getUrl('recruit')}}">案件一覧</a></li>
             </ul>
         </li>
+        --}}
     	<li class="dropdown"><a href="{{getUrl('iroha')}}" class="dd-toggle" data-toggle="dropdown" role="button" aria-expanded="false">監査役いろは<span class="octicon octicon-chevron-down"></span></a>
         	<ul class="dropdown-menu" role="menu">
             	<?php

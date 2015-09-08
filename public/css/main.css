@@ -646,7 +646,7 @@ a.arrow-white {
 .user section.jobs,
 .user section.topics {
 	float: none;
-	width: 92%;
+	width: 94%;
     height: auto;
     //min-height: 20em;
     padding: 1.2em 2em 1.5em;
@@ -740,6 +740,7 @@ section.topics article {
     //background: #FF9977;
     margin: 0 0 2.5em 0;
     padding: 0.2em 0.5em 0.4em;
+    //font-weight: bold;
     font-size: 1.2em;
     font-family: "Meiryo", "游ゴシック", "YuGothic", sans-serif;
     border-bottom: 5px solid #FF9977;
@@ -750,7 +751,7 @@ section.topics article {
     //width: 1035px;
     //margin: auto;
     color: #ff9977;
-    font-size: 1.5em;
+    font-size: 1.6em;
     //font-weight: bold;
     
 }
@@ -813,6 +814,7 @@ section.topics article {
 
 .user section.profile > div div a.u-link {
 	display: inline-block;
+    //position: relative;
     width: 40%;
     line-height: 2.8em;
     font-size: 1em;
@@ -842,7 +844,8 @@ section.topics article {
 }
 .user section.profile > div div:last-of-type a.u-link {
 	width: 100%;
-    margin: 0;
+    line-height: 2.4em;
+    //margin: 0;
 
 }
 
@@ -850,9 +853,9 @@ section.topics article {
 /* Guest */
 section.topics {
 	float: left;
-	width: 44%;
+	width: 47%;
     min-height: 30em;
-    padding: 1.5em;
+    padding: 1.5em 2.2em;
 	border: 3px solid #838383;
     border-radius: 0.3em;
     background: #fefefe;
@@ -898,9 +901,9 @@ a.topic-link,
 }
 .guest section.contents {
 	float: right;
-	width: 54%;
+	width: 50%;
     //min-height: 500px;
-    padding: 1.5em 0 1.5em 2.5em;
+    padding: 1.5em 0 1.5em 3.5em;
 }
 .guest section.contents h2 {
 	border-bottom: 0;
@@ -1692,7 +1695,7 @@ aside li {
     //border: 1px solid red;
 }
 #colop div > ul ul {
-	padding-left: 1.2em;
+	padding-left: 1.5em;
 }
 #colop div > ul ul li {
 	//border: 1px solid blue;

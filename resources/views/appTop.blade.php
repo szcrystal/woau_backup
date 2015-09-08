@@ -34,7 +34,7 @@
                     <section class="profile clearfix">
                     	
                     	<div class="clearfix">
-                            <h2><span class="octicon octicon-person"></span>ユーザー： {{ Auth::user()->name }} さん</h2>
+                            <h2><span class="octicon octicon-person"></span>{{ Auth::user()->name }} さん</h2>
                             
                             <div class="clearfix"> 
                                 <p><a href="{{ getUrl('profile/'.Auth::user()->user_number)}}" class="u-link"><span class="octicon octicon-pin"></span>ユーザー情報<span class="octicon octicon-chevron-right"></span></a></p>
@@ -61,43 +61,15 @@
                         </div>
                     </section>
                     
-               <div class="blog-main">     
-                    @include('shared.linkbox')
+            <div class="blog-main">     
+                @include('shared.top_linkbox')
                    
-                   <div>
-                    <section class="jobs clearfix">
-                        <h2>NEW</h2>
-						<div>
-                        @foreach($jobs as $job)
-                            <article>
-                                <a href="{{getUrl('recruit/job/'.$job->job_number)}}">
-                                <small>{{ getStrDate($job->created_at) }}</small>
-                                <h3>{{ $job->company_name }}<br><span>{{ $job ->title }}</span></h3>
-                                </a>
-                            </article>
-                        @endforeach
-                    
-                        <a href="{{getUrl('recruit')}}" class="user-link">案件情報一覧</a>
-                        </div>
-                    </section>
-                
-                	<section class="topics clearfix">
-                        <h2>TOPICS</h2>
-                        <div>
-                        @foreach($topTopics as $topic)
-                        <article>
-                            <a href="{{ getUrl('topics/'.$topic->id) }}">
-                                <small>{{ getStrDate($topic->created_at) }}</small>
-                                <h3>{{ $topic -> title}}</h3>
-                            </a>
-                        </article>
-                        @endforeach
-                        
-                        <a href="{{getUrl('topics')}}" class="topic-link">トピックス一覧</a>
-                        </div>
-                    </section>
-                	</div>
-                </div>{{-- blogmain --}}
+                <div>
+                    @include('shared.top_jobs')
+                    @include('shared.top_topics')
+                </div>
+            
+            </div>{{-- blogmain --}}
         
         @else
         {{-- <div class="guest-belt"></div> --}}
