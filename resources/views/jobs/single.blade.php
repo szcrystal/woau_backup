@@ -28,12 +28,10 @@
                 <h2>{{$singleObj -> company_name}}</h2>
                 <h3>{{$singleObj->title}}</h3>
             </header>
-			
+			<p>案件番号：{{ $singleObj -> job_number }}</p>
 			
             <section>
-            	<p style="margin:-1.2em 0 0; text-align: right; clear:both;">案件番号：{{ $singleObj -> job_number }}</p>
                 {!! $singleObj->main_content !!}
-            
             </section>
             
             <section>
@@ -61,7 +59,7 @@
                         </tr>
                         <tr>
                             <th scope="row">ホームページ</th>
-                            <td><a href="{{$singleObj->work_site}}">{{$singleObj->work_site}}</a></td>
+                            <td><a href="{{$singleObj->work_site}}" target="_blank">{{$singleObj->work_site}}</a></td>
                         </tr>
                         <tr>
                             <th scope="row">形態</th>

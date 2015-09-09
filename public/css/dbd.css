@@ -316,7 +316,7 @@ ul.slide {
 .progBar {
 	width:0; 
     height:3px; 
-    background: #FF3700/*#0DE06C*/; /* #E84772 */ 
+    background: #0DE06C; /* #0DE06C #FF3700 #E84772 */ 
     margin-bottom:1em;
 }
 .progBar + .clearfix {

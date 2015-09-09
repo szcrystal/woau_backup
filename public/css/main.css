@@ -1593,22 +1593,28 @@ aside li {
     text-align: left;
     padding-left: 6px;
 }
+.job-sgl header + p {
+	margin: -1.2em 0.2em 0 0;
+    text-align: right;
+    clear: both;
+}
 .job-sgl section {
 	text-align: left;
     margin-bottom: 2em;
-    width: 100%;
+    width: 85%;
     padding-left: 6px;
 }
-.job-sgl section:last-of-type {
-	width: 100%;
-    margin-top: 3.5em;
-    //border: 1px solid red;
-}
-.job-sgl section:last-of-type:after {
+.job-sgl section:after {
 	display: block;
     clear: both;
     content: "";
     height: 0;
+}
+
+.job-sgl section:last-of-type {
+	width: 100%;
+    margin-top: 3.5em;
+    //border: 1px solid red;
 }
 .job-sgl section:last-of-type > .imghere {
 	width: 220px;
@@ -2457,7 +2463,7 @@ span.t-down:after {
 .company-table tbody tr td {
 	height: 6em;
     text-align: left;
-    padding: 1.6em 1.5em;
+    padding: 1.0em 1.5em;
 }
 .company-table tbody tr th {
 	padding-left: 1.5em;
