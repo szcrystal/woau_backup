@@ -24,7 +24,11 @@
                 
                 @if($pageObj->intro_content != '')
                 <section class="intro-ct">
-                	{!! $pageObj->intro_content !!}
+                	<p>{!! nb($pageObj->intro_content) !!}</p>
+                    
+                    @if(Request::is('about'))
+                    <img src="{{ asset('images/main/about/mother.png') }}" alt="working mother">
+                    @endif
                 </section>
                 @endif
                 

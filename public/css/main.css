@@ -416,9 +416,10 @@ div.person {
 #user-belt {
 	//height: 3em;
     //font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
-    background: url(../images/main/foot-tile.png);
+    background: url(../images/main/foot-tile.png)/*#634E4D*/;
     //background: url(../images/main/orange-tiles.png);
-    //border: 1px solid #fe5c26;
+    //border-bottom: 4px solid #ff9977;
+    //border-top: 2px solid #ff9977;
     //border-width: 2px 0;
     //padding: 0.5em 0;
     font-size: 0.9em;
@@ -558,6 +559,7 @@ a.arrow-white {
     background: url(../images/main/orange-tiles-s.png);
 }
 
+
 .container-fluid {
 	background: #fcfaf7;
     margin: 0;
@@ -636,12 +638,15 @@ a.arrow-white {
 }
 .user .link-box {
 	margin: 0 2.0em 2.5em 0.5em;
+    //margin: 0 2.0em 0.5em 0.5em;
+    
 }
 .user .link-box:first-of-type {
 	//margin-left: 0em;
 }
 .user .link-box:nth-of-type(even) {
 	margin-right: 0;
+    //margin-top: 4em;
 }
 .user section.jobs,
 .user section.topics {
@@ -649,7 +654,7 @@ a.arrow-white {
 	width: 94%;
     height: auto;
     //min-height: 20em;
-    padding: 1.2em 2em 1.5em;
+    padding: 1.0em 2em 1.5em;
 	border: 3px solid #838383;
     border-radius: 0.3em;
     background: #fefefe;
@@ -696,7 +701,7 @@ a.arrow-white {
 }
 section.jobs article,
 section.topics article {
-	margin-bottom: 1.3em;
+	margin-bottom: 1.1em;
 }
 .user article a,
 .topics article a {
@@ -729,7 +734,7 @@ section.topics article {
     margin: 0;
     width: 100%;
     padding: 0 0 2em;
-    //border-bottom: 1px solid #FF9977;
+    //border-bottom: 1px solid rgba(0,0,0,0.04);
 }
 .user section.profile h2 {
 	border: none;
@@ -761,7 +766,7 @@ section.topics article {
     height: auto;
     margin: 1em auto 0;
     padding: 2.5em 0;
-    //border: 10px solid #ff9977;
+    border-bottom: 5px solid #ff9977;
     //border-radius: 2em;
     //background: rgba(0,0,0,0.02)
 }
@@ -851,7 +856,7 @@ section.topics article {
 
 
 /* Guest */
-section.topics {
+.guest section.topics {
 	float: left;
 	width: 47%;
     min-height: 30em;
@@ -1568,6 +1573,22 @@ aside li {
     font-size: 0.9em;
     line-height: 0.5em;
 }
+.single header > p {
+	clear: both;
+    float: none;
+    text-align: left;
+	color: red;
+    border: 1px solid red;
+    font-size: 1.1em;
+    padding: 0.7em 1em;
+    margin-top: 3em;
+    background: #FFF2EF;
+    border-radius: 0.5em;
+}
+.single header > p .octicon {
+	font-size: 1.1em;
+    margin-right: 0.5em;
+}
 .single > div {
 	width: 73%;
     margin: auto;
@@ -1666,7 +1687,7 @@ aside li {
 
 /* Footer */
 #colop {
-	padding-bottom: 1em;
+	padding-bottom: 1.5em;
     //border: 3px solid green;
     background: url(../images/main/foot-tile.png);
     //position: relative;
@@ -1674,7 +1695,7 @@ aside li {
 #colop > div {
 	/* width first specify */
 	//width: 1100px;
-	padding: 3.8em 0;
+	padding: 3.8em 0 3.5em;
     margin: auto;
     //position: relative;
     //border: 1px solid red;
@@ -1705,7 +1726,7 @@ aside li {
 }
 #colop div > ul ul li {
 	//border: 1px solid blue;
-    margin: 0;
+    margin: 0 0 0.15em;
 }
 #colop li a {
 	padding: 0.6em 2.5em;
@@ -1716,6 +1737,9 @@ aside li {
     font-weight: 400;
     font-size:1.3em;
     font-family: 'Josefin Sans', sans-serif;
+    margin: 0;
+    //background: url(../images/main/orange-tiles-s.png);
+    //padding: 0.2em 0;
 }
 #colop span.toTop {
 	display: none;

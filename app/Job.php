@@ -28,6 +28,7 @@ class Job extends Model
                             'work_other_second', 
                             'img_link',
                             'slug',
+                            'closed',
                         ];
                             
 //    $table->increments('id');

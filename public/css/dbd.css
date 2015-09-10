@@ -178,12 +178,13 @@ th.sz-w {
 .page-header {
 	border-color: #ddd;
 }
-h1.page-header {
+.main h1.page-header {
 	font-size: 2.3em;
 }
-h2.page-header {
+.main h2.page-header {
     //font-size: 1.4em;
     //padding-top: 1em;
+    //margin-top: 1em;
 }
 h1.page-header > span,
 h2.page-header > span {
@@ -193,6 +194,31 @@ h2.page-header > span {
 	font-weight: bold;
     font-size: 1.2em;
     //color: red;
+}
+
+/* job & study */
+.checkbox {
+	margin: 3em 2em 0.5em 0;
+    text-align: right;
+}
+.checkbox > label {
+	 font-size:1.1em;
+     font-weight: bold;
+}
+.checkbox > small {
+	line-height: 3em;
+    color: #888;
+}
+.checkbox + p { /* 非公開文字 */
+	 color:#FF5000;
+     border-bottom: 1px solid #FF5000;
+     font-size: 1.1em;
+     padding-bottom: 0.3em;
+     margin-bottom: 2em;
+}
+.checkbox + p .octicon {
+	color: #FF5000;
+    font-size: 1.2em;
 }
 
 /* user all */
@@ -205,10 +231,10 @@ h2.page-header > span {
 /* user single */
 .table-responsive {
 	margin-top: 1em;
-    margin-bottom: 1em;
+    margin-bottom: 3em;
 }
 .user-table {
-	margin: 1.5em 0 4em;
+	margin: 0.5em 0 3em;
 }
 .user-table tr > th {
 	background: #f1f1f1;

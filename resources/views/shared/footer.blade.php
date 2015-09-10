@@ -57,7 +57,6 @@
     <span class="toTop octicon octicon-chevron-up"></span>
     
 </footer>
-
 {{--
 @if(!Auth::check())
     	<div class="inBack">

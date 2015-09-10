@@ -159,19 +159,22 @@ function listCategory($blog_id) {
     }
 }
 
+//singleページのページ送り
 function pager($table, $id_arg) {
 	
 	if($table == 'irohas') {
-    	$prev = DB::table($table)->where('slug', 'study')->where('id', '<', $id_arg) -> orderBy('created_at', 'desc') -> first();
-    	$next = DB::table($table)->where('slug', 'study')->where('id', '>', $id_arg) -> first();
+    	$prev = DB::table($table) ->where(['slug'=>'study', 'closed'=>'公開中']) ->where('id', '<', $id_arg) -> orderBy('created_at', 'desc') -> first();
+    	$next = DB::table($table) ->where(['slug'=>'study', 'closed'=>'公開中']) ->where('id', '>', $id_arg) -> first();
+    }
+    else if($table=='jobs'){        
+    	$prev = DB::table($table) ->where('closed', '公開中') -> where('id', '<', $id_arg) -> orderBy('created_at', 'desc') -> first();
+        $next = DB::table($table)->where('closed', '公開中') ->where('id', '>', $id_arg) ->first();
     }
     else {
-    	$prev = DB::table($table)->where('id', '<', $id_arg) -> orderBy('created_at', 'desc') -> first();
-    	$next = DB::table($table)->where('id', '>', $id_arg) -> first();
+    	$prev = DB::table($table) ->where('id', '<', $id_arg) -> orderBy('created_at', 'desc') -> first();
+    	$next = DB::table($table) ->where('id', '>', $id_arg) -> first();
     }
     
-    
-	$format = '<ul class="pager">';
     
     function linkFunc($arg, $table) {
     	if($table == 'irohas') 
@@ -186,6 +189,7 @@ function pager($table, $id_arg) {
         return $link;
     }
     
+    $format = '<ul class="pager">';
     
     if(isset($prev)) {
     	$format .= '<li><a href="' . getUrl(linkFunc($prev, $table)) . '" rel="prev">PREV</a></li>';
@@ -195,7 +199,6 @@ function pager($table, $id_arg) {
     }
     
     if(isset($next)) {
-    	
     	//$link = ($table == 'irohas') ? 'iroha/'. $next->slug : $next->slug;
         $format .= '<li><a href="'. getUrl(linkFunc($next, $table)) .'" rel="next">NEXT</a></li>';
     }
@@ -229,6 +232,13 @@ http://readouble.com/laravel/5/1/ja/controllers.html#route-caching
 
 2,APP_DEBUG環境変数をtrueに .envファイルにて
 http://readouble.com/laravel/5/1/ja/errors.html#configuration
+本番：[APP_ENV] => local
+    [APP_DEBUG] => true
+
+3,jobs tableとirohas tableのmigrateファイルを直す
+recreate_jobs_table
+add_column_jos_study_table ファイルを追加しているので
+追加しないように元のmigrateファイルを直す
 
 ******************************* */
 

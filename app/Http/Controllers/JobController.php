@@ -32,7 +32,7 @@ class JobController extends Controller
     }
 	
 	public function getIndex() {
-    	$jobs = $this -> job -> orderBy('created_at','desc') ->paginate($this->pg);
+    	$jobs = $this -> job -> where('closed', '公開中') -> orderBy('created_at','desc') ->paginate($this->pg);
         $headTitle = '案件情報一覧';
         
         return view('jobs.index', ['jobs'=>$jobs, 'headTitle'=>$headTitle]);
@@ -50,28 +50,33 @@ class JobController extends Controller
     
     public function getJob($job_number) { //一覧のjobsとダブルとエラーになるのでネーミングはgetJobにて
     	//if($job_number) {
-            $singleObj = $this->job->where('job_number', $job_number) -> first();
-        	//$singleObj = $this -> job -> find($jobObj->id);
-
-            $arr['singleObj'] = $singleObj;
-            $arr['headTitle'] = $singleObj -> company_name;
+            //$singleObj = $this->job->where('job_number', $job_number) -> first();
+            //$singleObj = $this -> job -> find($jobObj->id) job_numberなので使用不可
+        	if($singleObj = $this->job->where('job_number', $job_number) -> first()) {
             
-            if($user = Auth::user()) {
-            	$entry = $user -> jobentries() -> where('job_id', $singleObj->id) -> first();
+                $arr['singleObj'] = $singleObj;
+                $arr['headTitle'] = $singleObj -> company_name;
                 
-                /* 
-                $entry = $user -> jobentries; //リレーションJobEntriesのuser_idに対してgetするだけならプロパティ(メソッド()なし)として取得出来る
-                foreach($entry as $en) {
-                	echo $en -> company_name;
+                if($user = Auth::user()) {
+                    $entry = $user -> jobentries() -> where('job_id', $singleObj->id) -> first();
+                    
+                    /* 
+                    $entry = $user -> jobentries; //リレーションJobEntriesのuser_idに対してgetするだけならプロパティ(メソッド()なし)として取得出来る
+                    foreach($entry as $en) {
+                        echo $en -> company_name;
+                    }
+                    */
+                    
+                    if(isset($entry)) { //first()で取得したものはオブジェクト、get()で取得したものはコレクション isEmpty()はコレクションに対してのみ使える
+                        $arr['already'] = 'この案件は応募済みです';
+                    }
                 }
-                */
                 
-                if(isset($entry)) { //first()で取得したものはオブジェクト、get()で取得したものはコレクション isEmpty()はコレクションに対してのみ使える
-                	$arr['already'] = 'この案件は応募済みです';
-                }
+                return view('jobs.single', $arr);
             }
-        	
-        	return view('jobs.single', $arr);
+            else {
+            	abort(404);
+            }
 //        }
 //        else {
 //        	//$jc = new JobController;

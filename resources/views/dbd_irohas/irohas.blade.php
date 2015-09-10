@@ -17,6 +17,7 @@
           <thead>
             <tr>
               <th>ID</th>
+              <th>状態</th>
               <th class="col-md-3">タイトル</th>
               <th class="col-md-2">作成日</th>
               <th class="col-md-5">コンテンツ</th>
@@ -32,6 +33,13 @@
         	<tr>
             	<td>
                 	{{$obj->id}}
+                </td>
+                <td>
+                	@if($obj->closed == '非公開')
+                    <span style="color:#ff5000;">{{$obj->closed}}</span>
+                    @else
+                    {{$obj->closed}}
+                    @endif
                 </td>
     			<td>
 	        		<strong>{{$obj->title}}</strong>

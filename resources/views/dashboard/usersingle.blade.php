@@ -4,16 +4,14 @@
 
 <?php //echo $_SERVER['HTTP_USER_AGENT']; ?>
 		
-        <h1 class="page-header"><span class="mega-octicon octicon-person"></span> {{$user->name}} さんの登録情報</h1>
+        <h1 class="page-header"><span class="mega-octicon octicon-person"></span>{{$user->name}} さんの登録情報</h1>
         
-        
+        <div class="clearfix">
         <a href="{{ getUrl('/dashboard/userinfo') }}" class="btn btn-success btn-sm"><span class="octicon octicon-triangle-left"></span>一覧へ戻る</a>
-        <br />
+        </div>
         
-        
-        <div class="container-fluid">
-        
-            <div class="row table-responsive">
+        	<h2 style="margin-top:1em;" class="page-header"><span class="octicon octicon-primitive-dot"></span>ユーザー情報</h2>
+            <div class="table-responsive">
                 <table class="table table-bordered user-table">
                   <colgroup>
                     <col class="col-xs-2">
@@ -114,17 +112,18 @@
                 </table>
               </div>
   
-            </div>
             
             
              
-        @if(! $jobObjs -> isEmpty())
-        <h2 class="page-header">応募した企業</h2> 
+        @if($jobObjs -> isEmpty())
+        <h4 style="margin-bottom: 3em;"><span class="octicon octicon-primitive-dot"></span>応募した案件はありません</h4>
+        @else
+        <h2 class="page-header"><span class="octicon octicon-primitive-dot"></span>応募した案件</h2> 
 			<div class="table-responsive">
                 <table class="table table-striped table-bordered">
                   <thead>
                     <tr>
-                      <th>企業番号</th>
+                      <th>案件番号</th>
                       <th class="col-md-2">企業名</th>
                       <th class="col-md-4">応募時のコメント</th>
                       <th class="col-md-2">添付ファイル</th>
@@ -169,7 +168,7 @@
                             </td>
 
                             <td>
-                                <a href="{{ getUrl('recruit/job/'. $num) }}" class="btn btn-primary btn-sm center-block">案件を確認</a>
+                                <a href="{{ getUrl('recruit/job/'. $num) }}" class="btn btn-primary btn-sm center-block" target="_blank">案件を確認</a>
                             </td>
                         </tr>
                     @endforeach
@@ -179,13 +178,15 @@
         @endif  
                 
 
-        @if(! $studyObjs->isEmpty())
-        <h2 class="page-header">参加申し込み勉強会</h2> 
+        @if($studyObjs->isEmpty())
+        <h4 style="margin-bottom: 3em;"><span class="octicon octicon-primitive-dot"></span>申込みをした勉強会はありません</h4>
+        @else
+        <h2 class="page-header"><span class="octicon octicon-primitive-dot"></span>参加申し込み勉強会</h2> 
 			<div class="table-responsive">
                 <table class="table table-striped table-bordered">
                   <thead>
                     <tr>
-                      <th>企業番号</th>
+                      <th>勉強会ID</th>
                       <th class="col-md-3">勉強会</th>
                       <th class="col-md-5">応募時のコメント</th>
                       <th>応募日</th>
@@ -195,29 +196,28 @@
                   
                   <tbody>
                 
-                    @foreach($studyObjs as $studyObj)
-                        <tr>
-                            <td>{{ $studyObj->iroha_id }}</td>
-                            
-                            <td>{{ $studyObj->study_name }}</td>
-                            
-                            <td>{{ $studyObj->note }}</td>
-                                                
-                            <td>{{ getStrDate($studyObj->created_at)}}</td>
+                @foreach($studyObjs as $studyObj)
+                    <tr>
+                        <td>{{ $studyObj->iroha_id }}</td>
+                        
+                        <td>{{ $studyObj->study_name }}</td>
+                        
+                        <td>{{ $studyObj->note }}</td>
+                                            
+                        <td>{{ getStrDate($studyObj->created_at)}}</td>
 
-                            <td><a href="{{ getUrl('iroha/study/'. $studyObj->iroha_id) }}" class="btn btn-primary btn-sm center-block">勉強会を確認</a></td>
-                        </tr>
-                    @endforeach
+                        <td><a href="{{ getUrl('iroha/study/'. $studyObj->iroha_id) }}" class="btn btn-primary btn-sm center-block" target="_blank">勉強会を確認</a></td>
+                    </tr>
+                @endforeach
                 
                     </tbody>
                 </table>
             </div>
         
         @endif
-            
-            
-            
-            
-            <a href="{{ getUrl('/dashboard/userinfo') }}" class="btn btn-success btn-sm"><span class="octicon octicon-triangle-left"></span>一覧へ戻る</a>
+        
+        <div class="clearfix">
+        <a href="{{ getUrl('/dashboard/userinfo') }}" class="btn btn-success btn-sm"><span class="octicon octicon-triangle-left"></span>一覧へ戻る</a>
+        </div>
         
 @endsection

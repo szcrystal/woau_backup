@@ -20,9 +20,10 @@
             <tr>
               <th>ID</th>
               <th>企業番号</th>
+              <th>状態</th>
               <th class="col-md-3">企業名</th>
               
-              <th class="col-md-2">作成日</th>
+              <th>作成日</th>
               {{-- <th>サブタイトル</th> --}}
               <th class="col-md-4">コンテンツ</th>
               {{-- <th class="col-md-2">リンク名</th> --}}
@@ -40,6 +41,13 @@
                     </td>
                     <td>
                         {{ $obj->job_number }}
+                    </td>
+                    <td>
+                        @if($obj->closed == '非公開')
+                        <span style="color:#ff5000;">{{$obj->closed}}</span>
+                        @else
+                        {{$obj->closed}}
+                        @endif
                     </td>
                     <td>
                         <strong>{{$obj->company_name}}</strong>

@@ -33,10 +33,6 @@
       
       	{!! Form::open() !!}
         	<div class="well clearfix">
-            	
-                
-                
-                
                 
                 <div class="pull-left">
                 	<?php $link = isset($article) ? $article->slug : $slug; ?>
@@ -58,6 +54,19 @@
                 </div>
             </div>
         
+        @if($link == 'study')
+        	<div class="checkbox">
+                <label>
+                    {!! Form::checkbox('closed', '非公開', (isset($article) && $article->closed == '非公開') ? true : false, ['style'=>'']) !!}
+                    この勉強会を非公開にする
+                </label><br>
+                <small>変更後は更新ボタンを押して下さい</small>
+            </div>
+            
+            @if(isset($article) && $article->closed == '非公開')
+            <p><span class="octicon octicon-issue-opened"></span>この勉強会は非公開です。</p>
+            @endif
+        @endif
         
           <div class="form-group">
               <label>タイトル</label>

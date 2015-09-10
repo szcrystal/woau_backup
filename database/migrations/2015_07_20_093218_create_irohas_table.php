@@ -22,6 +22,9 @@ class CreateIrohasTable extends Migration
             $table->string('url_name')->nullable()->default(NULL);
             $table->string('img_link')->nullable()->default(NULL);
             $table->string('slug')->nullable()->default(NULL);
+            
+            //$table->string('closed')->nullable()->default('公開中');
+            
             $table->timestamps();
         });
     }

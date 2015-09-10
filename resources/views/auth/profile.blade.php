@@ -170,7 +170,8 @@
                   <tbody>
                     @foreach($jobObjs as $jobObj)
                         <tr>
-                            <td><?php $num = DB::table('jobs')->find($jobObj->job_id) -> job_number; ?>
+                            <td><?php 
+                                $num = DB::table('jobs')->find($jobObj->job_id)-> job_number; ?>
                                 {{ $num }}
                             </td>
                             <td>

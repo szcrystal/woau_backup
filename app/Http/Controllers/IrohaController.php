@@ -43,13 +43,17 @@ class IrohaController extends Controller
     
     public function show($url_name) {
     	if($url_name == 'study') {
-        	$objs = $this -> iroha -> where('slug', 'study') -> orderBy('created_at','desc') -> paginate($this->pg);
+        	$objs = $this -> iroha -> where(['slug'=>'study', 'closed'=>'公開中']) -> orderBy('created_at','desc') -> paginate($this->pg);
             $headTitle = '監査役いろは勉強会一覧';
         	return view('irohas.study', ['objs'=>$objs, 'headTitle'=>$headTitle]);
         }
         else {
     		$obj = $this -> iroha -> where('url_name', $url_name) -> first();
-        	return view('irohas.page', compact('obj'));
+            
+            if(isset($obj))
+            	return view('irohas.page', compact('obj'));
+            else
+	        	abort(404);
         }
     }
 
@@ -59,23 +63,28 @@ class IrohaController extends Controller
 //    }
     
     public function getStudy($id) {
-    	$arr['atcl'] = $this -> iroha -> find($id);
+    	
+        if( $arr['atcl'] = $this -> iroha -> find($id) ) {
         
-        if($user = Auth::user()) {
-            $entry = $user -> studyentries() -> where('iroha_id', $arr['atcl']->id) -> first();
-            /* 
-            $entry = $user -> jobentries; //リレーションJobEntriesのuser_idに対してgetするだけならプロパティ(メソッド()なし)として取得出来る
-            foreach($entry as $en) {
-                echo $en -> company_name;
+            if($user = Auth::user()) {
+                $entry = $user -> studyentries() -> where('iroha_id', $arr['atcl']->id) -> first();
+                /* 
+                $entry = $user -> jobentries; //リレーションJobEntriesのuser_idに対してgetするだけならプロパティ(メソッド()なし)として取得出来る
+                foreach($entry as $en) {
+                    echo $en -> company_name;
+                }
+                */
+                if(isset($entry)) { //first()で取得したものはオブジェクト、get()で取得したものはコレクション isEmpty()はコレクションに対してのみ使える
+                    $arr['already'] = '参加申込み済みです';
+                }
             }
-            */
-            if(isset($entry)) { //first()で取得したものはオブジェクト、get()で取得したものはコレクション isEmpty()はコレクションに対してのみ使える
-                $arr['already'] = '参加申込み済みです';
-            }
+            
+            return view('irohas.single', $arr);
+        }
+        else {
+        	abort(404);	
         }
         
-        
-        return view('irohas.single', $arr);
     }
     
     //勉強会参加フォーム

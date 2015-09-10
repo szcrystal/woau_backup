@@ -92,7 +92,7 @@
                         
                         //if(location.pathname.indexOf('jobs') > -1) {
                         if(dropAreaID == '#dropAreaJob') {
-                            datas.append('slug_type', 'jobs');
+                            datas.append('slug_type', 'jobs'); //$_POST['slug_type']をAjaxで渡す
                         }
                         else {
                             datas.append('slug_type', 'page');

@@ -5,19 +5,20 @@
 		
         <h1 class="page-header"><span class="mega-octicon octicon-file-directory"></span> 案件応募者一覧</h1>
     	
+        @if(! isset($job_name))
         @include('dbd_shared.search')
-
+		@endif
         
         <div class="table-responsive">
         @if(! $objs->isEmpty())
             
             @if(isset($job_name))
-            	<div>
+            	<div style="margin-bottom: 3em;">
                     <a href="{{ getUrl('/dashboard/jobs-entry') }}" class="btn btn-success btn-sm"><span class="octicon octicon-triangle-left"></span>一覧へ戻る</a>
                 </div>
-                <br />
-            	<div class="alert alert-warning">
-                	案件：{{ $job_name }} の応募者
+                
+            	<div>
+                	<h3 class="page-header">案件：{{ $job_name }} の応募者</h3>
                 </div>
             @endif
             

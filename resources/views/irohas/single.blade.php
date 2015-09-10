@@ -19,11 +19,16 @@
     		<article class="single study-sgl">
             	<header>
                 	<small>{!! getStrDate($atcl->created_at, 'slash') !!}</small>
-                    @if(isset($already))
-                    <span class="done-btn">{{$already}}</span>
+                    @if($atcl->closed == '非公開')
+                        <p><span class="octicon octicon-issue-opened"></span>この勉強会は終了しています。</p>
                     @else
-                    <a href="{{ getUrl('iroha/entry/'.$atcl->id) }}" class="edit-btn">この勉強会に参加する</a>
+                        @if(isset($already))
+                        <span class="done-btn">{{$already}}</span>
+                        @else
+                        <a href="{{ getUrl('iroha/entry/'.$atcl->id) }}" class="edit-btn">この勉強会に参加する</a>
+                        @endif
                     @endif
+                    
         			<h2>{{$atcl->title}}</h2>
                     
                 </header>
@@ -47,11 +52,14 @@
                 </div>
                 
                 <footer class="clearfix">
-                	@if(isset($already))
-                    <span class="done-btn">{{$already}}</span>
-                    @else
-                	<a href="{{ getUrl('iroha/entry/'.$atcl->id) }}" class="edit-btn">この勉強会に参加する</a>
+                	@if(!$atcl->closed == '非公開')
+                        @if(isset($already))
+                        <span class="done-btn">{{$already}}</span>
+                        @else
+                        <a href="{{ getUrl('iroha/entry/'.$atcl->id) }}" class="edit-btn">この勉強会に参加する</a>
+                        @endif
                     @endif
+                    
                     {!! pager('irohas', $atcl->id) !!}
                     
                     <a href="{{ getUrl('iroha/study') }}" class="center-block back-tx">勉強会一覧へ戻る</a>

@@ -4,20 +4,19 @@
 
 		
         <h1 class="page-header"><span class="mega-octicon octicon-repo"></span> 勉強会参加者一覧</h1>
-    	
-        @include('dbd_shared.search')
-
+    	@if(!isset($study_name))
+        	@include('dbd_shared.search')
+		@endif
         
         <div class="table-responsive">
         @if(! $objs->isEmpty())
             
             @if(isset($study_name))
-            	<div>
+            	<div style="margin-bottom: 3em;">
                     <a href="{{ getUrl('/dashboard/study-entry') }}" class="btn btn-success btn-sm"><span class="octicon octicon-triangle-left"></span>一覧へ戻る</a>
                 </div>
-                <br />
-            	<div class="alert alert-warning">
-                	勉強会：{{ $study_name }} の参加者
+            	<div>
+                	<h3 class="page-header">勉強会：{{ $study_name }} の参加者</h3>
                 </div>
             @endif
             
