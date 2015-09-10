@@ -164,15 +164,15 @@ function pager($table, $id_arg) {
 	
 	if($table == 'irohas') {
     	$prev = DB::table($table) ->where(['slug'=>'study', 'closed'=>'公開中']) ->where('id', '<', $id_arg) -> orderBy('created_at', 'desc') -> first();
-    	$next = DB::table($table) ->where(['slug'=>'study', 'closed'=>'公開中']) ->where('id', '>', $id_arg) -> first();
+    	$next = DB::table($table) ->where(['slug'=>'study', 'closed'=>'公開中']) ->where('id', '>', $id_arg) -> orderBy('created_at', 'ASC')-> first();
     }
     else if($table=='jobs'){        
     	$prev = DB::table($table) ->where('closed', '公開中') -> where('id', '<', $id_arg) -> orderBy('created_at', 'desc') -> first();
-        $next = DB::table($table)->where('closed', '公開中') ->where('id', '>', $id_arg) ->first();
+        $next = DB::table($table)->where('closed', '公開中') ->where('id', '>', $id_arg) -> orderBy('created_at', 'ASC')->first();
     }
     else {
     	$prev = DB::table($table) ->where('id', '<', $id_arg) -> orderBy('created_at', 'desc') -> first();
-    	$next = DB::table($table) ->where('id', '>', $id_arg) -> first();
+    	$next = DB::table($table) ->where('id', '>', $id_arg) -> orderBy('created_at', 'ASC') -> first();
     }
     
     
