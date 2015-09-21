@@ -12,12 +12,13 @@
             <li><a href="{{getUrl('about')}}"><span class="octicon octicon-triangle-right"></span>woman x auditorとは</a></li>
             <li><a href="{{getUrl('topics')}}"><span class="octicon octicon-triangle-right"></span>トピックス</a></li>
             <li><a href="{{getUrl('contact')}}"><span class="octicon octicon-triangle-right"></span>お問い合わせ</a></li>
+            
             @if(Auth::user())
             <li><a href="{{getUrl('recruit')}}"><span class="octicon octicon-triangle-right"></span>案件一覧</a></li>
             <li class="dropdown"><a href="{{getUrl('iroha')}}" class="dd-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="octicon octicon-triangle-down"></span>監査役いろは</a>
                 <ul class="dropdown-menu" role="menu">
                     <?php
-                        $irohas = App\Iroha::where('slug', 'irohas') ->get();
+                        $irohas = App\Iroha::where('slug', 'irohas') -> orderBy('created_at', 'asc') ->get();
                         //$irohaObjs = $this -> iroha -> where('slug', 'irohas') -> orderBy('created_at', 'desc') -> get();
                     ?>
                     @foreach($irohas as $iroha)
@@ -30,6 +31,7 @@
             <li><a href="{{getUrl('blog')}}"><span class="octicon octicon-triangle-right"></span>ブログ</a></li>
         	<li><a href="{{getUrl('profile/'.Auth::user()->user_number)}}"><span class="octicon octicon-triangle-right"></span>ユーザー情報</a></li>
             @endif
+            
         </ul>
     @else
     
@@ -78,7 +80,7 @@
     	<li class="dropdown"><a href="{{getUrl('iroha')}}" class="dd-toggle" data-toggle="dropdown" role="button" aria-expanded="false">監査役いろは<span class="octicon octicon-chevron-down"></span></a>
         	<ul class="dropdown-menu" role="menu">
             	<?php
-                	$irohas = App\Iroha::where('slug', 'irohas') ->get();
+                	$irohas = App\Iroha::where('slug', 'irohas') -> orderBy('created_at', 'asc')->get();
                     //$irohaObjs = $this -> iroha -> where('slug', 'irohas') -> orderBy('created_at', 'desc') -> get();
                 ?>
                 @foreach($irohas as $iroha)
