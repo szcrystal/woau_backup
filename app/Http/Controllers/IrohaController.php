@@ -28,8 +28,8 @@ class IrohaController extends Controller
     
     
     public function getIndex() {
-    	$obj = $this -> iroha -> where([/*'url_name'=>'', */'slug'=>'irohas']) -> first();
-        $irohaObjs = $this -> iroha -> where('slug', 'irohas') -> orderBy('created_at', 'desc') -> get();
+    	$obj = $this -> iroha -> where(['url_name'=>'', 'slug'=>'irohas']) -> first();
+        $irohaObjs = $this -> iroha -> where('slug', 'irohas') -> orderBy('created_at') -> get();
         //$this -> topic -> orderBy('created_at','desc') ->paginate(10);
         
         //$links = array();
