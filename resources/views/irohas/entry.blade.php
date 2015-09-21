@@ -37,8 +37,8 @@
               
         <table class="table-d">
             <colgroup>
-                <col class="col-xs-3">
-                <col class="col-xs-7">
+                <col class="cth">
+                <col class="ctd">
             </colgroup>
             
             <tbody>
@@ -93,7 +93,7 @@
                     {!! Form::hidden('user_id', Auth::user()->id) !!}
                     {!! Form::hidden('user_number', Auth::user()->user_number) !!}
                     
-                    <button type="submit" class="next-btn center-block">内容を確認する</button>
+                    <button type="submit" class="next-btn center-block">確認する</button>
                     {{-- <button type="reset" class="btn btn-default">Reset</button> --}}
                 </div>
           {!! Form::close() !!}

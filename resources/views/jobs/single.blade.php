@@ -98,7 +98,7 @@
             </section>
 
             <footer>
-            	@if(! $singleObj->closed == '非公開')
+            	@if($singleObj->closed == '公開中')
                     @if(isset($already))
                     <span class="done-btn">{{$already}}</span>
                     @else

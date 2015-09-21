@@ -1,0 +1,1019 @@
+/* 
+for SP
+@import url('style.css');
+*/
+
+/*@media screen and (min-width: 38.75em) {*/
+
+/*@media only screen and (max-width: 1024px) {*/
+
+/*
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+*/
+
+@media only screen and (max-width: 1049px) {
+	#head,
+    #navmenu,
+    #user-belt > div, 
+    #user-belt > ul,
+    .home .blog-main,
+    .main .blog-main{
+        width: 100%;
+        padding: 0 10px;
+    }
+    .home #cal {
+    	padding: 15px 0 15px 10px;
+    }
+    .home #cal > div {
+    	width: 100%;
+    }
+    #colop > div {
+    	width: 100%;
+        padding: 2em 10px;
+    }
+    .main .blog-main {
+        width: 100%;
+        padding: 0 5px;
+        //border: 1px solid orange;
+    }
+    .home .user .blog-main,
+    .user section.profile > div {
+    	width: 100%;
+    }
+    .user section.profile > div {
+    	width: 98%;
+    	margin: 0 auto;
+        //border: 1px solid red;
+    }
+}
+
+@media only screen and (max-width: 800px) { /* iPad */
+	body {
+    	//background: orange;
+        font-size: 1.3em;
+    }
+    
+	
+    
+    #head h1 { /* Logo */
+    	width: 60%;
+    }
+    
+    /* Nav */
+    #navmenu ul.main-m {
+		margin-top: 2.6em;
+    	font-size: 0.9em;
+    }
+    
+    /* Calousel */
+    .home #cal {
+    	padding: 15px 0 8px 10px;
+    }
+    .home #cal > div {
+    	width: 100%;
+        height: auto;
+        //padding-left: 10px;
+        background-size: 100% auto;
+        background-position: center 0;
+    }
+    .home #cal p:first-of-type {
+    	font-size: 1.6em;
+    }
+    .home #cal p:last-of-type {
+		font-size: 1em;
+    }
+    div.person {
+    	background-size: 100% auto;
+        margin-top: 25px;
+        width: 12%;
+        height: 100px;
+        //border: 1px solid #000;
+    }
+    
+    
+    /* link-box */
+    .link-box {
+        width: 100px;
+        height: 123px;
+        margin: 1em 3.7% 0 0;
+        float: left;
+    }
+    /*
+    .link-box a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        color: #fff;
+    }*/
+    .link-box a span {
+        font-size: 0.95em;
+    }
+    .guest section.tp-topics {
+    	width: 50%;
+    }
+    .guest section.contents {
+	    padding-left: 2.5em;
+	}
+    
+    
+    /* User */
+    .user .blog-main > div {
+        float: left;
+        width: 68%;
+    }
+    .user section.contents {
+        width: 31%;
+        padding-left: 0;
+    }
+    .user .link-box {
+		margin: 0 1.0em 1.5em 0.5em;
+	}
+    .user section h2 {
+    	font-size: 1.8em;
+    }
+    .user section.profile > div div:last-of-type {
+    	width: 47%;
+    }
+    
+    /* about */
+    .about .intro-ct img {
+    	width: 33%;
+        height: auto;
+    }
+    .about .main-ct div {
+        width: 100%;
+        margin: 0 auto 6em;
+        padding: 0 2em 2em;
+    }
+    .about .main-ct div img {
+    	width: 50%;
+        height: auto;
+    }
+    .about .main-ct div:last-of-type img {
+    	margin-right: 0;
+        width: 45%;
+    }
+    
+    
+    
+    
+    /* Archive */
+    article.archive {
+        margin-bottom: 4em;
+        padding: 0 0.5em 3em 0.5em;
+        min-height: 10em;
+        border-bottom: 1px dashed #aaa;
+    }
+    .archive header {
+        width: 57%;
+    }
+    .blog .archive header {
+    	width: 100%;
+    }
+    .archive > div {
+    	width: 38%;
+    }
+    .blog .archive > div {
+    	width: 100%;
+    }
+    
+    #primary {
+    	width: 70%;
+    }
+    
+    .pagination {
+    	font-size: 1.2em;
+        margin-right: 1em;
+    }
+    .blog .pagination {
+    	margin-right: 0;
+    }
+    
+    .single > div {
+    	width: 82%;
+    }
+    .job-sgl section:last-of-type > .imghere {
+        width: 170px;
+        min-height: 170px
+        margin-right: 1em;
+    }
+    
+    
+    /* Colop */
+    #colop > div {
+    	padding: 0.5em 10px;
+    }
+    #colop > div > a {
+    	//border: 1px solid #fff;
+        margin: 1em 0 1.2em;
+    }
+    #colop > p {
+    	margin-top: 1em;
+    }
+    
+    /* Form */
+    .form-d input,
+	.form-d textarea {
+    	width: 100%;
+    }
+    
+    /* Login */
+    .orgPanel {
+    	width: 65%;
+        margin-left: 33%;
+    }
+    .new-regist {
+    	left: 3%;
+    }
+    .addPanel {
+    	width: 65%;
+        margin-left: 0;
+    }
+
+}/* end @media 980px */
+
+/*@media only screen and (max-width: 768px) {
+}*/
+
+@media only screen and (max-width: 750px) { /* iphone5s landscape: 570  ※600pxだと7inchタブレットで有効となる 511*/
+	body {
+    	//background: red;
+    }
+    #head {
+	    margin: 0 0 1em;
+        padding: 0.8em 0.8em 0;
+        height: auto;
+    }
+    #head:after {
+    	display: block;
+        clear: both;
+        content: "";
+        height: 0;
+    }
+    #head h1 {
+		width: 80%;
+    	margin: 0.3em 0 0;
+        height: auto;
+        line-height: auto;
+        float: left;
+        //border: 1px solid red;
+    }
+    #head h1 img {
+	    margin-left: 0;
+        height: auto;
+    }
+    #head .mega-octicon {
+    	display: block;
+    	float: right;
+        font-size: 5.3em;
+        color: #fe5c26;
+    }
+    .wrap-logout p {
+    	float: left;
+        padding: 1em 1.5em 0 0;
+    }
+    #navmenu {
+        padding: 0;
+    }
+    #navmenu ul.login-m {
+    	margin: 1em 1em 0 0;
+    }
+    #navmenu ul.main-m,
+    #user-belt {
+    	display: none;
+    }
+    
+    #navmenu ul.login-m {
+    	//margin-top: 5em;
+        //border: 1px solid red;
+    }
+    
+    #navmenu ul.spmain-m {
+    	display: none;
+    	width: 100%;
+        margin-bottom: 1em;
+        padding: 0.8em 0;
+        border: solid #5a5a5a;
+        border-width: 1px 0 1px 0;
+        background: url(../images/main/foot-tile.png);
+        //box-shadow: 0 1px 3px #555 inset, 0 -1px 3px #555 inset;
+        //height: 300px;
+    }
+    #navmenu ul.spmain-m > li {
+    	float: left;
+        width: 50%;
+        //border: 1px solid #fff;
+        line-height: 1.5em;
+        //background: #aaa;
+        padding: 0.8em 0 0.8em 0.7em;
+    }
+    #navmenu ul.spmain-m > li > a {
+    	color: #fff;
+        font-weight: bold;
+    }
+    #navmenu ul.spmain-m li a span {
+    	margin-right: 0.3em;
+        color: #ccc;
+    }
+    #navmenu ul.spmain-m .dropdown-menu {
+    	display: none;
+        margin-top: 0;
+    }
+    #navmenu ul.spmain-m .dropdown-menu li {
+    	margin: 0.7em 0;
+    }
+    #navmenu ul.spmain-m .dropdown-menu a {
+    	//color: #4a4a4a;
+    }
+    
+    
+    .home #cal {
+        height: auto;
+        padding: 0 0 1em;
+        position: relative;
+    }
+    .home #cal > div {
+    	clear: both;
+    	background: url(../images/main/bn-sp.png) 0 -20px no-repeat;
+        background-size: 100% auto;
+        width: 100%;
+    	height: 280px;
+    	padding-top: 0;
+        margin: 0;
+        //border: 1px solid purple;
+    }
+    .home #cal p:first-of-type {
+        font-size: 1.8em;
+        //line-height: 1.4em;
+        letter-spacing: 0.08em;
+        margin: 0.5em 0 0.8em 3%;
+        font-weight: bold;
+        color: #fff;
+    }
+    .home #cal p + hr {
+        display: none;
+    }
+    .home #cal p:last-of-type {
+    	font-size: 1.3em;
+        //line-height: 0.75em;
+        margin: 1em 0.5em 0 10%;
+    }
+    div.person,
+    .cal-star {
+    	position: absolute;
+    	width: 20%;
+        height: 30%;
+        top: 30%;
+        left: 1.5em;
+        margin: 0;
+    }
+    .cal-star {
+    	top: 27%;
+        left: 2.1em;
+        //border: 1px solid red;
+    	background: url(../images/main/person-star.png) no-repeat;
+        background-size: 100% auto;
+    }
+    .star,
+    .smile,
+    .guest .star,
+    .guest .smile {
+        top: 100%;
+        left: 75%;
+        width: 27%;
+        height: 60%;
+        //border: 1px solid blue;
+    }
+    
+    .guest section.tp-topics {
+    	float none;
+        width: 100%;
+        padding-left: 0.6em;
+        padding-right: 0.6em;
+        //margin-bottom: 2em;
+    }
+    .guest section.tp-topics,
+    .user section.tp-topics {
+    	margin-bottom: 2em;
+    }
+    .guest section.contents,
+    .user section.contents {
+    	float: none;
+        clear: both;
+        width: 100%;
+        padding: 0 0 0 0.3em;
+        margin-bottom: 80px;
+    }
+    .guest section.contents h2 {
+    	display: none;
+    }
+    
+    
+    /* login Top */
+    .user section.profile {
+    	width: 97%;
+        margin: auto;
+    	//border: 1px solid red;
+    }
+    .user .blog-main > div {
+        float: none;
+        width: 100%;
+        //border: 1px solid blue;
+    }
+    .user section.contents {
+/*        width: 100%;*/
+/*        float: none;*/
+/*        margin-bottom: 0;*/
+    }
+    
+    .user section.profile > div div:first-of-type {
+        float: none;
+        width: 100%;
+    }
+    .user section.profile > div div:last-of-type {
+        background-position: 2.5em 1.5em;
+        background-size: 20% auto;
+        width: 65%;
+        margin-left: 35%;
+    }
+    .u-link {
+    	line-height: 3.3em;
+    }
+    .user section.profile > div div:last-of-type .u-link {
+    	//line-height: 3.5em;
+    }
+    .user section.jobs,
+	.user section.tp-topics {
+		width: 100%;
+        padding: 1em 0.8em;
+	}
+    .user section.jobs h2,
+	.user section.tp-topics h2 {
+		float: none;
+    	width: 100%;
+        border-bottom: 1px solid #6a6a6a;
+    }
+    .user section.jobs > div,
+	.user section.tp-topics > div {
+		padding-left: 1em;
+        width: 100%;
+        border: none;
+	}
+    .user .link-box {
+        margin: 0 2.4% 0.5em;
+    }
+
+    .user .link-box:nth-of-type(even) {
+        margin-right: 2.4%;
+    }
+    
+    
+    /* Link Box */
+    .link-box {
+        width: 28%;
+        height: 260px;
+        margin: 0 2.4% 0.5em;
+    }
+    .link-box a span {
+    	font-size: 1.12em;
+    }
+    
+    
+    #colop ul {
+    	float: none;
+        clear: both;
+        padding: 0;
+    }
+    #colop > div > ul {
+    	margin-left: 1.8em; /* リストの左位置調整 */
+        //margin-top: 0;
+        //border: 1px solid red;
+    }
+    #colop > div > a {
+    	float: none;
+        clear: both;
+        display: block;
+        text-align: center;
+        margin-bottom: 1em;
+    }
+    #colop div > ul > li {
+    	float: none;
+    }
+    #colop div > ul ul {
+		padding-left: 0;
+	}
+    #colop div > ul ul li {
+    	margin-bottom: 0.7em;
+    }
+    #colop li a {
+        padding: 0.6em 2.5em;
+    }
+    #colop span.toTop {
+    	right: 0.3em;
+        bottom: 0.5em;
+    }
+    
+    /* All */
+    .main .container-fluid {
+    	padding-bottom: 2em;
+    }
+    .page-ct > .main-head {
+    	min-height: 1em;
+        height: auto;
+        margin: 0 0 1.5em;
+    	padding: 0;
+        //border: 1px solid red;
+    }
+    .main-head h1,
+    h1.main-title {
+    	line-height: auto;
+        padding: 0.4em 1em;
+        display: block;
+        margin: 0 0 0.7em;
+    }
+    .page-ct h2 {
+    	line-height: 1.5em;
+    }
+    .breadcrumb {
+    	text-align: left;
+    }
+    
+    /* About */
+    .about .intro-ct p:first-of-type,
+    .about .sub-ct p:first-of-type {
+        width: 100%;
+        margin: 0;
+        float: none;
+    }
+    .about .sub-ct p:first-of-type {
+        margin-top: 0em;
+    }
+    .about .intro-ct {
+    	background-position: 17% 3%;
+        background-size: 334.5px auto;
+        padding-top: 290px;
+    }
+    .about .sub-ct img {
+    	float: right;
+    	width: 32%;
+        margin: 1em 0 0;
+    }
+    .about .main-ct div {
+        //padding: 0 1em 2em;
+    }
+    .about .main-ct div h3 {
+    	margin-top: -2.2em;
+    }
+    .about .main-ct div p {
+    	float: none;
+        width: 100%;
+        margin-bottom: 1.5em;
+    }
+    .about .main-ct div img {
+    	display: block;
+    	width: 90%;
+        height: auto;
+        float: none;
+        margin: auto;
+    }
+    .about .main-ct div:last-of-type img {
+        width: 80%;
+        margin: auto;
+    }
+    
+    /* Privacy */
+    .privacy p {
+        margin-left: 0;
+        padding-left: 0;
+        margin-bottom: 2em;
+    }
+    .privacy ul {
+        margin-left: 0;
+        padding-left: 1em;
+        font-size: 0.95em;
+    }
+    .privacy section.main-ct {
+        padding: 2.5em 0 0;
+        background-position: 100% 0;
+        background-size: 80px auto;
+    }
+    
+    /* Company */
+    .company section.main-ct {
+        background: none;
+        padding: 0;
+    }
+
+    .company-table tbody tr th,
+    .user-table tbody tr th {
+		font-size: 0.7em;
+        padding: 1em 0.5em 0;
+        width: 15%;
+        //padding-top: 1em;
+    }
+    .company-table tbody tr td,
+    .user-table tbody tr td {
+    	padding: 0.6em 0.6em;
+    }
+    
+    /* Contact */
+    .contact .main-head,
+    .register .main-head {
+    	background-position: 95% 4em;
+    	background-size: 22% auto;
+    }
+    .movement {
+	    margin: 0.5em 0 2.5em;
+	}
+    .movement > div {
+        line-height: 1.8em; /*2.8em*/
+        font-size: 1.0em;
+        padding: 1% 3%;
+    }
+    .movement > div span.step {
+    	border-right: 0;
+        //padding-right: 50%;
+        //padding-left: 0;
+        display: block;
+        margin-top: 0;
+    }
+    .table-d {
+    	border: 1px solid #ccc; 
+    }
+    .table-d th,
+    .table-d td {
+    	width: 100%;
+        display: block;
+        float: none;
+        padding: 1em 0.5em;
+    }
+    .wrap-b .next-btn {
+        margin: 1.5em auto;
+        display: block;
+        min-width: 12em;
+        
+    }
+    .wrap-b .back-btn {
+    	display: block;
+        min-width: 12em;
+        margin: auto;
+        float: none;
+    }
+    .send-end {
+    	text-align: left;
+        margin-left: 5%;
+    }
+    
+    /* archive All */
+    .main-head .pagination {
+		margin: 3em 0 0;
+        //border: 1px solid blue;
+	}
+    .archive header {
+    	float: none;
+    	width: 100%;
+        //border: 1px solid purple;
+    }
+    .archive header h2 {
+		width: 70%;
+    }
+    .archive header h3 {
+    	width: 70%;
+    }
+    .archive > div {
+		float: none;
+        clear: both;
+    	width: 100%;
+        margin-top: 0.8em;
+    }
+ 	
+    /* Topics */
+    .topics .main-head,
+    .study .main-head,
+    .job .main-head {
+        background-position: 95% 4em;
+    	background-size: 25% auto;
+	}
+    .blog .main-head {
+        background-position: 95% 3em;
+    	background-size: 24% auto;
+	}
+    .main-head p {
+        width: 67%;
+        min-height: 6em;
+    }
+    .single.topic-sgl,
+    .single.study-sgl,
+    .single.job-sgl {
+        //background: url(../images/main/about/file.png) 3% 0 no-repeat;
+        background-position: 3% 0;
+        background-size: 25% auto;
+    }
+    .single header h2,
+    .single > div {
+    	width: 100%;
+    }
+    
+    /* blog */
+    #primary {
+        //border: 1px solid green;
+        width: 100%;
+        float: none;
+    }
+    #secondary {
+        //border: 1px solid blue;
+        width: 100%;
+        float: none;
+        clear: both;
+    }
+    .pagination {
+    	margin-top: 0;
+    }
+    .blog header h2 {
+    	width: 100%;
+    }
+    .blog header > .octicon,
+	.blog-sgl header > .octicon {
+    	margin-left: 65%;
+    }
+    
+    /* Job single*/
+    .job-sgl section {
+    	width: 100%;
+        margin-bottom: 0;
+    }
+    .job-sgl section:last-of-type {
+    	margin-top: 0;
+    }
+    .job-sgl section:last-of-type > .imghere {
+        width: 220px;
+        min-height: 220px;
+        float: none;
+        margin-right: 0;
+    }
+    .single header .edit-btn,
+    .single header .done-btn {
+		margin-top: 1.5em;
+    }
+    
+    /* UserInfo */
+    .userinfo h2 {
+        width: 75%;
+        float: none;
+        margin-bottom: 0.5em;
+    }
+    .userinfo table {
+        float: none;
+    }
+    #entry-company > h2,
+    #entry-study > h2 {
+    	margin-bottom: 0.5em;
+    }
+    .entry-table {
+    	white-space: nowrap;
+    }
+    .back-tx {
+    	margin-top: 3em;
+    }
+    
+    /* form */
+    .form-d span.wrap-radio input[type="radio"] {
+    	margin-left: 0;
+    }
+    
+    /* Login Panel */
+    .inBack {
+    	overflow: scroll;
+        position: absolute;
+    }
+    .orgPanel {
+        width: 100%; /* 50% */
+        margin: 5em auto 0;
+    }
+    .addPanel {
+    	width: 95%;
+        margin: 0 auto;
+    }
+    .addPanel,
+    .orgPanel {
+    	padding: 10px 7px;
+    }
+    .panel .panel-body {
+    	padding-top: 0;
+        padding-bottom: 0;
+    }
+    .panel .form-group {
+    	margin: 0.3em auto;
+        //border: 1px solid red;
+    }
+    .panel .control-label {
+    	height: 2.5em;
+        line-height: 2.5em;
+        width: 100%;
+    }
+    .panel input.form-control {
+    	width: 100%;
+        //padding: 0;
+        //border: 1px solid red;	
+    }
+    .panel .form-group a {
+    	margin-top: 1em;
+    }
+    .panel-body .conf-btn {
+    	margin-top: 1em;
+        margin-bottom: 0.5em;
+    }
+    .new-regist {
+        position: static;
+        margin-top: 2em;
+        //border: 1px solid red;
+    }
+    .new-regist a {
+    	width: 100%;
+    }
+    .new-regist p {
+    	width: 100%;
+        display: block;
+        font-size: 1.5em;
+        -webkit-transform: none;
+    	transform: none;
+    }
+    .new-regist p span {
+    	font-size: 1.1em;
+        margin-left: 50%;
+    }
+    .new-regist img {
+    	margin: auto;
+    }
+    
+    
+
+} /* @media 611px */
+@media only screen and (max-width: 500px) { /* iPhone6 */
+	
+	#head .mega-octicon {
+        font-size: 3.3em;
+    }
+    
+    #navmenu ul.login-m {
+    	float: none;
+        clear: both;
+        display: block;
+        width: 90%;
+        margin: 1.0em auto 0;
+        padding: 0;
+        //border: 1px solid red;
+    }
+    #navmenu ul.login-m li {
+    	padding: 0;
+    }
+    #navmenu ul.login-m li:first-of-type {
+    	//margin-right: 2em;
+        float: left;
+    }
+    #navmenu ul.login-m li:last-of-type {
+    	float: right;
+    }
+    #navmenu ul.login-m li.wrap-logout {
+    	float: right;
+        margin-right: 0;
+    }
+    #navmenu ul.login-m li a {
+    	font-size: 1.1em;
+    	padding: 0.7em 1.6em 0.8em 3.9em;
+    }
+    
+	.home #cal > div {
+    	height: 180px;
+    }
+
+	.home #cal p:first-of-type {
+        font-size: 1.4em;
+        line-height: 1.4em;
+    }
+	.home #cal p:last-of-type {
+    	font-size: 0.85em;
+        line-height: 0.85em;
+        margin-left: 1em;
+    }
+    .link-box {
+    	height: 135px;
+    }
+    .link-box a span {
+    	font-size: 0.95em;
+    }
+    .user section.profile > div div:first-of-type p { 
+    	margin-bottom: 1.0em;
+        //border: 1px solid red;
+    }
+    .user section.profile > div div:first-of-type p:first-of-type { 
+    	margin-bottom: 2.2em;
+    }
+    .user section.profile > div div:last-of-type {
+        width: 100%;
+        margin-left: 0;
+    }
+    
+    .user section.profile p > span {/* ありませんor件数 */
+    	display: block;
+        width: 58%;
+        //margin-left: 1em;
+        text-align: right;
+    }
+    .u-link {
+    	//display: block;
+        margin-bottom: 0.2em;
+        width: 60%;
+    }
+    .about .sub-ct img {
+    	width: 50%;
+    }
+    .contact .main-head,
+    .register .main-head {
+    	background-position: 95% 4em;
+    	background-size: 30% auto;
+	}
+    
+    
+}
+
+@media only screen and (max-width: 320px) {
+	body {
+    	//background: red;
+    }
+	#head .mega-octicon {
+        font-size: 3.0em;
+    }
+    .home #cal > div {
+    	height: 160px;
+    }
+    .home #cal p:first-of-type {
+    	font-size: 1.2em;
+    }
+	.home #cal p:last-of-type {
+    	font-size: 0.75em;
+        line-height: 0.75em;
+        margin-left: 1em;
+    }
+    #navmenu ul.spmain-m > li > a {
+    	font-size: 0.95em;
+    }
+    #navmenu ul.login-m li a {
+    	font-size: 1.0em;
+    }
+    .link-box {
+    	height: 115px;
+    }
+    .link-box a span {
+    	font-size: 0.8em;
+    }
+    .user section.profile > div div:last-of-type {
+    	padding-left: 30%;
+        background-position: 1em 15%;
+    }
+    .user section.profile p > span {/* ありませんor件数 */
+    	width: 80%;
+    }
+    .guest section.contents,
+    .user section.contents {
+    	//margin-bottom: 70px;
+    }
+    .about .intro-ct {
+        background-size: 280px auto;
+        padding-top: 250px;
+    }
+    .archive header small {
+    	width: 4.2em;
+        height: 4.2em;
+    }
+/*    .addPanel,*/
+/*    .orgPanel {*/
+/*    	padding: 10px 7px;*/
+/*    }*/
+	.inBack .octicon-x {
+    	font-size: 2em;
+    }
+    .panel .form-group {
+    	margin: 0.3em auto;
+        //border: 1px solid red;
+    }
+    .panel .form-group a {
+    	margin-top: 0.5em;
+    }
+
+}
+

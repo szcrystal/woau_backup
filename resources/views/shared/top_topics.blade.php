@@ -1,4 +1,4 @@
-<section class="topics clearfix">
+<section class="tp-topics clearfix">
     <h2>TOPICS</h2>
     <div>
         @foreach($topTopics as $topic)

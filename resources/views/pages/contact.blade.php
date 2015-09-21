@@ -9,7 +9,7 @@
     <main class="page-ct contact">
     	<div class="main-head">
         	<h1 class="panel-head">お問い合わせ</h1>
-            
+            <p>ご不明点やご質問など、お気軽にお送り下さい。</p>
             {{--
             @if(isset($intro_ct) && $intro_ct != '')
             <p>{!! nb($intro_ct) !!}</p>
@@ -83,7 +83,7 @@
             </table>
                   
             <div>
-                <button type="submit" class="next-btn center-block">内容を確認する</button>
+                <button type="submit" class="next-btn center-block">確認する</button>
                 {{-- <button type="reset" class="btn btn-default">Reset</button> --}}
             </div>
           {!! Form::close() !!}

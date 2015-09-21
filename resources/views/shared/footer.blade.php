@@ -1,6 +1,6 @@
 <footer id="colop">
 	<div class="clearfix">
-		<a href="{{getUrl('/')}}"><img src="/images/main/logo-small.png"></a>
+		<a href="{{getUrl('/')}}"><img src="{{ asset('images/main/logo-white-s.png') }}"></a>
         
         @if(Auth::user())
         	<ul>

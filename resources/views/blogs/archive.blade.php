@@ -31,17 +31,13 @@
                     {!! nb($obj -> sub_content) !!}
                     
                     {!! listCategory($obj->id); !!}
-                    	
-                       
-                    
+
                     </footer>
                 </article>
             
             @endforeach
             
-            <?php echo $objs->render(); ?>
-        
+            {!! $objs->render() !!}
 
-  
     @endsection
 

@@ -771,6 +771,7 @@ pre code {
   padding-left: 15px;
   padding-right: 15px;
 }
+/*
 @media (min-width: 768px) {
   .container {
     width: 750px;
@@ -786,6 +787,7 @@ pre code {
     width: 1170px;
   }
 }
+*/
 .container-fluid {
   margin-right: auto;
   margin-left: auto;
@@ -1633,6 +1635,7 @@ table th[class*="col-"] {
   overflow-x: auto;
   min-height: 0.01%;
 }
+/*
 @media screen and (max-width: 767px) {
   .table-responsive {
     width: 100%;
@@ -1678,6 +1681,7 @@ table th[class*="col-"] {
     border-bottom: 0;
   }
 }
+*/
 
 
 
@@ -3721,7 +3725,6 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   background-color: none;
   border-radius: 4px;
   text-align: right;
-  
 }
 .breadcrumb > li {
   display: inline-block;
@@ -3768,14 +3771,17 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > li > span {
   position: relative;
   float: left;
-  padding: 3px 11px;
-  line-height: 1.42857143;
+  //padding: 0.2em 0.7em;
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  line-height: 2.05em;
   text-decoration: none;
   color: #666;
 /*  color: #337ab7;*/
 /*  background-color: #ffffff;*/
   /*border: 1px solid #dddddd;*/
-  margin-left: -1px;
+  //margin-left: -1px;
   -moz-transition: none;
   transition: none;
 }
@@ -3809,7 +3815,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   background-color: #fe5c26;
   /*background-color: #337ab7;*/
   border-radius: 50%;
-  border-color: #337ab7;
+  //border-color: #337ab7;
   cursor: default;
 }
 .pagination > .disabled > span,

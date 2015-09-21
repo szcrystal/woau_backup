@@ -74,6 +74,9 @@
         },
         
         loginFunc: function() {
+        	
+            var th = this;
+            
         	$('.login').click(function(){
             	
                 var url = location.href;
@@ -83,7 +86,13 @@
             
             	history.pushState('', 'login', '/auth/login'); //詳細はbookにあり HTML5のHistoryAPIを使用してリロードなしのページ遷移が出来る
         		
-                $('html,body').css({overflow:'hidden'});
+                if(th.isAgent('sp')) {
+                	$('html,body').css({overflow:'hidden', height:'100%'});
+                }
+                else {
+                	$('html,body').css({overflow:'hidden'});
+                }
+                
                 
                 /*
                 $('body').append('<div class="inBack"></div>');
@@ -134,13 +143,12 @@
                 });
                 */
                 
-                
-                
                 $('body').append('<div class="inBack"></div>');
                 
                 var $inBack = $('.inBack');
+                //$inBack.css({});
                 
-                $inBack.css({height:h}).load('/auth/login .panel', function(){
+                $inBack.css({height:h+200}).load('/auth/login .panel', function(){
                 
                     var pw = $('.panel').width();
                     var ph = $('.panel').height();
@@ -148,30 +156,44 @@
                     var up = (h/2 - ph/2)-320;
                     var pad = 17;
                     
+                    var panelCss,
+                    	octCss,
+                        move;
+                    
+                    if(th.isAgent('sp')) {
+                    	panelCss = {top:up+100, left:w/2 - (pw+3)/2, opacity:0};
+                    	octCss = {top:up-pad+50, left:w*0.88, opacity:0};
+                        move = 40;
+                    }
+                    else {
+                    	panelCss = {top:up, left:w/2 - pw/2 -pad, opacity:0};
+                    	octCss = {top:up-pad-15, left:w/2 + pw/2 + 30, cursor:'pointer', opacity:0};
+                        move = '+=220';
+                    }
+                    
                     $(this).append('<span class="octicon octicon-x"></span>')
-                            .find('.panel').addClass('addPanel').css({top:up, left:w/2 - pw/2 -pad, opacity:0})
-                            .next('.octicon').css({top:up+pad, left:w/2 + pw/2 + 25, cursor:'pointer', opacity:0});
+                            .find('.panel').addClass('addPanel').removeClass('orgPanel').css(panelCss)
+                            .next('.octicon').css(octCss);
                     
                     //$('.inBack .panel').addClass('addPanel').css({top:up, left:w/2 - pw/2 -pad, opacity:0}); 
                     //$('.inBack > .octicon').css({top:up+pad, left:w/2 + pw/2 + 25 });
                     
                     //$('.inBack .panel');
-                    $(this).find('.panel, .octicon-x').animate({top:'+=220', opacity:1}, 800, 'easeOutBack');
+                    $(this).find('.panel, .octicon-x').animate({top:move, opacity:1}, 800, 'easeOutBack'); //'+=220'
                     //});
                 
                	}).fadeIn(300).click(function(e){
                     
                     var t = $(e.target).not('span');
-                     
                     
                     if(!t.parents().hasClass('panel')) {
                     	$(this).find('.panel, .octicon-x').animate({top:'-=100', opacity:0}, 600, 'easeInBack', function(){
                             history.pushState('', 'cancel', url);
                             
-                            $('html,body').css({overflow:'visible'});
+                            $('html,body').css({overflow:'visible', height:'auto', position:'static'});
                             
                             $inBack.fadeOut(500, function(){
-                                $(this).find('.panel').removeClass('addPanel').parent(this).remove();
+                                $(this).find('.panel').removeClass('addPanel').addClass('orgPanel').parent(this).remove();
                                 //$(this).remove();
                             });
                         
@@ -254,6 +276,28 @@
             
         },
         
+        spMenu: function() {
+        	$('.sp-menu').click(function(){
+            	//$('h1').text('aaa');
+                $('.spmain-m').slideToggle();
+            });
+        },
+        
+        isAgent: function(user) {
+        	if(user == 'sp') {
+                if( navigator.userAgent.indexOf('iPhone') > 0 ||
+                	navigator.userAgent.indexOf('iPod') > 0 ||
+                    navigator.userAgent.indexOf('Mobile ') > 0 ||
+                    navigator.userAgent.indexOf('Mobile;') > 0 ||
+                    navigator.userAgent.indexOf('Windows Phone') > 0
+                    )
+                    return true;
+            }
+            else {
+	            if( navigator.userAgent.indexOf(user) > 0 ) return true;
+            }
+        },
+        
         
     } //return
 })(); //var waDo
@@ -276,6 +320,8 @@ $(function(){
     //waDo.dropDownSlide();
     waDo.loginFunc();
     waDo.scrollFunc();
+    
+    waDo.spMenu();
     
     //waDo.preDeleteImg();
 }); //doc.ready

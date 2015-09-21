@@ -1,16 +1,10 @@
-<div class="panel">
+<div class="panel orgPanel">
     <div class="panel-heading">
         {{-- <img src="/images/main/i-lock.png"> --}}
         <h2></h2>
         
         {{-- <p>ログイン（登録がお済みの方）</p> --}}
     </div>
-
-    {{--
-    <div class="form-group">
-        <p>メールアドレスとパスワードを入力し「ログイン」ボタンを押して下さい。</p>   
-    </div>
-    --}}
     
     @if (count($errors) > 0)
         <div class="alert alert-danger">
@@ -29,30 +23,25 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
             <div class="form-group">
-                <label class="col-md-2 control-label">ユーザーID</label>
-                <div class="col-md-10">
-                    <input type="email" class="form-control" name="user_id" value="{{ old('user_id') }}" placeholder="メールアドレスを入力して下さい" autofocus>
-                </div>
+                <label class="control-label">ユーザーID</label>
+                <input type="email" class="form-control" name="user_id" value="{{ old('user_id') }}" placeholder="メールアドレスを入力して下さい" autofocus>
+                
             </div>
 
             <div class="form-group">
-                <label class="col-md-2 control-label">パスワード</label>
-                <div class="col-md-10">
-                    <input type="password" class="form-control" name="password" placeholder="6文字以上入力して下さい">
-                </div>
+                <label class="control-label">パスワード</label>
+                <input type="password" class="form-control" name="password" placeholder="6文字以上入力して下さい">
             </div>
             
-            <div>
-                <a class="pull-right" href="{{ getUrl('/password/email') }}"><span class="octicon octicon-issue-opened"></span> パスワードをお忘れですか？</a><br />
+            <div class="clearfix form-group">
+                <a class="pull-right" href="{{ getUrl('/password/email') }}"><span class="octicon octicon-issue-opened"></span>パスワードをお忘れですか？</a>
             </div>
             
-            <div>
-                <div class="col-md-12">
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="remember">ログイン状態を保存する
-                        </label>
-                    </div>
+            <div class="col-md-12">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="remember">ログイン状態を保存する
+                    </label>
                 </div>
             </div>
 

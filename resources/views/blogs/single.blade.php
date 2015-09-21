@@ -11,28 +11,18 @@
         
     	<div class="page-ct clearfix">
     		<div id="primary">
-				
-        	<?php 
-//            	$link = $page->img_link; 
-//            	$linkArr = explode(';', $link);
-//            	echo $linkArr[0];
-            ?>
         
     		<article class="blog-sgl">
             	
             	<header>
                 	<small>{!! getStrDate($blogObj->created_at, 'slash') !!}</small>
+                    <span class="octicon octicon-quote"></span>
         			<h2>{{$blogObj->title}}</h2>
                     
+                    @include('shared.cate_list')
                 </header>
                 
                 <div>
-                {{--
-                @if(isset($linkArr[0]))
-                	<img src="{{getUrl('/images/'$linkArr[0]}}" width="230" height="150" />
-                @endif
-                --}}
-                
                 @if($blogObj -> intro_content != '')
                     <p>
                 	{!! nb($blogObj->intro_content) !!}
@@ -53,21 +43,8 @@
                 
                 <footer class="clearfix">
                 	{{-- @if( ! App\Blog::find($blogObj->id)->cateRelation ->isEmpty()) --}}
-                                        	
-                    @if( ! $blogObj ->cateRelation ->isEmpty())
-                        <ul class="clearfix">
-                            <li>カテゴリー<li>
-                        <?php 
-                        	$cates = $blogObj->cateRelation;
-                            $format = "<li class=\"pull-left\"><a href=\"%s\">%s</a>%s</li>\n";
-                            foreach($cates as $cate) {
-                                $cateObj = App\Cate::find($cate->cate_id);
-                                printf($format, getUrl('blog/category/'.$cateObj->slug), $cateObj->c_name, ($cates->last() == $cate) ? "": ",&nbsp&nbsp;" );
-                            }
-                        ?>
-
-                        </ul>
-                    @endif
+                    
+                    @include('shared.cate_list')
                     
                     {!! pager('blogs', $blogObj->id) !!}
 

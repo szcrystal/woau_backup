@@ -14,28 +14,21 @@
                 {!! $topics->render() !!}
             </div>
             @foreach($topics as $obj)
-            
+            	<?php $path = Request::path() .'/'. $obj->id; ?>
+                
                 <article class="archive">
-                    <?php 
-                        if(isset($obj->img_link)) {
-                            $link = $obj->img_link; 
-                            $linkArr = explode(';', $link);
-                        }
-                        //echo $linkArr[0];
-                    ?>
                     <header>
                     	<small>{!! getStrDate($obj->created_at, 'slash') !!}</small>
-                        <h2><a href="{{getUrl('topics/'.$obj->id)}}">{{ $obj->title }}</a></h2>
+                        <h2><a href="{{getUrl($path)}}">{{ $obj->title }}</a></h2>
                     </header>
                     
                     <div>
                         @if($obj -> intro_content != '')
-                            {!! $obj -> intro_content !!}
+                            {!! readMoreContents($obj->intro_content, $path) !!}
                         @else
-                            {!! mb_substr(strip_tags($obj -> main_content), 0, 100) !!}
+                            {!! readMoreContents($obj->main_content, $path) !!}
                         @endif
-                        <a href="{{ getUrl('topics/'.$obj->id) }}" class="dots">・・・</a><br>
-                        <a href="{{ getUrl('topics/'.$obj->id) }}" class="more">Read More »</a>
+                        
                     </div>
                     
                     {{--

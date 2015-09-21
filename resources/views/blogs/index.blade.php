@@ -23,54 +23,33 @@
             	{!! $objs->render() !!}
                 </div>
             
-            @foreach($objs as $obj)
+            @foreach($objs as $blogObj)
+            	<?php $path = Request::path() .'/'. $blogObj->id; ?>
+                
                 <article class="archive">
-                    <?php 
-                        if(isset($obj->img_link)) {
-                            $link = $obj->img_link; 
-                            $linkArr = explode(';', $link);
-                        }
-                        //echo $linkArr[0];
-                    ?>
                     <header>
-                    	<small>{!! getStrDate($obj->created_at, 'slash') !!}</small>
-                        <h2><a href="{{getUrl('blog/'.$obj->id)}}">{{ $obj->title}}</a></h2>
+                    	<small>{!! getStrDate($blogObj->created_at, 'slash') !!}</small>
+                        <span class="octicon octicon-quote"></span>
+                        <h2><a href="{{getUrl($path)}}">{{ $blogObj->title }}</a></h2>
                     </header>
                     
                     <div>
-                    @if($obj -> intro_content != '')
-                    	{!! $obj -> intro_content !!}
-                    @else
-                    	{!! mb_substr(strip_tags($obj -> main_content), 0, 100) !!}
-                    @endif
-                    <a href="{{ getUrl('blog/'.$obj->id) }}" class="dots">・・・</a><br>
-                    <a href="{{ getUrl('blog/'.$obj->id) }}" class="more">Read More »</a>
+                    	@if($blogObj -> intro_content != '')
+                            {!! readMoreContents($blogObj->intro_content, $path) !!}
+                        @else
+                            {!! readMoreContents($blogObj->main_content, $path) !!}
+                        @endif
                     
                     </div>
                     
                     <footer>
-                    {!! nb($obj -> sub_content) !!}
-                    
                     {{--
-                    @if( ! App\Blog::find($obj->id)->cateRelation ->isEmpty())
+                    	@if( ! App\Blog::find($blogObj->id)->cateRelation ->isEmpty())
                     --}}
                     
-                    @if( ! $obj->cateRelation ->isEmpty())
-                        <ul class="clearfix">
-                            <li>カテゴリー<li>
-                        <?php 
-                        	$cates = $obj->cateRelation;
-                            $format = "<li class=\"pull-left\"><a href=\"%s\">%s</a>%s</li>\n"; 
-                            foreach($cates as $cate) {
-                                $cateObj = App\Cate::find($cate->cate_id);
-                                printf($format, getUrl('blog/category/'.$cateObj->slug), $cateObj->c_name, ($cates->last() == $cate) ? "": ",&nbsp&nbsp;" );
-                            }
-                        ?>
-
-                        </ul>
-                    @endif
-                    </footer>
+                    @include('shared.cate_list')
                     
+                    </footer>
                 </article>
             
             @endforeach

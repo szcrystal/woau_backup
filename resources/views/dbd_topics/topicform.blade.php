@@ -57,7 +57,7 @@
           </div>
           --}}
           <div class="form-group">
-              <label>前置きコンテンツ</label>
+              <label>ヘッダーコンテンツ</label>
               {!! Form::textarea('intro_content', isset($article) ? $article->intro_content : null, ['class' => 'form-control']) !!}
           </div>
           

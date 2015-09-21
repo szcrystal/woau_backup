@@ -7,12 +7,6 @@
     	<li><a href="{{getUrl('/')}}"><span class="octicon octicon-home"></span>Home</a></li>
         <li>{{$pageObj->title}}</li>
     </ul>
-
-        	<?php 
-//            	$link = $page->img_link; 
-//            	$linkArr = explode(';', $link);
-//            	echo $linkArr[0];
-            ?>
         
     		<article class="page-ct{{" ".$pageObj->url_name}}">
             	@if(! Request::is('privacy') && ! Request::is('company'))
@@ -25,10 +19,6 @@
                 @if($pageObj->intro_content != '')
                 <section class="intro-ct">
                 	<p>{!! nb($pageObj->intro_content) !!}</p>
-                    
-                    @if(Request::is('about'))
-                    <img src="{{ asset('images/main/about/mother.png') }}" alt="working mother">
-                    @endif
                 </section>
                 @endif
                 
@@ -37,9 +27,9 @@
                 </section>
                 
                 @if($pageObj->sub_content != '')
-                <section class="sub-ct">
+                <footer class="sub-ct">
                 	{!! $pageObj->sub_content !!}
-                </section>
+                </footer>
                 @endif
                 
         	</article>

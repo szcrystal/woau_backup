@@ -52,7 +52,7 @@
                 </div>
                 
                 <footer class="clearfix">
-                	@if(!$atcl->closed == '非公開')
+                	@if($atcl->closed == '公開中')
                         @if(isset($already))
                         <span class="done-btn">{{$already}}</span>
                         @else

@@ -33,22 +33,22 @@
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">メールアドレス</label>
-                            <div class="col-md-6">
+                            <label class="col-md-3 control-label">メールアドレス</label>
+                            <div class="col-md-8">
                                 <input type="email" class="form-control" name="email" value="{{ old('email') }}" autofocus>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">パスワード</label>
-                            <div class="col-md-6">
+                            <label class="col-md-3 control-label">パスワード</label>
+                            <div class="col-md-8">
                                 <input type="password" class="form-control" name="password">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
+                            <div class="col-md-8 col-md-offset-3">
+                                <div>
                                     <label>
                                         <input type="checkbox" name="remember"> ログイン状態を保存する
                                     </label>
@@ -57,7 +57,7 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                            <div class="col-md-6 col-md-offset-5">
 
                                 <button type="submit" class="btn btn-primary">ログイン</button>
                                 {{-- <a class="btn btn-link" href="{{ url('/password/email') }}">Forgot Your Password?</a> --}}

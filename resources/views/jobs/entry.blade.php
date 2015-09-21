@@ -39,8 +39,8 @@
         
         <table class="table-d">
             <colgroup>
-                <col class="col-xs-3">
-                <col class="col-xs-7">
+                <col class="cth">
+                <col class="ctd">
             </colgroup>
             
             <tbody>
@@ -103,7 +103,7 @@
                     <input type="hidden" name="comp_number" value="{{ $singleObj ->job_number }}" />
                     <input type="hidden" name="comp_name" value="{{ $singleObj -> company_name }}" />
                     
-                    <button type="submit" class="next-btn center-block">内容を確認する</button>
+                    <button type="submit" class="next-btn center-block">確認する</button>
                     {{-- <button type="reset" class="btn btn-default">Reset</button> --}}
             </div>
             

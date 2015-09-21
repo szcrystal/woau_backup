@@ -221,7 +221,7 @@
                 @if(isset($userObj))
                 変更する
                 @else
-                内容を確認する
+                確認する
                 @endif
             </button>
             

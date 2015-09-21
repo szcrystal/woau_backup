@@ -211,12 +211,69 @@ function pager($table, $id_arg) {
     return $format;
 }
 
+//一覧ページ内の記事抜粋関数
+function readMoreContents($arg, $path) {
+
+    if($arg != '') {
+        
+        $ret = strip_tags($arg);
+        
+        if(mb_strlen($ret) > 100) {
+            $ret = mb_substr($ret, 0, 100);
+            $ret .= '<a href="'. getUrl($path) . '" class="dots">・・・</a>';
+        }
+        
+        $ret .= '<a href="' . getUrl($path) . '" class="more">Read More<span class="octicon octicon-chevron-right"></span><span class="octicon octicon-chevron-right"></span></a>';
+        return $ret;
+    }
+}
+
 //DashBoardのuserinfo一覧で使用 長文を抜粋する
 function mbsub($arg) {
 	if(mb_strlen($arg) > 75)
 		return mb_substr($arg, 0, 75) . "..";
     else
     	return $arg;
+}
+
+
+//User Agent Check
+function isAgent($agent) {
+
+    $ua_sp = array('iPhone','iPod','Mobile ','Mobile;','Windows Phone','IEMobile');
+    $ua_tab = array('iPad','Kindle','Sony Tablet','Nexus 7','Android Tablet');
+    $all_agent = array_merge($ua_sp, $ua_tab);
+    
+    switch($agent) {
+        case 'sp':
+            $agent = $ua_sp;
+            break;
+    
+        case 'tab':
+            $agent = $ua_tab;
+            break;
+        
+        case 'all':
+            $agent = $all_agent;
+            break;
+            
+        default:
+            //$agent = '';
+            break;
+    }
+       
+    if(is_array($agent)) {
+        $agent = implode('|', $agent);
+    }
+    
+    return preg_match('/'. $agent .'/', $_SERVER['HTTP_USER_AGENT']); 
+    //return judge_agent($agent);
+}
+
+
+//isLocal
+function isLocal() {
+	return (env('SERVER_NAME') == 'localhost'); //env()ヘルパー：環境変数（$_SERVER）の値を取得 .env内の値も$_SERVERに入る
 }
 
 

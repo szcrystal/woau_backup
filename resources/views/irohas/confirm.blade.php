@@ -59,8 +59,8 @@
             {!! Form::input('hidden', 'end', TRUE) !!}
             
             <div class="wrap-b">
-                {!! Form::submit('送 信', array('class'=>'next-btn pull-left', 'name' => '_apply')) !!}
-                {!! Form::submit('戻 る', ['class'=>'back-btn pull-right', 'name' => '_return']) !!}
+                {!! Form::submit('戻 る', ['class'=>'back-btn', 'name' => '_return']) !!}
+                {!! Form::submit('送 信', array('class'=>'next-btn', 'name' => '_apply')) !!}
             </div>
             {{-- <a href="{{ getUrl('iroha/entry/'.$datas['iroha_id']) }}" class="btn btn-default">戻 る</a> --}}
         {!! Form::close() !!}

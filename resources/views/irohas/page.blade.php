@@ -9,28 +9,28 @@
         </ul>
 
         <article class="page-ct{{" ".$obj->url_name}}">
-        <?php 
-            if(isset($obj->img_link)) {
-                $link = $obj->img_link; 
-                $linkArr = explode(';', $link);
-            }
-            //echo $linkArr[0];
-        ?>
             <header>
-                <h1>{{ $obj->title}}</a></h1>
-
-                {{-- <small>{{getStrDate($obj->created_at)}}</small> --}}
+                <h1 class="main-title">{{ $obj->title}}</a></h1>
             </header>
+            @if($obj->intro_content != '')
+                <section class="intro-ct">
+                	<p>{!! nb($obj->intro_content) !!}</p>
+                    
+                </section>
+            @endif
             
-            {!! nb($obj -> intro_content) !!}
-
-            {!! nb($obj -> main_content) !!}
+            <section class="main-ct">	
+                {!! $obj->main_content !!}
+            </section>
             
-            <footer>
-            {!! nb($obj -> sub_content) !!}
-            </footer>
+            @if($obj->sub_content != '')
+                <footer class="sub-ct">
+                	{!! $obj->sub_content !!}
+                </footer>
+            @endif
         </article>
     
+    	{{--
         <ul>
         @if(isset($links))
         @foreach($links as $link)
@@ -40,7 +40,7 @@
         
             <li><a href="{{getUrl('iroha/study')}}">監査役勉強会一覧</a></li>
         </ul>
-        
+        --}}
 <?php
  /*  
 

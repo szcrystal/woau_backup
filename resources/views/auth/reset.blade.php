@@ -4,7 +4,7 @@
 	<main class="wrap-reset">
     	<h1 class="main-title">パスワードをリセット</h1>
 
-		<div class="panel center-block clearfix">
+		<div class="panel orgPanel center-block clearfix">
 				
             <div class="panel-heading">
                 <h2></h2>
@@ -30,24 +30,18 @@
                     <p class="forget-pass">メールアドレスと新しいパスワードを入力して下さい。</p>
 
                     <div class="form-group">
-                        <label class="col-md-3 control-label">メールアドレス</label>
-                        <div class="col-md-9">
-                            <input type="email" class="form-control" name="email" value="{{ old('email') }}">
-                        </div>
+                        <label class="control-label">メールアドレス</label>
+                        <input type="email" class="form-control" name="email" value="{{ old('email') }}">
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-3 control-label">新パスワード</label>
-                        <div class="col-md-9">
-                            <input type="password" class="form-control" name="password">
-                        </div>
+                        <label class="control-label">新しいパスワード</label>
+                        <input type="password" class="form-control" name="password">
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-3 control-label">新パスワード（確認用）</label>
-                        <div class="col-md-9">
-                            <input type="password" class="form-control" name="password_confirmation">
-                        </div>
+                        <label class="control-label">新しいパスワード<br>(確認用)</label>
+                        <input type="password" class="form-control" name="password_confirmation">
                     </div>
 
                     <div class="form-group">

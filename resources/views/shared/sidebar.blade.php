@@ -2,10 +2,10 @@
 	<aside>
         <h3><span class="octicon octicon-tag"></span>新着求人</h3>
         <ul>
-        	<?php $c_objs = DB::table('jobs')->orderBy('created_at', 'desc')->take(5)->get(); ?>
+        	<?php $c_objs = DB::table('jobs')->where('closed','公開中')->orderBy('created_at', 'desc')->take(5)->get(); ?>
             
             @foreach($c_objs as $obj)
-                <li><a href="{{ getUrl('blog/'.$obj->id) }}">{{ $obj->title }}</a></li>
+                <li><a href="{{ getUrl('blog/'.$obj->id) }}">{{ $obj->company_name }}</a></li>
             @endforeach
         </ul>
     
@@ -58,7 +58,7 @@
     <aside>
         <h3><span class="octicon octicon-tag"></span>勉強会</h3>
         <ul>
-        <?php $irohas = App\Iroha::where('slug', 'study') -> orderBy('created_at', 'desc')-> take(5) -> get(); ?>
+        <?php $irohas = App\Iroha::where(['slug'=>'study', 'closed'=>'公開中']) -> orderBy('created_at', 'desc')-> take(5) -> get(); ?>
         
         @foreach($irohas as $iroha)
         	<li><a href="{{getUrl('iroha/study/'.$iroha->id)}}">{{ $iroha->title }}</a></li>
