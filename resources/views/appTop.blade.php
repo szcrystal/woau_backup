@@ -16,9 +16,11 @@
         
         @include('shared.nav')
         
+        {{--
         @if(Auth::user() && ! isAgent('sp'))
         <div class="guest-belt"></div>
         @endif
+        --}}
         <div id="cal">
         	@if(isAgent('sp'))
             <div>

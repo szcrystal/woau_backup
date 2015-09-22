@@ -24,7 +24,7 @@
         
         
         dropDownFade: function() {
-        	var speed = 450;
+        	var speed = 400;
             var ease = 'easeInSine';
             
         	$('.dd-toggle').click(function(){
@@ -34,13 +34,11 @@
                 return false;
             });
             
-            $('body').click(function(e){
+            $('body, #page').click(function(e){ //#page -> for sp & tablet
             	var t = $(e.target);
                 if(!t.parents().hasClass('dropdown')) {
                 	$('.dd-toggle').next('ul:visible').fadeOut(speed, ease);
-                }
-            
-                
+                } 
             });  
         },
         
@@ -63,7 +61,7 @@
                 return false;
             });
             
-            $('body').click(function(e){
+            $('body, #page').click(function(e){
             	var t = $(e.target);
                 if(!t.parents().hasClass('dropdown')) {
                 	$('.dd-toggle').next('ul:visible').slideUp(speed, easeBack);
@@ -239,18 +237,7 @@
             });
         },
         
-        //未使用
-        aLink: function() {
-        	$('a').on({
-            	mouseover: function(){
-                	$(this).stop().fadeTo(200, 0.7);
-                },
-                mouseout: function(){
-                	$(this).stop().fadeTo(200, 1);
-                }
-            });
-        },
-        
+                
         
         scrollFunc: function() {
             var tb = $('.toTop');
@@ -297,6 +284,20 @@
 	            if( navigator.userAgent.indexOf(user) > 0 ) return true;
             }
         },
+        
+        
+        //未使用
+        aLink: function() {
+        	$('a').on({
+            	mouseover: function(){
+                	$(this).stop().fadeTo(200, 0.7);
+                },
+                mouseout: function(){
+                	$(this).stop().fadeTo(200, 1);
+                }
+            });
+        },
+
         
         
     } //return

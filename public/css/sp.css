@@ -45,6 +45,10 @@ for SP
     	width: 100%;
         padding: 2em 10px;
     }
+    .home .blog-main,
+	.main .blog-main {
+    	min-height: 300px;
+    }
     .main .blog-main {
         width: 100%;
         padding: 0 5px;
@@ -59,6 +63,7 @@ for SP
     	margin: 0 auto;
         //border: 1px solid red;
     }
+
 }
 
 @media only screen and (max-width: 800px) { /* iPad */
@@ -66,8 +71,6 @@ for SP
     	//background: orange;
         font-size: 1.3em;
     }
-    
-	
     
     #head h1 { /* Logo */
     	width: 60%;
@@ -103,7 +106,21 @@ for SP
         height: 100px;
         //border: 1px solid #000;
     }
+    .star,
+    .smile {
+    	left: 30%;
+        width: 55%;
+    }
+    .guest .star,
+    .guest .smile {
+    	top: 95%;
+    	left: 55%;
+        width: 30%;
+    }
     
+    .u-link {
+    	line-height: 3.5em;
+    }
     
     /* link-box */
     .link-box {
@@ -146,18 +163,21 @@ for SP
     	font-size: 1.8em;
     }
     .user section.profile > div div:last-of-type {
-    	width: 47%;
+    	width: 45%;
+        margin: 4em 0.5em 0;
+        background-size: 25% auto;
     }
     
     /* about */
-    .about .intro-ct img {
-    	width: 33%;
-        height: auto;
+    .about .intro-ct {
+    	//background-position: 17% 3%;
+        background-size: 270px auto;
+        //padding-top: 290px;
     }
     .about .main-ct div {
         width: 100%;
         margin: 0 auto 6em;
-        padding: 0 2em 2em;
+        //padding: 0 2em 2em;
     }
     .about .main-ct div img {
     	width: 50%;
@@ -249,7 +269,8 @@ for SP
 /*@media only screen and (max-width: 768px) {
 }*/
 
-@media only screen and (max-width: 750px) { /* iphone5s landscape: 570  ※600pxだと7inchタブレットで有効となる 511*/
+/* iPhone6+ LandScape/ 6 LandScape/ 5s LandScape(570px) */
+@media only screen and (max-width: 750px) { /* 600pxだと7inchタブレットで有効となる 511 */
 	body {
     	//background: red;
     }
