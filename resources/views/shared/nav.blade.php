@@ -36,10 +36,10 @@
     @else
     
     <ul class="main-m">
-        <li><a href="{{getUrl('/')}}">ホーム<span>Home</span></a></li>
-        <li><a href="{{getUrl('about')}}">woman x auditorとは<span>About</span></a></li>
-        <li><a href="{{getUrl('topics')}}">トピックス<span>Topics</span></a></li>
-        <li><a href="{{getUrl('contact')}}">お問い合わせ<span>Contact</span></a></li>
+        <li><a href="{{getUrl('/')}}"><span class="octicon octicon-home"></span>ホーム<span>Home</span></a></li>
+        <li><a href="{{getUrl('about')}}"><span class="octicon octicon-question"></span>woman x auditorとは<span>About</span></a></li>
+        <li><a href="{{getUrl('topics')}}"><span class="octicon octicon-radio-tower"></span>トピックス<span>Topics</span></a></li>
+        <li><a href="{{getUrl('contact')}}"><span class="octicon octicon-mail-read"></span>お問い合わせ<span>Contact</span></a></li>
     </ul>
     @endif
     

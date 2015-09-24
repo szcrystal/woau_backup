@@ -1,4 +1,5 @@
 <section class="jobs clearfix">
+	<div class="clearfix">
     <h2>NEW</h2>
     <div>
         @foreach($jobs as $job)
@@ -10,6 +11,7 @@
             </article>
         @endforeach
 
-        <a href="{{getUrl('recruit')}}" class="user-link">案件情報一覧</a>
+        <a href="{{getUrl('recruit')}}" class="topic-link">案件情報一覧<span class="octicon octicon-chevron-right"></span><span class="octicon octicon-chevron-right"></span></a>
+    </div>
     </div>
 </section>

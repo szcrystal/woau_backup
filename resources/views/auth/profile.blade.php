@@ -157,12 +157,12 @@
                 <table class="table table-bordered entry-table">
                   <thead>
                     <tr>
-                      <th>企業No</th>
+                      <th class="col-md-1">企業No</th>
                       <th class="col-md-2">企業名</th>
                       <th class="col-md-3">応募時のコメント</th>
                       <th>添付したファイル</th>
                       <th>応募日</th>
-                      <th class="col-md-1"></th>
+                      <th></th>
                       
                     </tr>
                   </thead>
@@ -189,7 +189,7 @@
                             </td>
 
                             <td> 
-                                <a href="{{ getUrl('recruit/job/'. $num) }}" class="conf-btn">企業を<br>確認する</a>
+                                <a href="{{ getUrl('recruit/job/'. $num) }}" class="conf-btn">案件を<br>確認する</a>
                             </td>
                         </tr>
                     @endforeach
@@ -213,11 +213,11 @@
                 <table class="table table-bordered entry-table">
                   <thead>
                     <tr>
-                      <th>勉強会No</th>
+                      <th class="col-md-1">勉強会No</th>
                       <th class="col-md-3">勉強会名</th>
                       <th class="col-md-5">応募時のコメント</th>
                       <th>応募日</th>
-                      <th class="col-md-1"></th>
+                      <th></th>
                     </tr>
                   </thead>
                   

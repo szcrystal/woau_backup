@@ -1,4 +1,5 @@
 <section class="tp-topics clearfix">
+	<div class="clearfix">
     <h2>TOPICS</h2>
     <div>
         @foreach($topTopics as $topic)
@@ -10,7 +11,8 @@
         </article>
         @endforeach
         
-        <a href="{{getUrl('topics')}}" class="topic-link">トピックス一覧</a>
+        <a href="{{getUrl('topics')}}" class="topic-link">トピックス一覧<span class="octicon octicon-chevron-right"></span><span class="octicon octicon-chevron-right"></span></a>
+    </div>
     </div>
 </section>
 

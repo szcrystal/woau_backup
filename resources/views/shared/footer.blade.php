@@ -44,7 +44,9 @@
                 </li>
                 <li>
                     <ul>
+                    	@if(!isAgent('sp'))
                         <li><a href="{{ getUrl('auth/login') }}" class="arrow-white login">ログイン</a></li>
+                        @endif
                         <li><a href="{{ getUrl('auth/register') }}" class="arrow-white">新規登録</a></li>
                     </ul>
                 </li>

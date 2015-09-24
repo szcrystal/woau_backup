@@ -19,7 +19,7 @@
             
             <section class="main-ct">	
                 {{-- $obj->main_content --}}
-               
+               <p class="iroha-menu">MENU</p>
                 <ul>
                 	<li><a href="#"><span class="octicon octicon-chevron-right"></span>監査役とは</a>
                     <li><a href="#"><span class="octicon octicon-chevron-right"></span>監査役の責任</a>

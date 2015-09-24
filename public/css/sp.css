@@ -423,8 +423,8 @@ for SP
     .guest section.tp-topics {
     	float none;
         width: 100%;
-        padding-left: 0.6em;
-        padding-right: 0.6em;
+        //padding-left: 0.6em;
+        //padding-right: 0.6em;
         //margin-bottom: 2em;
     }
     .guest section.tp-topics,
@@ -480,20 +480,30 @@ for SP
     .user section.jobs,
 	.user section.tp-topics {
 		width: 100%;
-        padding: 1em 0.8em;
+        //padding: 1em 0.8em;
 	}
     .user section.jobs h2,
 	.user section.tp-topics h2 {
 		float: none;
     	width: 100%;
         border-bottom: 1px solid #6a6a6a;
+        margin-top: 0;
     }
     .user section.jobs > div,
-	.user section.tp-topics > div {
-		padding-left: 1em;
+	.user section.tp-topics > div,
+    .guest section.tp-topics > div {
+    	padding: 1.8em 0.8em 1.5em;
+    }
+    .user section.jobs > div > div,
+	.user section.tp-topics > div > div,
+    .guest section.tp-topics > div > div {
+		padding: 0;
         width: 100%;
         border: none;
 	}
+    .user section.jobs > div,
+	.user section.tp-topics > div {
+    }
     .user .link-box {
         margin: 0 2.4% 0.5em;
     }
@@ -507,7 +517,7 @@ for SP
     .link-box {
         width: 28%;
         height: 260px;
-        margin: 0 2.4% 0.5em;
+        margin: 0 2.4% 0.7em;
     }
     .link-box a span {
     	font-size: 1.12em;
@@ -575,7 +585,8 @@ for SP
     
     /* About */
     .about .intro-ct p:first-of-type,
-    .about .sub-ct p:first-of-type {
+    .about .sub-ct p:first-of-type,
+    .iroha .intro-ct p:first-of-type {
         width: 100%;
         margin: 0;
         float: none;
@@ -583,7 +594,7 @@ for SP
     .about .sub-ct p:first-of-type {
         margin-top: 0em;
     }
-    .about .intro-ct {
+    .about .intro-ct{
     	background-position: 17% 3%;
         background-size: 334.5px auto;
         padding-top: 290px;
@@ -593,8 +604,11 @@ for SP
     	width: 32%;
         margin: 1em 0 0;
     }
+    .about .main-ct {
+    	margin: 3em 0 0;
+    }
     .about .main-ct div {
-        //padding: 0 1em 2em;
+        margin: 0 auto 4.5em;
     }
     .about .main-ct div h3 {
     	margin-top: -2.2em;
@@ -614,6 +628,26 @@ for SP
     .about .main-ct div:last-of-type img {
         width: 80%;
         margin: auto;
+    }
+    
+    /* Iroha */
+    .iroha .intro-ct {
+    	background-position: 23% 3%;
+        background-size: 310px auto;
+        padding-top: 270px;
+    }
+    .iroha .iroha-menu {
+    	margin: 0;
+        font-weight: 400;
+    }
+    .iroha .main-ct > ul {
+    	width: 100%;
+        float: none;
+        margin: 0;
+        padding: 1.3em 1em;
+    }
+    .iroha .main-ct > div p {
+        margin: 1.5em 0 0 1.5em;
     }
     
     /* Privacy */
@@ -710,16 +744,25 @@ for SP
         //border: 1px solid purple;
     }
     .archive header h2 {
-		width: 70%;
+		width: 77%;
+        //border: 1px solid purple;
     }
     .archive header h3 {
-    	width: 70%;
+    	width: 77%;
+        //font-weight: normal;
     }
     .archive > div {
 		float: none;
         clear: both;
     	width: 100%;
         margin-top: 0.8em;
+    }
+    .archive header small {
+    	width: 4.2em;
+    	height: 4.2em;
+        padding: 0.8em 0 0.9em;
+        font-size: 1.1em;
+        line-height: 1.2em;
     }
  	
     /* Topics */
@@ -747,7 +790,21 @@ for SP
     .single header h2,
     .single > div {
     	width: 100%;
+        font-weight: normal;
     }
+    .single header h3 {
+    	font-weight: normal;
+        font-size: 1.3em;
+    }
+    .single header .edit-btn,
+    .single header .done-btn {
+    	display: block;
+        float: none;
+        margin: 1.8em auto;
+        padding: 1em 2em;
+        width: 16em;
+    }
+    
     
     /* blog */
     #primary {
@@ -769,7 +826,9 @@ for SP
     }
     .blog header > .octicon,
 	.blog-sgl header > .octicon {
-    	margin-left: 65%;
+        font-size: 9em;
+        margin-left: 77%;
+        //margin-top: -0.7em;
     }
     
     /* Job single*/
@@ -786,10 +845,7 @@ for SP
         float: none;
         margin-right: 0;
     }
-    .single header .edit-btn,
-    .single header .done-btn {
-		margin-top: 1.5em;
-    }
+    
     
     /* UserInfo */
     .userinfo h2 {
@@ -884,7 +940,7 @@ for SP
     
 
 } /* @media 611px */
-@media only screen and (max-width: 500px) { /* iPhone6 */
+@media only screen and (max-width: 500px) { /* Portlait: iPhone6+ /6/ 5s */
 	
 	#head .mega-octicon {
         font-size: 3.3em;
@@ -934,6 +990,9 @@ for SP
     .link-box {
     	height: 135px;
     }
+    .user .link-box {
+    	margin-bottom: 1.3em;
+    }
     .link-box a span {
     	font-size: 0.95em;
     }
@@ -942,7 +1001,7 @@ for SP
         //border: 1px solid red;
     }
     .user section.profile > div div:first-of-type p:first-of-type { 
-    	margin-bottom: 2.2em;
+    	margin-bottom: 2.5em;
     }
     .user section.profile > div div:last-of-type {
         width: 100%;
@@ -951,14 +1010,16 @@ for SP
     
     .user section.profile p > span {/* ありませんor件数 */
     	display: block;
-        width: 58%;
+        width: 78%;
+        margin: auto;
         //margin-left: 1em;
         text-align: right;
     }
     .u-link {
-    	//display: block;
-        margin-bottom: 0.2em;
-        width: 60%;
+    	display: block;
+        margin: 0 auto 0.2em;
+        width: 80%;
+        text-align: center;
     }
     .about .sub-ct img {
     	width: 50%;
