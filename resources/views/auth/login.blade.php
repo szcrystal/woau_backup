@@ -4,7 +4,7 @@
 	<main class="wrap-login">
     	<h1 class="main-title">ログイン</h1>
 		@include('shared.login')
-                
+                        
         <div class="new-regist">
             <a href="{{getUrl('auth/register')}}">
             <p>

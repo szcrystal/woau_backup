@@ -12,7 +12,8 @@
 {!! nb($info->mail_jobentry) !!}
 
 <br />
-<br />
+………………………………………………………………………………………
+<br /><br />
 
 ◆応募企業名：</strong><br />
 {{$comp_name}} [ 案件No.{{$comp_number}} ]<br /><br />
@@ -40,7 +41,11 @@
 {{-- for Administrator --}}
 @else
 {{$name}}さんより、案件の応募がありました。<br />
-頂きました内容は下記となります。<br /><br />
+頂きました内容は下記となります。<br />
+
+<br />
+………………………………………………………………………………………
+<br /><br />
 
 ◆案件企業名：<br />
 {{$comp_name}} [ 案件No.{{$comp_number}} ]<br /><br />
@@ -54,25 +59,24 @@
 
 ◆コメント：<br />
 {!! nl2br($note) !!}
-<br /><br /><br />
+<br /><br /><br /><br />
 
 @if(!isset($orgName))
 ◆添付ファイルがありませんでした。
-<br /><br /><br />
+<br /><br /><br /><br />
 @endif
 
+{!! nb($info->mail_footer) !!}
+<br /><br />
 
 @endif
 
-<?php 
-//	echo "あいうえお<br />"; 
-//	
-//    echo $name . "<br />" . $mail;
+<?php
+// echo $name . "<br />" . $mail;
     
     //$pathToFile = 'images/RP21504_1012.jpg'; //http//localhost:5005は付けない 相対アドレスで。内部でfopen()してから$messageインスタンスにembedするらしい
-    /*
-    	<img src="<?php echo $message->embed($pathToFile); ?>">
-    */
+    //<img src="<?php echo $message->embed($pathToFile); ?>">
+    
 ?>
 {{--
 <body>

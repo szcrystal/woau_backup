@@ -8,6 +8,7 @@
         	imageLink: '',    
         },        
         
+        //PaginationのArrowアイコンを状況に応じて変える octiconがいいかも
         paginateStyle: function() {
         	$p = $('.pagination');
             
@@ -23,9 +24,10 @@
         },
         
         
+        //dropDownMenu Fade
         dropDownFade: function() {
         	var speed = 400;
-            var ease = 'easeInSine';
+            var ease = 'linear'; //easeInSine
             
         	$('.dd-toggle').click(function(){
                 $('.dd-toggle').not(this).next('ul:visible').fadeOut(speed);
@@ -42,7 +44,7 @@
             });  
         },
         
-        
+        //dropDownMenu Slide
         dropDownSlide: function() {
         	var speed = 450;
             var ease = 'easeOutBack';
@@ -71,174 +73,178 @@
             });  
         },
         
+        
         loginFunc: function() {
         	
             var th = this;
             
-        	$('.login').click(function(){
-            	
-                var url = location.href;
-                
-                var h = $(window).height();
-                var w = $(window).width();
+            if(! $('ul.login-m li:last-of-type a').hasClass('logout')) {
+                $('#prebox').load('/auth/login/ .panel', function(){
             
-            	history.pushState('', 'login', '/auth/login'); //詳細はbookにあり HTML5のHistoryAPIを使用してリロードなしのページ遷移が出来る
-        		
-                if(th.isAgent('sp')) {
-                	$('html,body').css({overflow:'hidden', height:'100%'});
-                }
-                else {
-                	$('html,body').css({overflow:'hidden'});
-                }
-                
-                
-                /*
-                $('body').append('<div class="inBack"></div>');
-                
-                var $inBack = $('.inBack');
-                
-                $inBack.css({height:h}).append('<span class="octicon octicon-x"></span>');
-                
-                
-                    
-                    //$('.inBack .panel').addClass('addPanel').css({top:up, left:w/2 - pw/2 -pad, opacity:0}); 
-                    //$('.inBack > .octicon').css({top:up+pad, left:w/2 + pw/2 + 25 });
-                    
-                $inBack.fadeIn(300, function(){
-                
-                	var pw = $('.panel').width();
-                    var ph = $('.panel').height();
-                    
-                    console.log(ph);
-                    
-                    var up = (h/2 - ph/2)-220;
-                    var pad = 17;
-                    
-                    $inBack.find('.panel').addClass('addPanel').css({top:up, left:w/2 - pw/2 -pad, opacity:0})
-                    $inBack.find('.octicon').css({top:up+pad, left:w/2 + pw/2 + 25, cursor:'pointer', opacity:0});
-                	
-                
-                    $(this).find('.panel, .octicon-x').show(0).animate({top:'+=120', opacity:1}, 1000, 'easeOutBack');
-                
-                }).click(function(e){
-                    
-                    var t = $(e.target).not('span');
-                     
-                    
-                    if(!t.parents().hasClass('panel')) {
-                    	$(this).find('.addPanel, .octicon-x').animate({top:'-=100', opacity:0}, 600, 'easeInBack', function(){
-                            history.pushState('', 'cancel', url);
-                            
-                            $('html,body').css({overflow:'visible'});
-                            
-                            $inBack.fadeOut(500, function(){
-                                $(this).find('.panel').removeClass('addPanel').next('.octicon').remove();
-                                //$(this).remove();
-                            });
+                    $('.login').click(function(){
                         
-                        });
-                    }
-                });
-                */
-                
-                $('body').append('<div class="inBack"></div>');
-                
-                var $inBack = $('.inBack');
-                //$inBack.css({});
-                
-                $inBack.css({height:h+200}).load('/auth/login .panel', function(){
-                
-                    var pw = $('.panel').width();
-                    var ph = $('.panel').height();
-                    
-                    var up = (h/2 - ph/2)-320;
-                    var pad = 17;
-                    
-                    var panelCss,
-                    	octCss,
-                        move;
-                    
-                    if(th.isAgent('sp')) {
-                    	panelCss = {top:up+100, left:w/2 - (pw+3)/2, opacity:0};
-                    	octCss = {top:up-pad+50, left:w*0.88, opacity:0};
-                        move = 40;
-                    }
-                    else {
-                    	panelCss = {top:up, left:w/2 - pw/2 -pad, opacity:0};
-                    	octCss = {top:up-pad-15, left:w/2 + pw/2 + 30, cursor:'pointer', opacity:0};
-                        move = '+=220';
-                    }
-                    
-                    $(this).append('<span class="octicon octicon-x"></span>')
-                            .find('.panel').addClass('addPanel').removeClass('orgPanel').css(panelCss)
-                            .next('.octicon').css(octCss);
-                    
-                    //$('.inBack .panel').addClass('addPanel').css({top:up, left:w/2 - pw/2 -pad, opacity:0}); 
-                    //$('.inBack > .octicon').css({top:up+pad, left:w/2 + pw/2 + 25 });
-                    
-                    //$('.inBack .panel');
-                    $(this).find('.panel, .octicon-x').animate({top:move, opacity:1}, 800, 'easeOutBack'); //'+=220'
-                    //});
-                
-               	}).fadeIn(300).click(function(e){
-                    
-                    var t = $(e.target).not('span');
-                    
-                    if(!t.parents().hasClass('panel')) {
-                    	$(this).find('.panel, .octicon-x').animate({top:'-=100', opacity:0}, 600, 'easeInBack', function(){
-                            history.pushState('', 'cancel', url);
-                            
-                            $('html,body').css({overflow:'visible', height:'auto', position:'static'});
-                            
-                            $inBack.fadeOut(500, function(){
-                                $(this).find('.panel').removeClass('addPanel').addClass('orgPanel').parent(this).remove();
-                                //$(this).remove();
-                            });
+                        var url = location.href;
                         
+                        var h = $(window).height();
+                        var w = $(window).width();
+                    
+                        history.pushState('', 'login', '/auth/login'); //詳細はbookにあり HTML5のHistoryAPIを使用してリロードなしのページ遷移が出来る
+                        
+                        if(th.isAgent('sp')) {
+                            $('html,body').css({overflow:'hidden', height:'100%'}); //スマホはheightを入れないと固定にならない
+                        } else {
+                            $('html,body').css({overflow:'hidden'});
+                        }
+                        
+                        $('body').append('<div class="inBack"></div>');
+                        
+                        var $inBack = $('.inBack');
+                        
+                        $inBack.css({height:h+200}).fadeIn(350, function(){
+                            $('#prebox .panel').appendTo(this).css({opacity:0}).show();
+                            
+                            var pw = $('.panel').width();
+                            var ph = $('.panel').height();
+                            
+                            var up = (h/2 - ph/2)-250;
+                            var pad = 17;
+                            
+                            var panelCss,
+                                octCss,
+                                move;
+                            
+                            if(th.isAgent('sp')) {
+                                panelCss = {top:up, left:w/2 - (pw+3)/2/*, opacity:0*/};
+                                octCss = {top:up-pad+50, left:w*0.88, opacity:0};
+                                move = 55; //スマホは移動量でなく、TOPの絶対値を指定する。常に上方に表示させるため
+                            }
+                            else {
+                                panelCss = {top:up, left:w/2 - pw/2 -pad/*, display:'block', opacity:0*/};
+                                octCss = {top:up-pad-15, left:w/2 + pw/2 + 30, cursor:'pointer', opacity:0};
+                                move = '+=220';
+                            }
+                            
+                            $(this).append('<span class="octicon octicon-x"></span>')
+                                    .find('.panel').addClass('addPanel').removeClass('orgPanel').css(panelCss)
+                                    .next('.octicon').css(octCss);
+                            
+                            $(this).find('.panel, .octicon-x').animate({top:move, opacity:1}, 900, 'easeOutBack', function(){
+                                $(this).queue([]).stop();
+                            }); //'+=220'
+                        
+                        }).click(function(e){
+                            
+                            var t = $(e.target).not('span');
+                            
+                            if(!t.parents().hasClass('panel')) {
+                                $(this).find('.panel, .octicon-x').animate({top:'-=100', opacity:0}, 600, 'easeInBack', function(){
+                                    history.pushState('', 'cancel', url);
+                                    
+                                    $('html,body').css({overflow:'visible', height:'auto', position:'static'});
+                                    
+                                    $inBack.fadeOut(500, function(){
+                                        $(this).find('.panel').removeClass('addPanel').addClass('orgPanel').appendTo('#prebox').hide();
+                                        $(this).remove();
+                                    });
+                                
+                                });
+                            }
                         });
-                    }
-                });
-                
-                
-                /*
-                $('.inBack').load('/auth/login/ .panel', function(){
-                    var pw = $('.panel').width();
-                    var ph = $('.panel').height();
-                    
-                    var up = (h/2 - ph/2)-170;
-                    var pad = 17;
-                    
-                    $('.inBack').append('<span class="octicon octicon-x"></span>');
-                    
-                    $('.inBack .panel').addClass('addPanel').css({top:up, left:w/2 - pw/2 -pad, opacity:0}); 
-                    $('.inBack > .octicon').css({top:up+pad, left:w/2 + pw/2 + 25 });
-                    
-                    //$('.inBack .panel');
-                    $('.inBack .panel, .octicon-x').fadeIn(0,function(){
-                    	$(this).animate({top:'+=70', opacity:1}, 500, 'linear');
-                    });
-                    
-                });
-                */
-                
-                
-                
-
-//                $('#content').load('/wp-content/themes/twentyfifteen/page.php', data, function(){
-//                                    $(this).fadeIn(600);
-//                                    
-//                                    th.typeWriter();
-//                                    
-//                                    //$('h1').text(u);
-//                                });
-                
-                
-            	return false;
-            });
+                        
+                        //ORG Main Function 
+                        /* 
+                        $inBack.css({height:h+200}).load('/auth/login .panel', function(){
+                        
+                            var pw = $('.panel').width();
+                            var ph = $('.panel').height();
+                            
+                            var up = (h/2 - ph/2)-230;
+                            var pad = 17;
+                            
+                            var panelCss,
+                                octCss,
+                                move;
+                            
+                            if(th.isAgent('sp')) {
+                                panelCss = {top:up, left:w/2 - (pw+3)/2, opacity:0};
+                                octCss = {top:up-pad+50, left:w*0.88, opacity:0};
+                                move = 55; //スマホは移動量でなく、TOPの絶対値を指定する。常に上方に表示させるため
+                            }
+                            else {
+                                panelCss = {top:up, left:w/2 - pw/2 -pad, opacity:0};
+                                octCss = {top:up-pad-15, left:w/2 + pw/2 + 30, cursor:'pointer', opacity:0};
+                                move = '+=200';
+                            }
+                            
+                            $(this).append('<span class="octicon octicon-x"></span>')
+                                    .find('.panel').addClass('addPanel').removeClass('orgPanel').css(panelCss)
+                                    .next('.octicon').css(octCss);
+                            
+                            //$('.inBack .panel').addClass('addPanel').css({top:up, left:w/2 - pw/2 -pad, opacity:0}); 
+                            //$('.inBack > .octicon').css({top:up+pad, left:w/2 + pw/2 + 25 });
+                            
+                            //$('.inBack .panel');
+                            $(this).find('.panel, .octicon-x').animate({top:move, opacity:1}, 800, 'easeOutBack'); //'+=220'
+                            //});
+                        
+                        }).fadeIn(300).click(function(e){
+                            
+                            var t = $(e.target).not('span');
+                            
+                            if(!t.parents().hasClass('panel')) {
+                                $(this).find('.panel, .octicon-x').animate({top:'-=100', opacity:0}, 600, 'easeInBack', function(){
+                                    history.pushState('', 'cancel', url);
+                                    
+                                    $('html,body').css({overflow:'visible', height:'auto', position:'static'});
+                                    
+                                    $inBack.fadeOut(500, function(){
+                                        $(this).find('.panel').removeClass('addPanel').addClass('orgPanel').parent(this).remove();
+                                        //$(this).remove();
+                                    });
+                                
+                                });
+                            }
+                        });
+                        */
+                        
+                        /*
+                        $('.inBack').load('/auth/login/ .panel', function(){
+                            var pw = $('.panel').width();
+                            var ph = $('.panel').height();
+                            
+                            var up = (h/2 - ph/2)-170;
+                            var pad = 17;
+                            
+                            $('.inBack').append('<span class="octicon octicon-x"></span>');
+                            
+                            $('.inBack .panel').addClass('addPanel').css({top:up, left:w/2 - pw/2 -pad, opacity:0}); 
+                            $('.inBack > .octicon').css({top:up+pad, left:w/2 + pw/2 + 25 });
+                            
+                            //$('.inBack .panel');
+                            $('.inBack .panel, .octicon-x').fadeIn(0,function(){
+                                $(this).animate({top:'+=70', opacity:1}, 500, 'linear');
+                            });
+                            
+                        });
+                        */
+                        
+                        /*
+                        $('#content').load('/wp-content/themes/twentyfifteen/page.php', data, function(){
+                               $(this).fadeIn(600);                  
+                               th.typeWriter();           
+                               $('h1').text(u);
+                        });
+                        */
+                        
+                        return false;
+                        
+                    }); //$('.login').click
+            	}); //load callback function()
+            } //if hasClass(.logout)
         },
         
                 
-        
+        //TOPへのbodyスクロール
         scrollFunc: function() {
             var tb = $('.toTop');
             
@@ -263,9 +269,29 @@
             
         },
         
+        //irohaのメニュー
+        wideClick: function(num) {
+        
+            $('.iroha-menu li:nth-child('+num+')').click(function(){
+                var targetOffset = $('.iroha .main-ct > div').eq(num-1).offset().top-30;
+                $('html, body').animate({ scrollTop:targetOffset }, 'slow');
+            });
+            
+        },
+        
+        wideFunc: function() {
+            
+            var i=1, len = $('.iroha .main-ct > div').length;
+            
+            while(i <= len) {
+            	this.wideClick(i);
+                i++;
+            }
+        },
+        
+        //スマホのメインメニュー
         spMenu: function() {
         	$('.sp-menu').click(function(){
-            	//$('h1').text('aaa');
                 $('.spmain-m').slideToggle();
             });
         },
@@ -304,9 +330,7 @@
 })(); //var waDo
     	
 $(function(){
-	
-    //$(this).load('/auth/login/ .panel');
-    
+
     //waDo.dragdrop();
     
     //waDo.eventFunc();
@@ -319,7 +343,11 @@ $(function(){
     waDo.paginateStyle();
     waDo.dropDownFade();
     //waDo.dropDownSlide();
-    waDo.loginFunc();
+    if(!waDo.isAgent('MSIE 9')) {
+	    waDo.loginFunc();
+    }
+    
+    waDo.wideFunc();
     waDo.scrollFunc();
     
     waDo.spMenu();

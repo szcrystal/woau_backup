@@ -9,8 +9,10 @@
 <br /><br />
 {!! nb($info->mail_contact) !!}
 
+<br />
+………………………………………………………………………………………
+<br /><br />
 
-<br /><br /><br />
 ◆お名前：<br />
 {{$name}}<br /><br />
 
@@ -21,12 +23,16 @@
 {!! nl2br($note) !!}
 <br /><br /><br /><br />
 
-{!! nl2br($info->mail_footer) !!}
+{!! nb($info->mail_footer) !!}
 <br /><br />
 
 @else
 {{$name}}様より、お問い合わせがありました。<br />
-頂きました内容は下記となります。<br /><br />
+頂きました内容は下記となります。<br />
+
+<br />
+………………………………………………………………………………………
+<br /><br />
 
 ◆お名前：<br />
 {{$name}}<br /><br />
@@ -39,7 +45,7 @@
 <br /><br /><br /><br />
 
 
-{!! nl2br($info->mail_footer) !!}
+{!! nb($info->mail_footer) !!}
 
 <br /><br />
 

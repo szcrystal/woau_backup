@@ -78,7 +78,10 @@ for SP
     
     /* Nav */
     #navmenu ul.main-m {
-		margin-top: 2.6em;
+		margin-top: 3.6em;
+    	font-size: 0.85em;
+    }
+    #navmenu ul.login-m {
     	font-size: 0.9em;
     }
     
@@ -319,8 +322,7 @@ for SP
     }
     
     #navmenu ul.login-m {
-    	//margin-top: 5em;
-        //border: 1px solid red;
+    	font-size: 1em;
     }
     
     #navmenu ul.spmain-m {
@@ -367,6 +369,12 @@ for SP
         padding: 0 0 1em;
         position: relative;
     }
+    .home #cal:after {
+    	display: block;
+        clear: both;
+        content: "";
+        height: 0;
+    }
     .home #cal > div {
     	clear: both;
     	background: url(../images/main/bn-sp.png) 0 -20px no-repeat;
@@ -381,7 +389,7 @@ for SP
         font-size: 1.8em;
         //line-height: 1.4em;
         letter-spacing: 0.08em;
-        margin: 0.5em 0 0.8em 3%;
+        margin: 0.5em 0 0 3%;
         font-weight: bold;
         color: #fff;
     }
@@ -391,7 +399,8 @@ for SP
     .home #cal p:last-of-type {
     	font-size: 1.3em;
         //line-height: 0.75em;
-        margin: 1em 0.5em 0 10%;
+        margin: 1.2em 1em 0 0;
+        float: right;
     }
     div.person,
     .cal-star {
@@ -611,7 +620,7 @@ for SP
         margin: 0 auto 4.5em;
     }
     .about .main-ct div h3 {
-    	margin-top: -2.2em;
+    	margin-top: -3.5em;
     }
     .about .main-ct div p {
     	float: none;
@@ -636,11 +645,11 @@ for SP
         background-size: 310px auto;
         padding-top: 270px;
     }
-    .iroha .iroha-menu {
-    	margin: 0;
+    .iroha .iroha-menu-tl {
+    	margin: 1.5em 0 0;
         font-weight: 400;
     }
-    .iroha .main-ct > ul {
+    .iroha ul.iroha-menu {
     	width: 100%;
         float: none;
         margin: 0;
@@ -695,17 +704,24 @@ for SP
 	    margin: 0.5em 0 2.5em;
 	}
     .movement > div {
-        line-height: 1.8em; /*2.8em*/
+        line-height: 1.4em; /*2.8em*/
         font-size: 1.0em;
         padding: 1% 3%;
+        text-align: center;
     }
     .movement > div span.step {
     	border-right: 0;
         //padding-right: 50%;
         //padding-left: 0;
         display: block;
-        margin-top: 0;
+        margin: 0.3em 0 0;
+        padding: 0;
     }
+    .movement > div span.octicon {
+    	margin-right: 0;
+        font-size: 1.9em;
+    }
+    
     .table-d {
     	border: 1px solid #ccc; 
     }
@@ -985,7 +1001,7 @@ for SP
 	.home #cal p:last-of-type {
     	font-size: 0.85em;
         line-height: 0.85em;
-        margin-left: 1em;
+        //margin-left: 1em;
     }
     .link-box {
     	height: 135px;

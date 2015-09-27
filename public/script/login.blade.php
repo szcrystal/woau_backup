@@ -3,16 +3,16 @@
         <h2></h2>        
     </div>
     
-    @if (count($errors) > 0)
+    <?php if(isset($errors)) { ?>
         <div class="alert alert-danger">
             <strong>ご確認ください!</strong><br>
             <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
+                <?php foreach($errors as $error) { ?>
+                    <li><?php echo $error; ?></li>
+                <?php } ?>
             </ul>
         </div>
-    @endif
+    <?php } ?>
       
     <div class="panel-body">  
         <form class="form-horizontal" role="form" method="POST" action="{{getUrl('auth/login')}}">
@@ -31,7 +31,7 @@
             </div>
             
             <div class="clearfix form-group">
-                <a class="pull-right" href="{{ getUrl('/password/email') }}"><span class="octicon octicon-issue-opened"></span>パスワードをお忘れですか？</a>
+                <a class="pull-right" href="{{ getUrl('password/email') }}"><span class="octicon octicon-issue-opened"></span>パスワードをお忘れですか？</a>
             </div>
             
             <div class="col-md-12">

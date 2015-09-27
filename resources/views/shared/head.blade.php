@@ -36,7 +36,7 @@
     @endif
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/main.css') }}" rel="stylesheet">
-    @if(isAgent('all') && isLocal())
+    @if(isAgent('all'))
     <link href="{{ asset('css/sp.css') }}" rel="stylesheet">
     @endif
 	<!-- vector icon : octicon on github-->

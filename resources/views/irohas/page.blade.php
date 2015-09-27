@@ -19,7 +19,8 @@
                 </section>
             @endif
             
-            <section class="main-ct">	
+            <section class="main-ct iroha-child">
+            	
                 {!! $obj->main_content !!}
             </section>
             
