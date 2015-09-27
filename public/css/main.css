@@ -82,7 +82,7 @@ input[type="submit"] {
 a:hover,
 button:hover,
 input[type="submit"]:hover {
-    opacity: 0.65;
+    opacity: 0.6;
     text-decoration: none;
     outline: none;
 }
@@ -600,6 +600,9 @@ div.person {
 	width: 10.8em;
     //border-left: 1px solid #fff;
 }
+#user-belt .dropdown {
+	position: relative;
+}
 #user-belt .dropdown > a > .octicon {
 	position: absolute;
     top: 0.25em;
@@ -610,8 +613,8 @@ div.person {
     margin-left: 0.25em;
     //margin-top: 0.3em;
 }
-#user-belt .dropdown {
-	position: relative;
+#user-belt .dropdown > a > .octicon { /* IE9-10-11 */
+	top: 0.3em\0/;
 }
 
 .dropdown-menu {
@@ -1553,7 +1556,7 @@ section.contents .link-box:nth-of-type(6) a {
     margin: 1.5em 0 0 6em;
 }
 .iroha-child h2 {
-	border: none;
+	//border: none;
 }
 
 /* Topics & study */
@@ -2909,7 +2912,7 @@ Edgeには影響なし */
     height: 100px;
     margin: -1.8em auto 0;
     //border: 1px solid #aaa;
-    background: url(../images/main/top_icons/lock-white1.png) center no-repeat, url(../images/main/orange-tiles-s.png) 10% 0;
+    background: url(../images/main/top_icons/lock-white2.png) center no-repeat, url(../images/main/orange-tiles-s.png) 10% 0;
     //background-size: 65px auto;
 	border-radius: 50%;
 	//margin-right: 0.7em;

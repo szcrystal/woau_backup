@@ -79,7 +79,9 @@
             var th = this;
             
             if(! $('ul.login-m li:last-of-type a').hasClass('logout')) {
-                $('#prebox').load('/auth/login/ .panel', function(){
+                $('#prebox').load('/auth/login/ .panel', function(){ //callback内に処理を記述して直列にすると、Safariでのボーダーライン崩れがなくなった
+                	
+                    $(this).find('.panel').hide(); //不要だが一応入れておく
             
                     $('.login').click(function(){
                         
@@ -100,7 +102,7 @@
                         
                         var $inBack = $('.inBack');
                         
-                        $inBack.css({height:h+200}).fadeIn(350, function(){
+                        $inBack.css({height:h+200}).fadeIn(450, function(){
                             $('#prebox .panel').appendTo(this).css({opacity:0}).show();
                             
                             var pw = $('.panel').width();
