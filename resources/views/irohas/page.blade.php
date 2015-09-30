@@ -8,19 +8,18 @@
             @else{{$obj->title}}@endif</li>
         </ul>
 
-        <article class="page-ct{{" ".$obj->url_name}}">
+        <article class="page-ct{{" ".$obj->url_name}} iroha-child">
             <header>
                 <h1 class="main-title">{{ $obj->title}}</a></h1>
-            </header>
-            @if($obj->intro_content != '')
-                <section class="intro-ct">
-                	<p>{!! nb($obj->intro_content) !!}</p>
-                    
-                </section>
-            @endif
+                <span class="mega-octicon octicon-repo"></span>
             
-            <section class="main-ct iroha-child">
-            	
+                @if($obj->intro_content != '')
+                    <p>{!! nb($obj->intro_content) !!}</p>
+                @endif
+
+            </header>
+           
+            <section class="main-ct">            	
                 {!! $obj->main_content !!}
             </section>
             

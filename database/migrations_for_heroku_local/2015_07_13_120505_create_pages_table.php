@@ -3,16 +3,17 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTopicsTable extends Migration
+class CreatePagesTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
+
     public function up()
     {
-        Schema::create('topics', function (Blueprint $table) {
+        Schema::create('pages', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title')->nullable()->default(NULL);
             $table->string('sub_title')->nullable()->default(NULL);
@@ -22,7 +23,6 @@ class CreateTopicsTable extends Migration
             $table->string('url_name')->nullable()->default(NULL);
             $table->string('img_link')->nullable()->default(NULL);
             $table->string('slug')->nullable()->default(NULL);
-            $table->string('closed')->nullable()->default('公開中');
             $table->timestamps();
         });
     }
@@ -34,6 +34,7 @@ class CreateTopicsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('topics');
+        Schema::drop('pages');
     }
+
 }

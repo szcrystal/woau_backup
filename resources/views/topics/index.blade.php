@@ -10,6 +10,8 @@
     	<main class="page-ct topics">
         	<div class="main-head clearfix">
         		<h1>トピックス一覧</h1>
+                <span class="mega-octicon octicon-radio-tower"></span>
+                <span class="mega-octicon octicon-radio-tower"></span>
     			<p>woman x auditorから最新のニュースをお伝えします。</p>
                 {!! $topics->render() !!}
             </div>

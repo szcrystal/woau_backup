@@ -81,7 +81,7 @@
             if(! $('ul.login-m li:last-of-type a').hasClass('logout')) {
                 $('#prebox').load('/auth/login/ .panel', function(){ //callback内に処理を記述して直列にすると、Safariでのボーダーライン崩れがなくなった
                 	
-                    $(this).find('.panel').hide(); //不要だが一応入れておく
+                    $(this).find('.panel').hide(); //不要だが一応入れておく loadしたpanelを確実にhide()する
             
                     $('.login').click(function(){
                         

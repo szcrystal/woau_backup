@@ -48,7 +48,7 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'about', groups: [ 'about' ] }
 	];
 
-	config.removeButtons = 'Subscript,Superscript,About,Scayt,Anchor';
+	config.removeButtons = 'Subscript,Superscript,About,Scayt,Anchor,SpecialChar,Styles,Image'; //Imageどうするか
     
     /*
 	config.toolbarGroups = [

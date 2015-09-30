@@ -288,7 +288,7 @@ a.topic-link,
     line-height: 1.5em;
     margin: 0 0 0.45em 5px;
 }
-#navmenu ul.login-m li span {
+#navmenu ul.login-m li p span {
 	font-size: 1.2em;
     line-height: 1.5em;
 }
@@ -328,7 +328,13 @@ a.topic-link,
     background-repeat: no-repeat;
     background-size: 27px auto;
 }
-
+#navmenu .mega-octicon {
+	float: right;
+    display: block;
+    color: #fe5c26;
+    font-size: 3.5em;
+    margin: 0.8em 0 0 0.3em;
+}
 @-webkit-keyframes scXy { 
     50% { 
     	//-webkit-transform: translateY(-7px);
@@ -541,6 +547,7 @@ div.person {
 
 /* Belt for auth */
 #user-belt {
+	//display: none;
     //background: url(../images/main/foot-tile-g2.png)/*#634E4D*/;
     background: url(../images/main/foot-tile-gg.png), #1B192D;
     //background: peachpuff;
@@ -841,10 +848,12 @@ a.arrow-white {
     width: 50%;
 }
 .user section.profile > div div:last-of-type {
-	background: url(../images/main/about/entry-top.png) 1em 0 no-repeat;
+	background: url(../images/main/paper3.png) 0 1em no-repeat;
+    background-size: 150px auto;
+    //background: url(../images/main/about/entry-top.png) 1em 0 no-repeat;
     padding-left: 10em;
-    margin: 3em 2em 0 0;
-    width: 40%;
+    margin: 3em 1em 0 0;
+    width: 45%;
     //border: 1px solid red;
     float: right;
 }
@@ -1321,7 +1330,7 @@ section.contents .link-box:nth-of-type(6) a {
     font-size: 1.2em;
     letter-spacing: 0.07em;
     padding: 0.4em 1em;
-    margin-top:0;
+    margin-top: 0;
     margin-bottom: 1.7em;
     font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
 }
@@ -1336,9 +1345,9 @@ section.contents .link-box:nth-of-type(6) a {
 	}
 }
 .page-ct h2 {
-	border: 1px solid #fe5c26;
-    border-width: 0 0 0 7px;
-    padding: 0.5em 0.4em;
+	border: solid peachpuff;
+    border-width: 0 0 0 15px;
+    padding: 0.5em 0.6em;
     font-size: 1.25em;
     color: #fe5c26;
 }
@@ -1372,7 +1381,7 @@ section.contents .link-box:nth-of-type(6) a {
     height: 0;
 }
 .intro-ct > p { /*ヘッダーコンテンツ説明の箱*/
-	width: 60%;
+	width: 63%;
     line-height: 1.6em;
     border: 6px dotted peachpuff;
     border-radius: 1em;
@@ -1402,12 +1411,12 @@ section.contents .link-box:nth-of-type(6) a {
 	margin-top: 0em;
 }
 .about .intro-ct {
-	background: url(../images/main/about/mother.png) 98% 2.5em no-repeat;
-    background-size: 335px auto;
+	background: url(../images/main/about/mother2.png) 98% 2.5em no-repeat;
+    background-size: 380px auto;
 }
 .about .intro-ct img,
 .about .sub-ct img {
-	max-width: 335px;
+	max-width: 334.5px;
     height: auto;
 }
 .about .intro-ct img {
@@ -1487,8 +1496,8 @@ section.contents .link-box:nth-of-type(6) a {
 
 /* Iroha */
 .iroha .intro-ct {
-	background: url(../images/main/iroha-main-4.png) 95% 0 no-repeat;
-    background-size: 28% auto;
+	background: url(../images/main/iroha-main-5.png) 100% 0 no-repeat;
+    background-size: 350px auto;
 }
 
 .iroha .iroha-menu-tl,
@@ -1528,6 +1537,10 @@ section.contents .link-box:nth-of-type(6) a {
 .iroha ul.iroha-menu li a .octicon {
 	margin-right: 0.3em;
 }
+.iroha .main-ct {
+	background: url(../images/main/about/mother-child.png) 10% 2em no-repeat;
+    background-size: 220px auto;
+}
 .iroha .main-ct > div {
 	//border: 2px solid #ff9977;
     margin-bottom: 4em;
@@ -1555,8 +1568,25 @@ section.contents .link-box:nth-of-type(6) a {
 	//background: #fffdfe;
     margin: 1.5em 0 0 6em;
 }
-.iroha-child h2 {
-	//border: none;
+.iroha-child header {
+	position: relative;
+    margin-bottom: 3em;
+    //border: 1px solid red;
+}
+.iroha-child header .mega-octicon {
+	font-size: 8em;
+    color: lightsalmon;
+    margin-left: 0.7em;
+    //margin-top: 3em;
+    position: absolute;
+    -webkit-transform: rotateZ(10deg);
+    //left: 0;
+}
+.iroha-child .main-ct h2 {
+	margin-top: 2em;
+}
+.iroha-child .main-ct p {
+	margin: 0.7em 0 2.5em 2.5em;
 }
 
 /* Topics & study */
@@ -1569,7 +1599,7 @@ section.contents .link-box:nth-of-type(6) a {
 }
 */
 .page-ct > .main-head {
-	min-height: 13em;
+	min-height: 11em;
     margin-bottom: 2em;
     //border: 1px solid red;
 }
@@ -1579,24 +1609,55 @@ h1.main-title {
     line-height: 1.4em;
     padding: 1.2em 2.3em;
     display: inline-block;
-	margin-bottom: 0.5em;
+	margin: 0 0 1.2em;
+    font-weight: bold;
 }
-.main-head p {
+.main-head p { /* main-headの説明を入れる箱 */
 	font-size: 1em;
-	color: #66625E;
-    margin-top: 0.6em;
+	color: #555;
+    //color: red;
+    width: 40%;
+    //border: 1px solid green;
+    //margin-top: 0.6em;
 }
 .topics .main-head {
-	background: url(../images/main/about/file.png) 53% 2% no-repeat;
-    background-size: 116px auto;
+	//background: url(../images/main/about/file.png) 53% 2% no-repeat;
+    //background-size: 116px auto;
+    position: relative;
 }
+.topics .main-head .mega-octicon {
+	position: absolute;
+    font-size: 7em;
+    margin-left: 1.3em;
+    top: -20px;
+    color: lightsalmon;
+}
+.topics .main-head .mega-octicon:first-of-type {
+    font-size: 4em;
+    margin-left: 3.3em;
+    top: -10px;
+    -webkit-transform: rotateZ(-6deg);
+    transform: rotateZ(-6deg);
+}
+.topics .main-head .mega-octicon:last-of-type {
+    font-size: 9em;
+    margin-left: 2.3em;
+    top: 0;
+    -webkit-transform: rotateZ(7deg);
+    transform: rotateZ(7deg);
+}
+
 .study .main-head {
-	background: url(../images/main/top_icons/study-gray-lg3.png) 66% 0 no-repeat;
-    background-size: 130px auto;
+	//background: url(../images/main/top_icons/study-gray-lg3.png) 46% 0 no-repeat;
+    //background-size: 130px auto;
+    background: url(../images/main/about/study-lg.png) 66% 0 no-repeat;
+    background-size: 190px auto;
 }
 .job .main-head {
-	background: url(../images/main/about/company.png) 60% 0 no-repeat;
-    background-size: 140px auto;
+	//background: url(../images/main/about/company.png) 60% 0 no-repeat;
+    //background-size: 140px auto;
+	background: url(../images/main/about/subject6.png) 70% 0 no-repeat;
+    background-size: 430px auto;
 }
 /*
 .job .main-head img {
@@ -1608,8 +1669,10 @@ h1.main-title {
 }
 */
 .blog .main-head {
-	background: url(../images/main/top_icons/blog-gray-lg6.png) 65% -5px no-repeat;
-    background-size: 140px auto;
+	//background: url(../images/main/top_icons/blog-gray-lg6.png) 35% -5px no-repeat;
+    //background-size: 140px auto;
+    background: url(../images/main/about/blog2.png) 50% 0 no-repeat;
+    background-size: 210px auto;
     min-height: 10em;
     margin-bottom: 1em;
 }
@@ -1623,7 +1686,7 @@ article.archive {
     margin-bottom: 4em;
     padding: 0 2em 4em 1.5em;
     min-height: 10em;
-    border-bottom: 1px dashed #aaa;
+    border-bottom: 2px dashed tan;
     //border: 1px dashed red;
 }
 article.archive:after {
@@ -1688,7 +1751,7 @@ article.archive:after {
 }
 article.archive h2 a {
 	//color: #fe5c26;
-    color: #FF703D; /* coralより彩度UP */
+    color: #FF632B; /* coralより彩度UP */
 }
 .archive header h3 {
 	font-size: 1.05em;
@@ -1786,8 +1849,10 @@ article.archive h2 a {
     float: right;
 }
 .blog article.archive {
-    padding: 0 1em 1.5em 1.5em;
-    border-bottom: 1px dashed #aaa;
+    padding: 0 1em 0.5em 1.5em;
+    margin-bottom: 2em;
+    //border: 1px solid red;
+    //border-bottom: 1px dashed #aaa;
 }
 .blog header {
 	//background: url(../images/main/top_icons/blog-gray-lg6.png) 90% 0 no-repeat;
@@ -1837,18 +1902,18 @@ article.archive h2 a {
     margin-left: 80%;
     margin-top: -0.7em;
     //margin-bottom: -5em;
-    color: #856A5B;
-    opacity: 0.1;
+    color: peachpuff/*#856A5B*/;
+    opacity: 0.5;
    	-webkit-transform :rotateZ(15deg);
     transform :rotateZ(15deg);
 }
 .blog header h2 {
 	//width: 100%;
-	padding: 0.1em 0 0.1em 0.7em;
-    margin: -1.5em 0 0.8em;
+	padding: 0.1em 0 0.1em 0;
+    margin: -1.8em 0 0.3em;
     //border-bottom: 2px solid #ff9977;
-    border-left: 10px solid peachpuff;
-    font-size: 1.4em;
+    //border-left: 10px solid peachpuff;
+    font-size: 1.5em;
     //line-height: 1.6em;
     //border: 1px solid red;
 }
@@ -1866,8 +1931,9 @@ article.archive h2 a {
 
 .blog header h2 span.octicon,
 .blog-sgl header h2 span.octicon {
-	color: #ff9977/*#856A5B*/;
-    font-size: 1.6em;
+	color: #856A5B/*#856A5B*/;
+    //font-weight: bold;
+    font-size: 2em;
     margin-right: 0.3em;
     line-height: 1.6em;
     padding: 0;
@@ -1985,9 +2051,11 @@ aside li {
     background-size: 116px auto;
 }
 .single.study-sgl {
-	background: url(../images/main/top_icons/study-gray-lg3.png) 30% 1% no-repeat;
-    //background: url(../images/main/about/pc.png) 30% 1% no-repeat;
-    background-size: 100px auto;
+	//background: url(../images/main/top_icons/study-gray-lg3.png) 30% 1% no-repeat;
+    //background-size: 100px auto;
+    background: url(../images/main/about/study-lg.png) 10% 1% no-repeat;
+    background-size: 125px auto;
+    
 }
 .single.job-sgl {
 	background: url(../images/main/about/company.png) 3% 1% no-repeat;
@@ -2047,6 +2115,16 @@ aside li {
 .single > div {
 	width: 73%;
     margin: auto;
+}
+.single > div:after {
+	display: block;
+    clear: both;
+    content: "";
+    height: 0;
+}
+.single footer {
+	margin-top: 5em;
+	border-top: 2px dotted #aaa;
 }
 .single section h3 {
 	line-height: 1.4em;
@@ -2147,6 +2225,7 @@ aside li {
     //background: url(../images/main/foot-tile.png);
     background: url(../images/main/foot-tile-gg.png), #1B192D;
     //position: relative;
+    //background: url(../images/main/a.png);
 }
 #colop > div {
 	/* width first specify */
@@ -2205,7 +2284,7 @@ aside li {
     font-family: 'Josefin Sans', sans-serif;
     margin: 0;
     //background: url(../images/main/foot-tile-gg.png), /*#060226*/;
-    padding: 0 0 1.5em;
+    padding: 0 0 1.0em;
     //padding: 0.2em 0;
     //background: #0A0724;
     //border-bottom: 15px solid #383838;
@@ -2279,9 +2358,9 @@ h2.panel-head img {
     //border: 1px solid red;
 }
 .contact .main-head {
-	background: url(../images/main/form/mail-dot-6.png) 68% 15px no-repeat;
+	background: url(../images/main/form/mail-dot-8.png) 55% 15px no-repeat;
     //background: url(../images/main/about/mail.png) 30% 10px no-repeat;
-    background-size: 240px auto;
+    background-size: 300px auto;
 }
 .register .main-head {
 	background: url(../images/main/about/pc.png) 37% 20px no-repeat;
@@ -2912,7 +2991,7 @@ Edgeには影響なし */
     height: 100px;
     margin: -1.8em auto 0;
     //border: 1px solid #aaa;
-    background: url(../images/main/top_icons/lock-white2.png) center no-repeat, url(../images/main/orange-tiles-s.png) 10% 0;
+    background: url(../images/main/top_icons/lock-white-r.png) center no-repeat, url(../images/main/orange-tiles-s.png) 10% 0;
     //background-size: 65px auto;
 	border-radius: 50%;
 	//margin-right: 0.7em;
@@ -3168,9 +3247,20 @@ section.userinfo:after {
     border-radius: 0.5em;
 }
 
+img.left,
+img.center,
+img.right,
+img.large,
+img.middle,
+img.small {
+	//margin-top: 1.2em;
+    margin-bottom: 1em;
+}
+
 img.left {
+	//display: inline-block;
 	float: left;
-    margin-right: 1.2em;
+    margin-right: 1.5em;
     margin-bottom: 1.2em;
 }
 

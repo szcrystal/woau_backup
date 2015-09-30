@@ -45,10 +45,12 @@
     
     <ul class="login-m">
     @if(Auth::user())
+    	
         <li class="wrap-logout">
             <p>こんにちは<br><span>{{ Auth::user()->name}}</span> さん</p>
             <a href="{{ getUrl('auth/logout') }}" class="logout">ログアウト</a>
         </li>
+        
     @else
         <li>
             <p>登録がお済みの方は<br>コチラから！</p>

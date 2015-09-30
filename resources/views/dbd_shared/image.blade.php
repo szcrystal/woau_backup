@@ -8,17 +8,17 @@
     	<small>最初に画像の配置とサイズを選択して下さい</small>
         <label>画像配置</label>
         <select id="position" name="position">
+        	<option value="center">中央</option>
             <option value="left">左寄せ</option>
-            <option value="center">中央</option>
             <option value="right">右寄せ</option>
         </select>
         &nbsp;&nbsp;&nbsp;
 
         <label>画像サイズ</label>
         <select id="size" name="size">
-        	<option value="small">小</option>
+        	<option value="large">大</option>
             <option value="middle">中</option>
-            <option value="large">大</option>
+            <option value="small">小</option>
         </select>
 
         <button id="del_btn" class="btn btn-default pull-right">ドラッグした画像を削除</button>

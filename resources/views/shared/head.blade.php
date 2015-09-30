@@ -3,15 +3,17 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    @if($s_info->seo_sw === 1)
-<meta name="robots" content="index, follow">
-    @else
-<meta name="robots" content="noindex, nofollow">
-    @endif
-    
-    {{-- DB::table('pages')->where('url_name',Request::path()) -> first() ->title --}}
-<title><?php 
-        if(isset($top)) {
+@if($s_info->seo_sw === 1)
+	<meta name="robots" content="index, follow">
+@else
+	<meta name="robots" content="noindex, nofollow">
+@endif
+{{-- DB::table('pages')->where('url_name',Request::path()) -> first() ->title --}}
+	<title><?php
+		if(isset($headTitle)) {
+        	echo $headTitle . ' | ';
+        }
+        elseif(isset($top)) {
             echo htmlspecialchars($top->sub_title." | ",ENT_QUOTES);
         }
         elseif(isset($pageObj)) {
@@ -26,20 +28,15 @@
 		elseif(isset($atcl)) {
         	echo $atcl->title . ' | ';
         }
-        elseif(isset($headTitle)) {
-        	echo $headTitle . ' | ';
-        }
-
         ?>{{$s_info->site_name}}</title>
-    @if(isset($headDesc))
-<meta name="description" content="{!! $headDesc !!}">
-    @endif
+@if(isset($headDesc))
+	<meta name="description" content="{{ $headDesc }}">
+@endif
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/main.css') }}" rel="stylesheet">
-    @if(isAgent('all'))
-    <link href="{{ asset('css/sp.css') }}" rel="stylesheet">
-    @endif
-	<!-- vector icon : octicon on github-->
+@if(isAgent('all'))
+    <link href="{{ asset('/css/sp.css') }}" rel="stylesheet">
+@endif
     <link rel="stylesheet" href="{{ asset('/bootstrap/fonts/octicons/octicons.css') }}">
 
 	<!-- Fonts -->
@@ -68,11 +65,5 @@
     <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     {{--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>--}}
-    <script src="{{asset('/js/script.js') }}"></script>
-    
-    {{--
-    <script src="{{ asset('/bootstrap/datepicker/js/bootstrap-datepicker.min.js') }}"></script>
-    <script src="{{ asset('/bootstrap/datepicker/locales/bootstrap-datepicker.ja.min.js') }}"></script>
-    --}}
+    <script src="{{asset('/js/script.js') }}"></script>    
 </head>
-

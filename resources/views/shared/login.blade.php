@@ -21,7 +21,7 @@
 
             <div class="form-group">
                 <label class="control-label">ユーザーID</label>
-            	<input type="email" class="form-control" name="user_id" value="{{ old('email') }}" placeholder="メールアドレスを入力して下さい" autofocus>
+            	<input type="email" class="form-control" name="user_id" value="{{ old('email') }}" placeholder="メールアドレスを入力して下さい"<?php echo isAgent('Trident')? '': ' autofocus'; ?>>
                 
             </div>
 

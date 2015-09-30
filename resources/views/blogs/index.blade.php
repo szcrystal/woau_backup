@@ -15,7 +15,7 @@
                 管理者ブログ
                 @endif
                 </h1>
-            	<p>woman x auditorの管理者のブログ</p>
+            	<p>woman x auditor管理者のブログ</p>
             </div>
             
             <div id="primary">
@@ -30,7 +30,7 @@
                     <header>
                     	<small>{!! getStrDate($blogObj->created_at, 'slash') !!}</small>
                         <span class="octicon octicon-quote"></span>
-                        <h2><a href="{{getUrl($path)}}">{{ $blogObj->title }}</a></h2>
+                        <h2><span class="octicon octicon-file-text"></span><a href="{{getUrl($path)}}">{{ $blogObj->title }}</a></h2>
                     </header>
                     
                     <div>

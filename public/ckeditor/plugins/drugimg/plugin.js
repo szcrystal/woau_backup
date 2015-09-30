@@ -16,7 +16,7 @@ CKEDITOR.plugins.add( 'drugimg', {
 				
                 $('html,body').css({overflow:'hidden'});
                 
-                $('.imgArea').addClass('plug')
+                $('.imgArea').addClass('plug')//display:blockを含むclass
                 			.append('<button style="margin-right:1em;" class="addBtn btn btn-success">O K</button>')
                             .append('<button class="closeBtn btn btn-default">キャンセル</button>');
                 //$('.plug').css({top:0, left:0});
@@ -38,7 +38,7 @@ CKEDITOR.plugins.add( 'drugimg', {
                 	$('.imgArea').removeClass('plug').find('#del_btn').hide();
                     $('#codeArea').find('code').empty(); //CodeArea内のソースコードを消す
 
-                    $('.addBtn').remove()
+                    $('.addBtn').remove();
                     $('.closeBtn').remove();
                     $('.plugBack').remove();
                     $('html,body').css({overflow:'visible'});
