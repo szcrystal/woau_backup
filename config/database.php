@@ -1,6 +1,7 @@
 <?php
 
 $env = app()->environment();
+print_r($env);
 
 if (getenv('LARAVEL_ENV') == 'heroku') {
 
@@ -211,7 +212,8 @@ return [
             'host'      => env('DB_HOST', 'localhost'),
             'database'  => env('DB_DATABASE', 'forge'),
             'username'  => env('DB_USERNAME', 'forge'),
-            'password'  => $_SERVER['SERVER_NAME'] == 'woman-auditor.com' ? 'woau3253' : env('DB_PASSWORD', ''),
+            'password'  => env('DB_PASSWORD', ''),
+            //$_SERVER使用不可：'password'  => $_SERVER['SERVER_NAME'] == 'woman-auditor.com' ? 'woau3253' : env('DB_PASSWORD', ''),
             'charset'   => 'utf8',
             'collation' => 'utf8_general_ci',
             'prefix'    => '',
