@@ -276,7 +276,9 @@ function isLocal() {
 	return (env('SERVER_NAME') == 'localhost'); //env()ヘルパー：環境変数（$_SERVER）の値を取得 .env内の値も$_SERVERに入る
 }
 
-
+function isServer() {
+	return $_SERVER['SERVER_NAME'] == 'woman-auditor.com';
+}
 
 /* *****************************
 1,最後にルートキャッシュの登録をすること
