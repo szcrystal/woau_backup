@@ -6,3 +6,4 @@ Homestead.yaml
 .env_server
 .env_heroku
 .env.example
+.DS_Store
