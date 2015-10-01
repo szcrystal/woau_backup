@@ -1,7 +1,7 @@
 <?php
 
-$env = app()->environment();
-print_r($env);
+//$env = app()->environment();
+//print_r($env);
 
 if (getenv('LARAVEL_ENV') == 'heroku') {
 
