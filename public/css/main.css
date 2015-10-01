@@ -714,7 +714,7 @@ a.arrow-white {
 	//width: 1100px;
     margin: 1em auto 0;
     padding: 0;
-    min-height: 600px;
+    min-height: 700px;
     //background: #fefefe;
     //border: 1px solid purple;
 }
@@ -890,6 +890,7 @@ a.arrow-white {
 	border-radius: 0.5em;
     background: #FFB293/*antiquewhite*//*#FFB293*/;
 	padding: 3px;
+    //min-height: 30em;
 }
 .user section.jobs,
 .user section.tp-topics {
@@ -909,6 +910,7 @@ a.arrow-white {
     border-radius: 0.3em;
     border: 4px solid peachpuff;
     background: #fffefd;
+    min-height: 30em;
 }
 .user section.jobs h2,
 .user section.tp-topics h2 {
@@ -1053,7 +1055,7 @@ section.tp-topics article {
 .guest section.tp-topics {
 	float: left;
 	width: 49%;
-    min-height: 30em;
+    
     //padding: 3px;
     //background: lightsalmon;
     //border-radius: 0.5em;
