@@ -25,8 +25,8 @@ return [
     |
     */
 
-    'driver' => 'sendmail',
-    //env('MAIL_DRIVER', 'smtp'),
+    //'driver' => 'sendmail',
+    'driver' => env('MAIL_DRIVER', 'smtp'),
 
     /*
     |--------------------------------------------------------------------------
@@ -39,8 +39,8 @@ return [
     |
     */
 
-    'host' => '192.168.10.15',
-    //env('MAIL_HOST', 'smtp.mailgun.org'),
+    //'host' => '192.168.10.15',
+    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
 
     /*
     |--------------------------------------------------------------------------
@@ -53,8 +53,8 @@ return [
     |
     */
 
-    'port' => 25,
-    //env('MAIL_PORT', 587),
+    //'port' => 25,
+    'port' => env('MAIL_PORT', 587),
 
     /*
     |--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'scr.bamboo@gmail.com', 'name' => 'woman x auditor'],
+    'from' => ['address' => 'info@woman-auditor.com', 'name' => 'woman x auditor'],
 
     /*
     |--------------------------------------------------------------------------
@@ -80,8 +80,8 @@ return [
     |
     */
 
-    'encryption' => '',
-    //env('MAIL_ENCRYPTION', 'tls'),
+    //'encryption' => '',
+    'encryption' => env('MAIL_ENCRYPTION', ''),
 
     /*
     |--------------------------------------------------------------------------
