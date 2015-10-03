@@ -57,7 +57,7 @@
                     <div class="clearfix"> 
                         <p><a href="{{ getUrl('profile/'.Auth::user()->user_number)}}" class="u-link"><span class="octicon octicon-pin"></span>ユーザー情報<span class="octicon octicon-chevron-right"></span></a><span> </span></p>
                         <p><a href="{{getUrl('profile/'.Auth::user()->user_number.'#entry-company')}}" class="u-link"><span class="octicon octicon-pin"></span>応募した案件<span class="octicon octicon-chevron-right"></span></a>
-                            <?php /*$jobCount = 0;*/ $studyCount=0;?>
+                            <?php /*$jobCount = 0; $studyCount=0; */?>
                             <span>
                             @if($jobCount == 0)
                             応募した案件はありません

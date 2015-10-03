@@ -7,3 +7,4 @@ Homestead.yaml
 .env_heroku
 .env.example
 .DS_Store
+/public/images/upload

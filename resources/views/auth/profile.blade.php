@@ -151,7 +151,7 @@
             @if($jobObjs -> isEmpty())
             <p style="padding-bottom: 2em;">{{$user->name}}さんが応募した案件はまだありません。<br>
             気になる案件がありましたら応募してみましょう。<br>
-            <a href="{{getUrl('recruit')}}" class="conf-btn" style="margin-top: 1em; padding-left:1em; padding-right:1em;">案件一覧へ »</a></p>
+            <a href="{{getUrl('recruit')}}" class="conf-btn">案件一覧へ »</a></p>
             @else
             <div class="table-responsive">
                 <table class="table table-bordered entry-table">

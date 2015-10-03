@@ -1382,7 +1382,7 @@ section.contents .link-box:nth-of-type(6) a {
     content: "";
     height: 0;
 }
-.intro-ct > p { /*ヘッダーコンテンツ説明の箱*/
+.intro-ct > p { /*ヘッダーコンテンツ説明の箱 装飾あり*/
 	width: 63%;
     line-height: 1.6em;
     border: 6px dotted peachpuff;
@@ -1416,10 +1416,10 @@ section.contents .link-box:nth-of-type(6) a {
 	background: url(../images/main/about/mother2.png) 98% 2.5em no-repeat;
     background-size: 380px auto;
 }
-.about .intro-ct img,
 .about .sub-ct img {
-	max-width: 334.5px;
+	width: 148px;
     height: auto;
+    margin-left: 3em;
 }
 .about .intro-ct img {
 	margin: 0 2em 0 0;
@@ -1614,7 +1614,8 @@ h1.main-title {
 	margin: 0 0 1.2em;
     font-weight: bold;
 }
-.main-head p { /* main-headの説明を入れる箱 */
+.main-head p,
+.iroha-child > header p { /* main-headの説明を入れる箱 */
 	font-size: 1em;
 	color: #555;
     //color: red;
@@ -3168,7 +3169,7 @@ section.userinfo:after {
     height: 0;
 }
 .userinfo h2 {
-	width: 15%;
+	width: 16%;
     float: left;
     margin: 0;
     //padding:0;
@@ -3215,11 +3216,19 @@ section.userinfo:after {
     font-size: 0.9em;
     margin: auto;
     width: 100%;
+    text-align: center;
 }
 .company-table .edit-btn {
 	display: inline-block;
     padding: 0.8em 1.5em;
 }
+#entry-company > p .conf-btn,
+#entry-study > p .conf-btn {
+	display: inline-block;
+	margin-top: 3em;
+    padding: 0.5em 2.5em;
+}
+
 
 .single header .edit-btn,
 .single header .done-btn {

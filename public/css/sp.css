@@ -610,7 +610,7 @@ for SP
     }
     .about .sub-ct img {
     	float: right;
-    	width: 32%;
+    	//width: 32%;
         margin: 1em 0 0;
     }
     .about .main-ct {
@@ -637,26 +637,6 @@ for SP
     .about .main-ct div:last-of-type img {
         width: 80%;
         margin: auto;
-    }
-    
-    /* Iroha */
-    .iroha .intro-ct {
-    	background-position: 23% 3%;
-        background-size: 310px auto;
-        padding-top: 270px;
-    }
-    .iroha .iroha-menu-tl {
-    	margin: 1.5em 0 0;
-        font-weight: 400;
-    }
-    .iroha ul.iroha-menu {
-    	width: 100%;
-        float: none;
-        margin: 0;
-        padding: 1.3em 1em;
-    }
-    .iroha .main-ct > div p {
-        margin: 1.5em 0 0 1.5em;
     }
     
     /* Privacy */
@@ -792,7 +772,8 @@ for SP
         background-position: 95% 3em;
     	background-size: 24% auto;
 	}
-    .main-head p {
+    .main-head p,
+    .iroha-child > header p {
         width: 67%;
         min-height: 6em;
     }
@@ -821,6 +802,48 @@ for SP
         width: 16em;
     }
     
+    /* Topics */
+    .topics .main-head .mega-octicon:first-of-type {
+        display: none;
+    }
+    .topics .main-head .mega-octicon:last-of-type {
+        font-size: 7em;
+        margin-left: 0;
+        left: 75%;
+        top: 45px;
+        -webkit-transform: rotateZ(7deg);
+        transform: rotateZ(7deg);
+    }
+    
+    /* Iroha */
+    .iroha .intro-ct {
+    	background-position: 50% 3%;
+        background-size: 290px auto;
+        padding-top: 270px;
+    }
+    .iroha .main-ct {
+    	background: none;
+    }
+    .iroha .iroha-menu-tl {
+    	margin: 1.5em 0 0;
+        font-weight: 400;
+    }
+    .iroha ul.iroha-menu {
+    	width: 100%;
+        float: none;
+        margin: 0;
+        padding: 1.3em 1em;
+    }
+    .iroha .main-ct > div p {
+        margin: 1.5em 0 0 1.5em;
+    }
+    .iroha-child header {
+    	//padding-bottom: 2em;
+    }
+    .iroha-child header .mega-octicon {
+    	left: 55%;
+        top: 70px;
+    }
     
     /* blog */
     #primary {
@@ -846,7 +869,18 @@ for SP
         margin-left: 77%;
         //margin-top: -0.7em;
     }
+    .blog .main-head {
+    	background-size: 210px;
+        background-position: 100% 100%;
+        padding-bottom: 6em;
+    }
     
+    /* job archive */
+    .job .main-head {
+    	background-size: 350px;
+        background-position: 50% 100%;
+        padding-bottom: 6.5em;
+    }
     /* Job single*/
     .job-sgl section {
     	width: 100%;
@@ -1038,7 +1072,7 @@ for SP
         text-align: center;
     }
     .about .sub-ct img {
-    	width: 50%;
+    	//width: 50%;
     }
     .contact .main-head,
     .register .main-head {
