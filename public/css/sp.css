@@ -1060,8 +1060,8 @@ for SP
         line-height: 1.4em;
     }
 	.home #cal p:last-of-type {
-    	font-size: 1em;
-        line-height: 0.85em;
+    	font-size: 0.9em;
+        line-height: 0.9em;
         //margin-left: 1em;
     }
     .link-box {
