@@ -13,17 +13,17 @@
 ………………………………………………………………………………………
 <br /><br />
 
-◆勉強会名：</strong><br />
+◆勉強会名</strong><br />
 {{$study_name}}<br /><br />
 
-◆お名前：<br />
+◆お名前<br />
 {{$name}}<br /><br />
 
-◆メールアドレス：<br />
+◆メールアドレス<br />
 {{$mail}}<br /><br />
 
 
-◆コメント：<br />
+◆コメント<br />
 {!! nl2br($note) !!}
 <br /><br /><br />
 
@@ -39,16 +39,16 @@
 ………………………………………………………………………………………
 <br /><br />
 
-◆名前：<br />
+◆名前<br />
 {{$name}} [ ユーザーNo:{{ $user_number }} ]<br /><br />
 
-◆メールアドレス：<br />
+◆メールアドレス<br />
 {{$mail}}<br /><br />
 
-◆参加勉強会：</strong><br />
+◆参加勉強会</strong><br />
 {{$study_name}} [ No.{{$iroha_id}} ]<br /><br />
 
-◆コメント：<br />
+◆コメント<br />
 {!! nl2br($note) !!}
 <br /><br /><br /><br /><br />
 
@@ -57,23 +57,3 @@
 <br /><br />
 
 @endif
-
-<?php 
-//	echo "あいうえお<br />"; 
-//	
-//    echo $name . "<br />" . $mail;
-    
-    //$pathToFile = 'images/RP21504_1012.jpg'; //http//localhost:5005は付けない 相対アドレスで。内部でfopen()してから$messageインスタンスにembedするらしい
-    /*
-    	<img src="<?php echo $message->embed($pathToFile); ?>">
-    */
-?>
-{{--
-<body>
-    Here is an image:<br />
-
-    Here is an image from raw data:<br />
-
-    
-</body>
---}}

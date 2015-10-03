@@ -15,22 +15,22 @@
 ………………………………………………………………………………………
 <br /><br />
 
-◆応募企業名：</strong><br />
+◆応募企業名</strong><br />
 {{$comp_name}} [ 案件No.{{$comp_number}} ]<br /><br />
 
-◆お名前：<br />
+◆お名前<br />
 {{$name}}<br /><br />
 
-◆メールアドレス：<br />
+◆メールアドレス<br />
 {{$mail}}<br /><br />
 
 
-◆コメント：<br />
+◆コメント<br />
 {!! nl2br($note) !!}
 <br /><br />
 
 @if(isset($orgName))
-◆添付ファイル名：<br />
+◆添付ファイル名<br />
 {{$orgName}}
 <br /><br /><br />
 @endif
@@ -47,17 +47,17 @@
 ………………………………………………………………………………………
 <br /><br />
 
-◆案件企業名：<br />
+◆案件企業名<br />
 {{$comp_name}} [ 案件No.{{$comp_number}} ]<br /><br />
 
-◆名前：<br />
+◆名前<br />
 {{$name}} [ ユーザーNo:{{ $user_number }} ]<br /><br />
 
-◆メールアドレス：<br />
+◆メールアドレス<br />
 {{$mail}}<br /><br />
 
 
-◆コメント：<br />
+◆コメント<br />
 {!! nl2br($note) !!}
 <br /><br /><br /><br />
 
