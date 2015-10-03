@@ -15,14 +15,15 @@
                     <ul>
                     	<li><a href="{{ getUrl('privacy') }}" class="arrow-white">個人情報保護の取り扱いについて</a></li>
                         <li><a href="{{ getUrl('company') }}" class="arrow-white">運営会社の情報</a></li>
-                        <li><a href="{{ getUrl('contact') }}" class="arrow-white">お問い合わせ</a></li>
+                        <li><a href="{{ getUrl('corporation') }}" class="arrow-white">法人の方へ</a></li>
                     </ul>
                 </li>
                 <li>
                     <ul>
-                    	<li><a href="{{ getUrl('iroha') }}" class="arrow-white">監査役いろは</a></li>
-                        <li><a href="{{ getUrl('iroha/about-audit') }}" class="arrow-white">監査役とは</a></li>
+                    	{{--<li><a href="{{ getUrl('iroha') }}" class="arrow-white">監査役いろは</a></li>--}}
+                        {{--<li><a href="{{ getUrl('iroha/about-audit') }}" class="arrow-white">監査役とは</a></li>--}}
                         <li><a href="{{ getUrl('blog') }}" class="arrow-white">ブログ</a></li>
+                        <li><a href="{{ getUrl('contact') }}" class="arrow-white">お問い合わせ</a></li>
                     </ul>
                 </li>
         	</ul>
@@ -39,11 +40,12 @@
                     <ul>
                         <li><a href="{{ getUrl('privacy') }}" class="arrow-white">個人情報保護の取り扱いについて</a></li>
                         <li><a href="{{ getUrl('company') }}" class="arrow-white">運営会社の情報</a></li>
-                        <li><a href="{{ getUrl('contact') }}" class="arrow-white">お問い合わせ</a></li>
+                        <li><a href="{{ getUrl('corporation') }}" class="arrow-white">法人の方へ</a></li>
                     </ul>
                 </li>
                 <li>
                     <ul>
+                    	<li><a href="{{ getUrl('contact') }}" class="arrow-white">お問い合わせ</a></li>
                     	@if(!isAgent('sp'))
                         <li><a href="{{ getUrl('auth/login') }}" class="arrow-white login">ログイン</a></li>
                         @endif

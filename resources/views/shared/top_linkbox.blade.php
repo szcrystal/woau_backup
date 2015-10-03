@@ -22,7 +22,7 @@
     </div>
 
     <div class="link-box">
-        <a href="{{getUrl('privacy')}}"><span>個人情報の保護</span></a>
+        <a href="{{getUrl('corporation')}}"><span>法人の方へ</span></a>
     </div>
     
     <div class="star"></div>

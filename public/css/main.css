@@ -1273,7 +1273,7 @@ section.contents .link-box:nth-of-type(5) a {
 }
 
 section.contents .link-box:nth-of-type(6) a {
-    background: url(../images/main/top_icons/privacy.png) no-repeat;
+    background: url(../images/main/top_icons/forinc2.png) no-repeat;
     background-size: 100% auto;
 }
 
@@ -3228,7 +3228,10 @@ section.userinfo:after {
 	margin-top: 3em;
     padding: 0.5em 2.5em;
 }
-
+.corporation .edit-btn {
+	display: inline-block;
+	padding: 0.7em 2.5em;
+}
 
 .single header .edit-btn,
 .single header .done-btn {

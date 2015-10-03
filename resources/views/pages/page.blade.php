@@ -9,7 +9,7 @@
     </ul>
         
     		<article class="page-ct{{" ".$pageObj->url_name}}">
-            	@if(! Request::is('privacy') && ! Request::is('company'))
+            	@if(Request::is('about'))
                 <h1 class="main-title">
                 @else
         		<h1>
