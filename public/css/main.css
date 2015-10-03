@@ -2360,7 +2360,7 @@ h2.panel-head img {
 .study-entry .main-head,
 .job-entry .main-head {
 	min-height: 8em;
-    margin-bottom: 3em;
+    margin-bottom: 3.5em;
     //border: 1px solid red;
 }
 .contact .main-head {
@@ -2369,7 +2369,7 @@ h2.panel-head img {
     background-size: 300px auto;
 }
 .register .main-head {
-	background: url(../images/main/about/pc.png) 37% 20px no-repeat;
+	background: url(../images/main/about/pc.png) 55% 20px no-repeat;
     background-size: 148px auto;
 }
 

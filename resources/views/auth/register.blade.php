@@ -13,7 +13,7 @@
     <main class="page-ct register">
     	<div class="main-head">
         	<h1 class="panel-head">{{$headTitle}}</h1>{{--<img src="/images/main/i-register.png">--}}
-            <p>注意事項等あればここに記載</p>
+            <p>登録後は、案件や勉強会一覧のページなどが閲覧可能となり、登録される情報は応募時に必要となります。</p>
             {{--
             @if(isset($intro_ct) && $intro_ct != '')
             <p>{!! nb($intro_ct) !!}</p>
