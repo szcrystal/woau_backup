@@ -804,10 +804,12 @@ for SP
         width: 67%;
         min-height: 6em;
     }
-    .single.topic-sgl,
+	.single header {
+    	padding-bottom: 0;
+        margin-bottom: 1em;
+    }
     .single.study-sgl,
     .single.job-sgl {
-        //background: url(../images/main/about/file.png) 3% 0 no-repeat;
         background-position: 3% 0;
         background-size: 25% auto;
     }
@@ -834,12 +836,21 @@ for SP
         display: none;
     }
     .topics .main-head .mega-octicon:last-of-type {
-        font-size: 7em;
+        font-size: 6.5em;
         margin-left: 0;
         left: 75%;
         top: 45px;
-        -webkit-transform: rotateZ(7deg);
-        transform: rotateZ(7deg);
+        //-webkit-transform: rotateZ(7deg);
+        //transform: rotateZ(7deg);
+    }
+    .single.topic-sgl header .mega-octicon:first-of-type {
+    	left: 10%;
+        top: 0;
+        font-size: 6em;        
+    }
+    .single.topic-sgl header .mega-octicon:last-of-type {
+    	font-size: 3em;
+        left: 80%;	
     }
     
     /* Iroha */

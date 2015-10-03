@@ -9,24 +9,14 @@
             <li>@if($topicObj->sub_title != ''){{$topicObj->sub_title}}
             @else{{$topicObj->title}}@endif</li>
         </ul>
-
-        <?php 
-//            	$link = $page->img_link; 
-//            	$linkArr = explode(';', $link);
-//            	echo $linkArr[0];
-        ?>
     
         <article class="single topic-sgl">
             <header>
+            	<span class="mega-octicon octicon-radio-tower"></span>
+                <span class="mega-octicon octicon-radio-tower"></span>
                 <small>{!! getStrDate($topicObj->created_at, 'slash') !!}</small>
                 <h2>{{$topicObj->title}}</h2>
             </header>
-            
-            {{--
-            @if(isset($linkArr[0]))
-                <img src="{{getUrl('/images/'$linkArr[0]}}" width="230" height="150" />
-            @endif
-            --}}
             
             <div>
                 @if($topicObj -> intro_content != '')
