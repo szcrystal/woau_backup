@@ -47,7 +47,7 @@ for SP
     }
     .home .blog-main,
 	.main .blog-main {
-    	min-height: 300px;
+    	min-height: 600px;
     }
     .main .blog-main {
         width: 100%;
@@ -83,6 +83,10 @@ for SP
     }
     #navmenu ul.login-m {
     	font-size: 0.9em;
+    }
+    
+    #user-belt > ul > li:last-of-type a {
+    	width: 10em;
     }
     
     /* Calousel */
@@ -191,7 +195,9 @@ for SP
         width: 45%;
     }
     
-    
+    .contact .main-head {
+    	background-position: 100% 0;
+    }
     
     
     /* Archive */
@@ -235,6 +241,27 @@ for SP
         margin-right: 1em;
     }
     
+    /* Iroha */
+    .iroha .intro-ct {
+    	background-position: 100% 3%;
+        background-size: 270px auto;
+        //padding-top: 270px;
+    }
+    .iroha .main-ct {
+    	background-position: 10% 0;
+        background-size: 180px auto;
+        //padding-top: 270px;
+    }
+    .study .main-head {
+        background-size: 170px auto;
+    }
+    
+    /* job archive */
+    .job .main-head {
+    	background-size: 350px;
+        background-position: 90% 0;
+        //padding-bottom: 6.5em;
+    }
     
     /* Colop */
     #colop > div {
@@ -1033,7 +1060,7 @@ for SP
         line-height: 1.4em;
     }
 	.home #cal p:last-of-type {
-    	font-size: 0.85em;
+    	font-size: 1em;
         line-height: 0.85em;
         //margin-left: 1em;
     }
