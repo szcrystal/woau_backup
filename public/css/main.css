@@ -655,7 +655,8 @@ a.arrow-white {
 	//margin-left: 1.5em;
 	color: #fff;
     text-decoration: none;
-    background: url(../images/main/arrow-white.png) 0.5em 47% no-repeat;
+    background: url(../images/main/arrow-white.png) 0.5em 50% no-repeat;
+    background-size: 17px auto;
 }
 
 /*.home #user-belt > div > a {*/
