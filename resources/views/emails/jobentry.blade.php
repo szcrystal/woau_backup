@@ -73,17 +73,13 @@
 
 <?php
 // echo $name . "<br />" . $mail;
-    
-    //$pathToFile = 'images/RP21504_1012.jpg'; //http//localhost:5005は付けない 相対アドレスで。内部でfopen()してから$messageインスタンスにembedするらしい
-    //<img src="<?php echo $message->embed($pathToFile); ?>">
-    
+//$pathToFile = 'images/RP21504_1012.jpg'; //http//localhost:5005は付けない 相対アドレスで。内部でfopen()してから$messageインスタンスにembedするらしい
+//<img src="<?php echo $message->embed($pathToFile);    
 ?>
 {{--
 <body>
     Here is an image:<br />
 
     Here is an image from raw data:<br />
-
-    
 </body>
 --}}

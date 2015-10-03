@@ -206,7 +206,7 @@
             @if($studyObjs->isEmpty())
             <p>{{$user->name}}さんが申し込みをした勉強会はまだありません。<br>
             自分に役立つ勉強会を探して、ぜひ参加してみませんか？<br>
-            <a href="{{getUrl('iroha/study')}}" class="conf-btn" style="margin: 1em 0; padding-left:1em; padding-right:1em;">勉強会一覧へ »</a></p>
+            <a href="{{getUrl('iroha/study')}}" class="conf-btn">勉強会一覧へ »</a></p>
             
             @else
             <div class="table-responsive">
