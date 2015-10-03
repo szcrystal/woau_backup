@@ -37,7 +37,7 @@ class PageController extends Controller
         
         if($user = Auth::user()) {
         	//$user = Auth::user();
-	        $arr['jobs'] = $this -> job ->orderBy('created_at','desc') ->take(5) ->get();
+	        $arr['jobs'] = $this -> job ->where('closed', '公開中') ->orderBy('created_at','desc') ->take(5) ->get();
             $arr['jobCount'] = $user->jobentries()->count();
             $arr['studyCount'] = $user->studyentries()->count();
     	}    
