@@ -501,7 +501,9 @@ class DashBoardController extends Controller
     
     /* Topics ***** */
     //index
-    //aaa //
+    //aaa 
+    //
+    //
     public function getTopics(Request $request) {
     	if($request -> has('s')) {
         	$objs = $this -> returnSearchObj('topics', $request->input('s'));
