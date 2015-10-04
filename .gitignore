@@ -1,5 +1,7 @@
 /vendor
 /node_modules
+/public/images/upload
+/database/migrations_for_heroku_local
 Homestead.yaml
 .env
 .env_local
@@ -7,5 +9,3 @@ Homestead.yaml
 .env_heroku
 .env.example
 .DS_Store
-/public/images/upload
-/database/migrations_for_heroku_local
