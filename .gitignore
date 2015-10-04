@@ -1,6 +1,5 @@
 /node_modules
 /public/images/upload
-
 Homestead.yaml
 .env
 .env_local
