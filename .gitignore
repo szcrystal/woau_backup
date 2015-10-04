@@ -8,3 +8,4 @@ Homestead.yaml
 .env.example
 .DS_Store
 /public/images/upload
+/database/migrations_for_heroku_local
