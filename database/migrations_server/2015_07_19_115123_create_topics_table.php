@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIrohasTable extends Migration
+class CreateTopicsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateIrohasTable extends Migration
      */
     public function up()
     {
-        Schema::create('irohas', function (Blueprint $table) {
+        Schema::create('topics', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title')->nullable()->default(NULL);
             $table->string('sub_title')->nullable()->default(NULL);
@@ -22,9 +22,7 @@ class CreateIrohasTable extends Migration
             $table->string('url_name')->nullable()->default(NULL);
             $table->string('img_link')->nullable()->default(NULL);
             $table->string('slug')->nullable()->default(NULL);
-            
-            //$table->string('closed')->nullable()->default('公開中');
-            
+            $table->string('closed')->nullable()->default('公開中');
             $table->timestamps();
         });
     }
@@ -36,6 +34,6 @@ class CreateIrohasTable extends Migration
      */
     public function down()
     {
-        Schema::drop('irohas');
+        Schema::drop('topics');
     }
 }

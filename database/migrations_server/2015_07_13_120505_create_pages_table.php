@@ -3,16 +3,17 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBlogsTable extends Migration
+class CreatePagesTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
+
     public function up()
     {
-        Schema::create('blogs', function (Blueprint $table) {
+        Schema::create('pages', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title')->nullable()->default(NULL);
             $table->string('sub_title')->nullable()->default(NULL);
@@ -21,8 +22,8 @@ class CreateBlogsTable extends Migration
             $table->text('sub_content')->nullable()->default(NULL);
             $table->string('url_name')->nullable()->default(NULL);
             $table->string('img_link')->nullable()->default(NULL);
-            $table->string('category')->nullable()->default(NULL);
             $table->string('slug')->nullable()->default(NULL);
+            $table->string('closed')->nullable()->default('公開中');
             $table->timestamps();
         });
     }
@@ -34,6 +35,7 @@ class CreateBlogsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('blogs');
+        Schema::drop('pages');
     }
+
 }
