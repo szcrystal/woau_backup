@@ -115,7 +115,8 @@ return [
         'c_name' => 'カテゴリー名',
         'slug' => 'スラッグ',
         'address' => '所在地',
-        
+        'sub_title' => 'サブタイトル',
+        'url_name' => 'リンク名',
     ],
 
 ];

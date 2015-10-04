@@ -83,9 +83,13 @@ textarea {
 	margin-top: 1.5em;
 }
 
-
 input, textarea {
 	font-size: 1.2em;
+}
+label > em {
+	font-size: 0.9em;
+    color: #777;
+    font-weight: normal;
 }
 .i-radi { /*url_nameを入れるinput*/
 	border-radius: 5px;

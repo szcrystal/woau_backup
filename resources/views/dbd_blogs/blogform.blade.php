@@ -53,6 +53,18 @@
                     <button type="submit" class="btn btn-primary btn-block"><span class="octicon octicon-sync"></span>更 新</button>
                 </div>
             </div>
+            
+            <div class="checkbox">
+                <label>
+                    {!! Form::checkbox('closed', '非公開', (isset($article) && $article->closed == '非公開') ? true : false, []) !!}
+                    このページを非公開にする
+                </label><br>
+                <small>変更後は更新ボタンを押して下さい</small>
+            </div>
+        
+        	@if(isset($article) && $article->closed == '非公開')
+        	<p><span class="octicon octicon-issue-opened"></span>この案件は非公開です。</p>
+        	@endif
         
           <div class="form-group">
               <label>タイトル</label>

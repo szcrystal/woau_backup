@@ -33,7 +33,7 @@ class PageController extends Controller
     {
     	//$pages = $this -> page -> orderBy('created_at','desc') ->paginate(5);
         $arr['obj'] = Page::where('url_name', '') -> first();
-        $arr['topTopics'] = $this -> topic -> orderBy('created_at','desc') ->take(5) ->get();
+        $arr['topTopics'] = $this -> topic ->where('closed', '公開中') -> orderBy('created_at','desc') ->take(5) ->get();
         
         if($user = Auth::user()) {
         	//$user = Auth::user();
@@ -54,12 +54,12 @@ class PageController extends Controller
 	
     // All Fix Page
     public function show(Request $request, $url_name) {
-    	
-    	if($url_name == 'contact') {
-        	//$data = array('name','mail','note');
+
+        if($url_name == 'contact') {
+            //$data = array('name','mail','note');
             /*
             foreach($this->in as $val) {
-        		//$pageObjs[$key] = $val;
+                //$pageObjs[$key] = $val;
                 $pageObjs[$val] = $request->session()->pull($val, '');
             }
             */
@@ -74,21 +74,24 @@ class PageController extends Controller
             return view('pages.contact', ['headTitle'=>$headTitle/*, 'intro_ct'=>$intro_ct*/]);
         }
         else if($url_name == 'trialpage-15331') {
-        	$agent = $_SERVER['HTTP_USER_AGENT'];
+            $agent = $_SERVER['HTTP_USER_AGENT'];
             
             Mail::raw($agent, function($message) {
                 $message->to('szk.create@gmail.com', 'szk')->subject('Thank You');
             });
             
-        	return view('pages.agent');
+            return view('pages.agent');
         }
         else {
-        	if($pageObj = Page::where('url_name', $url_name) -> first())
-	            return view('pages.page') -> with(compact('pageObj'));
+            if($pageObj = Page::where('url_name', $url_name) -> first())
+                if($pageObj->closed == '非公開')
+                    abort(404);
+                else
+                    return view('pages.page') -> with(compact('pageObj'));
             else
-            	abort(404);
+                abort(404);
         }
-
+        
     }
     
     

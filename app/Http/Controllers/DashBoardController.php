@@ -300,8 +300,11 @@ class DashBoardController extends Controller
     }
     
     public function postPagesAdd(Request $request) {
+    	
     	$rules = [
             'title' => 'required|min:3',
+            'sub_title' => 'required',
+            'url_name' => 'required|unique:pages',
         ];
         $this->validate($request, $rules);
         
@@ -328,13 +331,25 @@ class DashBoardController extends Controller
     }
 
     public function postPagesEdit(Request $request, $id) {
-    	$article = $this->page->find($id);
+    	
+        $rules = [
+            'title' => 'required|min:3',
+            'sub_title' => 'required',
+            'url_name' => $id != $this->siteinfo->first()->top_id ? 'required|unique:pages': '',
+        ];
+        $this->validate($request, $rules);
+        
+        $article = $this->page->find($id);
         $data = $request->all(); //$data:配列
+        if(!isset($data['closed'])) {
+        	$data['closed'] = '公開中';
+        }
         $article->fill($data);
         $article->save();
         
         //print_r($data);
         return redirect('dashboard/pages-edit/'.$id)->with('status', '固定ページが更新されました！');
+        
     }
     
     //Page Delete
@@ -461,7 +476,7 @@ class DashBoardController extends Controller
         return redirect('dashboard/jobs-edit/'.$id)->with('status', '案件情報が更新されました！');
     }
     
-    //study user
+    //応募者一覧
     public function getJobsEntry(Request $request, $job_id = null) {
     	if($request -> has('s')) {
         	$objs = $this -> returnSearchObj('jobentries', $request->input('s'));
@@ -533,6 +548,9 @@ class DashBoardController extends Controller
     public function postTopicsEdit(Request $request, $id) {
     	$article = $this->topic->find($id);
         $data = $request->all(); //$data:配列
+        if(!isset($data['closed'])) {
+        	$data['closed'] = '公開中';
+        }
         $article->fill($data);
         $article->save();
         
@@ -562,6 +580,8 @@ class DashBoardController extends Controller
     public function postIrohasAdd(Request $request) {
     	$rules = [
             'title' => 'required|min:3',
+            'sub_title' => 'required',
+            //'url_name' => 'required|not_in:top|unique:irohas',
         ];
         $this->validate($request, $rules);
         
@@ -589,7 +609,18 @@ class DashBoardController extends Controller
 
     public function postIrohasEdit(Request $request, $id) {
     	$article = $this->iroha->find($id);
+        
+        $rules = [
+            'title' => 'required|min:3',
+            'sub_title' => 'required',
+            //'url_name' => $article->url_name!='top' ? 'required|not_in:top|unique:irohas': 'in:top',
+        ];
+        $this->validate($request, $rules);
+        
         $data = $request->all(); //$data:配列
+        if(!isset($data['closed'])) {
+        	$data['closed'] = '公開中';
+        }
         $article->fill($data);
         $article->save();
         
@@ -767,6 +798,10 @@ class DashBoardController extends Controller
         }
         else { //カテゴリーのチェック選択がない場合
         	CateRelation::where('blog_id', $id) -> delete();
+        }
+        
+        if(!isset($data['closed'])) {
+        	$data['closed'] = '公開中';
         }
         
         $article->fill($data);

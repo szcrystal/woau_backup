@@ -6,7 +6,7 @@
             <li>監査役いろは</li>
         </ul>
 
-        <article class="page-ct{{" ".Request::path()}}">
+        <article class="page-ct iroha">
             <header>
                 <h1 class="main-title">{{ $obj->title}}</a></h1>
             </header>

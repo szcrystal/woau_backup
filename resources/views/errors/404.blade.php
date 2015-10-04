@@ -11,7 +11,9 @@ else
 @section('content')
 
     	<article class="page-ct error404">
-        	<h1 class="main-title">エラー：404</h1>
+        	<header>
+        		<h1 class="main-title">エラー：404</h1>
+            </header>
             @if($isDash)
             <p>お探しのページがありませんでした。<br><a href="{{getUrl('dashboard/')}}">TOPページ</a>に戻り、再度リンクなどよりお入り直し下さい。</p>
                 <a href="{{getUrl('dashboard/')}}" class="btn btn-success">TOPへ</a>

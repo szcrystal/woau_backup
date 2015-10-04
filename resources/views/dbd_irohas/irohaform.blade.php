@@ -35,7 +35,9 @@
         	<div class="well clearfix">
                 
                 <div class="pull-left">
-                	<?php $link = isset($article) ? $article->slug : $slug; ?>
+                	
+                    <?php $link = isset($article) ? $article->slug : $slug; ?>
+                    
                     <a href="{{ getUrl('/dashboard/'. $link) }}" class="btn btn-success btn-sm"><span class="octicon octicon-triangle-left"></span>一覧へ戻る</a>
                 </div>
                 
@@ -54,37 +56,47 @@
                 </div>
             </div>
         
-        @if($link == 'study')
         	<div class="checkbox">
+            	
                 <label>
                     {!! Form::checkbox('closed', '非公開', (isset($article) && $article->closed == '非公開') ? true : false, ['style'=>'']) !!}
-                    この勉強会を非公開にする
+                    このページを非公開にする
                 </label><br>
                 <small>変更後は更新ボタンを押して下さい</small>
             </div>
             
             @if(isset($article) && $article->closed == '非公開')
-            <p><span class="octicon octicon-issue-opened"></span>この勉強会は非公開です。</p>
+            <p><span class="octicon octicon-issue-opened"></span>このページは非公開です。</p>
             @endif
-        @endif
         
           <div class="form-group">
-              <label>タイトル</label>
+              <label>タイトル<em>（必須）</em></label>
               {!! Form::input('text', 'title', isset($article) ? $article->title : null, ['required', 'class' => 'form-control']) !!}
           </div>
           <div class="form-group">
-              <label>サブタイトル（リンク名などに使用されます。ページ内には表示されません。）</label>
+              <label>サブタイトル<em>（必須：メニュー内のリンク名表示に使用されます。コンテンツ内には表示されません。）</em></label>
               {!! Form::input('text', 'sub_title', isset($article) ? $article->sub_title : null, ['class' => 'form-control']) !!}
           </div>
           
           <?php $sg = isset($article) ? $article->slug : $slug; ?>
+          {{--
           @if($sg == 'irohas')
           <div class="form-group">
               <label>リンク名</label>
               {{ url('/iroha') . '/' }}
-              {!! Form::input('text', 'url_name', isset($article) ? $article->url_name : null, ['required', 'class' => '']) !!}
+        --}}
+        
+              <?php 
+              	//$disable = (isset($article) && $article->url_name == 'top') ? 'disabled' : '';
+                ?>
+            {{--
+              {!! Form::input('text', 'url_name', isset($article) ? $article->url_name : null, [$disable]) !!}
+              @if($disable != '')
+              	<small>※このページのURLは変更できません</small>
+              @endif
           </div>
           @endif
+          --}}
           
           <div class="form-group">
               <label>ヘッダーコンテンツ</label>

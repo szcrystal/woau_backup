@@ -28,15 +28,18 @@ class TopicController extends Controller
     
     
     public function getIndex() {
-    	$topics = $this -> topic -> orderBy('created_at','desc') ->paginate($this->pg);
+    	$topics = $this -> topic ->where('closed', '公開中') -> orderBy('created_at','desc') ->paginate($this->pg);
         $headTitle = 'トピックス一覧';
         return view('topics.index', ['topics'=>$topics, 'headTitle'=>$headTitle]);
     }
     
     public function show($id) {
     	$topicObj = $this->topic -> find($id);
-        return view('topics.single', compact('topicObj'));
-        
+        if($topicObj->closed == '非公開')
+        	abort(404);
+        else
+	        return view('topics.single', compact('topicObj'));
+            
     }
      
      

@@ -18,11 +18,11 @@
             <li class="dropdown"><a href="{{getUrl('iroha')}}" class="dd-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="octicon octicon-triangle-down"></span>監査役いろは</a>
                 <ul class="dropdown-menu" role="menu">
                     <?php
-                        $irohas = App\Iroha::where('slug', 'irohas') -> orderBy('created_at', 'asc') ->get();
+                        $irohas = App\Iroha::where(['slug'=>'irohas', 'closed'=>'公開中']) -> orderBy('created_at', 'asc') ->get();
                         //$irohaObjs = $this -> iroha -> where('slug', 'irohas') -> orderBy('created_at', 'desc') -> get();
                     ?>
                     @foreach($irohas as $iroha)
-                    <li><a href="{{getUrl('iroha/'.$iroha->url_name)}}">{{ $iroha->sub_title }}</a></li>
+                    <li><a href="{{getUrl('iroha/'.$iroha->id)}}">{{ $iroha->sub_title }}</a></li>
                     @endforeach
                     <li><a href="{{getUrl('iroha/study')}}">勉強会一覧</a></li>
                 </ul>
@@ -82,11 +82,11 @@
     	<li class="dropdown"><a href="{{getUrl('iroha')}}" class="dd-toggle" data-toggle="dropdown" role="button" aria-expanded="false">監査役いろは<span class="octicon octicon-chevron-down"></span></a>
         	<ul class="dropdown-menu" role="menu">
             	<?php
-                	$irohas = App\Iroha::where('slug', 'irohas') -> orderBy('created_at', 'asc')->get();
+                	$irohas = App\Iroha::where(['slug'=>'irohas', 'closed'=>'公開中']) -> orderBy('created_at', 'asc')->get();
                     //$irohaObjs = $this -> iroha -> where('slug', 'irohas') -> orderBy('created_at', 'desc') -> get();
                 ?>
                 @foreach($irohas as $iroha)
-                <li><a href="{{getUrl('iroha/'.$iroha->url_name)}}">{{ $iroha->sub_title }}</a></li>
+                <li><a href="{{getUrl('iroha/'.$iroha->id)}}">{{ $iroha->sub_title }}</a></li>
                 @endforeach
                 <li><a href="{{getUrl('iroha/study')}}">勉強会一覧</a></li>
             </ul>

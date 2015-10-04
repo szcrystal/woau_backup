@@ -19,8 +19,9 @@
               <thead>
                 <tr>
                   <th>ID</th>
+                  <th>状態</th>
                   <th class="col-md-3">タイトル</th>
-                  <th class="col-md-2">作成日</th>
+                  <th>作成日</th>
                   <th class="col-md-5">コンテンツ</th>
                   <th></th>
                   
@@ -33,6 +34,13 @@
                 <tr>
                     <td>
                         {{$topic->id}}
+                    </td>
+                    <td>
+                        @if($topic->closed == '非公開')
+                        <span style="color:#ff5000;">{{$topic->closed}}</span>
+                        @else
+                        {{$topic->closed}}
+                        @endif
                     </td>
                     <td>
                         <strong>{{$topic->title}}</strong>

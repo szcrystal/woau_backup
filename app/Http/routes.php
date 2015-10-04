@@ -52,7 +52,7 @@ Route::get('/iroha', 'IrohaController@getIndex');
 Route::get('/iroha/{url_name}', 'IrohaController@show');
 Route::controller('/iroha', 'IrohaController');
 
-//Iroha
+//Blog
 Route::get('/blog', 'BlogController@getIndex');
 Route::get('/blog/{post_id}', 'BlogController@show');
 Route::controller('/blog', 'BlogController');

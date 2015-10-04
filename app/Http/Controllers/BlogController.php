@@ -33,7 +33,7 @@ class BlogController extends Controller
      */
     public function getIndex()
     {
-    	$objs = $this -> blog -> orderBy('created_at','desc') -> paginate($this->pg);
+    	$objs = $this -> blog ->where('closed', '公開中') ->orderBy('created_at','desc') -> paginate($this->pg);
         //$objs = $this -> blog -> orderBy('created_at','desc') -> simplePaginate(3);
         $headTitle = '管理者ブログ';
         return view('blogs.index', ['objs'=>$objs, 'headTitle'=>$headTitle]);
@@ -42,7 +42,11 @@ class BlogController extends Controller
     public function show($post_id)
     {
     	$blogObj = $this -> blog -> find($post_id);
-        return view('blogs.single', compact('blogObj'));
+        
+        if($blogObj->closed == '非公開')
+        	abort(404);
+        else
+	        return view('blogs.single', compact('blogObj'));
     }
     
     public function getCategory($slug) {

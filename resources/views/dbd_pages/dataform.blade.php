@@ -46,20 +46,38 @@
                 </div>
             </div>
             
+            <div class="checkbox">
+            	@if(isset($article) && DB::table('siteinfos')->first()->top_id == $article->id)
+            		<small>　※このページはTOPページです。公開状態の変更は出来ません</small>
+                @else
+                <label>
+                    {!! Form::checkbox('closed', '非公開', (isset($article) && $article->closed == '非公開') ? true : false, []) !!}
+                    このページを非公開にする
+                </label><br>
+                <small>変更後は更新ボタンを押して下さい</small>
+                @endif
+            </div>
+        
+        	@if(isset($article) && $article->closed == '非公開')
+        	<p><span class="octicon octicon-issue-opened"></span>この案件は非公開です。</p>
+        	@endif
+            
           <div class="form-group">
-              <label>タイトル</label>
+              <label>タイトル<em>（必須）</em></label>
               {!! Form::input('text', 'title', isset($article) ? $article->title : null, ['required', 'class' => 'form-control']) !!}
           </div>
           <div class="form-group">
-              <label>サブタイトル（リンク名などに使用されます。ページ内には表示されません。）</label>
+              <label>サブタイトル<em>（必須：メニュー内のリンク名表示に使用されます。コンテンツ内には表示されません。）</em></label>
               {!! Form::input('text', 'sub_title', isset($article) ? $article->sub_title : null, ['class' => 'form-control']) !!}
           </div>
+          
           <div class="form-group">
               <label class="form-control-static">リンク名　{{ url('/') . '/' }}</label>
               @if(isset($article) && DB::table('siteinfos')->first()->top_id == $article->id)
             	<small>　※このページはTOPページです。リンク名は変更出来ません</small>
               @else
               {!! Form::input('text', 'url_name', isset($article) ? $article->url_name : null, ['required', 'class' => 'i-radi']) !!}
+              <label><em>（必須）</em></label>
               @endif
           </div>
           

@@ -19,11 +19,10 @@
           <thead>
             <tr>
               <th>ID</th>
+              <th>状態</th>
               <th class="col-md-3">タイトル</th>
-              <th class="col-md-2">作成日</th>
-              {{-- <th>サブタイトル</th> --}}
+              <th>作成日</th>
               <th class="col-md-5">コンテンツ</th>
-              {{-- <th class="col-md-2">リンク名</th> --}}
               <th></th>
               
             </tr>
@@ -35,6 +34,13 @@
                 <tr>
                     <td>
                         {{ $page->id }}
+                    </td>
+                    <td>
+                        @if($page->closed == '非公開')
+                        <span style="color:#ff5000;">{{$page->closed}}</span>
+                        @else
+                        {{$page->closed}}
+                        @endif
                     </td>
                     <td>
                         <strong>{{$page->title}}</strong>

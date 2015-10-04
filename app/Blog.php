@@ -8,7 +8,7 @@ class Blog extends Model
 {
     protected $table = 'blogs';
     
-    protected $fillable = ['title', 'sub_title', 'intro_content', 'main_content', 'sub_content', 'url_name', 'img_link', 'category', 'slug'];
+    protected $fillable = ['title', 'sub_title', 'intro_content', 'main_content', 'sub_content', 'url_name', 'img_link', 'category', 'slug', 'closed'];
     
 
 	public function cateRelation() {
