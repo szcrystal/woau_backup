@@ -465,8 +465,10 @@
         },
         
         sidebarFunc: function() {
+        	$('li.active + li > ul.slide').show();
         	$('.nav-sidebar > li > a.onSlide').on('click', function(e){
             	$(e.target).parent('li').next('li').find('ul.slide').slideToggle();
+                //$(e.target).parent('li').next('li').find('ul.slide').css({color:"red"});
                 return false;
             });
         },
@@ -545,6 +547,7 @@
             });
         },
         
+        //カーソル場所にリンクを挿入　現在未使用
         insertLink: function() {
         	$('#insertLink').hide(0).css({position:"absolute", top:"30%", left:"35%"});
             

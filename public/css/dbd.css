@@ -304,8 +304,8 @@ h2.page-header > span {
 .nav-sidebar ul.slide {
 	display: none;
 }
-.nav-sidebar > li.active + li > ul.slide {
-	display: block;
+.nav-sidebar > li.active + li > ul.slide { /* Safari9で効かなくなった 直下指定の+が効いていない jsでは効いている */
+	//display: block;
 }
 ul.slide {
 	background: #fdfdfd;
