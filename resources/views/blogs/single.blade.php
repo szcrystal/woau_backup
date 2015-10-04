@@ -17,12 +17,12 @@
             	<header>
                 	<small>{!! getStrDate($blogObj->created_at, 'slash') !!}</small>
                     <span class="octicon octicon-quote"></span>
-        			<h2>{{$blogObj->title}}</h2>
+        			<h1>{{$blogObj->title}}</h1>
                     
                     @include('shared.cate_list')
                 </header>
                 
-                <div>
+                <section class="main-ct">
                 @if($blogObj -> intro_content != '')
                     <p>
                 	{!! nb($blogObj->intro_content) !!}
@@ -39,7 +39,7 @@
                 </p>
                 @endif
                 
-                </div>
+                </section>
                 
                 <footer class="clearfix">
                 	{{-- @if( ! App\Blog::find($blogObj->id)->cateRelation ->isEmpty()) --}}

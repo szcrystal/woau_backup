@@ -17,7 +17,7 @@
         
         {{-- <a href="{{ getUrl('recruit') }}" class="center-block back-tx">案件情報一覧へ戻る</a> --}}
         
-        <article style="text-align:left;" class="single job-sgl">
+        <article class="page-ct single job-sgl">
             <header>
             	<small>{!! getStrDate($singleObj->created_at, 'slash') !!}</small>
                 @if($singleObj->closed == '非公開')
@@ -35,22 +35,18 @@
             </header>
 			<p>案件番号：{{ $singleObj -> job_number }}</p>
 			
-            <section>
+            <section class="main-ct">
                 {!! $singleObj->main_content !!}
             </section>
             
             <section>
+            	<div class="imghere">
                 @if($singleObj->img_link != '')
-                    <?php
-                        $imgArr = explode(';', $singleObj->img_link);
-                    ?>
-
-                <div class="imghere">
+                    <?php $imgArr = explode(';', $singleObj->img_link); ?>
                     <img src="{{asset($imgArr[0])}}" alt="{{$singleObj -> company_name}}">
-                </div>
-                @else
-                <div class="imghere"></div>
                 @endif
+                
+                </div>
                 
                 <div class="table-responsive">
                     <table class="table table-bordered company-table">

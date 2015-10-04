@@ -4,7 +4,7 @@
     @elseif(Request::is('*/jobs'))
         <span class="mega-octicon octicon-file-directory"></span>案件情報一覧
     @elseif(Request::is('*/topics'))
-        <span class="mega-octicon octicon-megaphone"></span>トピックス一覧
+        <span class="mega-octicon octicon-radio-tower"></span>トピックス一覧
     @elseif(Request::is('*/irohas'))
         <span class="mega-octicon octicon-repo"></span>いろはページ一覧
     @elseif(Request::is('*/study'))

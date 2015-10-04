@@ -68,12 +68,7 @@
                 
                 $(e.target).removeClass('dover');
                 
-                if(e.dataTransfer.files.length) { //Fileドロップ時
-                
-                    if(e.dataTransfer.files.length > 1) {
-                    	alert('ドラッグできるファイルは１つまでです。');
-                    }
-                    else {
+                if(e.dataTransfer.files.length) { //Fileドロップ時                    
                     
                     var fileLength = e.dataTransfer.files.length;
                     //$('h1').text(fileLength);
@@ -117,6 +112,7 @@
                         
                         
                         reader.onload = function(e){ //FileReader()に対してjQuery-onメソッドが効かない。 -> 必要ならbindで
+                        	
                             //console.log(reader.result);
                             
                             var dataURL = e.target.result; //reader.resultとして直接指定とすると効かない 下記のwhile構文でおかしくなるのもこれが原因か
@@ -127,15 +123,13 @@
                                 //console.log("abcde:" + $th.attr('id'));
                                 
                                 //if(location.pathname.indexOf('jobs') > 0) {
-                                if($th.attr('id') == 'dropAreaJob') { //Jobの企業画像用
+                                if($th.attr('id') == 'dropAreaJob') {
                                 	$link = '/images/upload/jobs/' + file.name; //画像の置き場所（リンク先）
                                 }
                                 else {
                                 	$link = '/images/upload/' + file.name; //画像の置き場所（リンク先）
-                                    $('code.addCode').append($link); //CKEditor plugin.js用に画像のリンクをcode内に入れる
-
+                                    
                                     //<code>にクラス付けをするためのselectからの値を取る
-                                    /* 未使用
                                     var posi = $('#position').val();
                                     var size = $('#size').val();
                                     var posiClass, sizeClass;
@@ -159,7 +153,6 @@
                                     else if(size == 'small') {
                                         sizeClass = ' small';
                                     }
-                                    */
                                 }
                                 
                                 imgArr.push($link);//imgArrに、このタイミングですでに登録されている画像のlinkが入っている（Line:20）
@@ -167,9 +160,6 @@
                                 imgArrDel.push($link); //php:ファイル削除用のリンク
                                 
                                 $th.append('<img src="' + dataURL + '" class="addImg" />');
-                                
-                                //selectBoxを選択した時の動作をここでは入れずCKEditor plugin.jsに入れている（OK押下時に値を取る）
-                                //$('#position, #size').change(function(){}
                                 
                                 /*
                                 //<code>にソースコードを表示させる
@@ -180,9 +170,7 @@
                                 	$('button:first').focus();
                                 }
                                 */
-                                
-                                //ここはCKEditorのplugin.jsに直接入れている。 別途上記にてcode内には画像のリンクを入れる
-                                //$('code.addCode').append("&lt;img src=&quot;"+ $link +"&quot; class=&quot;"+ posiClass + sizeClass +"&quot; /&gt;");
+                                $('code.addCode').append("&lt;img src=&quot;"+ $link +"&quot; class=&quot;"+ posiClass + sizeClass +"&quot; /&gt;");
                                 
                                 //del btn表示
                                 $thDelBtn.fadeIn(300); //$th: #dropArea
@@ -334,7 +322,6 @@
                     
                     //console.log(file); //fileオブジェクトのプロパティが確認出来る
                     
-                    } //else :file.length > 1
                 } //if(e.dataTransfer.files.length) { //Fileドロップ時 
                 else { //要素ドロップ line:58辺り
                 	var name = e.dataTransfer.getData('text/plain');

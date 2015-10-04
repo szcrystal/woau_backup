@@ -20,7 +20,7 @@
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
               	<a href="{{getUrl('dashboard/topics-add')}}" class="text-muted">
-	              	<h4><span class="mega-octicon octicon-megaphone"></span> トピックス</h4>
+	              	<h4><span class="mega-octicon octicon-radio-tower"></span> トピックス</h4>
               		<p>新規トピックスを追加 <span class="octicon octicon-chevron-right"></span></p>
                 </a>
             </div>

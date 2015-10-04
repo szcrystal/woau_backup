@@ -16,7 +16,7 @@
 //            	echo $linkArr[0];
             ?>
         
-    		<article class="single study-sgl">
+    		<article class="page-ct single study-sgl">
             	<header>
                 	<small>{!! getStrDate($atcl->created_at, 'slash') !!}</small>
                     @if($atcl->closed == '非公開')
@@ -33,7 +33,7 @@
                     
                 </header>
                 
-                <div>
+                <section class="main-ct">
                     @if($atcl -> intro_content != '')
                     <p>
                         {!! nb($atcl->intro_content) !!}
@@ -49,7 +49,7 @@
                         {!! nb($atcl->sub_content) !!}
                     </p>
                     @endif
-                </div>
+                </section>
                 
                 <footer class="clearfix">
                 	@if($atcl->closed == '公開中')

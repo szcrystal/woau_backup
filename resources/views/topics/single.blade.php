@@ -10,7 +10,7 @@
             @else{{$topicObj->title}}@endif</li>
         </ul>
     
-        <article class="single topic-sgl">
+        <article class="page-ct single topic-sgl">
             <header>
             	<span class="mega-octicon octicon-radio-tower"></span>
                 <span class="mega-octicon octicon-radio-tower"></span>
@@ -18,7 +18,7 @@
                 <h2>{{$topicObj->title}}</h2>
             </header>
             
-            <div>
+            <section class="main-ct">
                 @if($topicObj -> intro_content != '')
                 <p>
                     {!! nb($topicObj->intro_content) !!}
@@ -34,11 +34,11 @@
                     {!! nb($topicObj->sub_content) !!}
                 </p>
                 @endif
-            </div>
+            </section>
             
             <footer class="clearfix">
                 {!! pager('topics', $topicObj->id) !!}
-                <a href="{{ getUrl('topics') }}" class="center-block back-tx">トピックス一覧へ戻る</a>
+                <a href="{{ getUrl('topics') }}" class="back-tx">トピックス一覧へ戻る</a>
             </footer>
         
         </article>

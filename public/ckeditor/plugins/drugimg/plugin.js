@@ -23,7 +23,15 @@ CKEDITOR.plugins.add( 'drugimg', {
                 //$('.plug').find('.preImg').hide();
                 
                 $('.addBtn').click(function(){
-                	var str = $('code.addCode').text(); //コードエリア内に書き出すソースをテキストとして取得する
+                	//var str = $('code.addCode').text(); //コードエリア内に書き出すソースをテキストとして取得する
+                    /* *** */
+                    var posi = $('#position').val(), //selectBoxの値を取る
+                    	size = $('#size').val();
+                    var link = $('code.addCode').text(); //コードエリアに画像のリンクを入れている
+                    
+                    var str = '<img src="' + link + '" class="' + posi + ' ' + size + '">';
+                    
+                    /* *** */
                     editor.insertHtml( str ); //エディタに入れる
                     backAll();
                     return false;

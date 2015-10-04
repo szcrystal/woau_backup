@@ -2,7 +2,7 @@
 
 @section('content')
 	
-	<h2 class="page-header"><span class="mega-octicon octicon-megaphone"></span>{{ isset($article) ? 'トピックス編集':'トピックス新規追加'}}</h2>
+	<h2 class="page-header"><span class="mega-octicon octicon-radio-tower"></span>{{ isset($article) ? 'トピックス編集':'トピックス新規追加'}}</h2>
     
     	@if (count($errors) > 0)
             <div class="alert alert-danger">

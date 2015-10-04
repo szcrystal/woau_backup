@@ -145,7 +145,7 @@
           </ul>
           
           <ul class="nav nav-sidebar">
-            <li{!!addCurrent('topics')!!}><a href="{{getUrl('/dashboard/topics')}}" class="onSlide"><span class="octicon octicon-megaphone"></span>トピックス</a></li>
+            <li{!!addCurrent('topics')!!}><a href="{{getUrl('/dashboard/topics')}}" class="onSlide"><span class="octicon octicon-radio-tower"></span>トピックス</a></li>
             <li>
                 <ul class="slide">
                     <li><a href="{{getUrl('/dashboard/topics')}}">トピックス一覧</a></li>

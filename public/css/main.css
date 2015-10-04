@@ -1327,7 +1327,14 @@ section.contents .link-box:nth-of-type(6) a {
 	line-height: 1.7em;
     //border: 1px solid green;
 }
-.page-ct h1 {
+/* h1タイトルについて
+.page-ct header h1 = 通常の横長(about以外の固定ページにて)
+header h1に.main-titleクラスがつくとinlineになる（aboutやいろはの固定にて）
+div.main-head h1もinline (一覧Archiveやフォームにて)
+headerは使えなく、divなので注意
+*/
+.page-ct header h1,
+.main-head h1 {
 	background: url(../images/main/wave-tile-white.png), #FF652D;
     color: #fff;
     font-size: 1.2em;
@@ -1347,20 +1354,23 @@ section.contents .link-box:nth-of-type(6) a {
 		font-weight: bold;
 	}
 }
-.page-ct h2 {
+.page-ct .main-ct h1 {
 	border: solid peachpuff;
     border-width: 0 0 0 15px;
     padding: 0.5em 0.6em;
-    font-size: 1.25em;
+    font-size: 1.4em;
     color: #fe5c26;
 }
-.page-ct h3 {
+.page-ct .main-ct h2 {
 	//font-size: 1.2em;
 	//border-left: 1.1em solid #888;     
 }
+.page-ct .main-ct h3 {
+
+}
 .page-ct > section {
 	//border: 1px solid purple;
-    margin: 0;
+    //margin: 0;
 }
 
 .intro-ct:after,
@@ -1378,10 +1388,10 @@ section.contents .link-box:nth-of-type(6) a {
     //padding-bottom: 2em;
 }
 .intro-ct:after {
-	display: block;
-    clear: both;
-    content: "";
-    height: 0;
+/*	display: block;*/
+/*    clear: both;*/
+/*    content: "";*/
+/*    height: 0;*/
 }
 .intro-ct > p { /*ヘッダーコンテンツ説明の箱 装飾あり*/
 	width: 63%;
@@ -1399,6 +1409,7 @@ section.contents .link-box:nth-of-type(6) a {
 	//border: 1px solid pink;
     padding-left: 0.5em;
     padding-right: 0.5em;
+    margin-top: 2em;
 }
 
 .about .intro-ct p:first-of-type,
@@ -1601,13 +1612,14 @@ section.contents .link-box:nth-of-type(6) a {
     display: inline-block;
 }
 */
+/* main-headはdivなので注意*/
 .page-ct > .main-head {
 	min-height: 11em;
     margin-bottom: 2em;
     //border: 1px solid red;
 }
 .main-head h1,
-h1.main-title {
+header h1.main-title {
 	//max-width: 30%;
     line-height: 1.4em;
     padding: 1.2em 2.3em;
@@ -1956,9 +1968,10 @@ article.archive h2 a {
     border-bottom: 3px dashed peachpuff;
 }
 
-.blog-sgl header h2 {
+.blog-sgl header h1 {
 	//font-weight: bold;
-	font-size: 1.6em;
+    background: none;
+	font-size: 1.7em;
     margin-top: -1.7em;
     line-height: 1.4em;
     //border-left: 8px solid #fe5c26;
@@ -1995,16 +2008,16 @@ article.archive h2 a {
 .blog footer h5,
 .blog-sgl header h5,
 .blog-sgl footer h5 {
-	font-size: 1.05em;
+	font-size: 1.1em;
     color: #A59891;
     margin: 1.4em 0 0;
     padding: 0;
     //border: 1px solid red;
 }
 .blog footer h5 > .octicon,
-.blog-sgl header h5 > .octicon
+.blog-sgl header h5 > .octicon,
 .blog-sgl footer h5 > .octicon {
-	margin-right: 0.3em;
+	margin-right: 0.2em;
     font-size: 1.3em;
 }
 
@@ -2135,11 +2148,11 @@ aside li {
 	font-size: 1.1em;
     margin-right: 0.5em;
 }
-.single > div {
+.single > .main-ct {
 	width: 73%;
     margin: auto;
 }
-.single > div:after {
+.single > .main-ct:after {
 	display: block;
     clear: both;
     content: "";
@@ -2148,6 +2161,10 @@ aside li {
 .single footer {
 	margin-top: 5em;
 	border-top: 2px dotted #aaa;
+}
+.job-sgl footer,
+.study-sgl footer {
+	border-top: none;
 }
 .single section h3 {
 	line-height: 1.4em;
@@ -2175,9 +2192,9 @@ aside li {
     text-align: right;
     clear: both;
 }
-.job-sgl section {
+.job-sgl > .main-ct {
 	text-align: left;
-    margin-bottom: 2em;
+    margin: 1em 0 2em;
     width: 85%;
     padding-left: 6px;
 }
@@ -2196,19 +2213,22 @@ aside li {
 .job-sgl section:last-of-type > .imghere {
 	width: 220px;
     min-height: 220px;
-    line-height: 15em;
+    //line-height: 15em;
     text-align: center;
     float: left;
     //border: 1px dotted red;
     //background: #FDFAE3;
     //border: 1px solid red;
-    margin-top: 0;
     margin-right: 2.5em;
+    padding: 0;
     font-family: 'Josefin Sans', sans-serif;
 }
 .job-sgl section:last-of-type > .imghere > img {
 	width: 100%;
     height: auto;
+    margin: 0;
+    padding: 0;
+    //vertical-align: top;
 }
 .job-sgl .table-responsive {
 	//float: right;

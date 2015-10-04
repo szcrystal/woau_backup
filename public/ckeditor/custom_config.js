@@ -10,7 +10,7 @@ CKEDITOR.editorConfig = function( config ) {
 
 	// The toolbar groups arrangement, optimized for two toolbar rows.
     config.uiColor = '#e7e7e7';
-    config.height = '45em';
+    config.height = '50em';
     config.enterMode = CKEDITOR.ENTER_BR; //<p>改行を外す
     config.skin = 'moono'; //moono bootstrapck
     
