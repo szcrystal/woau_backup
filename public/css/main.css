@@ -1569,12 +1569,12 @@ headerは使えなく、divなので注意
 	font-size: 1.4em;
     margin-right: 0.3em;
 }
-.iroha .main-ct > div h2 {
+.iroha .main-ct > div h1 {
 	border: dashed #ff9977;
     border-width: 0 0 3px 0;
     font-size: 1.4em;
 }
-.iroha .main-ct > div h2 .octicon {
+.iroha .main-ct > div h1 .octicon {
 	font-size: 2em;
     margin-right: 0;
 }
