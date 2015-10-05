@@ -23,6 +23,7 @@ class CreateBlogsTable extends Migration
             $table->string('img_link')->nullable()->default(NULL);
             $table->string('category')->nullable()->default(NULL);
             $table->string('slug')->nullable()->default(NULL);
+            $table->string('closed')->nullable()->default('公開中');
             $table->timestamps();
         });
     }
