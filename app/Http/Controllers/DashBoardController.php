@@ -302,9 +302,9 @@ class DashBoardController extends Controller
     public function postPagesAdd(Request $request) {
     	
     	$rules = [
-            'title' => 'required|min:3',
+            'title' => 'required',
             'sub_title' => 'required',
-            'url_name' => 'required|unique:pages',
+            'url_name' => 'required|unique:pages,url_name',
         ];
         $this->validate($request, $rules);
         
@@ -333,9 +333,9 @@ class DashBoardController extends Controller
     public function postPagesEdit(Request $request, $id) {
     	
         $rules = [
-            'title' => 'required|min:3',
+            'title' => 'required',
             'sub_title' => 'required',
-            'url_name' => $id != $this->siteinfo->first()->top_id ? 'required|unique:pages': '',
+            'url_name' => $id != $this->siteinfo->first()->top_id ? 'required|unique:pages,url_name,'.$id : '',
         ];
         $this->validate($request, $rules);
         
@@ -436,7 +436,8 @@ class DashBoardController extends Controller
     
     public function postJobsAdd(Request $request) {
     	$rules = [
-            'company_name' => 'required|min:3',
+            'company_name' => 'required',
+            'sub_title' => 'required',
         ];
         $this->validate($request, $rules);
         
@@ -464,6 +465,12 @@ class DashBoardController extends Controller
     }
 
     public function postJobsEdit(Request $request, $id) {
+        $rules = [
+            'company_name' => 'required',
+            'sub_title' => 'required',
+        ];
+        $this->validate($request, $rules);
+    
     	$article = $this->job->find($id);
         $data = $request->all(); //$data:配列
         if(!isset($data['closed'])) {
@@ -522,7 +529,8 @@ class DashBoardController extends Controller
     
     public function postTopicsAdd(Request $request) {
     	$rules = [
-            'title' => 'required|min:3',
+            'title' => 'required',
+            'sub_title' => 'required',
         ];
         $this->validate($request, $rules);
         
@@ -549,6 +557,12 @@ class DashBoardController extends Controller
     }
 
     public function postTopicsEdit(Request $request, $id) {
+    	$rules = [
+            'title' => 'required',
+            'sub_title' => 'required',
+        ];
+        $this->validate($request, $rules);
+    
     	$article = $this->topic->find($id);
         $data = $request->all(); //$data:配列
         if(!isset($data['closed'])) {
@@ -582,7 +596,7 @@ class DashBoardController extends Controller
     
     public function postIrohasAdd(Request $request) {
     	$rules = [
-            'title' => 'required|min:3',
+            'title' => 'required',
             'sub_title' => 'required',
             //'url_name' => 'required|not_in:top|unique:irohas',
         ];
@@ -611,15 +625,14 @@ class DashBoardController extends Controller
     }
 
     public function postIrohasEdit(Request $request, $id) {
-    	$article = $this->iroha->find($id);
-        
         $rules = [
-            'title' => 'required|min:3',
+            'title' => 'required',
             'sub_title' => 'required',
             //'url_name' => $article->url_name!='top' ? 'required|not_in:top|unique:irohas': 'in:top',
         ];
         $this->validate($request, $rules);
         
+        $article = $this->iroha->find($id);
         $data = $request->all(); //$data:配列
         if(!isset($data['closed'])) {
         	$data['closed'] = '公開中';
@@ -651,7 +664,8 @@ class DashBoardController extends Controller
     
     public function postStudyAdd(Request $request) {
     	$rules = [
-            'title' => 'required|min:3',
+            'title' => 'required',
+            'sub_title' => 'required',
         ];
         $this->validate($request, $rules);
         
@@ -678,6 +692,12 @@ class DashBoardController extends Controller
     }
 
     public function postStudyEdit(Request $request, $id) {
+    	$rules = [
+            'title' => 'required',
+            'sub_title' => 'required',
+        ];
+        $this->validate($request, $rules);
+    
     	$article = $this->iroha->find($id);
         $data = $request->all(); //$data:配列
         if(!isset($data['closed'])) {
@@ -735,7 +755,8 @@ class DashBoardController extends Controller
     
     public function postBlogAdd(Request $request) {
     	$rules = [
-            'title' => 'required|min:3',
+            'title' => 'required',
+            'sub_title' => 'required',
         ];
         $this->validate($request, $rules);
         
@@ -780,6 +801,12 @@ class DashBoardController extends Controller
     }
 
     public function postBlogEdit(Request $request, $id) {
+    	$rules = [
+            'title' => 'required',
+            'sub_title' => 'required',
+        ];
+        $this->validate($request, $rules);
+    
     	$article = $this->blog->find($id);
         $data = $request->all(); //$data:配列
         if(isset($data['category'])) {
@@ -838,7 +865,7 @@ class DashBoardController extends Controller
     public function postCategoryAdd(Request $request) {
     	$rules = [
             'c_name' => 'required|max:255',
-            'slug' => 'required|min:3|max:255|unique:cates',
+            'slug' => 'required|max:255|unique:cates',
         ];
         $this->validate($request, $rules);
         
@@ -866,7 +893,7 @@ class DashBoardController extends Controller
     public function postCategoryEdit(Request $request, $id) {
     	$rules = [
         	'c_name' => 'required|max:255',
-            'slug' => 'required|min:3|max:255|unique:cates,slug,'.$id,
+            'slug' => 'required|max:255|unique:cates,slug,'.$id,
         ];
         $this->validate($request, $rules);
         
@@ -926,7 +953,7 @@ class DashBoardController extends Controller
     
     public function postImagesAdd(Request $request) {
     	$rules = [
-            'title' => 'required|min:3',
+            'title' => 'required',
         ];
         $this->validate($request, $rules);
         
@@ -956,9 +983,8 @@ class DashBoardController extends Controller
     	$rules = [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:5',
+            'password' => 'required|confirmed|min:6',
         ];
-        
         $this->validate($request, $rules);
 
     	$data = $request->all(); //requestから配列として$dataにする
@@ -1031,7 +1057,7 @@ class DashBoardController extends Controller
         $studyObjs = $user -> studyentries;
         
         //response()->download($jobObjs->find(1)->attach_path);
-        function str2ascii($str, $delim = ' ') {
+        function str2ascii($str, $delim = ' ') { //確か、全角文字を半角に変える関数だったか。File DownLoad用
             $result = '';
             $len = strlen($str);
             $i = 0;

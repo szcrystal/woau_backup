@@ -1354,13 +1354,22 @@ headerは使えなく、divなので注意
 		font-weight: bold;
 	}
 }
-.page-ct .main-ct h1 {
+.page-ct .main-ct h1,
+.userinfo h2,
+#entry-company h2,
+#entry-study h2 {
 	border: solid peachpuff;
     border-width: 0 0 0 15px;
     padding: 0.5em 0.6em;
     font-size: 1.4em;
     color: #fe5c26;
 }
+.userinfo h2,
+#entry-company h2,
+#entry-study h2 {
+	font-size: 1.2em;
+}
+
 .page-ct .main-ct h2 {
 	//font-size: 1.2em;
 	//border-left: 1.1em solid #888;     

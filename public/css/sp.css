@@ -814,7 +814,7 @@ for SP
         background-size: 25% auto;
     }
     .single header h2,
-    .single > div {
+    .single > .main-ct {
     	width: 100%;
         font-weight: normal;
     }

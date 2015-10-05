@@ -105,18 +105,19 @@ return [
     */
 
     'attributes' => [
-    	'email' => 'メールアドレス',
-        'user_id' => 'ユーザーID（メールアドレス）',
-        'password' => 'パスワード',
-        'name' => 'お名前', // forお問い合わせ
-        'mail' => 'メールアドレス',// forお問い合わせ
-        'note' => 'コメント',
-        'title' => 'タイトル',
-        'c_name' => 'カテゴリー名',
-        'slug' => 'スラッグ',
-        'address' => '所在地',
-        'sub_title' => 'サブタイトル',
-        'url_name' => 'リンク名',
+    	'email' => '「メールアドレス」', //for login register
+        'user_id' => '「ユーザーID（メールアドレス）」', //for login
+        'password' => '「パスワード」', //for login register
+        'name' => '「お名前」', // forお問い合わせ
+        'mail' => '「メールアドレス」',// forお問い合わせ
+        'note' => '「コメント」',
+        'title' => '「タイトル」',
+        'c_name' => '「カテゴリー名」',
+        'slug' => '「スラッグ」',
+        'address' => '「所在地」',
+        'sub_title' => '「サブタイトル」',
+        'url_name' => '「リンク名」',
+        'company name' => '「企業名」',
     ],
 
 ];

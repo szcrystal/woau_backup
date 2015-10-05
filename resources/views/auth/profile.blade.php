@@ -11,8 +11,9 @@
     		<h3>管理者用のプロフィールはありません</h3>
     	@else
     	<article class="page-ct">
+        	<header>
         	<h1>{{$user->name}} さんのユーザー登録情報</h1>
-        	
+        	</header>
             @if (session('status'))
                 <div class="alert alert-success">
                     {{ session('status') }}
@@ -146,7 +147,7 @@
               
         
         <section id="entry-company">
-            <h2 class="page-header">応募した案件</h2> 
+            <h2>応募した案件</h2> 
             
             @if($jobObjs -> isEmpty())
             <p style="padding-bottom: 2em;">{{$user->name}}さんが応募した案件はまだありません。<br>
