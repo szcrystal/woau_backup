@@ -1112,11 +1112,11 @@ class DashBoardController extends Controller
         	$this -> siteinfo ->save(); //モデルからsave
         }
         
+        
         //$id = $this->page->id;
         
     	return redirect('dashboard/siteinfo') -> with('status', 'サイト情報が更新されました');
     }
-    
     
     
     //Logout
