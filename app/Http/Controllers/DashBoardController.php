@@ -756,25 +756,26 @@ class DashBoardController extends Controller
         ];
         $this->validate($request, $rules);
         
-
     	$data = $request->all(); //requestから配列として$dataにする
-        if(isset($data['category'])) {
+        
+        $isCate = isset($data['category']);
+        
+        if($isCate) {
             $cateAry = $data['category'];
             $data = array_except($data, ['category']);
             //$data['category'] = implode(';', $data['category']); //配列のままfill()するとエラーになるので連結する
-            
+        }
+		
+        $this->blog->fill($data); //モデルにセット
+        $this->blog->save(); //モデルからsave
+        $id = $this->blog->id; //id取得
+        
+        if($isCate) {
             //cate_relation DBへの追加
             foreach($cateAry as $val) {
                 $this -> cateRelation -> insert(['blog_id'=>$id, 'cate_id'=>$val]);
             }
         }
-        
-        $this->blog->fill($data); //モデルにセット
-        $this->blog->save(); //モデルからsave
-        
-        $id = $this->blog->id;
-        
-        
         
     	return redirect('dashboard/blog-edit/'."$id")->with('status', 'ブログが追加されました！');
     }

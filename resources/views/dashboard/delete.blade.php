@@ -28,22 +28,16 @@
     <p>{!! nb(str_limit(trim(strip_tags($article->main_content)), 170)) !!}</p>
     
 	<div style="margin: 3em 0;">
-    	
         <p>この操作を元に戻すことはできません。<br>この記事を削除してもよろしいですか？</p>
     
-    
-    {!! Form::open() !!}
+        {!! Form::open() !!}
+            {!! Form::hidden('del_key', session('del_key')) !!}
+            {!! Form::hidden('t', $p_type) !!}
             
-        {!! Form::hidden('del_key', session('del_key')) !!}
-        {!! Form::hidden('t', $p_type) !!}
-        
-        <button type="submit" class="btn btn-danger">削　除</button>
-        <a href="{{ getUrl('/dashboard/'.$p_type .'-edit/'. $article->id) }}" class="btn btn-default">キャンセル</a>
-    
-    
-    {!! Form::close() !!}
+            <button type="submit" class="btn btn-danger">削　除</button>
+            <a href="{{ getUrl('/dashboard/'.$p_type .'-edit/'. $article->id) }}" class="btn btn-default">キャンセル</a>
+        {!! Form::close() !!}
     
     </div>
-
 
 @endsection
