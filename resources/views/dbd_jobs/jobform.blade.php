@@ -74,7 +74,7 @@
           
           @include('dbd_shared.mainContent')
           
-          <label style="margin: 2em 0;">*以下の項目はテーブル内に表示されます ----------------------</label>
+          <label style="margin: 2em 0;">*以下の項目はテーブル内に表示されます ----------------------------------</label>
           <div class="form-group">
               <label>企業名<em>（上記の企業名と同名でよければ未記入で）</em></label>
               {!! Form::input('text', 'work_name', isset($article) ? $article->work_name : null, ['class' => 'form-control']) !!}
