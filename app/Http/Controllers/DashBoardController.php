@@ -345,9 +345,7 @@ class DashBoardController extends Controller
         $article->fill($data);
         $article->save();
         
-        //print_r($data);
         return redirect('dashboard/pages-edit/'.$id)->with('status', '固定ページが更新されました！');
-        
     }
     
     //Page Delete
