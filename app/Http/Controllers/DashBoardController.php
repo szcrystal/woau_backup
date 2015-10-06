@@ -300,7 +300,6 @@ class DashBoardController extends Controller
     }
     
     public function postPagesAdd(Request $request) {
-    	
     	$rules = [
             'title' => 'required',
             'sub_title' => 'required',
@@ -308,7 +307,6 @@ class DashBoardController extends Controller
         ];
         $this->validate($request, $rules);
         
-
     	$data = $request->all(); //requestから配列として$dataにする
         $this->page->fill($data); //モデルにセット
         $this->page->save(); //モデルからsave
