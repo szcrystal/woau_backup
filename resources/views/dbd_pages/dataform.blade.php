@@ -59,7 +59,7 @@
             </div>
         
         	@if(isset($article) && $article->closed == '非公開')
-        	<p><span class="octicon octicon-issue-opened"></span>この案件は非公開です。</p>
+        	<p><span class="octicon octicon-issue-opened"></span>このページは非公開です。</p>
         	@endif
             
           <div class="form-group">
@@ -67,7 +67,7 @@
               {!! Form::input('text', 'title', isset($article) ? $article->title : null, ['required', 'class' => 'form-control']) !!}
           </div>
           <div class="form-group">
-              <label>サブタイトル<em>（必須：メニュー内のリンク名表示に使用されます。コンテンツ内には表示されません。）</em></label>
+              <label>サブタイトル<em>（必須：リンク名の表示に使用されます。コンテンツ内には表示されません。）</em></label>
               {!! Form::input('text', 'sub_title', isset($article) ? $article->sub_title : null, ['class' => 'form-control']) !!}
           </div>
           
@@ -133,8 +133,12 @@
             <div class="pull-left">
                 <a href="{{ getUrl('/dashboard/pages') }}" class="btn btn-success btn-sm"><span class="octicon octicon-triangle-left"></span>一覧へ戻る</a>
             </div>
-            <div class="pull-right">{{-- pull-right --}}
+            <div class="pull-right">
+            	@if(isset($article) && DB::table('siteinfos')->first()->top_id == $article->id)
+                <small>TOPページは削除出来ません</small>
+                @else
                 <a href="{{ getUrl('/dashboard/delete/'. $article->id . '?t=pages') }}" class="btn btn-danger btn-sm"><span class="octicon octicon-trashcan"></span>この記事を削除する</a>
+                @endif
             </div>
         </div>
     @endif

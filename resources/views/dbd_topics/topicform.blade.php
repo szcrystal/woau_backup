@@ -49,15 +49,15 @@
             </div>
         
         	@if(isset($article) && $article->closed == '非公開')
-        	<p><span class="octicon octicon-issue-opened"></span>この案件は非公開です。</p>
+        	<p><span class="octicon octicon-issue-opened"></span>このページは非公開です。</p>
         	@endif
         
           <div class="form-group">
-              <label>タイトル</label>
+              <label>タイトル<em>（必須）</em></label>
               {!! Form::input('text', 'title', isset($article) ? $article->title : null, ['required', 'class' => 'form-control']) !!}
           </div>
           <div class="form-group">
-              <label>サブタイトル（リンク名などに使用されます。ページ内には表示されません。）</label>
+              <label>サブタイトル<em>（必須：リンク名の表示に使用されます。コンテンツ内には表示されません。）</em></label>
               {!! Form::input('text', 'sub_title', isset($article) ? $article->sub_title : null, ['class' => 'form-control']) !!}
           </div>
           {{--

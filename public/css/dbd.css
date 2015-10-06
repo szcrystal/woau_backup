@@ -341,9 +341,16 @@ ul.slide {
 }
 #dropArea span,
 #dropAreaJob span {
-	color: #777;
-    margin-left:1em;
+	display: inline-block;
+    font-size: 0.9em;
+	color: #888;
+    margin-top: 10em;
+    margin-left: 28%;
     line-height: 2em;
+    text-align: center;
+}
+#dropArea span {
+	margin-left: 35%;
 }
 .progBar {
 	width:0; 

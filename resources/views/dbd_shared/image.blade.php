@@ -25,7 +25,7 @@
     </div>
 
     <div id="dropArea" class="form-group">
-        <span>追加する画像をここにドラッグして下さい…</span>
+        <span>Drag & Drop Here…</span>
     </div>
 
     <div id="codeArea">

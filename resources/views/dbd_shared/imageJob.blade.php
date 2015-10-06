@@ -15,8 +15,8 @@
 	<div id="dropAreaJob">
     	@if(isset($article))
             @if($article->img_link == '' || $article->img_link === null)
-                <span>追加する画像をここにドラッグして下さい…</span><br>
-                <span>画像のサイズを横幅220pxもしくはそれ以上にすると綺麗に出力されます。</span>
+                <span>Drag & Drop Here…<br>
+                画像サイズを横幅220pxもしくはそれ以上にすると綺麗に出力されます。</span>
             @else
             
             <?php $imgArrs = explode(';', $article->img_link); 
@@ -29,8 +29,8 @@
             
             @endif
         @else
-            <span>追加する画像をここにドラッグして下さい…</span><br>
-            <span>画像のサイズを横幅220pxもしくはそれ以上にすると綺麗に出力されます。</span>
+            <span>Drag & Drop Here…<br>
+                画像サイズを横幅220pxもしくはそれ以上にすると綺麗に出力されます。</span>
         @endif
     </div>
 

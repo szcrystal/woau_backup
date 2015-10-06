@@ -59,7 +59,7 @@
         @endif
         
         <div class="form-group">
-              <label>企業名</label>
+              <label>企業名<em>（必須）</em></label>
               {!! Form::input('text', 'company_name', isset($article) ? $article->company_name : null, ['class' => 'form-control']) !!}
           </div>
         
@@ -68,7 +68,7 @@
               {!! Form::input('text', 'title', isset($article) ? $article->title : null, ['class' => 'form-control']) !!}
           </div>
           <div class="form-group">
-              <label>サブタイトル（リンク名などに使用されます。ページ内には表示されません。）</label>
+              <label>サブタイトル<em>（必須：リンク名の表示に使用されます。コンテンツ内には表示されません。）</em></label>
               {!! Form::input('text', 'sub_title', isset($article) ? $article->sub_title : null, ['class' => 'form-control']) !!}
           </div>
           
@@ -76,7 +76,7 @@
           
           <label style="margin: 2em 0;">*以下の項目はテーブル内に表示されます ----------------------</label>
           <div class="form-group">
-              <label>企業名（上記の企業名と同様であれば未記入）</label>
+              <label>企業名<em>（上記の企業名と同名でよければ未記入で）</em></label>
               {!! Form::input('text', 'work_name', isset($article) ? $article->work_name : null, ['class' => 'form-control']) !!}
           </div>
           

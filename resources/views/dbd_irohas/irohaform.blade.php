@@ -25,9 +25,6 @@
             </div>
         @endif
         
-        
-    
-       
     <div class="well">{{-- col-lg-8 --}}
     	<div class="bs-component">
       
@@ -74,7 +71,7 @@
               {!! Form::input('text', 'title', isset($article) ? $article->title : null, ['required', 'class' => 'form-control']) !!}
           </div>
           <div class="form-group">
-              <label>サブタイトル<em>（必須：メニュー内のリンク名表示に使用されます。コンテンツ内には表示されません。）</em></label>
+              <label>サブタイトル<em>（必須：リンク名の表示に使用されます。コンテンツ内には表示されません。）</em></label>
               {!! Form::input('text', 'sub_title', isset($article) ? $article->sub_title : null, ['class' => 'form-control']) !!}
           </div>
           
