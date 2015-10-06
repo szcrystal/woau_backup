@@ -121,7 +121,8 @@
         if(env('SERVER_NAME') == 'localhost') //env()ヘルパー：環境変数（$_SERVER）の値を取得 .env内の値も$_SERVERに入る
 			print_r($_SERVER);
         ?>
-    	a
+    	
+        a
         
     @endsection
 
