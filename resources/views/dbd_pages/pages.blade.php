@@ -15,7 +15,6 @@
         
         
     <div class="table-responsive">
-    	<p>abcde</p>
         <table class="table table-striped table-bordered">
           <thead>
             <tr>
