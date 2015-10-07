@@ -84,7 +84,7 @@ class PageController extends Controller
         }
         else {
             if($pageObj = Page::where('url_name', $url_name) -> first())
-                if($pageObj->closed == '非公開')
+                if($pageObj->closed == '非公開' && (! Auth::user() || Auth::user()->admin != 99))
                     abort(404);
                 else
                     return view('pages.page') -> with(compact('pageObj'));

@@ -119,13 +119,11 @@
           
           {!! Form::hidden('slug', isset($article) ? $article->slug : $slug) !!}
           
-          <button type="submit" class="btn btn-primary btn-lg center-block w-btn"><span class="octicon octicon-sync"></span>更　新</button>
-      {!! Form::close() !!}
-      
+          	<button type="submit" class="btn btn-primary btn-lg center-block w-btn"><span class="octicon octicon-sync"></span>更　新</button>
+      		{!! Form::close() !!}
       
 		</div>
     </div>
-    
     
     {{--
     <div>

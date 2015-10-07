@@ -46,9 +46,9 @@
                 <li>
                     <ul>
                     	<li><a href="{{ getUrl('contact') }}" class="arrow-white">お問い合わせ</a></li>
-                    	@if(!isAgent('sp'))
+                    	{{--@if(!isAgent('sp'))
                         <li><a href="{{ getUrl('auth/login') }}" class="arrow-white login">ログイン</a></li>
-                        @endif
+                        @endif--}}
                         <li><a href="{{ getUrl('auth/register') }}" class="arrow-white">新規登録</a></li>
                     </ul>
                 </li>

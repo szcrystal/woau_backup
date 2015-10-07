@@ -52,7 +52,7 @@ class IrohaController extends Controller
     	//$obj = $this -> iroha -> find($url_name);		
     
     	if($url_name == '1') {
-        	$obj = $this -> iroha -> where(['id'=>'1', 'slug'=>'irohas', 'closed'=>'公開中']) -> first();
+        	$obj = $this -> iroha -> where(['id'=>$url_name, 'slug'=>'irohas', 'closed'=>'公開中']) -> first();
             
             if(isset($obj)) {
                 $irohaObjs = $this -> iroha -> where(['slug'=>'irohas', 'closed'=>'公開中']) -> orderBy('created_at') -> get();
@@ -75,12 +75,13 @@ class IrohaController extends Controller
         	return view('irohas.study', ['objs'=>$objs, 'headTitle'=>$headTitle]);
         }
         else {
-    		$obj = $this -> iroha -> where(['id'=>$url_name, 'closed'=>'公開中']) -> first();
+    		$obj = $this -> iroha -> where(['id'=>$url_name]) -> first();
             
-            if(isset($obj))
-            	return view('irohas.page', compact('obj'));
+            if($obj->closed == '非公開' && (! Auth::user() || Auth::user()->admin != 99))
+            	abort(404);
             else
-	        	abort(404);
+            	return view('irohas.page', compact('obj'));
+	        	
         }
     }
 

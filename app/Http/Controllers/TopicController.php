@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 use App\Topic;
 use App\Siteinfo;
+use Auth;
 
 class TopicController extends Controller
 {
@@ -34,11 +35,15 @@ class TopicController extends Controller
     }
     
     public function show($id) {
-    	$topicObj = $this->topic -> find($id);
-        if($topicObj->closed == '非公開')
+    	if($topicObj = $this->topic -> find($id)) {
+            if($topicObj->closed == '非公開' && (! Auth::user() || Auth::user()->admin != 99))
+                abort(404);
+            else
+                return view('topics.single', compact('topicObj'));
+        }
+        else {
         	abort(404);
-        else
-	        return view('topics.single', compact('topicObj'));
+        }
             
     }
      

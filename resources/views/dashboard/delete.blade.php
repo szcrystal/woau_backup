@@ -35,7 +35,7 @@
             {!! Form::hidden('t', $p_type) !!}
             
             <button type="submit" class="btn btn-danger">削　除</button>
-            <a href="{{ getUrl('/dashboard/'.$p_type .'-edit/'. $article->id) }}" class="btn btn-default">キャンセル</a>
+            <a href="{{ getUrl('/dashboard/'.$p_type .'-edit/'. $article->id) }}" style="margin-left: 1.5em;" class="btn btn-default">キャンセル</a>
         {!! Form::close() !!}
     
     </div>

@@ -5,7 +5,7 @@
     <div class="progBar"></div>
     
     <div class="clearfix">
-    	<small>最初に画像の配置とサイズを選択して下さい</small>
+    	<small>画像の配置とサイズを選択して下さい</small>
         <label>画像配置</label>
         <select id="position" name="position">
         	<option value="center">中央</option>

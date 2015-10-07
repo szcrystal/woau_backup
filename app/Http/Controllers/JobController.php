@@ -72,6 +72,9 @@ class JobController extends Controller
                     }
                 }
                 
+//                if($singleObj->closed == '非公開' && Auth::user()->admin != 99)
+//                	abort(404);
+//                else
                 return view('jobs.single', $arr);
             }
             else {

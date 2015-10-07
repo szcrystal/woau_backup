@@ -26,7 +26,11 @@ CKEDITOR.editorConfig = function( config ) {
     config.contentsCss = ['/css/app.css','/css/main.css'];
     
     //if(! location.pathname.indexOf('jobs') > 0) {
-    config.extraPlugins = 'drugimg';
+    //config.extraPlugins = 'drugimg';
+    config.extraPlugins = 'colorbutton,panelbutton,drugimg'; //myCustom
+        
+    //config.extraPlugins = 'colorbutton'; //set font color
+    //config.extraPlugins = 'panelbutton'; //colorbuttonに必要らしい
     //}
     //console.log(location.pathname.indexOf('jobs'));
     
@@ -42,8 +46,9 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
 		'/',
 		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+        { name: 'colors', groups: [ 'colors' ] },
 		{ name: 'styles', groups: [ 'styles' ] },
-		{ name: 'colors', groups: [ 'colors' ] },
+		
 		{ name: 'forms', groups: [ 'forms' ] },
 		{ name: 'about', groups: [ 'about' ] }
 	];

@@ -7,6 +7,8 @@ use App\Cate;
 use App\CateRelation;
 use App\Siteinfo;
 
+use Auth;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -43,10 +45,15 @@ class BlogController extends Controller
     {
     	$blogObj = $this -> blog -> find($post_id);
         
-        if($blogObj->closed == '非公開')
+        if(isset($blogObj)) {
+            if($blogObj->closed == '非公開' && (! Auth::user() || Auth::user()->admin != 99))
+                abort(404);
+            else
+                return view('blogs.single', compact('blogObj'));
+        }
+        else {
         	abort(404);
-        else
-	        return view('blogs.single', compact('blogObj'));
+        }
     }
     
     public function getCategory($slug) {

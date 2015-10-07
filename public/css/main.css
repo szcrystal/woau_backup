@@ -93,13 +93,25 @@ a:active {
 }
 
 ul {
-	list-style: none;
+	list-style-type: normal;
+    list-style-position: inside;
 }
 ul:after {
 	display: block;
     clear: both;
     content: "";
     height: 0;
+}
+ol {
+	list-style-position: inside;
+}
+table {
+	border: 1px solid #ddd;
+    border-collapse: collapse;
+}
+table td {
+	border: 1px solid #ddd;
+    padding: 0.8em;
 }
 
 
@@ -204,6 +216,7 @@ a.topic-link,
     height: 0;
 }
 #navmenu ul.main-m {
+	list-style: none;
 	margin-top: 3em;
     font-size: 1.0em;
 }
@@ -271,6 +284,7 @@ a.topic-link,
 
 /* LogIn */
 #navmenu ul.login-m {
+	list-style: none;
 	float: right;
 }
 #navmenu ul.login-m li {
@@ -570,6 +584,7 @@ div.person {
 #user-belt > ul {
 	/* width first specify */
 	//width: 1100px;
+    list-style: none;
     margin: 0 auto;
     padding: 0;
     //border: 1px solid red;
@@ -2284,7 +2299,7 @@ aside li {
 #colop > div {
 	/* width first specify */
 	//width: 1100px;
-	padding: 3.3em 0 3em;
+	padding: 3.3em 0 3em 0.5em;
     margin: auto;
     //position: relative;
     //border: 1px solid red;
@@ -3353,6 +3368,13 @@ img.middle {
 img.small {
 	width: 27%;
     height: auto;
+}
+
+.main-ct pre {
+	display: block;
+	width: 85%;
+    word-break: none;
+  	word-wrap: none;
 }
 
 
