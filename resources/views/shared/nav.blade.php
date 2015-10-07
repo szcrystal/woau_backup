@@ -47,7 +47,9 @@
     @if(Auth::user())
     	
         <li class="wrap-logout">
-            <p>こんにちは<br><span>{{ Auth::user()->name}}</span> さん</p>
+            <p>
+            <?php echo Auth::user()->admin == 99 ? "管理者" : "こんにちは"; ?><br><span>{{ Auth::user()->name}}</span>さん
+            </p>
             <a href="{{ getUrl('auth/logout') }}" class="logout">ログアウト</a>
         </li>
         
