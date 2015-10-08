@@ -47,6 +47,10 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 |
 */
 
+/* Custom Functions ***** */
+require_once('../app/functions.php');
+
+
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
 $response = $kernel->handle(
