@@ -105,6 +105,12 @@ ul:after {
 ol {
 	list-style-position: inside;
 }
+ul li:before,
+ol li:before {
+	//border: 1px solid red;
+    content: "";
+	margin-right: 0.2em;
+}
 table {
 	border: 1px solid #ddd;
     border-collapse: collapse;
@@ -230,7 +236,13 @@ a.topic-link,
     padding: 0.15em 1.2em 0.2em 1.2em;
     line-height: 1.2em;
 }
-
+#navmenu ul.main-m li:before,
+#navmenu ul.login-m li:before,
+#user-belt li:before,
+#colop li:before,
+aside li:before  {
+	content: none;
+}
 #navmenu .main-m li:last-of-type {
 	background: url(../images/main/menu-side.png) 0 0 no-repeat, url(../images/main/menu-side.png) 100% 0 no-repeat;
     //border-right: 3px dashed #999;
@@ -1519,7 +1531,8 @@ headerは使えなく、divなので注意
     padding-left: 0.6em;
     margin-bottom: 2em;
 }
-.privacy ul {
+.privacy ul,
+.privacy ol {
 	margin-left: 3em;
 }
 .privacy section.main-ct {
@@ -1543,6 +1556,7 @@ headerは使えなく、divなので注意
 
 .iroha .iroha-menu-tl,
 .iroha ul.iroha-menu {
+	list-style: none;
 	margin: 0 0 2em 43%;
     width: 57%;
     //background: #fffcfb;

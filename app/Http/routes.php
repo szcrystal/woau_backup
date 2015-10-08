@@ -291,7 +291,7 @@ http://readouble.com/laravel/5/1/ja/controllers.html#route-caching
 
 2,APP_DEBUG環境変数をtrueに .envファイルにて
 http://readouble.com/laravel/5/1/ja/errors.html#configuration
-本番：[APP_ENV] => product
+本番：[APP_ENV] => production
     [APP_DEBUG] => false
 
 3,jobs tableとirohas tableのmigrateファイルを直す
