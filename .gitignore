@@ -2,6 +2,7 @@
 /node_modules
 /public/images/upload
 
+#/database/migrations
 /database/migrations_for_heroku_local
 
 Homestead.yaml

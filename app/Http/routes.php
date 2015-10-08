@@ -281,13 +281,16 @@ function isServer() {
 }
 
 /* *****************************
-1,最後にルートキャッシュの登録をすること
+1,最後にルートキャッシュとConfigキャッシュの登録をすること
 php artisan route:cache
+php artisan config:cache
 
 クリアの場合
 php artisan route:clear
+php artisan config:clear
 
 http://readouble.com/laravel/5/1/ja/controllers.html#route-caching
+http://readouble.com/laravel/5/1/ja/installation.html#configuration-caching
 
 2,APP_DEBUG環境変数をtrueに .envファイルにて
 http://readouble.com/laravel/5/1/ja/errors.html#configuration

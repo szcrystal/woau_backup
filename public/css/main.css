@@ -107,7 +107,6 @@ ol {
 }
 ul li:before,
 ol li:before {
-	//border: 1px solid red;
     content: "";
 	margin-right: 0.2em;
 }
