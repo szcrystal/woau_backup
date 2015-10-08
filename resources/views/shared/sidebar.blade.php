@@ -5,7 +5,7 @@
         	<?php $c_objs = DB::table('jobs')->where('closed','公開中')->orderBy('created_at', 'desc')->take(5)->get(); ?>
             
             @foreach($c_objs as $obj)
-                <li><a href="{{ getUrl('blog/'.$obj->id) }}">{{ $obj->company_name }}</a></li>
+                <li><a href="{{ getUrl('recruit/job/'.$obj->job_number) }}">{{ $obj->sub_title }}</a></li>
             @endforeach
         </ul>
     
@@ -27,10 +27,22 @@
     <aside>
         <h3><span class="octicon octicon-tag"></span>カテゴリー</h3>
         <ul>
-        <?php $b_objs = DB::table('cates')->orderBy('created_at', 'desc')->get(); ?>
+        <?php //$rels = DB::table('cate_relations')->get();
+        
+        //DB::table('cates')->orderBy('created_at', 'desc')->get(); 
+        $cates = DB::table('cates')->orderBy('created_at', 'desc')->get(); 
+        
+        
+        ?>
             
-        @foreach($b_objs as $obj)
-            <li><a href="{{ getUrl('blog/category/'.$obj->slug) }}">{{ $obj->c_name }}</a></li>
+        @foreach($cates as $cate)
+        	<?php 
+            	$rel = DB::table('cate_relations')->where('cate_id',$cate->id)->first();
+                if(isset($rel)) {
+            	$obj = DB::table('cates') -> find($rel->cate_id);
+            ?>
+            	<li><a href="{{ getUrl('blog/category/'.$obj->slug) }}">{{ $obj->c_name }}</a></li>
+                <?php } ?>
         @endforeach
         
         </ul>
@@ -45,10 +57,10 @@
     <aside>
         <h3><span class="octicon octicon-tag"></span>監査役について</h3>
         <ul>
-        <?php $irohas = App\Iroha::where('slug', 'irohas') -> get(); ?>
+        <?php $irohas = App\Iroha::where(['slug'=>'irohas', 'closed'=>'公開中']) -> get(); ?>
         
         @foreach($irohas as $iroha)
-        	<li><a href="{{getUrl('iroha/'.$iroha->url_name)}}">{{ $iroha->sub_title }}</a></li>
+        	<li><a href="{{getUrl('iroha/'.$iroha->id)}}">{{ $iroha->sub_title }}</a></li>
         @endforeach
         
         <li><a href="{{getUrl('iroha/study')}}">勉強会一覧</a></li>

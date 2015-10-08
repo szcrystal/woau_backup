@@ -61,15 +61,20 @@ class BlogController extends Controller
         
         $relObjs = $cateObj->cateRelation; //リレーションメソッド
         
-        foreach($relObjs as $relObj) {
-        	$blog_ids[] = $relObj->blog_id;
+        if($relObjs -> isEmpty()) {
+        	abort(404);
         }
-        
-        $objs = $this->blog->whereIn('id', $blog_ids)->orderBy('created_at','desc') ->paginate($this->pg);
-        
-        $title = 'カテゴリー：'. $cateObj->c_name;
+        else {
+            foreach($relObjs as $relObj) {
+                $blog_ids[] = $relObj->blog_id;
+            }
+            
+            $objs = $this->blog->whereIn('id', $blog_ids)->orderBy('created_at','desc') ->paginate($this->pg);
+            
+            $title = 'カテゴリー：'. $cateObj->c_name;
 
-        return view('blogs.index', ['objs'=>$objs, 'title'=>$title]);
+            return view('blogs.index', ['objs'=>$objs, 'title'=>$title]);
+        }
     }
 
     /**

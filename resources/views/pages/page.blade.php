@@ -5,7 +5,7 @@
     
     <ul class="breadcrumb">
     	<li><a href="{{getUrl('/')}}"><span class="octicon octicon-home"></span>Home</a></li>
-        <li>{{$pageObj->title}}</li>
+        <li>{{$pageObj->sub_title}}</li>
     </ul>
         
     		<article class="page-ct{{" ".$pageObj->url_name}}">
