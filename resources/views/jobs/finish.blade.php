@@ -12,8 +12,7 @@
     
     <main class="page-ct job-entry">
     	<div class="main-head">
-        	<h1 class="panel-head">{{$obj->company_name}}へ応募する</h1>
-            {{--<img src="/images/main/about/entry.png">--}}
+        	<h1>{{$obj->company_name}} へ応募</h1>
         </div>
                 
         @include('shared.move_3')

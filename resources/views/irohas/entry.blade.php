@@ -12,7 +12,7 @@
     
     <main class="page-ct study-entry">
     	<div class="main-head">
-        	<h1 class="panel-head">{{$obj->title}} 参加お申し込み</h1>{{-- <img src="/images/main/i-study.png"> --}}
+        	<h1>{{$obj->title}} 参加申込み</h1>
             <p></p>
         </div>
         
@@ -70,20 +70,6 @@
                         {!! Form::textarea('note', old('note') != '' ? old('note') : null, ['class' => 'form-control']) !!}
                     </td>
                 </tr>
-              
-              {{--
-              <div class="form-group">
-                  <label for="inputAddress" class="col-lg-3 control-label"></label>
-                  <div class="col-lg-8">
-                        <div class="checkbox">
-                            <label>
-                                {!! Form::input('checkbox', 'use_addr', isset($article) ? $article->plan : true, ['required']) !!}
-                                個人情報の取り扱いに同意して送信する
-                            </label>
-                        </div>
-                    </div>
-                </div>
-              --}}
              
               </tbody>
               </table> 

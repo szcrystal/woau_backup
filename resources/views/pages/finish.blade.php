@@ -7,7 +7,7 @@
     </ul>
     <main class="page-ct contact">
     	<div class="main-head">
-        	<h1 class="panel-head">お問い合わせ</h1>
+        	<h1>お問い合わせ</h1>
             <p></p>
         </div>
         

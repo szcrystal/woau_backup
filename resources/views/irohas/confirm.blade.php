@@ -12,7 +12,7 @@
         
    <main class="page-ct study-entry">
     	<div class="main-head">
-        	<h1 class="panel-head">{{$datas['study_name']}} 参加お申し込み</h1>
+        	<h1>{{$datas['study_name']}} 参加申込み</h1>
             <p></p>
         </div>
         
@@ -65,17 +65,5 @@
             {{-- <a href="{{ getUrl('iroha/entry/'.$datas['iroha_id']) }}" class="btn btn-default">戻 る</a> --}}
         {!! Form::close() !!}
 
-
-{{--
-        {!! Form::open(array( 'url' => 'reservation/finish', 'method' => 'post' )) !!}
-              {!! Form::hidden('name', $datas['name']) !!}
-              {!! Form::hidden('mail', $datas['mail']) !!}
-              {!! Form::hidden('address', $datas['address']) !!}
-              {!! Form::hidden('use_addr', $datas['use_addr']) !!}
-              {!! Form::hidden('note', $datas['note']) !!}
-          	{!! Form::submit('apply', array('class'=>'btn btn-primary', 'name' => '_apply')) !!}
-			{!! Form::submit('return', array('class'=>'btn btn btn-warning', 'name' => '_return')) !!}
-      	{!! Form::close() !!}
---}}
 	</main>
     @endsection

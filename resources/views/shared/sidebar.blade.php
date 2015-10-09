@@ -22,29 +22,23 @@
     
     </aside>
     
-    
-    
     <aside>
         <h3><span class="octicon octicon-tag"></span>カテゴリー</h3>
         <ul>
-        <?php //$rels = DB::table('cate_relations')->get();
-        
-        //DB::table('cates')->orderBy('created_at', 'desc')->get(); 
-        $cates = DB::table('cates')->orderBy('created_at', 'desc')->get(); 
-        
-        
-        ?>
+        <?php
+	        $cates = DB::table('cates')->orderBy('created_at', 'desc')->get(); 
             
-        @foreach($cates as $cate)
-        	<?php 
+        	foreach($cates as $cate) {
             	$rel = DB::table('cate_relations')->where('cate_id',$cate->id)->first();
+                
                 if(isset($rel)) {
-            	$obj = DB::table('cates') -> find($rel->cate_id);
-            ?>
-            	<li><a href="{{ getUrl('blog/category/'.$obj->slug) }}">{{ $obj->c_name }}</a></li>
-                <?php } ?>
-        @endforeach
+            		$obj = DB::table('cates') -> find($rel->cate_id);
+	        ?>
         
+        		<li><a href="{{ getUrl('blog/category/'.$obj->slug) }}">{{ $obj->c_name }}</a></li>
+        	<?php }
+        	} ?>
+
         </ul>
     </aside>
     

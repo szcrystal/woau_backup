@@ -4172,8 +4172,6 @@ a.thumbnail.active {
 .alert-danger {
 /*  background-color: #f2dede;*/
 	background-color: #FDE4E0; /* #F9EEEA*/
-  	//border-color: red;
-	//color: #F20004;
     color: orangered;
 /*  color: #a94442;
 	border-color: #ebccd1;
@@ -4188,14 +4186,12 @@ a.thumbnail.active {
 
 .alert > ul {
 	margin-top: 0.8em;
-    //list-style-type: disc;
+/*    list-style-type: disc;*/
 }
 .alert > ul li {
 	margin-bottom: 0.3em;
 }
-.alert > ul li:before {
-	content: "・";
-}
+
 
 @-webkit-keyframes progress-bar-stripes {
   from {

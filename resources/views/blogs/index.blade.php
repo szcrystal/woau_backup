@@ -15,7 +15,7 @@
                 管理者ブログ
                 @endif
                 </h1>
-            	<p>woman x auditor管理者のブログ</p>
+            	<p>woman x auditorの管理者ブログです</p>
             </div>
             
             <div id="primary">

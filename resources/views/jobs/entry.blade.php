@@ -11,9 +11,8 @@
 
 	<main class="page-ct job-entry">
     	<div class="main-head">
-        	<h1 class="panel-head">{{$singleObj -> company_name}}へ応募する</h1>{{-- <img src="/images/main/i-job.png"> --}}
-            {{--<img src="/images/main/about/entry.png">--}}
-            <p>説明や注意事項等あればここに記載<br>必ず添付ファイルを添付して下さい<br>ユーザー登録が完了していないと応募が出来ません　など・・？</p>
+        	<h1>{{$singleObj -> company_name}} へ応募</h1>
+            <p></p>
         </div>
     
         @include('shared.move_1')
@@ -66,7 +65,7 @@
                 </tr>
 
                 <tr>
-                    <th>コメント<br />{{--<span>（1000文字以内）</span>--}}</th>
+                    <th>コメント</th>
                     <td>
                         {!! Form::textarea('note', old('note') !='' ? old('note') : null, ['class' => 'form-control']) !!}
                     </td>
@@ -78,20 +77,6 @@
                         {!! Form::input('file', 'add_file', old('add_file'), ['class' => 'form-control']) !!}
                     </td>
                 </tr>
-                  
-                  {{--
-                  <div class="form-group">
-                      <label for="inputAddress" class="col-lg-3 control-label"></label>
-                      <div class="col-lg-8">
-                            <div class="checkbox">
-                                <label>
-                                    {!! Form::input('checkbox', 'use_addr', isset($article) ? $article->plan : true, ['required']) !!}
-                                    個人情報の取り扱いに同意して送信する
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                  --}}
                   
                 </tbody>
             </table>

@@ -12,13 +12,8 @@
 
     <main class="page-ct register">
     	<div class="main-head">
-        	<h1 class="panel-head">{{$headTitle}}</h1>{{--<img src="/images/main/i-register.png">--}}
-            <p>登録後は、案件や勉強会一覧のページなどが閲覧可能となり、登録される情報は応募時に必要となります。</p>
-            {{--
-            @if(isset($intro_ct) && $intro_ct != '')
-            <p>{!! nb($intro_ct) !!}</p>
-            @endif
-            --}}
+        	<h1>{{$headTitle}}</h1>
+            <p>登録後は、案件や勉強会一覧のページなどが閲覧可能となります。登録された情報は応募申込みに必要となります。</p>
         </div>
                 
         @include('shared.move_1')
@@ -234,43 +229,3 @@
     </main>
 
 @endsection
-
-
-
-{{--
-    <div class="form-group">
-        <label class="col-md-4 control-label">子供の有無</label>
-        <div class="col-md-6">
-            {!! Form::input('radio', 'has_child', '子供がいる', ['class' => '']) !!}子供がいる
-            {!! Form::input('radio', 'has_child', '子供がいない', ['class' => '']) !!}子供がいない
-        </div>
-    </div>
-    
-    <div class="form-group">
-        <label class="col-md-4 control-label">child_age</label>
-        <div class="col-md-6">
-            
-            {!! Form::selectRange('child_age', 0, 20) !!}才
-        </div>
-    </div>
-    
-    
-    <div class="form-group">
-        <label class="col-md-4 control-label">is_trip</label>
-        <div class="col-md-6">
-            {!! Form::input('text', 'is_trip', isset($userObj) ? $userObj->is_trip : old('is_trip'), ['class' => '']) !!}
-        </div>
-    </div>
-    
-    
-    
-    
-    <div class="form-group">
-        <label class="col-md-4 control-label">other</label>
-        <div class="col-md-6">
-            {!! Form::textarea('other', isset($userObj) ? $userObj->other : old('other'), ['required', 'class' => '']) !!}
-        </div>
-    </div>
-    
---}}
-

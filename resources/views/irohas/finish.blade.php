@@ -12,7 +12,7 @@
 
     <main class="page-ct study-entry">
     	<div class="main-head">
-        	<h1 class="panel-head">{{$obj->title}} 参加お申し込み</h1>
+        	<h1>{{$obj->title}} 参加申込み</h1>
             <p></p>
         </div>
         

@@ -8,7 +8,7 @@
     
 	<main class="page-ct register">
     	<div class="main-head">
-        	<h1 class="panel-head">{{$headTitle}}</h1>
+        	<h1>{{$headTitle}}</h1>
         </div>
         
         @include('shared.move_3')

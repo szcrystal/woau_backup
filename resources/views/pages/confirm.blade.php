@@ -8,10 +8,9 @@
     
     <main class="page-ct contact">
     	<div class="main-head">
-        	<h1 class="panel-head">お問い合わせ</h1>
+        	<h1>お問い合わせ</h1>
             <p></p>
         </div>
-        {{-- <h2 class="panel-head"><img src="/images/main/i-mail.png">お問い合わせ</h2> --}}
         
         @include('shared.move_2')
                           
@@ -49,7 +48,6 @@
             @endforeach
             --}}
         
-
             {!! Form::open(array( 
             				'method' => 'post',
                             'action'=>'PageController@postContact' 
@@ -73,16 +71,5 @@
                 
             {!! Form::close() !!}
             
-{{--
-        {!! Form::open(array( 'url' => 'reservation/finish', 'method' => 'post' )) !!}
-              {!! Form::hidden('name', $datas['name']) !!}
-              {!! Form::hidden('mail', $datas['mail']) !!}
-              {!! Form::hidden('address', $datas['address']) !!}
-              {!! Form::hidden('use_addr', $datas['use_addr']) !!}
-              {!! Form::hidden('note', $datas['note']) !!}
-          	{!! Form::submit('apply', array('class'=>'btn btn-primary', 'name' => '_apply')) !!}
-			{!! Form::submit('return', array('class'=>'btn btn btn-warning', 'name' => '_return')) !!}
-      	{!! Form::close() !!}
---}}
 	</main>
 @endsection

@@ -9,7 +9,6 @@ body {
     font-size: 1.6em;
 	line-height: 1.65em;
     background: #fffdfc; /* #FFFDFC */
-    //color: #4e4e4e;
     color: #6F4F42;
     margin: 0;
     font-family: "Meiryo", "游ゴシック", "YuGothic", sans-serif;
@@ -25,16 +24,12 @@ textarea { /* only Win */
 
 @media all and (-ms-high-contrast:none){ /* IE10-11 */
       body {
-        //font-weight: bold;
         font-family: "Meiryo", sans-serif;
-        //color: #333;
       }
 }
 @supports (-ms-accelerator:true) { /* Edge */
 	body {
-		//font-weight: bold;
         font-family: "Meiryo", sans-serif;
-        //color: #333;
 	}
 }
 
@@ -75,8 +70,8 @@ input[type="submit"] {
 /*    transition: all 0.2s linear;*/
 	-moz-transition: opacity 0.2s linear;
     transition: opacity 0.2s linear;
-    //font-family: "游ゴシック", "YuGothic", "Meiryo", sans-serif;
-    //font-weight: normal;
+/*    font-family: "游ゴシック", "YuGothic", "Meiryo", sans-serif;*/
+/*    font-weight: normal;*/
 }
 
 a:hover,
@@ -150,19 +145,11 @@ table td {
 .page-ct h2,
 .link-box a span,
 a.topic-link,
-.user a.user-link
-/*#user-belt,*/
-/*#navmenu,*/
-/*.home #cal p:last-of-type*/ {
+.user a.user-link {
 	font-family: "Meiryo", "游ゴシック", "YuGothic", sans-serif;
-	//font-family: "游ゴシック", "YuGothic", "Meiryo", sans-serif;
-	//font-family: "Hiragino Maru Gothic Pro", "Meiryo", sans-serif;
 }
 #navmenu,
-.main #user-belt,
-/*.home #cal p,
-#colop li a*/ {
-	//font-family: "Hiragino Maru Gothic Pro", "Meiryo", sans-serif;
+.main #user-belt {
     font-family: "Meiryo", "游ゴシック", "YuGothic", sans-serif;
 }
 
@@ -174,7 +161,6 @@ a.topic-link,
 	/* width first specify */
 	//width: 1100px;
     margin: 3em auto 3.5em;
-    //height: 500px;
     //border: 1px solid orange;
 }
 #head h1 {
@@ -182,7 +168,6 @@ a.topic-link,
     margin: auto;
     font-size: 1em;
     //border: 1px solid green;
-    //margin-top: 2em;
 }
 #head h1 a:hover {
 	opacity: 1;
@@ -1371,6 +1356,7 @@ headerは使えなく、divなので注意
     padding: 0.4em 1em;
     margin-top: 0;
     margin-bottom: 1.7em;
+    border-radius: 0.2em;
     font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
 }
 @media all and (-ms-high-contrast:none){ /* IE10-11 */
@@ -1653,11 +1639,12 @@ headerは使えなく、divなので注意
 }
 */
 /* main-headはdivなので注意*/
-.page-ct > .main-head {
+.page-ct > .main-head { /*一覧ページのhead フォームのheadは別に指定*/
 	min-height: 11em;
-    margin-bottom: 2em;
+    margin-bottom: 3em;
     //border: 1px solid red;
 }
+/* inline h1 */
 .main-head h1,
 header h1.main-title {
 	//max-width: 30%;
@@ -1666,11 +1653,12 @@ header h1.main-title {
     display: inline-block;
 	margin: 0 0 1.2em;
     font-weight: bold;
+    
 }
 .main-head p,
 .iroha-child > header p { /* main-headの説明を入れる箱 */
 	font-size: 1em;
-	color: #555;
+	color: #5f5f5f;
     //color: red;
     width: 40%;
     //border: 1px solid green;
@@ -1712,8 +1700,8 @@ header h1.main-title {
 .job .main-head {
 	//background: url(../images/main/about/company.png) 60% 0 no-repeat;
     //background-size: 140px auto;
-	background: url(../images/main/about/subject6.png) 70% 0 no-repeat;
-    background-size: 430px auto;
+	background: url(../images/main/about/job-subject.png) 73% 0 no-repeat;
+    background-size: 360px auto;
 }
 /*
 .job .main-head img {
@@ -2134,8 +2122,8 @@ aside li {
     
 }
 .single.job-sgl {
-	background: url(../images/main/about/company.png) 3% 1% no-repeat;
-    background-size: 140px auto;
+	background: url(../images/main/about/job-entry.png) 3% 1% no-repeat; /* ORG company.png */
+    background-size: 120px auto;
 }
 .single header small {
 	display: block;
@@ -2438,12 +2426,12 @@ h2.panel-head img {
 .register .main-head,
 .study-entry .main-head,
 .job-entry .main-head {
-	min-height: 8em;
-    margin-bottom: 3.5em;
+	min-height: 7em;
+    margin-bottom: 4.5em;
     //border: 1px solid red;
 }
 .contact .main-head {
-	background: url(../images/main/form/mail-dot-8.png) 55% 15px no-repeat;
+	background: url(../images/main/form/mail-dot-8.png) 55% -5px no-repeat;
     //background: url(../images/main/about/mail.png) 30% 10px no-repeat;
     background-size: 300px auto;
 }
@@ -2456,16 +2444,13 @@ h2.panel-head img {
 /*	background: url(../images/main/about/entry.png) 87% 15px no-repeat;*/
 /*    background-size: 91px auto;*/
 }
-.study-entry .main-head img {
-	margin-left: 2em;
-    width: 140px;
-    height: auto;
-    -webkit-transform: rotateZ(-5deg);
+.study-entry .main-head {
+	background: url(../images/main/about/study-lg.png) 60% 0 no-repeat;
+    background-size: 140px auto;
 }
-.job-entry .main-head img {
-	margin-left: 2em;
-    width: 85px;
-    height: auto;
+.job-entry .main-head {
+	background: url(../images/main/about/job-entry.png) 60% 0 no-repeat;
+    background-size: 120px auto;
 }
 .study-entry .main-head p,
 .job-entry .main-head p {
@@ -2557,6 +2542,7 @@ h2.panel-head img {
     //border-collapse: separate;
     //border: 2px solid #D3C8C0;
     border: 1px solid #D3C8C0;
+    margin-bottom: 0.8em;
     //border-radius: 20px;
     //display: block;
 }
@@ -2584,10 +2570,11 @@ h2.panel-head img {
 .table-d tr:last-of-type {
 	border-bottom: 1px solid #ccc/*#9F988D*/;
 }
-.contact .table-d tr:last-of-type
-.study-entry .table-d tr:last-of-type
-/*.job-entry .table-d tr:last-of-type*/ {
-	height: 12em;
+.contact .table-d tr:last-of-type,
+.study-entry .table-d tr:last-of-type,
+.job-entry .table-d tr:nth-of-type(4) {
+	height: 15em;
+    vertical-align: top;
 }
 .table-d th {
 	//background: #fff1dc;/*#fff1dc*/

@@ -8,7 +8,7 @@
     
     <main class="page-ct register">
     	<div class="main-head">
-        	<h1 class="panel-head">{{$headTitle}}</h1>
+        	<h1>{{$headTitle}}</h1>
         </div>
         
         @include('shared.move_2')
@@ -70,8 +70,6 @@
             </table>
     
 
-            
-        
         {!! Form::open(array( 
             'method' => 'post', 
             //'url'=>'/auth/register/end',
@@ -92,29 +90,8 @@
             </div>
             
         {!! Form::close() !!}
-            
-            
+
         {{-- <a href="{{getUrl('/auth/register')}}" class="btn btn-default">戻る</a> --}}
-
-{{--
-        {!! Form::open(array( 'url' => 'reservation/finish', 'method' => 'post' )) !!}
-              
-              {!! Form::hidden('name', $datas['name']) !!}
-
-              {!! Form::hidden('mail', $datas['mail']) !!}
-
-              {!! Form::hidden('address', $datas['address']) !!}
-
-              {!! Form::hidden('use_addr', $datas['use_addr']) !!}
-
-              {!! Form::hidden('note', $datas['note']) !!}
-          
-          
-          	{!! Form::submit('apply', array('class'=>'btn btn-primary', 'name' => '_apply')) !!}
-			{!! Form::submit('return', array('class'=>'btn btn btn-warning', 'name' => '_return')) !!}
-      
-      	{!! Form::close() !!}
---}}
 
 	</main>
 @endsection
