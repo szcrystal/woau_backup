@@ -41,7 +41,7 @@
                 @if(isset($article))
                 <div class="pull-left">
                 	@if($article->slug == 'irohas')
-                    <a href="{{ getUrl('/iroha/'.$article->url_name) }}" style="margin-left: 1em;" class="btn btn-warning btn-sm" target="_blank">サイトを確認</a>
+                    <a href="{{ getUrl('/iroha/'.$article->id) }}" style="margin-left: 1em;" class="btn btn-warning btn-sm" target="_blank">サイトを確認</a>
                     @else
                     <a href="{{ getUrl('/iroha/study/'.$article->id) }}" style="margin-left: 1em;" class="btn btn-warning btn-sm" target="_blank">サイトを確認</a>
                     @endif
