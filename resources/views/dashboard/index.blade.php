@@ -4,8 +4,12 @@
     
     		<?php if($siteInfo = DB::table('siteinfos')->first()) {
             		$info = $siteInfo->site_name;
+                    $mailAd = $siteInfo->site_email;
+                    $sw = $siteInfo->seo_sw ? 'ON' : 'OFF';
                 } else {
                 	$info = 'sample';
+                    $mailAd = '';
+                    $sw = '';
                 }
             ?> 
           <h1 class="page-header"><span class="mega-octicon octicon-home"></span> DashBoard&nbsp;&nbsp;&nbsp;[ {{ $info }} ]</h1>
@@ -39,39 +43,70 @@
           </div>
     
     <div class="row clearfix">
-    
-    <div class="pull-left col-md-4">
-    <h4>管理者: {{ Auth::user()->name }} さんがログイン中</h4>
-    <div style="width:auto; height:10em;">
-    	<a href="{{getUrl('dashboard/register')}}" class="btn btn-d">新規管理者登録 »</a>
-    </div>
-    </div>
-    
-    <div class="pull-left col-md-4">
-	    <h4>登録案件数: @if(isset($jobObjs)) {{ $jobObjs->count() }} @else 0 @endif 件</h4>
-    	<div>
-        	<a href="{{getUrl('dashboard/jobs')}}" class="btn btn-d">案件情報一覧 »</a><br />
-            <h5>最近登録した案件</h5>
-            @if(isset($jobObjs))
-                @foreach($jobObjs as $jobObj)
-                	<a href="{{getUrl('dashboard/jobs-edit/'.$jobObj->id)}}"><span class="octicon octicon-primitive-dot"></span> {{str_limit($jobObj->company_name, 30)}}</a><br />
-                @endforeach
-            @endif
+        <div class="pull-left col-md-4">
+            <h4>管理者: {{ Auth::user()->name }} さんがログイン中</h4>
+            <div style="width:auto; height:10em;">
+                <a href="{{getUrl('dashboard/register')}}" class="btn btn-d">新規管理者登録 »</a>
+            </div>
+        </div>
+        
+        <div class="pull-left col-md-8">
+        	{{--
+            <br>
+        	設定メールアドレス： <b>{{ $mailAd }}</b><br><br>
+            検索エンジンのインデックス許可：<b>{{ $sw }}</b>
+            --}}
         </div>
     </div>
+    
+    <div class="row clearfix">
+        <div class="pull-left col-md-4">
+            <h4>登録案件数: @if(isset($jobObjs)) {{ $jobObjs->count() }} @else 0 @endif 件</h4>
+            <div>
+                <a href="{{getUrl('dashboard/jobs')}}" class="btn btn-d">案件情報一覧 »</a><br />
+                <h5>最近登録した案件</h5>
+                <ul>
+                @if(isset($jobObjs))
+                	<?php $jobObjs = $jobObjs ->take(5); ?>
+                    @foreach($jobObjs as $jobObj)
+                        <li><a href="{{getUrl('dashboard/jobs-edit/'.$jobObj->id)}}"><span class="octicon octicon-primitive-dot"></span> {{str_limit($jobObj->company_name, 30)}}</a></li>
+                    @endforeach
+                @endif
+                </ul>
+            </div>
+        </div>
+    
+    	<div class="pull-left col-md-4">
+            <h4>登録勉強会数: @if(isset($studyObjs)) {{ $studyObjs->count() }} @else 0 @endif 件</h4>
+            <div>
+                <a href="{{getUrl('dashboard/study')}}" class="btn btn-d">勉強会一覧 »</a><br />
+                <h5>最近登録した勉強会</h5>
+                <ul>
+                @if(isset($studyObjs))
+                	<?php $studyObjs = $studyObjs ->take(5); ?>
+                    @foreach($studyObjs as $studyObj)
+                        <li><a href="{{getUrl('dashboard/study-edit/'.$studyObj->id)}}"><span class="octicon octicon-primitive-dot"></span> {{str_limit($studyObj->title, 30)}}</a></li>
+                    @endforeach
+                @endif
+                </ul>
+            </div>
+        </div>
 
-	<div class="pull-left col-md-4">
-	    <h4>登録ユーザー数: @if(isset($userObjs)){{ $userObjs->count() }}@else 0 @endif 名</h4>
-    	<div>
-        	<a href="{{getUrl('dashboard/userinfo')}}" class="btn btn-d">登録ユーザーを確認 »</a><br />
-            <h5 style="margin-top: 1em;">最近の登録ユーザー</h5>
-            @if(isset($userObjs))
-                @foreach($userObjs as $userObj)
-                    <a href="{{getUrl('dashboard/show-profile/'.$userObj->id)}}"><span class="octicon octicon-primitive-dot"></span> {{$userObj->name}}</a><br />
-                @endforeach
-            @endif
-        </div>
-    </div>
+		<div class="pull-left col-md-4">
+            <h4>登録ユーザー数: @if(isset($userObjs)){{ $userObjs->count() }}@else 0 @endif 名</h4>
+            <div>
+                <a href="{{getUrl('dashboard/userinfo')}}" class="btn btn-d">登録ユーザーを確認 »</a><br />
+                <h5 style="margin-top: 1em;">最近の登録ユーザー</h5>
+                <ul>
+                @if(isset($userObjs))
+                	<?php $userObjs = $userObjs ->take(5); ?>
+                    @foreach($userObjs as $userObj)
+                        <li><a href="{{getUrl('dashboard/show-profile/'.$userObj->id)}}"><span class="octicon octicon-primitive-dot"></span> {{$userObj->name}}</a></li>
+                    @endforeach
+                @endif
+                </ul>
+            </div>
+    	</div>
 
 	</div>
     
@@ -84,8 +119,8 @@
             <tr>
               <th>タイトル</th>
               <th class="col-md-3">サブタイトル</th>
-              <th>ヘッダーコンテンツ</th>
-              <th>メインコンテンツ</th>
+              <th class="col-md-3">ヘッダーコンテンツ</th>
+              <th class="col-md-3">メインコンテンツ</th>
               <th></th>
               
             </tr>

@@ -159,10 +159,22 @@ td > strong {
     margin-right: 6px;
     color: #555;
 }
+
 .page-header .octicon {
 	font-size: 1.3em;
     margin-right: 0.5em;
     color: #333;
+}
+/* top : job study user count */
+.col-md-4 ul {
+	list-style: none;
+    padding-left: 0.3em;
+}
+.col-md-4 li {
+	margin-bottom: 0.3em;
+}
+.col-md-4 li .octicon-primitive-dot {
+	color: #aaa;
 }
 
 /* table */

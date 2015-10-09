@@ -61,10 +61,11 @@ class DashBoardController extends Controller
             echo "アクセス出来ません<br />Not Admin<a href=\"/\">BACK</a>";
         }
         else {
-        	$userObjs = User::where('admin', 10)->orderBy('created_at', 'desc') -> take(5) -> get();
-            $jobObjs = Job::orderBy('created_at', 'desc') -> take(5) -> get();
-            return view('dashboard.index', ['userObjs'=>$userObjs, 'jobObjs'=>$jobObjs ]);
+        	$userObjs = User::where('admin', 10)->orderBy('created_at', 'desc') -> get();
+            $jobObjs = Job::orderBy('created_at', 'desc') -> get();
+            $studyObjs = $this ->iroha ->where('slug', 'study') ->orderBy('created_at', 'desc') -> get();
             
+            return view('dashboard.index', ['userObjs'=>$userObjs, 'jobObjs'=>$jobObjs, 'studyObjs'=>$studyObjs]);            
         }
     }
 
