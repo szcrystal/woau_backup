@@ -22,7 +22,11 @@
     </div>
 
     <div class="link-box">
-        <a href="{{getUrl('corporation')}}"><span>法人の方へ</span></a>
+    	@if(Auth::user())
+        <a href="{{getUrl('company')}}"><span>運営会社の情報</span></a>
+        @else
+        <a href="{{getUrl('corporation')}}"><span>法人企業様へ</span></a>
+        @endif
     </div>
     
     <div class="star"></div>
