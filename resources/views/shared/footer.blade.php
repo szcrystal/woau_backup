@@ -15,7 +15,7 @@
                     <ul>
                     	<li><a href="{{ getUrl('privacy') }}" class="arrow-white">個人情報保護の取り扱いについて</a></li>
                         <li><a href="{{ getUrl('company') }}" class="arrow-white">運営会社の情報</a></li>
-                        <li><a href="{{ getUrl('corporation') }}" class="arrow-white">法人の方へ</a></li>
+                        <li><a href="{{ getUrl('corporation') }}" class="arrow-white">法人企業様へ</a></li>
                     </ul>
                 </li>
                 <li>
@@ -40,7 +40,7 @@
                     <ul>
                         <li><a href="{{ getUrl('privacy') }}" class="arrow-white">個人情報保護の取り扱いについて</a></li>
                         <li><a href="{{ getUrl('company') }}" class="arrow-white">運営会社の情報</a></li>
-                        <li><a href="{{ getUrl('corporation') }}" class="arrow-white">法人の方へ</a></li>
+                        <li><a href="{{ getUrl('corporation') }}" class="arrow-white">法人企業様へ</a></li>
                     </ul>
                 </li>
                 <li>
