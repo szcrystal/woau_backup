@@ -56,27 +56,26 @@ class IrohaController extends Controller
             if($url_name == 1) {
                 //$obj = $this -> iroha -> where(['id'=>$url_name, 'slug'=>'irohas']) -> first();
                 
+                /*
+                $irohaObjs = $this -> iroha -> where(['slug'=>'irohas', 'closed'=>'公開中']) -> orderBy('created_at') -> get();
                 
-                    $irohaObjs = $this -> iroha -> where(['slug'=>'irohas', 'closed'=>'公開中']) -> orderBy('created_at') -> get();
-                    //$this -> topic -> orderBy('created_at','desc') ->paginate(10);
+                foreach($irohaObjs as $irohaObj) {
+                    if($irohaObj->url_name != 'iroha')
+                        $links[] = $irohaObj->url_name;
+                }
+                */
                     
-                    //$links = array();
-                    foreach($irohaObjs as $irohaObj) {
-                        if($irohaObj->url_name != 'iroha')
-                            $links[] = $irohaObj->url_name;
-                    }
-                    
-                    if($obj->closed == '非公開' && (! Auth::user() || Auth::user()->admin != 99))
-                        abort(404);
-                    else
-                        return view('irohas.index', ['obj'=>$obj, 'links'=>$links]);
+                if($obj->closed == '非公開' && (! Auth::user() || Auth::user()->admin != 99))
+                    abort(404);
+                else
+                    return view('irohas.index', ['obj'=>$obj/*, 'links'=>$links*/]);
                 
             }
-            elseif($url_name == 'study') {
-                $objs = $this -> iroha -> where(['slug'=>'study', 'closed'=>'公開中']) -> orderBy('created_at','desc') -> paginate($this->pg);
-                $headTitle = '監査役いろは勉強会一覧';
-                return view('irohas.study', ['objs'=>$objs, 'headTitle'=>$headTitle]);
-            }
+//            elseif($url_name == 'study') {
+//                $objs = $this -> iroha -> where(['slug'=>'study', 'closed'=>'公開中']) -> orderBy('created_at','desc') -> paginate($this->pg);
+//                $headTitle = '監査役いろは勉強会一覧';
+//                return view('irohas.study', ['objs'=>$objs, 'headTitle'=>$headTitle]);
+//            }
             else {
                 //$obj = $this -> iroha -> where(['id'=>$url_name]) -> first();
                 
@@ -88,7 +87,14 @@ class IrohaController extends Controller
             }
         }
         else {
-        	abort(404);
+        	if($url_name == 'study') {
+                $objs = $this -> iroha -> where(['slug'=>'study', 'closed'=>'公開中']) -> orderBy('created_at','desc') -> paginate($this->pg);
+                $headTitle = '監査役いろは勉強会一覧';
+                return view('irohas.study', ['objs'=>$objs, 'headTitle'=>$headTitle]);
+            }
+            else {
+        		abort(404);
+            }
         }
     }
 
