@@ -105,7 +105,7 @@ class IrohaController extends Controller
     
     public function getStudy($id) {
     	
-        if( $arr['atcl'] = $this -> iroha -> find($id) ) {
+        if( $arr['atcl'] = $this -> iroha -> where(['id'=>$id, 'slug'=>'study']) -> first() ) {
         
             if($user = Auth::user()) {
                 $entry = $user -> studyentries() -> where('iroha_id', $arr['atcl']->id) -> first();
