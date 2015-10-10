@@ -59,6 +59,19 @@
         @endif
         
         <div class="form-group">
+              <label>日付<em>（必須）</em></label>
+              <?php 
+              	$past = isset($article) ? strtotime($article->created_at) : time(); 
+                //$past = getdate($past); 
+            	?>
+              {!! Form::input('text', 'date_y', date('Y', $past), ['required', 'class' => 'date form-control']) !!}年
+              
+              {!! Form::input('text', 'date_m', date('n', $past), ['required', 'class' => 'date form-control']) !!}月
+              
+              {!! Form::input('text', 'date_d', date('j', $past), ['required', 'class' => 'date form-control']) !!}日
+          </div>
+        
+        <div class="form-group">
               <label>企業名<em>（必須）</em></label>
               {!! Form::input('text', 'company_name', isset($article) ? $article->company_name : null, ['class' => 'form-control']) !!}
           </div>

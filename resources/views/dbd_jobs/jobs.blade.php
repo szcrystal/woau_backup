@@ -23,7 +23,7 @@
               <th>状態</th>
               <th class="col-md-3">企業名</th>
               
-              <th>作成日</th>
+              <th>日付</th>
               {{-- <th>サブタイトル</th> --}}
               <th class="col-md-4">コンテンツ</th>
               {{-- <th class="col-md-2">リンク名</th> --}}

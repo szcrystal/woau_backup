@@ -19,7 +19,7 @@
               <th>ID</th>
               <th>状態</th>
               <th class="col-md-3">タイトル</th>
-              <th class="col-md-2">作成日</th>
+              <th class="col-md-2">日付</th>
               <th class="col-md-5">コンテンツ</th>
               <th></th>
               
@@ -46,7 +46,7 @@
                 </td>
                                     
                 <td>
-                	{{ getStrDate($obj->updated_at) }}
+                	{{ getStrDate($obj->created_at) }}
                 </td>
                 <td>
                 	@if(strlen(trim(strip_tags($obj->main_content))) > 170)

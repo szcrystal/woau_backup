@@ -17,7 +17,8 @@ class Iroha extends Model
         'url_name',
         'img_link',
         'slug',
-        'closed'
+        'closed',
+        'created_at',
         ];
 }
 

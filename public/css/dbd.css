@@ -109,6 +109,15 @@ label > em {
 .btn-g span.octicon {
 	color: #333;
 }
+input.date {
+    display: inline-block;
+    text-align: center;
+    margin: 0 0.3em;
+    width: 3em;
+}
+input.date:first-of-type {
+	width: 4.5em;
+}
 
 /* TOP */
 .placeholder a {

@@ -18,6 +18,7 @@ use DB;
 use Storage;
 use Mail;
 use Schema;
+use Validator;
 
 use Illuminate\Http\Request;
 
@@ -43,7 +44,16 @@ class DashBoardController extends Controller
         
         //$this -> val = ''; //検索ワードを入れる（whereのクロージャ用）->現在未使用
         $this -> pg = 20; //paginate num
+        
+        $this->rules = [
+        	'date_y' => 'required|numeric',
+            'date_m' => 'required|numeric',
+            'date_d' => 'required|numeric',
+            'title' => 'required',
+            'sub_title' => 'required',
+        ];
     }
+    
     
     
 //    public function getLogin() {
@@ -132,7 +142,7 @@ class DashBoardController extends Controller
             foreach($searchs as $val) {
                 //$this->val = "%".$val."%";
                 $val = "%".$val."%";                
-                $query ->where( function($query) use($arr, $val) { //絞り込み検索の時はwhereクロージャを使う
+                $query ->where( function($query) use($arr, $val) { //絞り込み検索の時はwhereクロージャを使う。別途の引数はuse()を利用。
                     queryWhere($arr, $query, $val);
                 });
                 
@@ -280,6 +290,30 @@ class DashBoardController extends Controller
         return [$pages, $search];
     }
     
+    /* ******************************* */
+    
+    /* CustomValidation **************** */
+    public function customValidation($request, $rules) {
+    	$arr = $request->all();
+        $v = Validator::make($arr, $rules);
+        
+        $setDate = $request->input('date_y') .'-'.$request->input('date_m').'-'.$request->input('date_d');
+        //$setDate = date('Y-m-d', strtotime($setDate));
+        
+        $v->after(function($v) use($setDate) {
+        	if($v->errors()->count() == 0) {
+                $dp = date_parse_from_format('Y-m-d', $setDate); //dateからパースする関数 おかしい書式にはwarningが返されるのでそれを利用
+                
+                if(strtotime($setDate) > time())
+                    $v->errors()->add('org_date', '日付は現在より先の指定はできません。');
+                elseif($dp['warning_count'] > 0)
+                    $v->errors()->add('org_date', '日付は正しい値を入力して下さい。');
+            }
+        });
+        
+        $vAd = ['v'=>$v, 'd'=>$setDate];
+        return $vAd;
+    }
     
     /* ******************************* */
     
@@ -290,7 +324,7 @@ class DashBoardController extends Controller
             return view('dbd_pages.pages', [ 'objs'=>$objs[0], 'searchStr' => $objs[1] ]);
         }
         else {
-        	$objs = $this -> page -> orderBy('created_at','desc') ->paginate($this->pg);
+        	$objs = $this -> page -> orderBy('id','desc') ->paginate($this->pg);
             return view('dbd_pages.pages', ['objs'=>$objs]);
         }
     }
@@ -301,14 +335,30 @@ class DashBoardController extends Controller
     }
     
     public function postPagesAdd(Request $request) {
-    	$rules = [
-            'title' => 'required',
-            'sub_title' => 'required',
-            'url_name' => 'required|unique:pages,url_name',
-        ];
-        $this->validate($request, $rules);
+//    	$rules = [
+//        	'date_y' => 'required|numeric',
+//            'date_m' => 'required|numeric',
+//            'date_d' => 'required|numeric',
+//            'title' => 'required',
+//            'sub_title' => 'required',
+//            'url_name' => 'required|unique:pages,url_name',
+//        ];
+		
+        $rules = array_add($this->rules, 'url_name', 'required|unique:pages,url_name');
+
+        //$this->validate($request, $rules);
+        
+        $validAndDate = $this->customValidation($request, $rules);
+        
+        if ($validAndDate['v']->fails()) {
+            return redirect()->back() ->withErrors($validAndDate['v']) ->withInput();
+        }
         
     	$data = $request->all(); //requestから配列として$dataにする
+        
+        $nowTime = date('H:i:s', time());
+        $data['created_at'] = $validAndDate['d'] .' '. $nowTime;
+        
         $this->page->fill($data); //モデルにセット
         $this->page->save(); //モデルからsave
         
@@ -331,15 +381,45 @@ class DashBoardController extends Controller
 
     public function postPagesEdit(Request $request, $id) {
     	
-        $rules = [
-            'title' => 'required',
-            'sub_title' => 'required',
-            'url_name' => $id != $this->siteinfo->first()->top_id ? 'required|unique:pages,url_name,'.$id : '',
-        ];
-        $this->validate($request, $rules);
+//        $rules = [ //futureバリデートはAppServiceProviderにて設定
+//        	//'org_date' => 'required|date_format:Y-m-d|future', //バリデーション：dateは正しい日付かどうかを判別 date_formatと併用不可らしい
+//            'date_y' => 'required|numeric',
+//            'date_m' => 'required|numeric',
+//            'date_d' => 'required|numeric',
+//            'title' => 'required',
+//            'sub_title' => 'required',
+//            'url_name' => $id != $this->siteinfo->first()->top_id ? 'required|unique:pages,url_name,'.$id : '',
+//        ];
+		$rules = array_add($this->rules, 'url_name', $id != $this->siteinfo->first()->top_id ? 'required|unique:pages,url_name,'.$id : '');
+        //$this->validate($request, $rules);
+        
+//        $arr = $request->all();
+//        $v = Validator::make($arr, $rules);
+//        
+//        $d = $request->input('org_date') .'-09-'.'30';
+//        
+//        $v->after(function($v) use($d) {
+//        	if($v->errors()->count() == 0) {
+//            $dp = date_parse_from_format('Y-m-d', $d);
+//            
+//            if(strtotime($d) > time())
+//            	$v->errors()->add('org_date', '現在より先の日付は入力できません。');
+//            elseif($dp['warning_count'] > 0)
+//            	$v->errors()->add('org_date', '正しい日付を入力して下さい。');
+//            }
+//        });
+        
+        $validAndDate = $this->customValidation($request, $rules);
+        if ($validAndDate['v']->fails()) {
+            return redirect('dashboard/pages-edit/'.$id) ->withErrors($validAndDate['v']) ->withInput();
+        }
         
         $article = $this->page->find($id);
         $data = $request->all(); //$data:配列
+        
+        $nowTime = date('H:i:s', time());
+        $data['created_at'] = $validAndDate['d'] .' '. $nowTime;
+        
         if(!isset($data['closed'])) {
         	$data['closed'] = '公開中';
         }
@@ -421,7 +501,7 @@ class DashBoardController extends Controller
             return view('dbd_jobs.jobs', ['objs'=>$objs[0], 'searchStr' => $objs[1]]);
         }
     	else {
-    		$objs = $this -> job -> orderBy('created_at','desc') ->paginate($this->pg);
+    		$objs = $this -> job -> orderBy('id','desc') ->paginate($this->pg);
         	return view('dbd_jobs.jobs')->with(compact('objs'));
         }
     }
@@ -432,14 +512,29 @@ class DashBoardController extends Controller
     }
     
     public function postJobsAdd(Request $request) {
-    	$rules = [
-            'company_name' => 'required',
-            'sub_title' => 'required',
-        ];
-        $this->validate($request, $rules);
+//    	$rules = [
+//        	'date_y' => 'required|numeric',
+//            'date_m' => 'required|numeric',
+//            'date_d' => 'required|numeric',
+//            'company_name' => 'required',
+//            'sub_title' => 'required',
+//        ];
         
+        $rules = array_except($this->rules, ['title']);
+        //$rules = array_splice_assoc($rules, -1, 1, ['company_name' => 'required']);
+        $rules = array_add($rules, 'company_name', 'required');
+        
+        $validAndDate = $this->customValidation($request, $rules);
+        
+        if ($validAndDate['v']->fails()) {
+            return redirect()->back() ->withErrors($validAndDate['v']) ->withInput();
+        }
 
     	$data = $request->all(); //requestから配列として$dataにする
+        
+        $nowTime = date('H:i:s', time());
+        $data['created_at'] = $validAndDate['d'] .' '. $nowTime;
+        
         $data['job_number'] = mt_rand(600000, 999999);
         $this->job->fill($data); //モデルにセット
         $this->job->save(); //モデルからsave
@@ -462,14 +557,29 @@ class DashBoardController extends Controller
     }
 
     public function postJobsEdit(Request $request, $id) {
-        $rules = [
-            'company_name' => 'required',
-            'sub_title' => 'required',
-        ];
-        $this->validate($request, $rules);
+//        $rules = [
+//        	'date_y' => 'required|numeric',
+//            'date_m' => 'required|numeric',
+//            'date_d' => 'required|numeric',
+//            'company_name' => 'required',
+//            'sub_title' => 'required',
+//        ];
+
+		$rules = array_except($this->rules, ['title']);
+        $rules = array_splice($rules, 'company_name', 'required');
+        
+        $validAndDate = $this->customValidation($request, $rules);
+        
+        if ($validAndDate['v']->fails()) {
+            return redirect('dashboard/jobs-edit/'.$id) ->withErrors($validAndDate['v']) ->withInput();
+        }
     
     	$article = $this->job->find($id);
         $data = $request->all(); //$data:配列
+        
+        $nowTime = date('H:i:s', time());
+        $data['created_at'] = $validAndDate['d'] .' '. $nowTime;
+        
         if(!isset($data['closed'])) {
         	$data['closed'] = '公開中';
         }
@@ -514,7 +624,7 @@ class DashBoardController extends Controller
             return view('dbd_pages.pages', ['objs'=>$objs[0], 'searchStr' => $objs[1]]);
         }
     	else {
-    		$objs = $this -> topic -> orderBy('created_at','desc') ->paginate($this->pg);
+    		$objs = $this -> topic -> orderBy('id','desc') ->paginate($this->pg);
         	return view('dbd_pages.pages')->with(compact('objs'));
         }
     }
@@ -525,14 +635,25 @@ class DashBoardController extends Controller
     }
     
     public function postTopicsAdd(Request $request) {
-    	$rules = [
-            'title' => 'required',
-            'sub_title' => 'required',
-        ];
-        $this->validate($request, $rules);
+//    	$rules = [
+//        	'date_y' => 'required|numeric',
+//            'date_m' => 'required|numeric',
+//            'date_d' => 'required|numeric',
+//            'title' => 'required',
+//            'sub_title' => 'required',
+//        ];
         
+        $validAndDate = $this->customValidation($request, $this->rules);
+        
+        if ($validAndDate['v']->fails()) {
+            return redirect() ->back() ->withErrors($validAndDate['v']) ->withInput();
+        }
 
     	$data = $request->all(); //requestから配列として$dataにする
+        
+        $nowTime = date('H:i:s', time());
+        $data['created_at'] = $validAndDate['d'] .' '. $nowTime;
+        
         $this->topic->fill($data); //モデルにセット
         $this->topic->save(); //モデルからsave
         
@@ -554,14 +675,28 @@ class DashBoardController extends Controller
     }
 
     public function postTopicsEdit(Request $request, $id) {
-    	$rules = [
-            'title' => 'required',
-            'sub_title' => 'required',
-        ];
-        $this->validate($request, $rules);
-    
+//    	$rules = [
+//        	'date_y' => 'required|numeric',
+//            'date_m' => 'required|numeric',
+//            'date_d' => 'required|numeric',
+//            'title' => 'required',
+//            'sub_title' => 'required',
+//        ];
+        
+        $validAndDate = $this->customValidation($request, $this->rules);
+        
+        if ($validAndDate['v']->fails()) {
+            return redirect('dashboard/topics-edit/'.$id) ->withErrors($validAndDate['v']) ->withInput();
+        }
+    	
+        //validation End here
+        
     	$article = $this->topic->find($id);
         $data = $request->all(); //$data:配列
+        
+        $nowTime = date('H:i:s', time());
+        $data['created_at'] = $validAndDate['d'] .' '. $nowTime;
+        
         if(!isset($data['closed'])) {
         	$data['closed'] = '公開中';
         }
@@ -581,7 +716,7 @@ class DashBoardController extends Controller
             return view('dbd_pages.pages', ['objs'=>$objs[0], 'searchStr' => $objs[1]]);
         }
     	else {
-    		$objs = $this -> iroha -> where('slug', 'irohas') -> orderBy('created_at','desc') ->paginate($this->pg);
+    		$objs = $this -> iroha -> where('slug', 'irohas') -> orderBy('id','desc') ->paginate($this->pg);
         	return view('dbd_pages.pages')->with(compact('objs'));
         }
     }
@@ -592,15 +727,26 @@ class DashBoardController extends Controller
     }
     
     public function postIrohasAdd(Request $request) {
-    	$rules = [
-            'title' => 'required',
-            'sub_title' => 'required',
-            //'url_name' => 'required|not_in:top|unique:irohas',
-        ];
-        $this->validate($request, $rules);
+//    	$rules = [
+//        	'date_y' => 'required|numeric',
+//            'date_m' => 'required|numeric',
+//            'date_d' => 'required|numeric',
+//            'title' => 'required',
+//            'sub_title' => 'required',
+//            //'url_name' => 'required|not_in:top|unique:irohas',
+//        ];
         
+        $validAndDate = $this->customValidation($request, $this->rules);
+        
+        if ($validAndDate['v']->fails()) {
+            return redirect() ->back() ->withErrors($validAndDate['v']) ->withInput();
+        }
 
     	$data = $request->all(); //requestから配列として$dataにする
+        
+        $nowTime = date('H:i:s', time());
+        $data['created_at'] = $validAndDate['d'] .' '. $nowTime;
+        
         $this->iroha->fill($data); //モデルにセット
         $this->iroha->save(); //モデルからsave
         
@@ -622,15 +768,26 @@ class DashBoardController extends Controller
     }
 
     public function postIrohasEdit(Request $request, $id) {
-        $rules = [
-            'title' => 'required',
-            'sub_title' => 'required',
-            //'url_name' => $article->url_name!='top' ? 'required|not_in:top|unique:irohas': 'in:top',
-        ];
-        $this->validate($request, $rules);
+//        $rules = [
+//        	'date_y' => 'required|numeric',
+//            'date_m' => 'required|numeric',
+//            'date_d' => 'required|numeric',
+//            'title' => 'required',
+//            'sub_title' => 'required',
+//            //'url_name' => $article->url_name!='top' ? 'required|not_in:top|unique:irohas': 'in:top',
+//        ];
+        
+        $validAndDate = $this->customValidation($request, $this->rules);
+        if ($validAndDate['v']->fails()) {
+            return redirect('dashboard/irohas-edit/'.$id) ->withErrors($validAndDate['v']) ->withInput();
+        }
         
         $article = $this->iroha->find($id);
         $data = $request->all(); //$data:配列
+        
+        $nowTime = date('H:i:s', time());
+        $data['created_at'] = $validAndDate['d'] .' '. $nowTime;
+        
         if(!isset($data['closed'])) {
         	$data['closed'] = '公開中';
         }
@@ -649,7 +806,7 @@ class DashBoardController extends Controller
             return view('dbd_irohas.irohas', ['objs'=>$objs[0], 'searchStr' => $objs[1]]);
         }
     	else {
-    		$objs = $this -> iroha -> where('slug', 'study') -> orderBy('created_at','desc') ->paginate($this->pg);
+    		$objs = $this -> iroha -> where('slug', 'study') -> orderBy('id','desc') ->paginate($this->pg);
         	return view('dbd_irohas.irohas')->with(compact('objs'));
         }
     }
@@ -660,14 +817,25 @@ class DashBoardController extends Controller
     }
     
     public function postStudyAdd(Request $request) {
-    	$rules = [
-            'title' => 'required',
-            'sub_title' => 'required',
-        ];
-        $this->validate($request, $rules);
+//    	$rules = [
+//        	'date_y' => 'required|numeric',
+//            'date_m' => 'required|numeric',
+//            'date_d' => 'required|numeric',
+//            'title' => 'required',
+//            'sub_title' => 'required',
+//        ];
         
+        $validAndDate = $this->customValidation($request, $this->rules);
+        
+        if ($validAndDate['v']->fails()) {
+            return redirect()->back() ->withErrors($validAndDate['v']) ->withInput();
+        }
 
     	$data = $request->all(); //requestから配列として$dataにする
+        
+        $nowTime = date('H:i:s', time());
+        $data['created_at'] = $validAndDate['d'] .' '. $nowTime;
+        
         $this->iroha->fill($data); //モデルにセット
         $this->iroha->save(); //モデルからsave
         
@@ -689,11 +857,18 @@ class DashBoardController extends Controller
     }
 
     public function postStudyEdit(Request $request, $id) {
-    	$rules = [
-            'title' => 'required',
-            'sub_title' => 'required',
-        ];
-        $this->validate($request, $rules);
+//    	$rules = [
+//        	'date_y' => 'required|numeric',
+//            'date_m' => 'required|numeric',
+//            'date_d' => 'required|numeric',
+//            'title' => 'required',
+//            'sub_title' => 'required',
+//        ];
+        
+        $validAndDate = $this->customValidation($request, $this->rules);
+        if ($validAndDate['v']->fails()) {
+            return redirect('dashboard/study-edit/'.$id) ->withErrors($validAndDate['v']) ->withInput();
+        }
     
     	$article = $this->iroha->find($id);
         $data = $request->all(); //$data:配列
@@ -738,7 +913,7 @@ class DashBoardController extends Controller
             return view('dbd_pages.pages', ['objs'=>$objs[0], 'searchStr' => $objs[1]]);
         }
         else {
-    		$objs = $this -> blog -> orderBy('created_at','desc') ->paginate($this->pg);
+    		$objs = $this -> blog -> orderBy('id','desc') ->paginate($this->pg);
         	return view('dbd_pages.pages') -> with(compact('objs'));
         }
     }
@@ -751,13 +926,24 @@ class DashBoardController extends Controller
     }
     
     public function postBlogAdd(Request $request) {
-    	$rules = [
-            'title' => 'required',
-            'sub_title' => 'required',
-        ];
-        $this->validate($request, $rules);
+//    	$rules = [
+//        	'date_y' => 'required|numeric',
+//            'date_m' => 'required|numeric',
+//            'date_d' => 'required|numeric',
+//            'title' => 'required',
+//            'sub_title' => 'required',
+//        ];
+        
+        $validAndDate = $this->customValidation($request, $this->rules);
+        
+        if ($validAndDate['v']->fails()) {
+            return redirect()->back() ->withErrors($validAndDate['v']) ->withInput();
+        }
         
     	$data = $request->all(); //requestから配列として$dataにする
+        
+        $nowTime = date('H:i:s', time());
+        $data['created_at'] = $validAndDate['d'] .' '. $nowTime;
         
         $isCate = isset($data['category']);
         
@@ -799,14 +985,25 @@ class DashBoardController extends Controller
     }
 
     public function postBlogEdit(Request $request, $id) {
-    	$rules = [
-            'title' => 'required',
-            'sub_title' => 'required',
-        ];
-        $this->validate($request, $rules);
+//    	$rules = [
+//        	'date_y' => 'required|numeric',
+//            'date_m' => 'required|numeric',
+//            'date_d' => 'required|numeric',
+//            'title' => 'required',
+//            'sub_title' => 'required',
+//        ];
+        
+        $validAndDate = $this->customValidation($request, $this->rules);
+        if ($validAndDate['v']->fails()) {
+            return redirect('dashboard/blog-edit/'.$id) ->withErrors($validAndDate['v']) ->withInput();
+        }
     
     	$article = $this->blog->find($id);
         $data = $request->all(); //$data:配列
+        
+        $nowTime = date('H:i:s', time());
+        $data['created_at'] = $validAndDate['d'] .' '. $nowTime;
+        
         if(isset($data['category'])) {
             $cateAry = $data['category'];
             $data = array_except($data, ['category']); //配列のままfill()するとエラーになるので削除

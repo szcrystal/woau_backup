@@ -30,7 +30,8 @@ return [
     'boolean'              => ':attributeはtrueかfalseにしてください。',
     'confirmed'            => ':attributeが確認用:attributeと一致していません。',
     'date'                 => ':attributeは正しい日付ではありません。',
-    'date_format'          => ':attributeは":format"書式と一致していません。',
+    //'date_format'          => ':attributeは":format"書式と一致していません。',
+    'date_format'          => ':attributeは0000-00-00の書式で正しい数値を入力して下さい。',
     'different'            => ':attributeは:otherと違うものにしてください。',
     'digits'               => ':attributeは:digits桁にしてください',
     'digits_between'       => ':attributeは:min〜:max桁にしてください。',
@@ -55,7 +56,7 @@ return [
         'array'   => ':attributeは:min個以上にしてください。',
     ],
     'not_in'               => '選択された:attributeは正しくありません。',
-    'numeric'              => ':attributeは数字にしてください。',
+    'numeric'              => ':attributeは半角数字にしてください。',
     'regex'                => ':attributeの書式が正しくありません。',
     'required'             => ':attributeは必須です。',
     'required_if'          => ':otherが:valueの時、:attributeは必須です。',
@@ -74,6 +75,7 @@ return [
     'timezone'             => ':attributeは正しいタイムゾーンを指定してください。',
     'unique'               => ':attributeが既に存在します。',
     'url'                  => ':attributeを正しい書式にしてください。',
+    'future'			   => ':attributeは現在より先の指定はできません。',
 
     /*
     |--------------------------------------------------------------------------
@@ -89,7 +91,7 @@ return [
     'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message',
-            'passwords.user' => 'あいうえお',
+            'passwords.user' => 'パスワード',
         ],
     ],
 
@@ -117,7 +119,11 @@ return [
         'address' => '「所在地」',
         'sub_title' => '「サブタイトル」',
         'url_name' => '「リンク名」',
-        'company name' => '「企業名」',
+        'company_name' => '「企業名」',
+        'org_date' => '「日付」',
+        'date_y' => '「日付（年）」',
+        'date_m' => '「日付（月）」',
+        'date_d' => '「日付（日）」',
     ],
 
 ];

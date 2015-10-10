@@ -29,6 +29,7 @@ class Job extends Model
                             'img_link',
                             'slug',
                             'closed',
+                            'created_at',
                         ];
                             
 //    $table->increments('id');

@@ -22,7 +22,7 @@
                   <th>ID</th>
                   <th>状態</th>
                   <th class="col-md-3">タイトル</th>
-                  <th>作成日</th>
+                  <th>日付</th>
                   <th class="col-md-5">コンテンツ</th>
                   <th></th>
                   
@@ -48,7 +48,7 @@
                     </td>
                                         
                     <td>
-                        {{ getStrDate($topic->updated_at) }}
+                        {{ getStrDate($topic->created_at) }}
                     </td>
                     <td>
                         @if(strlen(trim(strip_tags($topic->main_content))) > 170)

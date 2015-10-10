@@ -21,7 +21,7 @@
               <th>ID</th>
               <th>状態</th>
               <th class="col-md-3">タイトル</th>
-              <th>作成日</th>
+              <th>日付</th>
               <th class="col-md-5">コンテンツ</th>
               <th></th>
               
@@ -47,7 +47,7 @@
                     </td>
                                         
                     <td>
-                        {{getStrdate($page->updated_at)}}
+                        {{getStrdate($page->created_at)}}
                     </td>
                     {{--
                     <td>
