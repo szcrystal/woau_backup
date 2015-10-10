@@ -566,7 +566,7 @@ class DashBoardController extends Controller
 //        ];
 
 		$rules = array_except($this->rules, ['title']);
-        $rules = array_splice($rules, 'company_name', 'required');
+        $rules = array_add($rules, 'company_name', 'required');
         
         $validAndDate = $this->customValidation($request, $rules);
         
