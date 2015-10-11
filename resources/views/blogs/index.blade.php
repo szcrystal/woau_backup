@@ -24,7 +24,7 @@
                 </div>
             
             @foreach($objs as $blogObj)
-            	<?php $path = Request::path() .'/'. $blogObj->id; ?>
+            	<?php $path = 'blog/'. $blogObj->id; ?>
                 
                 <article class="archive">
                     <header>
@@ -43,9 +43,7 @@
                     </div>
                     
                     <footer>
-                    {{--
-                    	@if( ! App\Blog::find($blogObj->id)->cateRelation ->isEmpty())
-                    --}}
+                    {{-- @if( ! App\Blog::find($blogObj->id)->cateRelation ->isEmpty()) --}}
                     
                     @include('shared.cate_list')
                     
@@ -60,8 +58,7 @@
         
         @include('shared.sidebar')
 
-        
     </main>
   
-    @endsection
+@endsection
 

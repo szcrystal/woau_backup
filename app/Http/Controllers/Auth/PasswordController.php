@@ -74,7 +74,7 @@ class PasswordController extends Controller
             $message->to($data['email'], $data['name'])->subject('【woman x auditor】パスワードリセットリンク');
         });
         
-        return redirect('password/email') -> with('status', 'メールを送信しました。'."<br />".'記載されているリンクをクリックして手続きを進めて下さい。');
+        return redirect('password/email') -> with('status', 'メールを送信しました。'."<br />".'メール内に記載されているリセット用リンクをクリックして手続きをお進め下さい。');
         
     }
 }

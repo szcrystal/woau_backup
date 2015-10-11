@@ -161,8 +161,6 @@ class AuthController extends Controller
     }
     
     
-    
-    
     public function getRegister(Request $request) {
     	//session
 //    	foreach($this->in as $val) {

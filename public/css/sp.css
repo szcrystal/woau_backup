@@ -606,11 +606,12 @@ for SP
         //border: 1px solid red;
     }
     .main-head h1,
-    h1.main-title {
+    header h1.main-title {
     	line-height: auto;
         padding: 0.4em 1em;
         display: block;
         margin: 0 0 0.7em;
+        max-width: 100%;
     }
     .page-ct h2 {
     	line-height: 1.5em;
@@ -620,6 +621,7 @@ for SP
     }
     
     /* About */
+    .intro-ct p,
     .about .intro-ct p:first-of-type,
     .about .sub-ct p:first-of-type,
     .iroha .intro-ct p:first-of-type {
@@ -641,7 +643,7 @@ for SP
         margin: 1em 0 0;
     }
     .about .main-ct {
-    	margin: 3em 0 0;
+    	margin: 5em 0 0;
     }
     .about .main-ct div {
         margin: 0 auto 4.5em;
@@ -840,8 +842,6 @@ for SP
         margin-left: 0;
         left: 75%;
         top: 45px;
-        //-webkit-transform: rotateZ(7deg);
-        //transform: rotateZ(7deg);
     }
     .single.topic-sgl header .mega-octicon:first-of-type {
     	left: 10%;
@@ -876,21 +876,19 @@ for SP
         margin: 1.5em 0 0 1.5em;
     }
     .iroha-child header {
-    	//padding-bottom: 2em;
+/*    	margin-bottom: 4em;*/
     }
     .iroha-child header .mega-octicon {
     	left: 55%;
-        top: 70px;
+        top: 50px;
     }
     
     /* blog */
     #primary {
-        //border: 1px solid green;
         width: 100%;
         float: none;
     }
     #secondary {
-        //border: 1px solid blue;
         width: 100%;
         float: none;
         clear: both;
@@ -905,7 +903,6 @@ for SP
 	.blog-sgl header > .octicon {
         font-size: 9em;
         margin-left: 77%;
-        //margin-top: -0.7em;
     }
     .blog .main-head {
     	background-size: 210px;
@@ -983,7 +980,6 @@ for SP
     }
     .panel .form-group {
     	margin: 0.3em auto;
-        //border: 1px solid red;
     }
     .panel .control-label {
     	height: 2.5em;
@@ -991,9 +987,7 @@ for SP
         width: 100%;
     }
     .panel input.form-control {
-    	width: 100%;
-        //padding: 0;
-        //border: 1px solid red;	
+    	width: 100%;	
     }
     .panel .form-group a {
     	margin-top: 1em;
@@ -1005,7 +999,6 @@ for SP
     .new-regist {
         position: static;
         margin-top: 2em;
-        //border: 1px solid red;
     }
     .new-regist a {
     	width: 100%;
@@ -1025,8 +1018,6 @@ for SP
     	margin: auto;
     }
     
-    
-
 } /* @media 611px */
 @media only screen and (max-width: 500px) { /* Portlait: iPhone6+ /6/ 5s */
 	
@@ -1041,13 +1032,11 @@ for SP
         width: 90%;
         margin: 1.0em auto 0;
         padding: 0;
-        //border: 1px solid red;
     }
     #navmenu ul.login-m li {
     	padding: 0;
     }
     #navmenu ul.login-m li:first-of-type {
-    	//margin-right: 2em;
         float: left;
     }
     #navmenu ul.login-m li:last-of-type {
@@ -1073,7 +1062,6 @@ for SP
 	.home #cal p:last-of-type {
     	font-size: 0.9em;
         line-height: 0.9em;
-        //margin-left: 1em;
     }
     .link-box {
     	height: 135px;
@@ -1086,7 +1074,6 @@ for SP
     }
     .user section.profile > div div:first-of-type p { 
     	margin-bottom: 1.0em;
-        //border: 1px solid red;
     }
     .user section.profile > div div:first-of-type p:first-of-type { 
     	margin-bottom: 2.5em;
@@ -1100,7 +1087,6 @@ for SP
     	display: block;
         width: 78%;
         margin: auto;
-        //margin-left: 1em;
         text-align: right;
     }
     .u-link {
@@ -1122,9 +1108,6 @@ for SP
 }
 
 @media only screen and (max-width: 320px) {
-	body {
-    	//background: red;
-    }
 	#head .mega-octicon {
         font-size: 3.0em;
     }

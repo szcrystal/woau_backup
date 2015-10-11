@@ -100,11 +100,13 @@ ul:after {
 ol {
 	list-style-position: inside;
 }
+/*
 ul li:before,
 ol li:before {
     content: "";
 	margin-right: 0.2em;
 }
+*/
 table {
 	border: 1px solid #ddd;
     border-collapse: collapse;
@@ -205,9 +207,10 @@ a.topic-link,
     width: auto;
     height: auto;
     text-align: center;
-    padding: 0.15em 1.05em 0.2em;
+    padding: 0.15em 1.0em 0.2em;
     line-height: 1.2em;
 }
+/*
 #navmenu ul.main-m li:before,
 #navmenu ul.login-m li:before,
 #user-belt li:before,
@@ -215,6 +218,7 @@ a.topic-link,
 aside li:before  {
 	content: none;
 }
+*/
 #navmenu .main-m li:last-of-type {
 	background: url(../images/main/menu-side.png) 0 0 no-repeat, url(../images/main/menu-side.png) 100% 0 no-repeat;
 }
@@ -248,6 +252,27 @@ aside li:before  {
 #navmenu ul.main-m a:hover span:last-of-type {
     color: #ff9977; /*#ff3f00*/
     opacity: 1;
+}
+
+/* 固定ページ増加分 */
+#navmenu ul.main-m + div.dropdown {
+    display: inline-block;
+    position: relative;
+    margin-left: 0.8em;
+}
+#navmenu ul.main-m + div .mega-octicon {
+	font-size: 2.9em;
+    color: coral;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+#navmenu ul.main-m + div .dropdown-menu {
+	display: none;
+    left: -2.5em;
+    z-index: 998;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
 }
 
 /* LogIn */
@@ -375,12 +400,6 @@ aside li:before  {
     font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
 }
 .home #cal p + hr {
-    /*margin: 0;
-	width: 47.5%;
-    height: 1px;
-	background: #fff;
-    padding: 0;
-    margin: 12px 0 28px;*/
     display: inline-block;
     box-shadow: none;
     border: 1px solid #fff;
@@ -507,9 +526,8 @@ div.person {
 
 /* Belt for auth */
 #user-belt {
-    //background: url(../images/main/foot-tile-g2.png)/*#634E4D*/;
-    background: url(../images/main/foot-tile-gg.png), #1B192D;
-    //background: peachpuff;
+    /*background: url(../images/main/foot-tile-g2.png), #634E4D;*/
+    background: url(../images/main/foot-tile-gg.png), #1B192D; /*peachpuff*/
     font-size: 0.95em;
     padding: 2px 0;
     margin: 0;
@@ -517,7 +535,6 @@ div.person {
 #user-belt > div {
 	/* width first specify */
 }
-
 
 /* Solid Page's UserBelt */
 #user-belt > ul {
@@ -564,7 +581,10 @@ div.person {
 }
 
 .dropdown-menu {
+	list-style: none;
 	margin-top: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
     background: #fefefe/*#FDFBF8*/;
     border: 3px solid #5B5D70;
     border-radius: 0.5em;
@@ -585,10 +605,6 @@ div.person {
     background: none;
     opacity: 1;
 }
-/*.dropdown-menu li a .octicon {*/
-/*	margin-right: 0.5em;*/
-/*    color: #888;*/
-/*}*/
 
 a.arrow-white {
 	color: #fff;
@@ -597,14 +613,6 @@ a.arrow-white {
     background-size: 17px auto;
 }
 
-/*.home #user-belt > div > a {*/
-/*	border: 2px solid #fff;*/
-/*    border-radius: 0.3em;*/
-/*    padding: 0.5em 0.8em 0.5em 2em;*/
-/*    color: #fff;*/
-/*    text-decoration: none;*/
-/*    background: url(../images/main/arrow-white.png) 0.5em 47% no-repeat;*/
-/*}*/
 .home #user-belt > a.arrow-white {
 	float: right;
     font-size: 0.95em;
@@ -717,7 +725,6 @@ a.arrow-white {
     background-size: 100% auto;
 }
 
-
 .user section.profile {
     margin: 0;
     width: 100%;
@@ -744,7 +751,6 @@ a.arrow-white {
     padding: 2em 0;
     border-bottom: 4px dashed #FFC9B7;
 }
-
 .user section.profile > div div:first-of-type {
 	float: left;
     width: 50%;
@@ -837,29 +843,6 @@ section.tp-topics article {
 	font-size: 0.92em;
 }
 
-
-.user a.user-link {
-	//display: inline-block;
-/*    background: #6f6f6f;*/
-/*    background-color: #6f6f6f;*/
-/*    background-repeat: no-repeat;*/
-/*    background-position: 90% 45%;*/
-/*    background-image: url(../images/main/double-arrow.png);*/
-/*    background: url(../images/main/double-arrow.png) 90% 45% no-repeat, -moz-linear-gradient(top, #8d8d8d, #5f5f5f);*/
-/*    background: url(../images/main/double-arrow.png) 95% 45% no-repeat, linear-gradient(to bottom, #8d8d8d, #5f5f5f);;*/
-/*    //background-size: 9% auto;*/
-/*    //border: 2px solid #6f6f6f;*/
-/*    background: -moz-linear-gradient(top, #8d8d8d, #5f5f5f);*/
-/*    background: linear-gradient(to bottom, #8d8d8d, #5f5f5f);*/
-/*	border-radius: 9px;*/
-/*    text-align: center;*/
-/*    //box-shadow: -1px -1px 1px #5f5f5f inset, 1px 1px 1px #aaa inset;*/
-/*    //border: 1px solid #aaa;*/
-/*    //color: #fff;*/
-/*    text-decoration: none;*/
-/*    //font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;*/
-}
-
 .u-link {
 	display: inline-block;
     width: 47%;
@@ -925,9 +908,8 @@ a.topic-link {
     text-decoration: none;
 	width: auto;
 	float: right;
-    //border: 3px solid #A88B83;
     color: #704F43/*#704C3F*//*ORG:#7F635A*/;
-    background: /*url(../images/main/double-arrow-gray.png) 93% 47% no-repeat, */#FFF1DC;
+    background: #FFF1DC;
     border-radius: 0.5em;
     border: 3px solid #ffaa8e/*#FFA387*/;
     font-size: 1.05em;
@@ -959,8 +941,7 @@ a.topic-link .octicon:last-of-type {
 }
 .guest .link-box:nth-of-type(3),
 .guest .link-box:last-of-type {
-	//margin-right: 0;
-    //border-color: red;
+
 }
 .link-box a {
 	display: block;
@@ -1182,7 +1163,6 @@ headerは使えなく、divなので注意
 }
 .about .main-ct div {
 	border: 7px double lightsalmon;
-    //border: 6px solid peachpuff;
     background: #fffdfc;
     border-radius: 0.7em;
     width: 87%;
@@ -1257,12 +1237,11 @@ headerは使えなく、divなので注意
 	list-style: none;
 	margin: 0 0 2em 43%;
     width: 57%;
-    //background: #fffcfb;
+/*    background: #fffcfb;*/
     border: 2px solid #8E736B;
     border-width: 2px 0 2px 0;
     //border-radius: 0.5em;
     padding: 1.3em 2em;
-    //box-shadow: 1px 1px 3px #555 inset;
 }
 .iroha .iroha-menu-tl {
 	border: none;
@@ -1346,7 +1325,7 @@ headerは使えなく、divなので注意
 /* inline h1 */
 .main-head h1,
 header h1.main-title {
-	//max-width: 30%;
+	max-width: 55%;
     line-height: 1.4em;
     padding: 1.2em 2.3em;
     display: inline-block;
@@ -1383,23 +1362,17 @@ header h1.main-title {
     -webkit-transform: rotateZ(7deg);
     transform: rotateZ(7deg);
 }
-
+/*一覧のmain-head*/
 .study .main-head {
-	//background: url(../images/main/top_icons/study-gray-lg3.png) 46% 0 no-repeat;
-    //background-size: 130px auto;
     background: url(../images/main/about/study-lg.png) 66% 0 no-repeat;
     background-size: 190px auto;
 }
 .job .main-head {
-	//background: url(../images/main/about/company.png) 60% 0 no-repeat;
-    //background-size: 140px auto;
-	background: url(../images/main/about/job-subject.png) 73% 0 no-repeat;
+    background: url(../images/main/about/job-subject.png) 73% 0 no-repeat;
     background-size: 360px auto;
 }
 .blog .main-head {
-	//background: url(../images/main/top_icons/blog-gray-lg6.png) 35% -5px no-repeat;
-    //background-size: 140px auto;
-    background: url(../images/main/about/blog2.png) 50% 0 no-repeat;
+    background: url(../images/main/about/blog2.png) 67% 0 no-repeat;
     background-size: 210px auto;
     min-height: 10em;
     margin-bottom: 1em;
@@ -1408,6 +1381,16 @@ header h1.main-title {
 	margin-top: 2em;
     margin-bottom: 2em;
 }
+/*予備
+background: url(../images/main/top_icons/study-gray-lg3.png) 46% 0 no-repeat;
+background-size: 130px auto;
+background: url(../images/main/about/company.png) 60% 0 no-repeat;
+background-size: 140px auto;
+background: url(../images/main/top_icons/blog-gray-lg6.png) 35% -5px no-repeat;
+background-size: 140px auto;
+background: url(../images/main/top_icons/study-gray-lg3.png) 30% 1% no-repeat;
+background-size: 100px auto;
+*/
 
 article.archive {
     margin-bottom: 4em;
@@ -1415,7 +1398,9 @@ article.archive {
     min-height: 10em;
     border-bottom: 2px dashed tan;
 }
-article.archive:after {
+.archive:after,
+article.archive:after,
+.archive header:after {
 	display: block;
     clear: both;
     content: "";
@@ -1424,18 +1409,10 @@ article.archive:after {
 .archive > div img {
 	display: none;
 }
-.archive:after,
-.archive header:after {
-	display: block;
-    clear: both;
-    content: "";
-    height: 0;
-}
 .archive header {
 	float: left;
     width: 53%;
 }
-
 .archive header small,
 .archive header h2 {
 	display: block;
@@ -1459,7 +1436,6 @@ article.archive:after {
 	font-style: normal;
     font-size: 0.82em;
 }
-
 .archive header h2 {
 	width: 75%;
 	padding: 1% 0 0.3em 0;
@@ -1532,24 +1508,16 @@ article.archive h2 a {
 
 /* blog */
 #primary {
-	//border: 1px solid green;
     width: 65%;
     float: left;
 }
 #secondary {
-	//border: 1px solid blue;
     width: 25%;
     float: right;
 }
 .blog article.archive {
     padding: 0 1em 0.5em 1.5em;
     margin-bottom: 2em;
-    //border: 1px solid red;
-    //border-bottom: 1px dashed #aaa;
-}
-.blog header {
-	//background: url(../images/main/top_icons/blog-gray-lg6.png) 90% 0 no-repeat;
-    //background-size: 12% auto;
 }
 .blog header,
 .blog header h2,
@@ -1561,7 +1529,6 @@ article.archive h2 a {
 .blog article > div {
 	float: none;
 }
-
 .blog header small,
 .blog-sgl header small {
 	color: #fff;
@@ -1574,13 +1541,6 @@ article.archive h2 a {
     display: block;
     border-radius: 50%;
     text-align: center;
-/*	color: #888;*/
-/*    width: 22%;*/
-/*    font-size: 1.1em;*/
-/*    border-radius: 0;*/
-/*    height: auto;*/
-/*    line-height: 1.6em;*/
-/*    text-align: left;*/
 }
 .blog-sgl header small {
 	width: 4.8em;
@@ -1594,7 +1554,7 @@ article.archive h2 a {
 	font-size: 11em;
     margin-left: 80%;
     margin-top: -0.7em;
-    color: peachpuff/*#856A5B*/;
+    color: peachpuff; /*#856A5B*/
     opacity: 0.5;
    	-webkit-transform :rotateZ(15deg);
     transform :rotateZ(15deg);
@@ -1604,13 +1564,9 @@ article.archive h2 a {
     margin: -1.8em 0 0.3em;
     font-size: 1.5em;
 }
-.blog header h2 a {
-	//color: #ff9977;
-}
 .blog header h2 span.octicon,
 .blog-sgl header h2 span.octicon {
 	color: #856A5B/*#856A5B*/;
-    //font-weight: bold;
     font-size: 2em;
     margin-right: 0.3em;
     line-height: 1.6em;
@@ -1739,8 +1695,6 @@ aside li {
     transform: rotateZ(12deg);
 }
 .single.study-sgl {
-	//background: url(../images/main/top_icons/study-gray-lg3.png) 30% 1% no-repeat;
-    //background-size: 100px auto;
     background: url(../images/main/about/study-lg.png) 10% 1% no-repeat;
     background-size: 125px auto;
     
@@ -1775,10 +1729,8 @@ aside li {
     width: 82%;
     margin: 2em auto 0.5em;
     text-align: left;
-    //background: url(../images/main/top_icons/study-gray.png) no-repeat;
 }
 .single header h2:before {
-    //content: url(../images/main/top_icons/study-gray.png);
     margin-right: 0.5em;
     font-size: 0.9em;
     line-height: 0.5em;
@@ -1921,7 +1873,6 @@ aside li {
 #colop li a {
 	padding: 0.6em 2.3em;
 }
-
 #colop > p {
 	text-align: center;
 	color: #efefef;
@@ -1966,23 +1917,6 @@ aside li {
 	width: 100%; /* ORG 87% */
     margin: auto;
 }
-/* ORG
-h2.panel-head {
-	font-weight: bold;
-	font-size: 1.1em;
-    //line-height: 1.5em;
-    font-family: "Hiragino Maru Gothic Pro", "Meiryo", sans-serif;
-    padding-bottom: 0.5em;
-	color: #ff5a25;
-	//border-bottom: 3px solid #FF9875;
-    background: url(../images/main/orange-tiles-s.png) 0 90% repeat-x;
-    background-size: 15px;
-}
-h2.panel-head img {
-	margin-bottom: 0.5em;
-    margin-right: 0.5em;
-}
-*/
 .contact .main-head,
 .register .main-head,
 .study-entry .main-head,
@@ -1990,21 +1924,21 @@ h2.panel-head img {
 	min-height: 7em;
     margin-bottom: 4.5em;
 }
-.contact .main-head {
-	background: url(../images/main/form/mail-dot-8.png) 55% -5px no-repeat;
-    //background: url(../images/main/about/mail.png) 30% 10px no-repeat;
-    background-size: 300px auto;
-}
 .register .main-head {
 	background: url(../images/main/about/pc.png) 55% 20px no-repeat;
     background-size: 148px auto;
 }
+.contact .main-head {
+	background: url(../images/main/form/mail-dot-8.png) 68% -5px no-repeat;
+/*    background: url(../images/main/about/mail.png) 30% 10px no-repeat;*/
+    background-size: 300px auto;
+}
 .study-entry .main-head {
-	background: url(../images/main/about/study-lg.png) 60% 0 no-repeat;
+	background: url(../images/main/about/study-lg.png) 68% 0 no-repeat;
     background-size: 140px auto;
 }
 .job-entry .main-head {
-	background: url(../images/main/about/job-entry.png) 60% 0 no-repeat;
+	background: url(../images/main/about/job-entry.png) 68% 0 no-repeat;
     background-size: 120px auto;
 }
 
@@ -2054,12 +1988,10 @@ h2.panel-head img {
     font-style: normal;
     margin: 0 0 0 0.2em;
 }
-
 .movement > div span.octicon {
 	font-size: 1.7em;
     margin-right: 0.5em;
 }
-
 .movement > div.here-is span.step {
 	border-color: #706356;
 }
@@ -2077,15 +2009,12 @@ h2.panel-head img {
 	width: 30%;
     background: #F9EDE0; /* ORG linen */
 }
+/*
 .table-d col.ctd {
-	//width: 50%;
-    //background: #fffdfc;
 }
+*/
 .table-d tr {
-	//padding: 2em 0.5em;
     border-bottom: 1px solid #D3C8C0; /* #d8d8d8 */
-    //width: 100%;
-    //border-collapse: separate;
     border-radius: 15px;
 }
 .table-d tr:last-of-type {
@@ -2098,8 +2027,7 @@ h2.panel-head img {
     vertical-align: top;
 }
 .table-d th {
-	//background: #fff1dc;/*#fff1dc*/
-    //vertical-align: top;
+/*	background: #fff1dc;*/
     padding: 1.2em 1.3em 1.2em 1.7em;
     color: #5d5d5d;
     text-align: left;
@@ -2122,7 +2050,7 @@ h2.panel-head img {
 .form-d textarea {
 	border-radius: 0.3em;
     box-shadow: none;
-    border: 3px solid #CCC2BB/*#D8CFC7*/;
+    border: 3px solid #CCC2BB; /*#D8CFC7*/
     font-size: 1em;
 }
 .form-d input {
@@ -2153,9 +2081,8 @@ span.t-down:after {
 	pointer-events: none;
 }
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-	::i-block-chrome, span.t-down:after {/*Chrome?? 特に何も効いていないよう*/
-		//top: -6px;
-        //background:red;
+	::i-block-chrome, span.t-down:after {
+    	/*Chrome?? 特に何も効いていないよう*/
 	}
 }
 @-moz-document url-prefix() { /* FireFox */
@@ -2177,9 +2104,8 @@ Edgeには影響なし */
 }
 @supports (-ms-accelerator:true) { /* Edge */
   span.t-down:after {
-  	//display: inline-block;
+/*  	display: inline-block;*/
     top: -3px;
-    //height: 29px;
   }
 }
 
@@ -2195,11 +2121,9 @@ Edgeには影響なし */
 	border: 2px solid #afafaf;
     border-radius: 0.3em;
 	background: #fff;
-	//background: url(../images/main/bottom-arrow.png) 97% 50% no-repeat;
-	//background: url(arrow01.png) right 50% no-repeat, linear-gradient(to bottom, #fff 0%,#efebe1 100%);
 	background-size: 11px, 11px;
 }
-.form-d select::-ms-expand { /* ここを指定を外せば(display:blockにする)、IE11までnormalプルダウンが表示*/
+.form-d select::-ms-expand { /* ここを指定を外せば(display:blockにすれば)、IE11までdefault-プルダウンが表示*/
 	display: none;
 }
 
@@ -2261,11 +2185,9 @@ Edgeには影響なし */
     margin-top: -5px; /* 半径分上に */
 }
 .form-d span.wrap-radio input[type="radio"]:focus + label:before {
-  //box-shadow: 0 0 1px 3px #ff6699; /* ハイライト表示 */
+/*  box-shadow: 0 0 1px 3px #ff6699;*/ /* ハイライト表示 */
 }
 
-.send-btn,
-.link-btn,
 .back-btn,
 .next-btn {
 	border-radius: 14px;
@@ -2277,68 +2199,14 @@ Edgeには影響なし */
     color: #fff;
     text-decoration: none;
 }
-
 .next-btn {
 	min-width: 14em;
     padding: 0 2.2em;
     line-height: 3.5em;
-/*    background: #F48013;*/
-/*    background: -moz-linear-gradient(top, #F2A048, #F48013);*/
-	//background: url(../images/main/wave-tile-white.png), #F9F2ED;
     background: #F79B39;
-    //background: orange;
-    //border: 2px solid orange;
-	/*background: url(../images/main/wave-tile-white.png), #ED714F;*/ /* wave-tile-5 */
     border-radius: 0.5em;
-/*    color: #706356;*/
-/*    border: 5px solid #F47856;*/
-/*    border-radius: 0.5em;*/
-    //font-weight: bold;
     border: 2px solid #F79B39;
-    //border: 5px solid #AE9888;
-    //color: #706356;
     color: #fff;
-}
-
-.send-btn {
-    /*
-	background: url(../images/main/orange-btn.png) no-repeat;
-    color: #fff;
-    text-align: center;
-    font-size: 1em;
-    font-family: "Hiragino Maru Gothic Pro", "Meiryo", sans-serif;
-    padding: 0.55em 0 0.5em;
-    margin-top: 2em;
-    border: none;
-    box-shadow: none;
-    */
-    width: 190px;
-    background: #F48013;
-    background: url(../images/main/wave-tile-white-1.png), -webkit-linear-gradient(top, #F2A048, #F48013);
-    background: url(../images/main/wave-tile-white-1.png), -moz-linear-gradient(top, #F2A048, #F48013);
-    background: url(../images/main/wave-tile-white-1.png), -ms-linear-gradient(top, #F2A048, #F48013);
-    background: url(../images/main/wave-tile-white-1.png), -o-linear-gradient(top, #F2A048, #F48013);
-    background: url(../images/main/wave-tile-white-1.png), linear-gradient(to bottom, #F2A048, #F48013);
-    box-shadow: -1px -1px 1px #F48013 inset, 1px 1px 1px #F7D6AB inset;
-    border: 1px solid #f7720b;
-}
-/* <link href='http://fonts.googleapis.com/css?family=Cutive' rel='stylesheet' type='text/css'> */
-.link-btn {
-	display: inline-block;
-	width: 150px;
-    background: #529bd8;
-    background: url(../images/main/wave-tile-white-1.png), -webkit-linear-gradient(top, #90bee3, #529bd8);
-    background: url(../images/main/wave-tile-white-1.png), -moz-linear-gradient(top, #F2A857, #F48013);
-    background: url(../images/main/wave-tile-white-1.png), -ms-linear-gradient(top, #F2A857, #F48013);
-    background: url(../images/main/wave-tile-white-1.png), -o-linear-gradient(top, #F2A857, #F48013);
-    background: url(../images/main/wave-tile-white-1.png), linear-gradient(to bottom, #90bee3, #529bd8);
-	/*background: url(../images/main/blue-btn.png) no-repeat;*/
-    box-shadow: -1px -1px 1px #529CD8 inset, 1px 1px 1px #A6CAE9 inset;
-    border: 1px solid #529CD8;
-    font-size: 0.95em;
-    margin-top: 1.2em;
-    margin-left: 0.5em;
-    padding: 0.3em 0 0.2em;
 }
 .back-btn {
 	min-width: 11em;
@@ -2355,8 +2223,6 @@ Edgeには影響なし */
     color: #999;
     box-sizing: border-box;
 }
-.send-btn:hover,
-.link-btn:hover,
 .back-btn:hover {
 	opacity: 0.7;
     text-decoration: none;
@@ -2434,8 +2300,6 @@ Edgeには影響なし */
 .addPanel {
 	position: absolute;
     z-index: 9999;
-    //top: 250px;
-    //left: 30%;
     opacity: 0;
     display: block;
     margin: 0;
@@ -2477,16 +2341,16 @@ Edgeには影響なし */
     border-bottom: 0;
     box-shadow: none;
     margin: 4% auto 0;
-    //margin-left: 420px;
     background: url(../images/main/orange-tiles-s.png);
-    //border: 1px solid red;
     border-radius: 1em;
     display: none;
 }
 .panel {
-	//display: none;
+/*	display: none;*/
 }
-.wrap-login .orgPanel {
+.wrap-login .orgPanel,
+.wrap-pw .orgPanel,
+.wrap-reset .orgPanel {
 	display: block;
 }
 
@@ -2504,7 +2368,6 @@ Edgeには影響なし */
 }
 .new-regist p {
 	width: 13.5em;
-    //height: 13em;
     font-size: 1em;
     font-weight: bold;
     color: #705B54;
@@ -2529,32 +2392,22 @@ Edgeには影響なし */
 }
 
 .panel .panel-heading {
-	//background: url(../images/main/orange-tiles-s.png);
     color: #fff;
-    //font-weight: bold;
     font-size: 1.05em;
     line-height: 2.0em;
     font-family: "Hiragino Kaku Gothic Pro", "Meiryo", sans-serif;
     padding: 0.7em 0.8em 0;
     margin-bottom: 0.3em;
     border-radius: 0.5em 0.5em 0 0;
-    //border: solid #fe5c26;
     border-width: 2px 2px 0 2px;
-/*    padding: 0.4em 0.8em 0.3em;*/
-/*    margin-bottom: 1.2em;*/
-/*	border-radius: 0;*/
 }
 .panel-heading h2 {
 	display: block;
 	width: 100px;
     height: 100px;
     margin: -1.8em auto 0;
-    //border: 1px solid #aaa;
     background: url(../images/main/top_icons/lock-white-r.png) center no-repeat, url(../images/main/orange-tiles-s.png) 10% 0;
-    //background-size: 65px auto;
 	border-radius: 50%;
-	//margin-right: 0.7em;
-    //margin-bottom: 0.25em;
 }
 .panel .panel-body {
 	border: solid #EF7857; /*#AFA199*/
@@ -2631,13 +2484,13 @@ Edgeには影響なし */
 	margin-bottom: 2em;
     color: #897F79/*#AA9992*/;
 }
+.panel input[disabled],
+.panel button[disabled] {
+	opacity: 0.7;
+}
 
 @media all and (-ms-high-contrast:none){ /* IE10-11 */
-    .panel {
-    	//width: 540px;
-    }
     .panel input[type="checkbox"] {
-        //margin-top: 0.25em;
         top: 7px;
     	left: 15px;
         width: 17px;
@@ -2645,18 +2498,13 @@ Edgeには影響なし */
     }
 }
 @supports (-ms-accelerator:true) { /* Edge */
-	.panel {
-    	//width: 540px;
-    }
     .panel input[type="checkbox"] {
-        //margin-top: 0.25em;
         top: 7px;
     	left: 15px;
         width: 17px;
     	height: 17px;
     }
 }
-
 
 /* Normal Table */
 .table {
@@ -2727,7 +2575,7 @@ section.userinfo:after {
 }
 .edit-btn,
 .conf-btn {
-	color: #704F43/*#704C3F*//*ORG:#7F635A*/;
+	color: #704F43; /*#704C3F*//*ORG:#7F635A*/
     background: #FFF1DC;
     border-radius: 0.5em;
     border: 2px solid #FFA387;
@@ -2837,8 +2685,4 @@ img.small {
     word-break: none;
   	word-wrap: none;
 }
-
-
-
-
 

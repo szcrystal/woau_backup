@@ -4138,7 +4138,7 @@ a.thumbnail.active {
 .alert-success {
 /*  background-color: #dff0d8;*/
 	background: #fefefe;
-  border-color: #bbb/*#d6e9c6*/;
+  border-color: #ddd/*#d6e9c6*/;
   color: #4EADAB/*#3c763d*/;
 }
 .alert-success hr {

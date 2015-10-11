@@ -13,7 +13,7 @@
             
             @if (count($errors) > 0)
                 <div class="alert alert-danger">
-                    <strong>ご確認ください!</strong> <br><br>
+                    <strong>ご確認ください!</strong> <br>
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -36,7 +36,7 @@
 
                     <div class="form-group">
                         <label class="control-label">新しいパスワード</label>
-                        <input type="password" class="form-control" name="password">
+                        <input type="password" class="form-control" name="password" placeholder="6文字以上入力して下さい">
                     </div>
 
                     <div class="form-group">

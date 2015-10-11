@@ -7,7 +7,7 @@
         <li><a href="{{getUrl('iroha/study')}}">勉強会一覧</a></li>
         <li><a href="{{getUrl('iroha/study/'.$obj->id)}}">@if($obj->sub_title != ''){{$obj->sub_title}}
         @else{{$obj->title}}@endif</a></li>
-        <li>お申し込み（内容確認）</li>
+        <li>参加申込み（内容確認）</li>
     </ul>
         
    <main class="page-ct study-entry">
