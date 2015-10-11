@@ -1290,15 +1290,21 @@ headerは使えなく、divなので注意
     margin-bottom: 3em;
 }
 .iroha-child header .mega-octicon {
-	font-size: 8em;
+	font-size: 7.5em;
     color: lightsalmon;
-    margin-left: 0.7em;
+    margin-left: 1.7em;
     position: absolute;
     -webkit-transform: rotateZ(10deg);
     transform: rotateZ(10deg);
 }
 .iroha-child .main-ct h2 {
 	margin-top: 2em;
+}
+.iroha-child > header p { /* 箱 iroha-child */
+	font-size: 1em;
+	color: #5f5f5f;
+    max-width: 60%;
+    margin-top: 2em;
 }
 .iroha-child .main-ct p {
 	margin: 0.7em 0 2.5em 2.5em;
@@ -1321,8 +1327,7 @@ header h1.main-title {
 	margin: 0 0 1.2em;
     font-weight: bold;
 }
-.main-head p,
-.iroha-child > header p { /* main-headの説明を入れる箱 */
+.main-head p { /* main-headの説明を入れる箱 .iroha-childだけ別指定*/
 	font-size: 1em;
 	color: #5f5f5f;
     width: 40%;
