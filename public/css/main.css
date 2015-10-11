@@ -601,7 +601,7 @@ div.person {
 	transition: color 0.2s linear;
 }
 .dropdown-menu li a:hover {
-	color: #fe5c26;
+	color: #ff9977;
     background: none;
     opacity: 1;
 }
