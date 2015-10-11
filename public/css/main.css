@@ -120,7 +120,6 @@ table td {
 /*  Custom *********** */
 #page {
     margin: auto;
-    //border: 1px solid blue;
 }
 /* All width */
 #head,
@@ -258,14 +257,14 @@ aside li:before  {
 #navmenu ul.main-m + div.dropdown {
     display: inline-block;
     position: relative;
-    margin-left: 0.8em;
+    margin: 0 0 0 0.8em;
+    vertical-align: top; /* ? */
+    top: 2.9em;
 }
 #navmenu ul.main-m + div .mega-octicon {
 	font-size: 2.9em;
     color: coral;
     cursor: pointer;
-    margin: 0;
-    padding: 0;
 }
 #navmenu ul.main-m + div .dropdown-menu {
 	display: none;
@@ -330,13 +329,6 @@ aside li:before  {
     background-position: 1em 50%;
     background-repeat: no-repeat;
     background-size: 27px auto;
-}
-#navmenu .mega-octicon {
-	float: right;
-    display: block;
-    color: #fe5c26;
-    font-size: 3.5em;
-    margin: 0.8em 0 0 0.3em;
 }
 @-webkit-keyframes scaleBom { 
     50% { 
@@ -558,6 +550,14 @@ div.person {
     background: #fffcfb;
     border-radius: 0.2em;
 }
+#user-belt > ul > li > a { /* IE9-10-11 */
+	border-radius: 0.2em 0.2em 0.3em 0.3em\0/;
+}
+@supports (-ms-accelerator:true) { /* Edge */
+  #user-belt > ul > li > a {
+    border-radius: 0.2em 0.2em 0.3em 0.3em;
+  }
+}
 #user-belt > ul > li:last-of-type {
 	margin-right: 0;
     float: right;
@@ -756,7 +756,7 @@ a.arrow-white {
     width: 50%;
 }
 .user section.profile > div div:last-of-type {
-	background: url(../images/main/paper3.png) 0 1em no-repeat;
+	background: url(../images/main/paper.png) 0 1em no-repeat;
     background-size: 150px auto;
 /*    background: url(../images/main/about/entry-top.png) 1em 0 no-repeat;*/
     padding-left: 10em;
@@ -1075,16 +1075,6 @@ headerは使えなく、divなので注意
     border-radius: 0.2em;
     font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
 }
-@media all and (-ms-high-contrast:none){ /* IE10-11 */
-      .page-ct h1 {
-        font-weight: bold;
-      }
-}
-@supports (-ms-accelerator:true) { /* Edge */
-	.page-ct h1 {
-		font-weight: bold;
-	}
-}
 .page-ct .main-ct h1,
 .userinfo h2,
 #entry-company h2,
@@ -1093,7 +1083,7 @@ headerは使えなく、divなので注意
     border-width: 0 0 0 15px;
     padding: 0.5em 0.6em;
     font-size: 1.4em;
-    color: #fe5c26;
+    color: #FF632B; /* coralより彩度UP */
 }
 .userinfo h2,
 #entry-company h2,
@@ -1240,7 +1230,6 @@ headerは使えなく、divなので注意
 /*    background: #fffcfb;*/
     border: 2px solid #8E736B;
     border-width: 2px 0 2px 0;
-    //border-radius: 0.5em;
     padding: 1.3em 2em;
 }
 .iroha .iroha-menu-tl {

@@ -62,7 +62,7 @@
             <li><a href="{{getUrl('topics')}}"><span class="octicon octicon-radio-tower"></span>トピックス<span>Topics</span></a></li>
             <li><a href="{{getUrl('contact')}}"><span class="octicon octicon-mail-read"></span>お問い合わせ<span>Contact</span></a></li>
         </ul>
-    
+        
     	@if(!$pageMenus->isEmpty())
         <div class="dropdown">
             <span class="mega-octicon octicon-three-bars dd-toggle" data-toggle="dropdown" role="button" aria-expanded="false"></span>
@@ -98,21 +98,11 @@
     </ul>
 </nav>
 
-
 {{-- @if(Auth::user() && ! Request::is('/') && !isAgent('sp')) --}}
 @if(Auth::user() && !isAgent('sp'))
 <div id="user-belt">
 	<ul>
     	<li><a href="{{getUrl('recruit')}}">案件一覧</a></li>
-    	{{--
-        <li class="dropdown">
-        	<a href="{{getUrl('recruit')}}" class="dd-toggle" data-toggle="dropdown" role="button" aria-expanded="false">案件情報<span class="octicon octicon-chevron-down"></span></a>
-        	<ul class="dropdown-menu" role="menu">
-                <li><a href="{{getUrl('recruit')}}">新着案件</a></li>
-                <li><a href="{{getUrl('recruit')}}">案件一覧</a></li>
-            </ul>
-        </li>
-        --}}
     	<li class="dropdown"><a href="{{getUrl('iroha')}}" class="dd-toggle" data-toggle="dropdown" role="button" aria-expanded="false">監査役いろは<span class="octicon octicon-chevron-down"></span></a>
         	<ul class="dropdown-menu" role="menu">
                 @foreach($irohas as $iroha)
@@ -128,5 +118,4 @@
 @else
 <div class="guest-belt"></div>
 @endif
-
 

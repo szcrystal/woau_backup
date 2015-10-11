@@ -32,20 +32,18 @@
 @if(isset($headDesc))
 	<meta name="description" content="{{ $headDesc }}">
 @endif
+	<link href="{{ asset('/bootstrap/fonts/octicons/octicons.css') }}" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Josefin+Sans:300,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Delius' rel='stylesheet' type='text/css'>
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/main.css') }}" rel="stylesheet">
 @if(isAgent('all'))
     <link href="{{ asset('/css/sp.css') }}" rel="stylesheet">
 @endif
-    <link rel="stylesheet" href="{{ asset('/bootstrap/fonts/octicons/octicons.css') }}">
-	<link href='http://fonts.googleapis.com/css?family=Josefin+Sans:300,400' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Delius' rel='stylesheet' type='text/css'>
-
 	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
-    
     <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="{{asset('/js/script.js') }}"></script>    
 </head>

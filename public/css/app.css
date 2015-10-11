@@ -3771,7 +3771,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > li > span {
   position: relative;
   float: left;
-  //padding: 0.2em 0.7em;
+/*  padding: 0.2em 0.7em;*/
   width: 2em;
   height: 2em;
   text-align: center;
@@ -3781,7 +3781,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 /*  color: #337ab7;*/
 /*  background-color: #ffffff;*/
   /*border: 1px solid #dddddd;*/
-  //margin-left: -1px;
+/*  margin-left: -1px;*/
   -moz-transition: none;
   transition: none;
 }
@@ -3816,7 +3816,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   /*background-color: #337ab7;*/
   background-color: lightsalmon;
   border-radius: 50%;
-  //border-color: #337ab7;
+/*  border-color: #337ab7;*/
   cursor: default;
 }
 .pagination > .disabled > span,

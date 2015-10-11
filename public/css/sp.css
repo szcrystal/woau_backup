@@ -52,7 +52,6 @@ for SP
     .main .blog-main {
         width: 100%;
         padding: 0 5px;
-        //border: 1px solid orange;
     }
     .home .user .blog-main,
     .user section.profile > div {
@@ -61,17 +60,14 @@ for SP
     .user section.profile > div {
     	width: 98%;
     	margin: 0 auto;
-        //border: 1px solid red;
     }
 
 }
 
 @media only screen and (max-width: 800px) { /* iPad */
 	body {
-    	//background: orange;
         font-size: 1.3em;
     }
-    
     #head h1 { /* Logo */
     	width: 60%;
     }
@@ -96,7 +92,6 @@ for SP
     .home #cal > div {
     	width: 100%;
         height: auto;
-        //padding-left: 10px;
         background-size: 100% auto;
         background-position: center 0;
     }
@@ -111,7 +106,6 @@ for SP
         margin-top: 25px;
         width: 12%;
         height: 100px;
-        //border: 1px solid #000;
     }
     .star,
     .smile {
@@ -177,14 +171,11 @@ for SP
     
     /* about */
     .about .intro-ct {
-    	//background-position: 17% 3%;
         background-size: 270px auto;
-        //padding-top: 290px;
     }
     .about .main-ct div {
         width: 100%;
         margin: 0 auto 6em;
-        //padding: 0 2em 2em;
     }
     .about .main-ct div img {
     	width: 50%;
@@ -245,12 +236,10 @@ for SP
     .iroha .intro-ct {
     	background-position: 100% 3%;
         background-size: 270px auto;
-        //padding-top: 270px;
     }
     .iroha .main-ct {
     	background-position: 10% 0;
         background-size: 180px auto;
-        //padding-top: 270px;
     }
     .study .main-head {
         background-size: 170px auto;
@@ -260,7 +249,6 @@ for SP
     .job .main-head {
     	background-size: 350px;
         background-position: 90% 0;
-        //padding-bottom: 6.5em;
     }
     
     /* Colop */
@@ -268,7 +256,6 @@ for SP
     	padding: 0.5em 10px;
     }
     #colop > div > a {
-    	//border: 1px solid #fff;
         margin: 1em 0 1.2em;
     }
     #colop > p {
@@ -301,9 +288,6 @@ for SP
 
 /* iPhone6+ LandScape/ 6 LandScape/ 5s LandScape(570px) */
 @media only screen and (max-width: 750px) { /* 600pxだと7inchタブレットで有効となる 511 */
-	body {
-    	//background: red;
-    }
     #head {
 	    margin: 0 0 1em;
         padding: 0.8em 0.8em 0;
@@ -321,7 +305,6 @@ for SP
         height: auto;
         line-height: auto;
         float: left;
-        //border: 1px solid red;
     }
     #head h1 img {
 	    margin-left: 0;
@@ -360,15 +343,11 @@ for SP
         border: solid #5a5a5a;
         border-width: 1px 0 1px 0;
         background: url(../images/main/foot-tile.png);
-        //box-shadow: 0 1px 3px #555 inset, 0 -1px 3px #555 inset;
-        //height: 300px;
     }
     #navmenu ul.spmain-m > li {
     	float: left;
         width: 50%;
-        //border: 1px solid #fff;
         line-height: 1.5em;
-        //background: #aaa;
         padding: 0.8em 0 0.8em 0.7em;
     }
     #navmenu ul.spmain-m > li > a {
@@ -386,10 +365,6 @@ for SP
     #navmenu ul.spmain-m .dropdown-menu li {
     	margin: 0.7em 0;
     }
-    #navmenu ul.spmain-m .dropdown-menu a {
-    	//color: #4a4a4a;
-    }
-    
     
     .home #cal {
         height: auto;
@@ -410,11 +385,9 @@ for SP
     	height: 280px;
     	padding-top: 0;
         margin: 0;
-        //border: 1px solid purple;
     }
     .home #cal p:first-of-type {
         font-size: 1.8em;
-        //line-height: 1.4em;
         letter-spacing: 0.08em;
         margin: 0.5em 0 0 3%;
         font-weight: bold;
@@ -425,7 +398,6 @@ for SP
     }
     .home #cal p:last-of-type {
     	font-size: 1.3em;
-        //line-height: 0.75em;
         margin: 1.2em 1em 0 0;
         float: right;
     }
@@ -441,7 +413,6 @@ for SP
     .cal-star {
     	top: 27%;
         left: 2.1em;
-        //border: 1px solid red;
     	background: url(../images/main/person-star.png) no-repeat;
         background-size: 100% auto;
     }
@@ -453,15 +424,11 @@ for SP
         left: 75%;
         width: 27%;
         height: 60%;
-        //border: 1px solid blue;
     }
     
     .guest section.tp-topics {
     	float none;
         width: 100%;
-        //padding-left: 0.6em;
-        //padding-right: 0.6em;
-        //margin-bottom: 2em;
     }
     .guest section.tp-topics,
     .user section.tp-topics {
@@ -484,12 +451,10 @@ for SP
     .user section.profile {
     	width: 97%;
         margin: auto;
-    	//border: 1px solid red;
     }
     .user .blog-main > div {
         float: none;
         width: 100%;
-        //border: 1px solid blue;
     }
     .user section.contents {
 /*        width: 100%;*/
@@ -510,13 +475,9 @@ for SP
     .u-link {
     	line-height: 3.3em;
     }
-    .user section.profile > div div:last-of-type .u-link {
-    	//line-height: 3.5em;
-    }
     .user section.jobs,
 	.user section.tp-topics {
 		width: 100%;
-        //padding: 1em 0.8em;
 	}
     .user section.jobs h2,
 	.user section.tp-topics h2 {
@@ -567,8 +528,6 @@ for SP
     }
     #colop > div > ul {
     	margin-left: 1.8em; /* リストの左位置調整 */
-        //margin-top: 0;
-        //border: 1px solid red;
     }
     #colop > div > a {
     	float: none;
@@ -603,7 +562,6 @@ for SP
         height: auto;
         margin: 0 0 1.5em;
     	padding: 0;
-        //border: 1px solid red;
     }
     .main-head h1,
     header h1.main-title {
@@ -639,7 +597,6 @@ for SP
     }
     .about .sub-ct img {
     	float: right;
-    	//width: 32%;
         margin: 1em 0 0;
     }
     .about .main-ct {
@@ -696,7 +653,6 @@ for SP
 		font-size: 0.7em;
         padding: 1em 0.5em 0;
         width: 15%;
-        //padding-top: 1em;
     }
     .company-table tbody tr td,
     .user-table tbody tr td {
@@ -720,8 +676,6 @@ for SP
     }
     .movement > div span.step {
     	border-right: 0;
-        //padding-right: 50%;
-        //padding-left: 0;
         display: block;
         margin: 0.3em 0 0;
         padding: 0;
@@ -761,20 +715,16 @@ for SP
     /* archive All */
     .main-head .pagination {
 		margin: 3em 0 0;
-        //border: 1px solid blue;
 	}
     .archive header {
     	float: none;
     	width: 100%;
-        //border: 1px solid purple;
     }
     .archive header h2 {
 		width: 77%;
-        //border: 1px solid purple;
     }
     .archive header h3 {
     	width: 77%;
-        //font-weight: normal;
     }
     .archive > div {
 		float: none;
@@ -1095,9 +1045,6 @@ for SP
         width: 80%;
         text-align: center;
     }
-    .about .sub-ct img {
-    	//width: 50%;
-    }
     .contact .main-head,
     .register .main-head {
     	background-position: 98% 4em;
@@ -1141,10 +1088,6 @@ for SP
     .user section.profile p > span {/* ありませんor件数 */
     	width: 80%;
     }
-    .guest section.contents,
-    .user section.contents {
-    	//margin-bottom: 70px;
-    }
     .about .intro-ct {
         background-size: 280px auto;
         padding-top: 250px;
@@ -1162,7 +1105,6 @@ for SP
     }
     .panel .form-group {
     	margin: 0.3em auto;
-        //border: 1px solid red;
     }
     .panel .form-group a {
     	margin-top: 0.5em;

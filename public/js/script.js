@@ -79,6 +79,9 @@
             var th = this;
             
             if(! $('ul.login-m li:last-of-type a').hasClass('logout')) {
+            	
+                $('#page').append('<div id="prebox"></div>');
+                
                 $('#prebox').load('/auth/login/ .panel', function(){ //callback内に処理を記述して直列にすると、Safariでのボーダーライン崩れがなくなった
                 	
                     $(this).find('.panel').hide(); //不要だが一応入れておく loadしたpanelを確実にhide()する
@@ -90,7 +93,7 @@
                         var h = $(window).height();
                         var w = $(window).width();
                     
-                        history.pushState('', 'login', '/auth/login'); //詳細はbookにあり HTML5のHistoryAPIを使用してリロードなしのページ遷移が出来る
+                        history.pushState('', 'login', '/auth/login'); //詳細はbkに HTML5のHistoryAPI ->リロードなしのページ遷移
                         
                         if(th.isAgent('sp')) {
                             $('html,body').css({overflow:'hidden', height:'100%'}); //スマホはheightを入れないと固定にならない
