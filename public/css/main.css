@@ -2669,6 +2669,7 @@ img.small {
 }
 
 .main-ct pre {
+	overflow: hidden;
 	display: block;
 	width: 85%;
     word-break: none;

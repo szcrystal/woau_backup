@@ -113,10 +113,10 @@ input.date {
     display: inline-block;
     text-align: center;
     margin: 0 0.3em;
-    width: 3em;
+    width: 3.5em;
 }
 input.date:first-of-type {
-	width: 4.5em;
+	width: 5em;
 }
 
 /* TOP */
