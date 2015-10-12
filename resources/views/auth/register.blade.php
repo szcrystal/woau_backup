@@ -52,7 +52,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>パスワード<em>必須</em>
+                        <th>パスワード（6文字以上）<em>必須</em>
                             @if(isset($userObj))
                                 <br /><small>※未入力の場合は変更しません</small>
                             @endif
@@ -118,9 +118,9 @@
                     </tr>
                         
                     <tr>
-                        <th>所在地<em>必須</em></th>
+                        <th>所在地（住所）<br>（例：東京都○○区）</th>
                         <td>    
-                            {!! Form::input('text', 'address', isset($userObj) ? $userObj->address : old('address'), ['class' => 'form-control']) !!}
+                            {!! Form::input('text', 'address', isset($userObj) ? $userObj->address : old('address'), ['class' => 'form-control', 'placeholder'=>'例：東京都○○区']) !!}
                         </td>
                     </tr>
                         

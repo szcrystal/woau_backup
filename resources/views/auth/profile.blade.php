@@ -77,7 +77,7 @@
                         
                         <tr>
                           <th scope="row">
-                            所在地
+                            所在地（住所）
                           </th>
                           <td>{{$user->address}}</td>
                         </tr>

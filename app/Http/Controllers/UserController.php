@@ -57,6 +57,16 @@ class UserController extends Controller
     
     public function postEdit(Request $request, $user_number) {
     	$userObj = User::where('user_number', $user_number) -> first();
+    
+    	$rules = [
+                'name' => 'required',
+                'email' => 'required|email|max:255|unique:users,email,'.$userObj->id,
+                //'password' => 'required|confirmed|min:6',
+                //'address' => 'required',
+            ];
+            $this->validate($request, $rules);
+    
+    	
         
         $data = $request->all(); //$data:配列
         

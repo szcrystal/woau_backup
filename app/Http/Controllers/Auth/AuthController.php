@@ -243,9 +243,9 @@ class AuthController extends Controller
         else { //Confirm
             $rules = [
                 'name' => 'required',
-                'email' => 'required|email|max:255|unique:users',
+                'email' => 'required|email|max:255|unique:users,email',
                 'password' => 'required|confirmed|min:6',
-                'address' => 'required',
+                //'address' => 'required',
             ];
             $this->validate($request, $rules);
             
