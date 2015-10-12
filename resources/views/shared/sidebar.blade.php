@@ -13,7 +13,7 @@
     <aside>
         <h3><span class="octicon octicon-tag"></span>最近のブログ</h3>
         <ul>
-        	<?php $b_objs = DB::table('blogs')->orderBy('created_at', 'desc')->take(5)->get(); ?>
+        	<?php $b_objs = DB::table('blogs') ->where('closed', '公開中') ->orderBy('created_at', 'desc')->take(5)->get(); ?>
             
             @foreach($b_objs as $obj)
                 <li><a href="{{ getUrl('blog/'.$obj->id) }}">{{ $obj->title }}</a></li>

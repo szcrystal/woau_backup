@@ -16,7 +16,7 @@
 
           <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
-            	<a href="{{getUrl('dashboard/job-add')}}" class="text-muted">
+            	<a href="{{getUrl('dashboard/jobs-add')}}" class="text-muted">
               	{{-- <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail"> --}}
               	<h4><span class="mega-octicon octicon-file-directory"></span> 案件</h4>
               	<p>新規案件を追加 <span class="octicon octicon-chevron-right"></span></p>
