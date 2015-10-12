@@ -46,7 +46,7 @@
                     
                     @include('shared.cate_list')
                     
-                    {!! pager('blogs', $blogObj->id) !!}
+                    {!! pager('blogs', $blogObj->created_at) !!}
 
                     
                 </footer>

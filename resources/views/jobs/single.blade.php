@@ -102,7 +102,7 @@
                     @endif  
                 @endif
                 
-                {!! pager('jobs', $singleObj->id) !!}
+                {!! pager('jobs', $singleObj->created_at) !!}
                 
                 <a href="{{ getUrl('recruit') }}" class="back-tx">案件情報一覧へ戻る</a>
             </footer>

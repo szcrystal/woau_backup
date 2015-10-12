@@ -361,9 +361,14 @@ for SP
     #navmenu ul.spmain-m .dropdown-menu {
     	display: none;
         margin-top: 0;
+        min-width: 95%;
     }
     #navmenu ul.spmain-m .dropdown-menu li {
     	margin: 0.7em 0;
+    }
+    .dropdown-menu > li > a {
+    	white-space: normal;
+        padding: 3px 7px;
     }
     
     .home #cal {
@@ -439,7 +444,7 @@ for SP
     	float: none;
         clear: both;
         width: 100%;
-        padding: 0 0 0 0.3em;
+        padding: 0;
         margin-bottom: 80px;
     }
     .guest section.contents h2 {
@@ -455,11 +460,6 @@ for SP
     .user .blog-main > div {
         float: none;
         width: 100%;
-    }
-    .user section.contents {
-/*        width: 100%;*/
-/*        float: none;*/
-/*        margin-bottom: 0;*/
     }
     
     .user section.profile > div div:first-of-type {
@@ -498,29 +498,28 @@ for SP
         width: 100%;
         border: none;
 	}
-    .user section.jobs > div,
-	.user section.tp-topics > div {
-    }
-    .user .link-box {
-        margin: 0 2.4% 0.5em;
-    }
-
-    .user .link-box:nth-of-type(even) {
-        margin-right: 2.4%;
-    }
-    
     
     /* Link Box */
     .link-box {
         width: 28%;
         height: 260px;
-        margin: 0 2.4% 0.7em;
+        //margin: 0 5.2% 0.5em 0.5%;
+    }
+    .link-box,
+    .user .link-box,
+    .user .link-box:nth-of-type(even) {
+        margin: 0 6% 0.5em 0.7%;
+    }
+    .link-box:nth-of-type(3n),
+    .guest .link-box:nth-of-type(3n),
+    .user .link-box:nth-of-type(3n) {
+    	margin-right: 0.5%;
     }
     .link-box a span {
     	font-size: 1.12em;
     }
     
-    
+    /* Footer */
     #colop ul {
     	float: none;
         clear: both;
@@ -631,9 +630,10 @@ for SP
         padding-left: 0;
         margin-bottom: 2em;
     }
+    .privacy ol,
     .privacy ul {
         margin-left: 0;
-        padding-left: 1em;
+        padding-left: 1.2em;
         font-size: 0.95em;
     }
     .privacy section.main-ct {
@@ -720,11 +720,11 @@ for SP
     	float: none;
     	width: 100%;
     }
-    .archive header h2 {
-		width: 77%;
-    }
+    .archive header h2,
     .archive header h3 {
-    	width: 77%;
+		width: 72%;
+        margin: 0 0 0 8px;
+        padding: 0;
     }
     .archive > div {
 		float: none;
@@ -742,19 +742,14 @@ for SP
  	
     /* Topics */
     .topics .main-head,
-    .study .main-head,
-    .job .main-head {
+    .study .main-head {
         background-position: 95% 4em;
     	background-size: 25% auto;
-	}
-    .blog .main-head {
-        background-position: 95% 3em;
-    	background-size: 24% auto;
 	}
     .main-head p,
     .iroha-child > header p {
         width: 67%;
-        min-height: 6em;
+        //min-height: 6em;
     }
 	.single header {
     	padding-bottom: 0;
@@ -788,9 +783,9 @@ for SP
         display: none;
     }
     .topics .main-head .mega-octicon:last-of-type {
-        font-size: 6.5em;
+        font-size: 6em;
         margin-left: 0;
-        left: 75%;
+        left: 72%;
         top: 45px;
     }
     .single.topic-sgl header .mega-octicon:first-of-type {
@@ -825,12 +820,13 @@ for SP
     .iroha .main-ct > div p {
         margin: 1.5em 0 0 1.5em;
     }
-    .iroha-child header {
-/*    	margin-bottom: 4em;*/
-    }
+
     .iroha-child header .mega-octicon {
-    	left: 55%;
+    	right: 20px;
         top: 50px;
+    }
+    .iroha-child > header p {
+    	max-width: 65%;
     }
     
     /* blog */
@@ -843,28 +839,40 @@ for SP
         float: none;
         clear: both;
     }
-    .pagination {
-    	margin-top: 0;
+    .blog .main-head {
+        background-position: 55% 3.5em;
+        background-size: 45% auto;
+    }
+    .blog .main-head > p {
+    	margin-top: 9em;
+        margin-bottom: 0;
+        width: 90%;
     }
     .blog header h2 {
     	width: 100%;
+        margin: -2.2em 0 1em;
+        padding: 0;
+        line-height: 0.5em;
     }
+
     .blog header > .octicon,
 	.blog-sgl header > .octicon {
         font-size: 9em;
-        margin-left: 77%;
-    }
-    .blog .main-head {
-    	background-size: 210px;
-        background-position: 100% 100%;
-        padding-bottom: 6em;
+        margin-left: 75%;
+        margin-bottom: 0;
     }
     
     /* job archive */
     .job .main-head {
-    	background-size: 350px;
-        background-position: 50% 100%;
-        padding-bottom: 6.5em;
+        background-position: 50% 3.5em;
+        background-size: 73% auto;
+    }
+    .job .main-head p {
+    	margin-top: 8em;
+        margin-bottom: 0;
+    }
+    .job .archive header h3 {
+    	font-size: 0.9em;
     }
     /* Job single*/
     .job-sgl section {
@@ -1095,6 +1103,10 @@ for SP
     .archive header small {
     	width: 4.2em;
         height: 4.2em;
+    }
+    .blog header > .octicon,
+	.blog-sgl header > .octicon {
+    	margin-left: 70%;
     }
 /*    .addPanel,*/
 /*    .orgPanel {*/

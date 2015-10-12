@@ -60,7 +60,7 @@
                         @endif
                     @endif
                     
-                    {!! pager('irohas', $atcl->id) !!}
+                    {!! pager('irohas', $atcl->created_at) !!}
                     
                     <a href="{{ getUrl('iroha/study') }}" class="center-block back-tx">勉強会一覧へ戻る</a>
                 </footer>

@@ -37,7 +37,7 @@
             </section>
             
             <footer class="clearfix">
-                {!! pager('topics', $topicObj->id) !!}
+                {!! pager('topics', $topicObj->created_at) !!}
                 <a href="{{ getUrl('topics') }}" class="back-tx">トピックス一覧へ戻る</a>
             </footer>
         

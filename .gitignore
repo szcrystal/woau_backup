@@ -1,6 +1,7 @@
 /vendor
 /node_modules
 /public/images/upload
+/public/images/main/spare
 
 /database/migrations
 /database/migrations_for_heroku_local
