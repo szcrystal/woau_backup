@@ -54,67 +54,17 @@
                 </div>
             </div>
             
-            <div class="checkbox">
-                <label>
-                    {!! Form::checkbox('closed', '非公開', (isset($article) && $article->closed == '非公開') ? true : false, []) !!}
-                    このページを非公開にする
-                </label><br>
-                <small>変更後は更新ボタンを押して下さい</small>
-            </div>
-        
-        	@if(isset($article) && $article->closed == '非公開')
-        	<p><span class="octicon octicon-issue-opened"></span>このページは非公開です。</p>
-        	@endif
-            
-        <div class="form-group">
-              <label>日付<em>（必須）</em></label>
-              <?php 
-              	$past = isset($article) ? strtotime($article->created_at) : time(); 
-                //$past = getdate($past); 
-            	?>
-              {!! Form::input('text', 'date_y', date('Y', $past), ['required', 'class' => 'date form-control']) !!}年
-              
-              {!! Form::input('text', 'date_m', date('n', $past), ['required', 'class' => 'date form-control']) !!}月
-              
-              {!! Form::input('text', 'date_d', date('j', $past), ['required', 'class' => 'date form-control']) !!}日
-          </div>
-        
-          <div class="form-group">
-              <label>タイトル<em>（必須）</em></label>
-              {!! Form::input('text', 'title', isset($article) ? $article->title : null, ['required', 'class' => 'form-control']) !!}
-          </div>
-          <div class="form-group">
-              <label>サブタイトル<em>（必須：リンク名の表示に使用されます。コンテンツ内には表示されません。）</em></label>
-              {!! Form::input('text', 'sub_title', isset($article) ? $article->sub_title : null, ['class' => 'form-control']) !!}
-          </div>
-          {{--
-          <div class="form-group">
-              <label>リンク名</label>
-              {{ url('/') . '/' }}
-              {!! Form::input('text', 'url_name', isset($article) ? $article->url_name : null, ['required', 'class' => '']) !!}
-          </div>
-          --}}
-          <div class="form-group">
-              <label>ヘッダーコンテンツ</label>
-              {!! Form::textarea('intro_content', isset($article) ? $article->intro_content : null, ['class' => 'form-control']) !!}
-          </div>
+			@include('dbd_shared.introContent')
           
-          @include('dbd_shared.mainContent')
-          
-          {{--
-          <div class="form-group">
-              <label>フッターコンテンツ</label>
-              {!! Form::textarea('sub_content', isset($article) ? $article->sub_content : null, ['class' => 'form-control']) !!}
-          </div>
-          --}}
+			@include('dbd_shared.mainContent')
+
           <br>
           <div class="form-group">
               <label>カテゴリー</label>
             	<div>
 
-                <?php $sw = 0; ?>
-                
                 <?php 
+                	//未使用の関数
                     function relfunc($relArg, $cid) {
                         foreach($relArg as $rel) {
                             if($rel->cate_id == $cid) {
@@ -129,21 +79,42 @@
                     }
                 ?>
 
+				<?php $sw = 0; ?>
+                
                 @foreach($cateObj as $cate)
-                	
-                	@if(isset($rels))
-                        @foreach($rels as $rel)
-                            @if($rel->cate_id == $cate->id)
-                            <?php $sw = 1; break; ?>
-                            @else
-                            <?php $sw = 0; ?>
-                            @endif
-                        @endforeach
-                    @endif
+                	<?php //指定されているカテゴリーにchecked属性を付ける 編集（$articleセット時）orエラー時（old()セット時）
+                        if(count(old()) > 0) { // エラー時の判別、if (count($errors) > 0)でも可
+                            $oldCates = old('category');
+                            
+                            if(count($oldCates) > 0) {
+                                foreach($oldCates as $oldCate) :
+                                    if($oldCate == $cate->id) :
+                                        $sw = 1; break; 
+                                    else :
+                                        $sw = 0;
+                                    endif;
+                                endforeach;
+                            }
+                        }
+                        elseif(isset($rels)) {
+                            
+                            foreach($rels as $rel) :
+                                if($rel->cate_id == $cate->id) :
+                                    $sw = 1; break;
+                                else :
+                                    $sw = 0;
+                                endif;
+                            endforeach;
+                            
+                        }
+                    ?>
                 
                 	<label class="checkbox-inline">
                     	<input type="checkbox" name="category[]" value="{{$cate->id}}"{{$sw == 1 ? ' checked="checked"':''}}>{{$cate->c_name}}
-                        {{--<input type="checkbox" name="category[]" value="{{$cate->id}}"{{isset($rels) ? relfunc($rels,$cate->id) : ''}}>{{$cate->name}}--}}
+                        
+                        {{--
+                        	<input type="checkbox" name="category[]" value="{{$cate->id}}"{{isset($rels) ? relfunc($rels,$cate->id) : ''}}>{{$cate->name}}
+                        --}}
             		</label>
                 @endforeach
                 </div>

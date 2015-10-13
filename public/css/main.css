@@ -1063,10 +1063,11 @@ header h1に.main-titleクラスがつくとinlineになる（aboutやいろは�
 div.main-head h1もinline (一覧Archiveやフォームにて)
 headerは使えなく、divなので注意
 */
-.page-ct header h1,
+.page-ct > header h1,
 .main-head h1 {
 	background: url(../images/main/wave-tile-white.png), #FF652D;
     color: #fff;
+    //font-weight: bold;
     font-size: 1.2em;
     letter-spacing: 0.07em;
     padding: 0.4em 1em;
@@ -1411,7 +1412,6 @@ article.archive:after,
 .archive header h2 {
 	display: block;
     margin: 0;
-    line-height: 1.4em;
     color: #888;
 	float: left;
 }
@@ -1555,15 +1555,18 @@ article.archive h2 a {
 }
 .blog header h2 {
 	padding: 0.1em 0 0.1em 0;
-    margin: -1.8em 0 0.3em;
+    margin: -1.8em 0 0.8em;
     font-size: 1.5em;
+}
+.blog article.archive header h2 a {
+	
 }
 .blog header h2 span.octicon,
 .blog-sgl header h2 span.octicon {
 	color: #856A5B/*#856A5B*/;
     font-size: 2em;
     margin-right: 0.3em;
-    line-height: 1.6em;
+    //line-height: 1.6em;
     padding: 0;
 }
 
@@ -1583,7 +1586,8 @@ article.archive h2 a {
 .blog-sgl header h1 {
     background: none;
 	font-size: 1.7em;
-    margin-top: -1.7em;
+    margin-top: -1.0em;
+    margin-bottom: 0;
     line-height: 1.4em;
     padding-left: 0;
     border: none;
@@ -1608,15 +1612,20 @@ article.archive h2 a {
 .blog footer ul li,
 .blog-sgl header ul li,
 .blog-sgl footer ul li {
-	padding-right: 1em;
+	padding-right: 0.5em;
     color: #424242;
+    float: left;
+}
+.blog-sgl footer ul.pager li {
+	float: none;
+    padding-right: 1em;
 }
 .blog footer h5,
 .blog-sgl header h5,
 .blog-sgl footer h5 {
 	font-size: 1.1em;
     color: #A59891;
-    margin: 1.4em 0 0;
+    margin: 1em 0 0;
     padding: 0;
 }
 .blog footer h5 > .octicon,
@@ -2575,7 +2584,7 @@ section.userinfo:after {
 }
 .edit-btn {
     text-align: center;
-    padding: 0.7em 2em;
+    padding: 0.8em 2em;
     text-decoration: none;
 	width: auto;
     margin-bottom: 0.5em;

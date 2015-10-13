@@ -1,4 +1,10 @@
 <div class="form-group">
+	<label>ヘッダーコンテンツ</label>
+	{!! Form::textarea('intro_content', isset($article) ? $article->intro_content : null, ['class' => 'form-control', 'rows'=>10]) !!}
+</div>
+
+
+<div class="form-group">
     <label>メインコンテンツ</label>
 
     {!! Form::textarea('main_content', isset($article) ? $article->main_content : null, ['id'=>'main_content','class'=>'', 'rows'=>35]) !!}

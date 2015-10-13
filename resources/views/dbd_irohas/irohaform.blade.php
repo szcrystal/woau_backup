@@ -53,74 +53,9 @@
                 </div>
             </div>
         
-        	<div class="checkbox">
-            	
-                <label>
-                    {!! Form::checkbox('closed', '非公開', (isset($article) && $article->closed == '非公開') ? true : false, ['style'=>'']) !!}
-                    このページを非公開にする
-                </label><br>
-                <small>変更後は更新ボタンを押して下さい</small>
-            </div>
-            
-            @if(isset($article) && $article->closed == '非公開')
-            <p><span class="octicon octicon-issue-opened"></span>このページは非公開です。</p>
-            @endif
-            
-        <div class="form-group">
-              <label>日付<em>（必須）</em></label>
-              <?php 
-              	$past = isset($article) ? strtotime($article->created_at) : time(); 
-                //$past = getdate($past); 
-            	?>
-              {!! Form::input('text', 'date_y', date('Y', $past), ['required', 'class' => 'date form-control']) !!}年
-              
-              {!! Form::input('text', 'date_m', date('n', $past), ['required', 'class' => 'date form-control']) !!}月
-              
-              {!! Form::input('text', 'date_d', date('j', $past), ['required', 'class' => 'date form-control']) !!}日
-          </div>
-        
-          <div class="form-group">
-              <label>タイトル<em>（必須）</em></label>
-              {!! Form::input('text', 'title', isset($article) ? $article->title : null, ['required', 'class' => 'form-control']) !!}
-          </div>
-          <div class="form-group">
-              <label>サブタイトル<em>（必須：リンク名の表示に使用されます。コンテンツ内には表示されません。）</em></label>
-              {!! Form::input('text', 'sub_title', isset($article) ? $article->sub_title : null, ['class' => 'form-control']) !!}
-          </div>
-          
-          <?php $sg = isset($article) ? $article->slug : $slug; ?>
-          {{--
-          @if($sg == 'irohas')
-          <div class="form-group">
-              <label>リンク名</label>
-              {{ url('/iroha') . '/' }}
-        --}}
-        
-              <?php 
-              	//$disable = (isset($article) && $article->url_name == 'top') ? 'disabled' : '';
-                ?>
-            {{--
-              {!! Form::input('text', 'url_name', isset($article) ? $article->url_name : null, [$disable]) !!}
-              @if($disable != '')
-              	<small>※このページのURLは変更できません</small>
-              @endif
-          </div>
-          @endif
-          --}}
-          
-          <div class="form-group">
-              <label>ヘッダーコンテンツ</label>
-              {!! Form::textarea('intro_content', isset($article) ? $article->intro_content : null, ['class' => 'form-control']) !!}
-          </div>
-          
-          @include('dbd_shared.mainContent')
-          
-          {{--
-          <div class="form-group">
-              <label>サブコンテンツ</label>
-              {!! Form::textarea('sub_content', isset($article) ? $article->sub_content : null, ['class' => 'form-control']) !!}
-          </div>
-			--}}
+            @include('dbd_shared.introContent')
+                      
+            @include('dbd_shared.mainContent')
 
         	@include('dbd_shared.image')
           

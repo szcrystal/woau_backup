@@ -46,53 +46,15 @@
                 </div>
             </div>
             
-        <div class="checkbox">
-            <label>
-	            {!! Form::checkbox('closed', '非公開', (isset($article) && $article->closed == '非公開') ? true : false, ['style'=>'']) !!}
-	            この案件を非公開にする
-            </label><br>
-            <small>変更後は更新ボタンを押して下さい</small>
-        </div>
-        
-        @if(isset($article) && $article->closed == '非公開')
-        <p><span class="octicon octicon-issue-opened"></span>この案件は非公開です。</p>
-        @endif
-        
-        <div class="form-group">
-              <label>日付<em>（必須）</em></label>
-              <?php 
-              	$past = isset($article) ? strtotime($article->created_at) : time(); 
-                //$past = getdate($past); 
-            	?>
-              {!! Form::input('text', 'date_y', date('Y', $past), ['required', 'class' => 'date form-control']) !!}年
-              
-              {!! Form::input('text', 'date_m', date('n', $past), ['required', 'class' => 'date form-control']) !!}月
-              
-              {!! Form::input('text', 'date_d', date('j', $past), ['required', 'class' => 'date form-control']) !!}日
-          </div>
-        
-        <div class="form-group">
-              <label>企業名<em>（必須）</em></label>
-              {!! Form::input('text', 'company_name', isset($article) ? $article->company_name : null, ['class' => 'form-control']) !!}
-          </div>
-        
-          <div class="form-group">
-              <label>タイトルフレーズ</label>
-              {!! Form::input('text', 'title', isset($article) ? $article->title : null, ['class' => 'form-control']) !!}
-          </div>
-          <div class="form-group">
-              <label>サブタイトル<em>（必須：リンク名の表示に使用されます。コンテンツ内には表示されません。）</em></label>
-              {!! Form::input('text', 'sub_title', isset($article) ? $article->sub_title : null, ['class' => 'form-control']) !!}
-          </div>
+			@include('dbd_shared.introContent')
           
-          @include('dbd_shared.mainContent')
+			@include('dbd_shared.mainContent')
           
           <label style="margin: 2em 0;">*以下の項目はテーブル内に表示されます ----------------------------------</label>
           <div class="form-group">
               <label>企業名<em>（上記の企業名と同名でよければ未記入で）</em></label>
               {!! Form::input('text', 'work_name', isset($article) ? $article->work_name : null, ['class' => 'form-control']) !!}
           </div>
-          
           
           <div class="form-group">
               <label>ホームページ</label>

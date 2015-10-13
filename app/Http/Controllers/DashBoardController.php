@@ -331,7 +331,8 @@ class DashBoardController extends Controller
     //pages add
     public function getPagesAdd() {
     	//$pages = $this -> page -> orderBy('created_at','desc') ->paginate(5);
-        return view('dbd_pages.dataform')/*->with(compact('pages'))*/;
+        $slug = 'pages';
+        return view('dbd_pages.dataform', ['slug'=>$slug])/*->with(compact('pages'))*/;
     }
     
     public function postPagesAdd(Request $request) {
@@ -479,6 +480,11 @@ class DashBoardController extends Controller
         
             if($data['del_key'] == session('del_key')) {
                 $delObj->delete();
+                
+                if($p_type == 'blog') {
+                	CateRelation::where('blog_id', $id) -> delete();
+                }
+                
                 session() -> forget('del_key');
                 
                 return redirect('/dashboard/'.$p_type) -> with('status', '『' .$title.'』が削除されました。');
@@ -512,16 +518,8 @@ class DashBoardController extends Controller
     }
     
     public function postJobsAdd(Request $request) {
-//    	$rules = [
-//        	'date_y' => 'required|numeric',
-//            'date_m' => 'required|numeric',
-//            'date_d' => 'required|numeric',
-//            'company_name' => 'required',
-//            'sub_title' => 'required',
-//        ];
         
         $rules = array_except($this->rules, ['title']);
-        //$rules = array_splice_assoc($rules, -1, 1, ['company_name' => 'required']);
         $rules = array_add($rules, 'company_name', 'required');
         
         $validAndDate = $this->customValidation($request, $rules);
@@ -857,21 +855,19 @@ class DashBoardController extends Controller
     }
 
     public function postStudyEdit(Request $request, $id) {
-//    	$rules = [
-//        	'date_y' => 'required|numeric',
-//            'date_m' => 'required|numeric',
-//            'date_d' => 'required|numeric',
-//            'title' => 'required',
-//            'sub_title' => 'required',
-//        ];
         
         $validAndDate = $this->customValidation($request, $this->rules);
+        
         if ($validAndDate['v']->fails()) {
             return redirect('dashboard/study-edit/'.$id) ->withErrors($validAndDate['v']) ->withInput();
         }
     
     	$article = $this->iroha->find($id);
         $data = $request->all(); //$data:配列
+        
+        $nowTime = date('H:i:s', time());
+        $data['created_at'] = $validAndDate['d'] .' '. $nowTime;
+        
         if(!isset($data['closed'])) {
         	$data['closed'] = '公開中';
         }
@@ -985,14 +981,8 @@ class DashBoardController extends Controller
     }
 
     public function postBlogEdit(Request $request, $id) {
-//    	$rules = [
-//        	'date_y' => 'required|numeric',
-//            'date_m' => 'required|numeric',
-//            'date_d' => 'required|numeric',
-//            'title' => 'required',
-//            'sub_title' => 'required',
-//        ];
         
+        //validation
         $validAndDate = $this->customValidation($request, $this->rules);
         if ($validAndDate['v']->fails()) {
             return redirect('dashboard/blog-edit/'.$id) ->withErrors($validAndDate['v']) ->withInput();
@@ -1016,8 +1006,8 @@ class DashBoardController extends Controller
                 $this -> cateRelation -> insert([
                 							'blog_id'=>$id,
                                             'cate_id'=>$val,
-                                            'created_at' => date('Y-m-d H:i:s'),
-                                            'updated_at' => date('Y-m-d H:i:s'),
+                                            'created_at' => date('Y-m-d H:i:s', time()),
+                                            'updated_at' => date('Y-m-d H:i:s', time()),
                                             ]);
             }
         }

@@ -576,6 +576,9 @@ for SP
     .breadcrumb {
     	text-align: left;
     }
+    .main-ct {
+    	padding: 0.2em;
+    }
     
     /* About */
     .intro-ct p,
@@ -839,6 +842,10 @@ for SP
         float: none;
         clear: both;
     }
+    .blog article.archive,
+    .blog-sgl {
+    	padding: 0 0.2em 0.5em;
+    }
     .blog .main-head {
         background-position: 55% 3.5em;
         background-size: 45% auto;
@@ -850,11 +857,9 @@ for SP
     }
     .blog header h2 {
     	width: 100%;
-        margin: -2.2em 0 1em;
+        margin: -1.3em 0 1em;
         padding: 0;
-        line-height: 0.5em;
     }
-
     .blog header > .octicon,
 	.blog-sgl header > .octicon {
         font-size: 9em;
