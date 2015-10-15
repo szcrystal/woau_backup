@@ -166,7 +166,7 @@
                       <th class="col-md-1">企業No</th>
                       <th class="col-md-2">企業名</th>
                       <th class="col-md-4">応募時のコメント</th>
-                      <th>添付したファイル</th>
+                      <th class="col-md-2">添付したファイル</th>
                       <th>応募日</th>
                       <th></th>
                     </tr>

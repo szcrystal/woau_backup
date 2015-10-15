@@ -29,7 +29,7 @@ return [
     ],
     'boolean'              => ':attributeはtrueかfalseにしてください。',
     'confirmed'            => ':attributeが確認用:attributeと一致していません。',
-    'date'                 => ':attributeは正しい日付ではありません。',
+    'date'                 => ':attributeは正しい日付を入力して下さい。',
     //'date_format'          => ':attributeは":format"書式と一致していません。',
     'date_format'          => ':attributeは0000-00-00の書式で正しい数値を入力して下さい。',
     'different'            => ':attributeは:otherと違うものにしてください。',
@@ -124,6 +124,7 @@ return [
         'date_y' => '「日付（年）」',
         'date_m' => '「日付（月）」',
         'date_d' => '「日付（日）」',
+        'birth' => '「生年月日」',
     ],
 
 ];

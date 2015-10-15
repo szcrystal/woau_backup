@@ -192,19 +192,13 @@ class AuthController extends Controller
                 //$this->reservation->fill($data); //モデルにセット
                 //$this->reservation->save(); //モデルからsave
                 
-                $birth = $data['birth_year'] != '--' ? $data['birth_year'] : 0000;
-                $birth .= '-'; 
-                $birth .= $data['birth_month'] != '--' ? $data['birth_month'] : 00;
-                $birth .= '-';
-                $birth .= $data['birth_day'] != '--' ? $data['birth_day'] : 00;
-                
                 $user = User::create([
                     'name' => $data['name'],
                     'email' => $data['email'],
                     'password' => bcrypt($data['password']),
                     
                     'user_number' => mt_rand(10000, 50000),
-                    'birth' => $birth,
+                    'birth' => str_contains($data['birth'], '--') ? 0000-00-00 : $data['birth'],
                     'address' => $data['address'],
                     'work_history' => $data['work_history'],
                     //'office_posi' => $data['office_posi'],
@@ -256,18 +250,28 @@ class AuthController extends Controller
             }
         }
         else { //Confirm
+        	$data = $request->all(); //requestから配列として$dataにする
+        
+        	$data['birth'] = $request->input('birth_year'). '-' .$request->input('birth_month') . '-' . $request->input('birth_day');
+        
             $rules = [
                 'name' => 'required',
                 'email' => 'required|email|max:255|unique:users,email',
                 'password' => 'required|confirmed|min:6',
                 //'address' => 'required',
             ];
-            $this->validate($request, $rules);
+            //$this->validate($request, $rules);
+            if($data['birth'] != '--------') {
+                $rules = array_add($rules, 'birth', 'date|future');
+            }
             
-            $datas = $request->all(); //requestから配列として$dataにする
-            //session($datas);
-                        
-            return view('auth.confirm', ['datas'=>$datas, 'headTitle'=>$headTitle.'-確認']); //配列なので、view遷移後はdatas[name]で取得する
+            $v = Validator::make($data, $rules);
+
+            if ($v->fails()) {
+                return redirect('auth/register') ->withErrors($v) ->withInput();
+            }
+                                    
+            return view('auth.confirm', ['datas'=>$data, 'headTitle'=>$headTitle.'-確認']); //配列なので、view遷移後はdatas[name]で取得する
         }
             //return redirect()->to('confirm');
             //return redirect('/contact');

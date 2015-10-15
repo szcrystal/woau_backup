@@ -38,11 +38,11 @@
                     </td>
                 </tr>
                 <tr> 
-                    <th scope="row">所在地</th>
+                    <th scope="row">所在地（住所）</th>
                     <td>{{ $datas['address'] }}</td>
                 </tr>
                 <tr> 
-                    <th scope="row">職歴</th>
+                    <th scope="row">職歴<br>（現在までの職歴、部署、役職等）</th>
                     <td>{!! nb($datas['work_history']) !!}</td>
                 </tr>
                 

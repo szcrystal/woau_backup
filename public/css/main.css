@@ -380,7 +380,7 @@ aside li:before  {
     padding-top: 13px;
     box-sizing: content-box;
     background: url(../images/main/bn-r-y3.png) no-repeat;/*banner-r50 bn-regular.png*/
-	color: #fff; /*#ff3f02*//*#ff3f02*/
+	color: #fff; /*#ff3f02*/ /*#ff3f02*/
     margin: auto;
     
 }
@@ -853,7 +853,7 @@ section.tp-topics article {
 	border-radius: 0.8em;
     background: #FFF9F2/*rgba(245, 235, 233, 0.4) #FFF8EF*/;
     text-align: left;
-    color: #705950/*#704C3F*//*ORG:#7F635A*/;
+    color: #705950/*#704C3F ORG:#7F635A*/;
     border: 3px solid #F2D3AB/*#F4E1C3*/;
 }
 .u-link span {
@@ -879,7 +879,6 @@ section.tp-topics article {
 .guest section.tp-topics {
 	float: left;
 	width: 51.5%;
-    //border: 1px solid red;
 }
 .guest section.tp-topics > div {
 	padding: 2.6em 2.2em 1.8em;
@@ -928,7 +927,6 @@ a.topic-link .octicon:last-of-type {
 	width: 42.3%;
     position: relative;
     padding: 0 0 1.5em 0;
-    //border: 1px solid green;
 }
 .guest section.contents h2 {
 	display: none;
@@ -1068,7 +1066,6 @@ headerは使えなく、divなので注意
 .main-head h1 {
 	background: url(../images/main/wave-tile-white.png), #FF652D;
     color: #fff;
-    //font-weight: bold;
     font-size: 1.2em;
     letter-spacing: 0.07em;
     padding: 0.4em 1em;
@@ -2130,6 +2127,10 @@ Edgeには影響なし */
 .form-d select[name="get_year"] {
 	width: 6.5em;
 }
+.form-d span.date-unit {
+	margin: 3px 5px 0 4px;
+    color:#555;
+}
 .form-d input[type="file"] {
 	border: none;
     height: auto;
@@ -2579,7 +2580,7 @@ section.userinfo:after {
 }
 .edit-btn,
 .conf-btn {
-	color: #704F43; /*#704C3F*//*ORG:#7F635A*/
+	color: #704F43; /*#704C3F*/ /*ORG:#7F635A*/
     background: #FFF1DC;
     border-radius: 0.5em;
     border: 2px solid #FFA387;

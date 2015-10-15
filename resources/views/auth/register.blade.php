@@ -81,39 +81,43 @@
                             @if(Auth::user())
                                 <?php
                                     $birth = explode('-', $userObj->birth);
+                                    //$birth = getdate(0000-00-00); //タイムスタンプからパースする
                                 ?>
                                 <select name="birth_year">
-                                    <?php selectBox(2015, 1900, $birth[0]); ?>
-                                </select><span class="t-down"></span><span style="margin:3px 5px 0 3px; color:#555;">年</span>
+                                    <?php 
+                                    	$birth[0] = old('birth_year') !== null ? old('birth_year') : $birth[0];
+                                    	selectBox(2015, 1900, $birth[0]); ?>
+                                </select><span class="t-down"></span><span class="date-unit">年</span>
+                                
                                 <select name="birth_month">
-                                    <?php selectBox(1, 12, $birth[1]); ?>
-                                </select><span class="t-down"></span><span style="margin:3px 5px 0 3px; color:#555;">月</span>
+                                    <?php 
+                                    	$birth[1] = old('birth_month') !== null ? old('birth_month') : $birth[1];
+                                        selectBox(1, 12, $birth[1]); ?>
+                                </select><span class="t-down"></span><span class="date-unit">月</span>
+                                
                                 <select name="birth_day">
-                                    <?php selectBox(1, 31, $birth[2]); ?>
-                                </select><span class="t-down"></span><span style="margin:3px 5px 0 3px; color:#555;">日</span>
+                                    <?php 
+                                    	$birth[2] = old('birth_day') !== null ? old('birth_day') : $birth[2];
+                                        selectBox(1, 31, $birth[2]); ?>
+                                </select><span class="t-down"></span><span class="date-unit">日</span>
                                 
                                 {{--
                                 {!! Form::input('text', 'birth_year', isset($birth[0]) ? $birth[0] : old('birth_year'), ['class' => 'form-control']) !!}<span>年</span>
-                                
-                                {!! Form::input('text', 'birth_month', isset($birth[1]) ? $birth[1] : old('birth_month'), ['class' => 'form-control']) !!}<span>月</span>
-                                {!! Form::input('text', 'birth_day', isset($birth[2]) ? $birth[2] : old('birth_day'), ['class' => 'form-control']) !!}<span>日</span>
                                 --}}
                             @else
                                 <select name="birth_year">
                                     <?php selectBox(2015, 1900, old('birth_year')); ?>
                                     
-                                </select><span class="t-down"></span><span style="margin:3px 5px 0 3px; color:#555;">年</span>
+                                </select><span class="t-down"></span><span class="date-unit">年</span>
                                 <select name="birth_month">
                                     <?php selectBox(1, 12, old('birth_month')); ?>
-                                </select><span class="t-down"></span><span style="margin:3px 5px 0 3px; color:#555;">月</span>
+                                </select><span class="t-down"></span><span class="date-unit">月</span>
                                 <select name="birth_day">
                                     <?php selectBox(1, 31, old('birth_day')); ?>
-                                </select><span class="t-down"></span><span style="margin:3px 5px 0 3px; color:#555;">日</span>
+                                </select><span class="t-down"></span><span class="date-unit">日</span>
                             
                             {{--
-                                {!! Form::selectRange('birth_year', 2015, 1900, null ) !!}<span style="margin:3px 2px 0; font-size:0.8em;">年</span>
-                                {!! Form::selectRange('birth_month', 1, 12) !!}<span>月</span>
-                                {!! Form::selectRange('birth_day', 1, 31) !!}<span>日</span>
+                                {!! Form::selectRange('birth_year', 2015, 1900, null ) !!}<span>年</span>
                                 <select>
                                 {{ selectBox(2015, 1900); }}
                                 </select>
@@ -190,12 +194,13 @@
                         <th>公認会計士資格取得年</th>
                         <td>
                             <select name="get_year">
-                                @if( Auth::user() && isset($userObj) )
-                                {!! selectBox(2015, 1900, $userObj->get_year) !!}
+                                @if( Auth::user() )
+                                <?php $getYear = old('get_year') !== null ? old('get_year') : $userObj->get_year; ?>
+                                {!! selectBox(2015, 1900, $getYear) !!}
                                 @else
                                 {!! selectBox(2015, 1900, old('get_year')) !!}
                                 @endif
-                            </select><span class="t-down"></span><span style="margin:3px 5px 0 3px; color:#555;">年</span>
+                            </select><span class="t-down"></span><span class="date-unit">年</span>
                         {{--
                             {!! Form::selectRange('get_year', 2015, 1900) !!}年
                         --}}

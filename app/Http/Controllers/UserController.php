@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 use App\User;
 use Auth;
+use Validator;
 
 class UserController extends Controller
 {
@@ -57,6 +58,10 @@ class UserController extends Controller
     
     public function postEdit(Request $request, $user_number) {
     	$userObj = User::where('user_number', $user_number) -> first();
+        
+        $data = $request->all(); //$data:配列
+        
+        $data['birth'] = $request->input('birth_year'). '-' .$request->input('birth_month') . '-' . $request->input('birth_day');
     
     	$rules = [
             'name' => 'required',
@@ -64,22 +69,24 @@ class UserController extends Controller
             //'password' => 'required|confirmed|min:6',
             //'address' => 'required',
         ];
-        $this->validate($request, $rules);
+        //$this->validate($request, $rules);
         
-        $data = $request->all(); //$data:配列
+        if($data['birth'] != '--------') {
+        	$rules = array_add($rules, 'birth', 'date|future');
+        }
         
-        $birth = $data['birth_year'] != '--' ? $data['birth_year'] : 0000;
-        $birth .= '-'; 
-        $birth .= $data['birth_month'] != '--' ? $data['birth_month'] : 00;
-        $birth .= '-';
-        $birth .= $data['birth_day'] != '--' ? $data['birth_day'] : 00;
+        $v = Validator::make($data, $rules);
+
+        if ($v->fails()) {
+            return redirect('profile/edit/'.$user_number) ->withErrors($v) ->withInput();
+        }
         
         if($data['password'] == null) { //if($request->has('name') :documentのrequestページにあり
         	$userObj -> update([
                 'name' => $data['name'],
                 'email' => $data['email'],            
                 //'user_number' => mt_rand(10000, 20000),
-                'birth' => $birth,
+                'birth' => str_contains($data['birth'], '--') ? 0000-00-00 : $data['birth'],
                 'address' => $data['address'],
                 'work_history' => $data['work_history'],
                 //'office_posi' => $data['office_posi'],
@@ -100,7 +107,7 @@ class UserController extends Controller
                 'password' => bcrypt($data['password']),
                 
                 //'user_number' => mt_rand(10000, 20000),
-                'birth' => $birth,
+                'birth' => str_contains($data['birth'], '--') ? 0000-00-00 : $data['birth'],
                 'address' => $data['address'],
                 'work_history' => $data['work_history'],
                 //'office_posi' => $data['office_posi'],
