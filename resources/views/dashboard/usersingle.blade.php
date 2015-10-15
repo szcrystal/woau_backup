@@ -17,7 +17,9 @@
                     <col class="col-xs-2">
                     <col class="col-xs-7">
                   </colgroup>
-                  {{--<thead>
+                  
+                  {{--
+                  <thead>
                     <tr>
                       <th>Class</th>
                       <th>Description</th>
@@ -57,24 +59,26 @@
                     
                     <tr>
                       <th>
-                        所在地
+                        所在地（住所）
                       </th>
                       <td>{{$user->address}}</td>
                     </tr>
                     
                     <tr>
                       <th>
-                        職歴
+                        職歴<br><small>(現在までの職歴,部署,役職等)</small>
                       </th>
                       <td>{!! nb($user->work_history) !!}</td>
                     </tr>
                     
+                    {{--
                     <tr>
                       <th>
                         役職
                       </th>
                       <td>{!! nb($user->office_posi) !!}</td>
                     </tr>
+                    --}}
                     
                     <tr>
                       <th>出張の可否</th>

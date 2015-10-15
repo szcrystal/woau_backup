@@ -19,7 +19,7 @@
         
         @if (count($errors) > 0)
             <div class="alert alert-danger">
-                <strong>ご確認下さい！</strong><br /><br />
+                <span class="octicon octicon-alert"></span><strong>ご確認下さい</strong>
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>

@@ -20,7 +20,7 @@
         
         @if (count($errors) > 0)
             <div class="alert alert-danger">
-                <strong>ご確認ください!</strong> <br>
+                <span class="octicon octicon-alert"></span><strong>ご確認ください</strong>
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -78,13 +78,13 @@
                                 ?>
                                 <select name="birth_year">
                                     <?php selectBox(2015, 1900, $birth[0]); ?>
-                                </select><span class="t-down"></span><span style="margin:3px 2px 0; font-size:0.8em;">年</span>
+                                </select><span class="t-down"></span><span style="margin:3px 5px 0 3px; color:#555;">年</span>
                                 <select name="birth_month">
                                     <?php selectBox(1, 12, $birth[1]); ?>
-                                </select><span class="t-down"></span><span style="margin:3px 2px 0; font-size:0.8em;">月</span>
+                                </select><span class="t-down"></span><span style="margin:3px 5px 0 3px; color:#555;">月</span>
                                 <select name="birth_day">
                                     <?php selectBox(1, 31, $birth[2]); ?>
-                                </select><span class="t-down"></span><span style="margin:3px 2px 0; font-size:0.8em;">日</span>
+                                </select><span class="t-down"></span><span style="margin:3px 5px 0 3px; color:#555;">日</span>
                                 
                                 {{--
                                 {!! Form::input('text', 'birth_year', isset($birth[0]) ? $birth[0] : old('birth_year'), ['class' => 'form-control']) !!}<span>年</span>
@@ -96,13 +96,13 @@
                                 <select name="birth_year">
                                     <?php selectBox(2015, 1900, old('birth_year')); ?>
                                     
-                                </select><span class="t-down"></span><span style="margin:3px 8px 0;">年</span>
+                                </select><span class="t-down"></span><span style="margin:3px 5px 0 3px; color:#555;">年</span>
                                 <select name="birth_month">
                                     <?php selectBox(1, 12, old('birth_month')); ?>
-                                </select><span class="t-down"></span><span style="margin:3px 8px 0;">月</span>
+                                </select><span class="t-down"></span><span style="margin:3px 5px 0 3px; color:#555;">月</span>
                                 <select name="birth_day">
                                     <?php selectBox(1, 31, old('birth_day')); ?>
-                                </select><span class="t-down"></span><span style="margin:3px 8px 0;">日</span>
+                                </select><span class="t-down"></span><span style="margin:3px 5px 0 3px; color:#555;">日</span>
                             
                             {{--
                                 {!! Form::selectRange('birth_year', 2015, 1900, null ) !!}<span style="margin:3px 2px 0; font-size:0.8em;">年</span>
@@ -125,19 +125,21 @@
                     </tr>
                         
                     <tr>
-                        <th>職歴</th>
+                        <th>職歴<br>（現在までの職歴、部署、役職等）</th>
                         <td>
-                            {!! Form::textarea('work_history', isset($userObj) ? $userObj->work_history : old('work_history'), ['class'=>'form-control','rows' => 15]) !!}
+                            {!! Form::textarea('work_history', isset($userObj) ? $userObj->work_history : old('work_history'), ['class'=>'form-control','rows' => 15, 'placeholder' => '現在までの職歴、部署、役職等']) !!}
                         </td>
                     </tr>
-                        
+                    
+                    {{--
                     <tr>
                         <th>役職</th>
                         <td>
                             {!! Form::textarea('office_posi', isset($userObj) ? $userObj->office_posi : old('office_posi'), ['class'=>'form-control','rows' => 15]) !!}
                         </td>
                     </tr>
-                        
+                    --}}
+                    
                     <tr>
                         <th>出張の可否</th>
                         <?php
@@ -187,7 +189,7 @@
                                 @else
                                 {!! selectBox(2015, 1900, old('get_year')) !!}
                                 @endif
-                            </select><span class="t-down"></span><span style="margin:3px 8px;">年</span>
+                            </select><span class="t-down"></span><span style="margin:3px 5px 0 3px; color:#555;">年</span>
                         {{--
                             {!! Form::selectRange('get_year', 2015, 1900) !!}年
                         --}}
@@ -202,9 +204,9 @@
                     </tr>
                     
                     <tr>
-                        <th>監査時のポジション</th>
+                        <th>監査時のポジション<br>（例：主任2社、現場主任1社）</th>
                         <td>
-                            {!! Form::textarea('audit_posi', isset($userObj) ? $userObj->audit_posi : old('audit_posi'), ['class'=>'form-control','rows' => 15]) !!}
+                            {!! Form::textarea('audit_posi', isset($userObj) ? $userObj->audit_posi : old('audit_posi'), ['class'=>'form-control','rows' => 15, 'placeholder'=>'例：主任2社、現場主任1社']) !!}
                         </td>
                     </tr>
 

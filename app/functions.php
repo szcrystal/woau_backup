@@ -20,20 +20,20 @@ function selectBox($first, $last, $objNum=null) {
     	echo '<option value="--"' . $select .'>--</option>';
     }
     
-	if($first > $last) { //逆順の時
+	if($first > $last) { //逆順の時 Yearにて
         for($first; $first >= $last; $first--) {
         	if(isset($objNum) && $first == $objNum)
             	echo '<option value="'.$first .'" selected>'.$first.'</option>';
-            
-            echo '<option value="'.$first .'">'.$first.'</option>';
+            else
+	            echo '<option value="'.$first .'">'.$first.'</option>';
         }
     }
     else {
         for($first; $first <= $last; $first++) {
         	if(isset($objNum) && $first == $objNum)
             	echo '<option value="'.$first .'" selected>'.$first.'</option>';
-                
-            echo '<option value="'.$first .'">'.$first.'</option>';
+            else
+	            echo '<option value="'.$first .'">'.$first.'</option>';
         }
     }
 }

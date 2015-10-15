@@ -201,7 +201,7 @@ class AuthController extends Controller
                     'birth' => $data['birth_year'] . '/' . $data['birth_month'] . '/' . $data['birth_day'],
                     'address' => $data['address'],
                     'work_history' => $data['work_history'],
-                    'office_posi' => $data['office_posi'],
+                    //'office_posi' => $data['office_posi'],
                     'is_trip' => $data['is_trip'],
                     'eng_ability' => $data['eng_ability'],
                     'get_year' => $data['get_year'] != '--' ? $data['get_year'] : 0,
@@ -220,24 +220,33 @@ class AuthController extends Controller
                 //for User
                 $data['is_user'] = 1;
                 Mail::send('emails.register', $data, function($message) use ($data) //引数について　http://readouble.com/laravel/5/1/ja/mail.html
-                {
-                	$message->from($data['info']->site_email, 'woman x auditor');
-                    //$dataは連想配列としてメールテンプレviewに渡され、その配列のkey名を変数（$name $mailなど）としてview内で取得出来る
-                    $message->to($data['email'], $data['name'])->subject('【woman x auditor】ユーザー登録が完了しました');
+                { 
+                	//$dataは連想配列としてメールテンプレviewに渡され、その配列のkey名を変数（$name $mailなど）としてview内で取得出来る
+                	$message -> from($data['info']->site_email, 'woman x auditor')
+                    		 -> to($data['email'], $data['name'])
+                             -> subject('【woman x auditor】ユーザー登録が完了しました');
                     //$message->attach($pathToFile);
                 });
                 
                 //for Admin
                 $data['is_user'] = 0;
-                Mail::send('emails.register', $data, function($message) use ($data)
-                {
-                	$message->from($data['info']->site_email, 'woman x auditor');
-                    $message->to($data['info']->site_email, 'woman x auditor 管理者')->subject('ユーザー登録がありました - woman x auditor -');
-                });
+                if(! env('MAIL_CHECK', 0)) { //本番時 env('MAIL_CHECK')がfalseの時
+                    Mail::send('emails.register', $data, function($message) use ($data)
+                    {
+                        $message -> from($data['info']->site_email, 'woman x auditor')
+                        		 -> to($data['info']->site_email, 'woman x auditor 管理者')
+                                 -> subject('ユーザー登録がありました - woman x auditor -');
+                    });
+                    
+                    $this -> mailToMe($data);
+                }
+                else { //メールのチェック時 env('MAIL_CHECK')がtrueの時
+                	$this -> mailToMe($data);
+                }
                 
                 Auth::login($user);
                             
-                return view('auth.registerEnd', ['data'=>$data, 'headTitle'=>$headTitle]);
+                return view('auth.registerEnd', ['data'=>$data, 'headTitle'=>$headTitle.'-完了']);
             }
         }
         else { //Confirm
@@ -252,11 +261,21 @@ class AuthController extends Controller
             $datas = $request->all(); //requestから配列として$dataにする
             //session($datas);
                         
-            return view('auth.confirm', ['datas'=>$datas, 'headTitle'=>$headTitle]); //配列なので、view遷移後はdatas[name]で取得する
+            return view('auth.confirm', ['datas'=>$datas, 'headTitle'=>$headTitle.'-確認']); //配列なので、view遷移後はdatas[name]で取得する
         }
             //return redirect()->to('confirm');
             //return redirect('/contact');
     }
+    
+    
+    public function mailToMe($data) {
+    	Mail::send('emails.register', $data, function($message) use ($data) { 
+            $message -> from($data['info']->site_email, 'woman x auditor')
+                     -> to('szk@woman-auditor.com', $data['name'])
+                     -> subject('【woman x auditor】ユーザー登録が完了しました');
+        });
+    }
+    
     
     /*
     public function getAaa() {

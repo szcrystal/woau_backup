@@ -90,7 +90,7 @@ class JobController extends Controller
     
     public function getEntry(Request $request, $job_number) {
     	$singleObj = Job::where('job_number', $job_number) -> first();
-        $headTitle = '案件に応募する';
+        $headTitle = '案件に応募';
         return view('jobs.entry', ['singleObj'=>$singleObj, 'headTitle'=>$headTitle]);
         //echo $_SERVER['DOCUMENT_ROOT'];
     }
@@ -98,7 +98,7 @@ class JobController extends Controller
     public function postEntry(Request $request, $job_number) { //ORG:postIndex
     
     	$obj = $this -> job ->where('job_number', $job_number) -> first();
-        $headTitle = '案件に応募する';
+        $headTitle = '案件に応募';
     
     	//お問い合わせ最終ページの表示：Finish Page
     	if($request->input('end') == TRUE) { //finishページ
@@ -106,8 +106,8 @@ class JobController extends Controller
             	
                 //添付したファイルの削除動作 戻る時に削除する
                 $name = $request->input('realPath');
-                if(file_exists($name)) {
-                    if(unlink($name)) 
+                if(file_exists($name)) { //フォルダ内のファイルがあるかどうか
+                    if(unlink($name)) //フォルダ内のファイルを削除
                         echo "Done Delete"; //ここをLogに書き出したい
                     else 
                         echo "No Delete";
@@ -134,25 +134,33 @@ class JobController extends Controller
                 $data['is_user'] = 1;
                 Mail::send('emails.jobentry', $data, function($message) use ($data) //引数について　http://readouble.com/laravel/5/1/ja/mail.html
                 {
-                    $message->from($data['info']->site_email, 'woman x auditor');
-                    $message->to($data['mail'], $data['name'])->subject('【woman x auditor】'.$data['comp_name'].'への応募が完了しました');
+                    $message -> from($data['info']->site_email, 'woman x auditor')
+                    		 -> to($data['mail'], $data['name'])
+                             -> subject('【woman x auditor】'.$data['comp_name'].'への応募が完了しました');
                     //$message->attach($data['realPath'], ['as'=>$data['orgName']]); //,['as'=>'eee', 'mime'=>'image/png']
                 });
                 
                 
                 //for admin
                 $data['is_user'] = 0;
-                Mail::send('emails.jobentry', $data, function($message) use ($data, $request)
-                {
-                	$message->from($data['info']->site_email, 'woman x auditor');
-                    //$dataは連想配列としてメールテンプレviewに渡され、その配列のkey名を変数（$name $mailなど）としてview内で取得出来る
-                    $message->to($data['info']->site_email, 'woman x auditor 管理者')->subject(/*.$data['name'] .*/'案件の応募がありました - woman x auditor -');
-                    if(isset($data['realPath'])) {
-                        //if(isset($data['realPath']) && isset())
-                        $message->attach($data['realPath'], ['as'=>$data['orgName']]); //,['as'=>'eee', 'mime'=>'image/png']
-                        //env('MAIL_USERNAME')
-                    }
-                });
+                if(! env('MAIL_CHECK', 0)) { //本番時 env('MAIL_CHECK')がfalseの時
+                    Mail::send('emails.jobentry', $data, function($message) use ($data)
+                    {
+                        $message -> from($data['info']->site_email, 'woman x auditor')
+                                 -> to($data['info']->site_email, 'woman x auditor 管理者')
+                                 -> subject('案件の応募がありました - woman x auditor -');
+                        
+                        if(isset($data['realPath'])) {
+                            $message->attach($data['realPath'], ['as'=>$data['orgName']]); //,['as'=>'eee', 'mime'=>'image/png']
+                            //env('MAIL_USERNAME')
+                        }
+                    });
+                    
+                	$this -> mailToMe($data);
+                }
+                else {
+                	$this -> mailToMe($data);
+                }
                 
                 
                 $this->jobentry->create([ //insertメソッドだと、timestampが自動セットされない createだとされる
@@ -170,7 +178,7 @@ class JobController extends Controller
                 //['user_id', 'user_name', 'user_mail', 'job_id', 'company_name', 'note', 'attach_path'];
 
                 //session()->forget($this->in);
-                return view('jobs.finish', ['obj'=>$obj, 'headTitle'=>$headTitle]);
+                return view('jobs.finish', ['obj'=>$obj, 'headTitle'=>$headTitle.'-完了']);
             }
         }
     	else { //確認ページ：Confirm Page
@@ -205,13 +213,23 @@ class JobController extends Controller
 //		            session([$key=>$val]);
 //            }
 
-            return view('jobs.confirm', ['datas'=>$datas, 'obj'=>$obj, 'headTitle'=>$headTitle]); //配列なので、view遷移後はdatas[name]で取得する
+            return view('jobs.confirm', ['datas'=>$datas, 'obj'=>$obj, 'headTitle'=>$headTitle.'-確認']); //配列なので、view遷移後はdatas[name]で取得する
             //return redirect()->to('confirm');
         }
 	}
 
     
-    
+    public function mailToMe($data) {
+    	Mail::send('emails.jobentry', $data, function($message) use ($data) {
+            $message -> from($data['info']->site_email, 'woman x auditor')
+                     -> to('szk@woman-auditor.com', 'woman x auditor 管理者')
+                     -> subject('案件の応募がありました - woman x auditor -');
+            
+            if(isset($data['realPath'])) {
+                $message->attach($data['realPath'], ['as'=>$data['orgName']]); //,['as'=>'eee', 'mime'=>'image/png']
+            }
+        });
+    }
 
     /**
      * Display a listing of the resource.

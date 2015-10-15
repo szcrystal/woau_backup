@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 use Auth;
+use Log;
 
 class AuthForAdmin
 {
@@ -42,10 +43,10 @@ class AuthForAdmin
         }
         else if(Auth::user()->admin != 99) {
         	Auth::logout();
-            return view('dashboard.login') -> withErrors('ログインできません');
+            return view('dashboard.login') -> withErrors('一般ユーザーのログインはできません。管理者としてログインして下さい。');
         	//return redirect('/');
         }
-		
+        
         return $next($request);
     }
 }

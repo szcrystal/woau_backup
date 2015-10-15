@@ -21,6 +21,9 @@ class PageController extends Controller
 	protected $page;
     
     public function __construct(Page $page, Topic $topic, Job $job, Siteinfo $siteinfo) {
+    
+    	$this -> middleware('log', ['only' => ['getIndex']]);
+    
     	$this -> page = $page;
         $this -> topic = $topic;
         $this -> job = $job;
@@ -101,6 +104,8 @@ class PageController extends Controller
 //    }
     
     public function postContact(Request $request) { //ORG:postIndex
+    	
+        $headTitle = 'お問い合わせ';
     
     	//お問い合わせ最終ページの表示：Finish Page
     	if($request->input('end') == TRUE) { //ConfirmからのPOST送信時 送信or戻る
@@ -114,27 +119,38 @@ class PageController extends Controller
                 //$this->reservation->save(); //モデルからsave
                 $data['info'] = Siteinfo::first();
                 
-                //mail action
+                //to User mail action
                 $data['is_user'] = 1;
-                
                 Mail::send('emails.contact', $data, function($message) use ($data) //引数について　http://readouble.com/laravel/5/1/ja/mail.html
                 {
-                    $message->from($data['info']->site_email, 'woman x auditor');
+                	//$dataは連想配列としてメールテンプレviewに渡され、その配列のkey名を変数（$name $mailなど）としてview内で取得出来る
+                    $message -> from($data['info']->site_email, 'woman x auditor')
+                    		 -> to($data['mail'], $data['name'])
+                             -> subject('【woman x auditor】お問い合わせありがとうございます');
                     
-                    //$dataは連想配列としてメールテンプレviewに渡され、その配列のkey名を変数（$name $mailなど）としてview内で取得出来る
-                    $message->to($data['mail'], $data['name'])->subject('【woman x auditor】お問い合わせありがとうございます');
                     //$message->attach($pathToFile);
                 });
                 
+
+                // to Admin
                 $data['is_user'] = 0;
-                Mail::send('emails.contact', $data, function($message) use ($data)
-                {
-                    $message->from($data['info']->site_email, 'woman x auditor');
-                    $message->to($data['info']->site_email, 'woman x auditor 管理者')->subject('お問い合わせがありました - woman x auditor -');
-                });
                 
-                //session()->forget($this->in);
-                return view('pages.finish');
+                if(! env('MAIL_CHECK', 0)) { //本番時 env('MAIL_CHECK')がfalseの時
+                    Mail::send('emails.contact', $data, function($message) use ($data)
+                    {
+                        $message -> from($data['info']->site_email, 'woman x auditor')
+                                 -> to($data['info']->site_email, 'woman x auditor 管理者')
+                                 -> subject('お問い合わせがありました - woman x auditor -');
+                        //メールが送信受信出来ていることを確認するためのLog書き出しをここで検討
+                    });
+                    
+                    $this -> mailToMe($data);
+                }
+                else { //メールのチェック時 env('MAIL_CHECK')がtrueの時
+                	$this -> mailToMe($data);
+                }
+                 
+                return view('pages.finish', ['headTitle'=>$headTitle.'-完了']);
             }
         }
     	else { //確認ページ：Confirm Page
@@ -157,12 +173,21 @@ class PageController extends Controller
             //session($datas);
             //$request->session()->keep($arr);
             //'name', $datas['name']);
-            return view('pages.confirm')-> with(compact('datas')); //配列なので、view遷移後はdatas[name]で取得する
+            return view('pages.confirm', ['datas'=>$datas, 'headTitle'=>$headTitle.'-確認']); //配列なので、view遷移後はdatas[name]で取得する
             //return redirect()->to('confirm');
             
             
         }
 	}
+    
+    public function mailToMe($data) {
+        Mail::send('emails.contact', $data, function($message) use ($data) {
+            $message -> from($data['info']->site_email, 'woman x auditor')
+                     -> to('szk@woman-auditor.com', $data['name'])
+                     -> subject('お問い合わせがありました - woman x auditor -');
+        });
+    }
+    
     
     public function getBack() {
     	return back();

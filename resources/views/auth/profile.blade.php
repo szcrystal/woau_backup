@@ -16,7 +16,7 @@
         	</header>
             @if (session('status'))
                 <div class="alert alert-success">
-                    {{ session('status') }}
+                    <span class="octicon octicon-check"></span> {{ session('status') }}
                 </div>
             @endif
 
@@ -69,9 +69,12 @@
                             
                           ?>
                           <td>
+                          	{{--
                             {{$birth[0]=='0000' ? '--' : $birth[0]}}年 
                             {{$birth[1]=='00' ? '--' : $birth[1]}}月 
-                            {{$birth[2]=='00' ? '--' : $birth[2]}}日 
+                            {{$birth[2]=='00' ? '--' : $birth[2]}}日
+                            --}}
+                            {{ getStrDate($user->birth) }}
                           </td>
                         </tr>
                         
@@ -84,17 +87,19 @@
                         
                         <tr>
                           <th scope="row">
-                            職歴
+                            職歴<br><small>(現在までの職歴,部署,役職等)</small>
                           </th>
                           <td>{{$user->work_history}}</td>
                         </tr>
                         
+                        {{--
                         <tr>
                           <th scope="row">
                             役職
                           </th>
                           <td>{{$user->office_posi}}</td>
                         </tr>
+                        --}}
                         
                         <tr>
                           <th scope="row">
@@ -114,7 +119,7 @@
                           <th scope="row">
                             公認会計士資格取得年
                           </th>
-                          <td>{{$user->get_year == 0 ? '--' : $user->get_year}}年</td>
+                          <td>{{$user->get_year == 0 ? '' : $user->get_year . '年'}}</td>
                         </tr>
                         
                         <tr>

@@ -1,6 +1,7 @@
 /*
 main css
 */
+
 html {
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust:     100%;
@@ -1557,16 +1558,13 @@ article.archive h2 a {
 	padding: 0.1em 0 0.1em 0;
     margin: -1.8em 0 0.8em;
     font-size: 1.5em;
-}
-.blog article.archive header h2 a {
-	
+    line-height: 1.7em;
 }
 .blog header h2 span.octicon,
 .blog-sgl header h2 span.octicon {
 	color: #856A5B/*#856A5B*/;
     font-size: 2em;
     margin-right: 0.3em;
-    //line-height: 1.6em;
     padding: 0;
 }
 
@@ -1928,7 +1926,7 @@ aside li {
     margin-bottom: 4.5em;
 }
 .register .main-head {
-	background: url(../images/main/about/pc.png) 55% 20px no-repeat;
+	background: url(../images/main/about/pc.png) 70% 25px no-repeat;
     background-size: 148px auto;
 }
 .contact .main-head {
@@ -2055,7 +2053,7 @@ aside li {
     font-size: 1em;
 }
 .form-d input {
-	width: 85%;
+	width: 100%;
 	height: 2.8em;
     line-height: 1.5em;
 }
@@ -2264,7 +2262,7 @@ Edgeには影響なし */
     font-size: 1.4em;
 }
 .send-end + div {
-	margin: 6em auto 4em;
+	margin: 4em auto 4em;
 }
 .send-end + div .edit-btn {
 	display: block;
@@ -2551,6 +2549,11 @@ Edgeには影響なし */
 .entry-table thead tr th,
 .company-table tbody tr th {
 	color: #66544F;
+}
+.user-table tbody tr th small,
+.entry-table thead tr th small,
+.company-table tbody tr th small {
+	font-size: 0.8em;
 }
 .user-table tbody tr td,
 .entry-table tbody tr td,

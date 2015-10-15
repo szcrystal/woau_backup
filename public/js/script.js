@@ -86,7 +86,7 @@
                 	
                     $(this).find('.panel').hide(); //不要だが一応入れておく loadしたpanelを確実にhide()する
             
-                    $('.login').click(function(){
+                    $('.login').on('click', function(){
                         
                         var url = location.href;
                         
@@ -130,14 +130,14 @@
                             }
                             
                             $(this).append('<span class="octicon octicon-x"></span>')
-                                    .find('.panel').addClass('addPanel').removeClass('orgPanel').css(panelCss)
+                                    .find('.panel').removeClass('orgPanel').addClass('addPanel').css(panelCss)
                                     .next('.octicon').css(octCss);
                             
                             $(this).find('.panel, .octicon-x').animate({top:move, opacity:1}, 900, 'easeOutBack', function(){
                                 $(this).queue([]).stop();
                             }); //'+=220'
                         
-                        }).click(function(e){
+                        }).on('click', function(e){
                             
                             var t = $(e.target).not('span');
                             

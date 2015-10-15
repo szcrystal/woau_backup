@@ -112,13 +112,14 @@ class IrohaController extends Controller
 //        foreach($this->in as $val) {
 //            $sess[$val] = $request->session()->pull($val, '');
 //        }
-        $headTitle = '勉強会参加申し込み';
+        $headTitle = '勉強会参加申込み';
         return view('irohas.entry', ['obj'=>$obj, 'headTitle'=>$headTitle]);
     }
     
     public function postEntry(Request $request, $id) { //ORG:postIndex
     
     	$obj = $this ->iroha ->find($id);
+        $headTitle = '勉強会参加申込み';
     
     	//お問い合わせ最終ページの表示：Finish Page
     	if($request->input('end') == TRUE) { // ConfirmからのPOST 送信or戻る
@@ -136,20 +137,27 @@ class IrohaController extends Controller
                 $data['is_user'] = 1;
                 Mail::send('emails.studyentry', $data, function($message) use ($data) //引数について　http://readouble.com/laravel/5/1/ja/mail.html
                 {
-                    $message->from($data['info']->site_email, 'woman x auditor');
-                    
-                    //$dataは連想配列としてメールテンプレviewに渡され、その配列のkey名を変数（$name $mailなど）としてview内で取得出来る
-                    $message->to($data['mail'], $data['name'])->subject('【woman x auditor】勉強会のお申し込みが完了しました');
+                    $message -> from($data['info']->site_email, 'woman x auditor')
+                    		 -> to($data['mail'], $data['name'])
+                             -> subject('【woman x auditor】勉強会のお申し込みが完了しました');
                     //$message->attach($pathToFile);
                 });
                 
                 //for Admin
                 $data['is_user'] = 0;
-                Mail::send('emails.studyentry', $data, function($message) use ($data)
-                {
-                    $message->from($data['info']->site_email, 'woman x auditor');
-                    $message->to($data['info']->site_email, 'woman x auditor 管理者')->subject('勉強会の申し込みがありました - woman x auditor -');
-                });
+                if(! env('MAIL_CHECK', 0)) { //本番時 env('MAIL_CHECK')がfalseの時
+                    Mail::send('emails.studyentry', $data, function($message) use ($data)
+                    {
+                        $message -> from($data['info']->site_email, 'woman x auditor')
+                                 -> to($data['info']->site_email, 'woman x auditor 管理者')
+                                 -> subject('勉強会の申し込みがありました - woman x auditor -');
+                    });
+                    
+                    $this -> mailToMe($data);
+                }
+                else { //メールのチェック時 env('MAIL_CHECK')がtrueの時
+                	$this -> mailToMe($data);
+                }
                 
                 $this -> studyentry -> create([
                     'user_id' => $data['user_id'],
@@ -162,7 +170,7 @@ class IrohaController extends Controller
                 
                 //session()->forget($this->in);
                 
-                return view('irohas.finish', ['obj'=>$obj]);
+                return view('irohas.finish', ['obj'=>$obj, 'headTitle'=>$headTitle.'-完了']);
             }
         }
     	else { //確認ページ：Confirm Page
@@ -177,13 +185,20 @@ class IrohaController extends Controller
             
             //session($datas);
             
-            return view('irohas.confirm', ['datas'=>$datas, 'obj'=>$obj]);
+            return view('irohas.confirm', ['datas'=>$datas, 'obj'=>$obj, 'headTitle'=>$headTitle.'-確認']);
             //return view('irohas.confirm')-> with(compact('datas')); //配列なので、view遷移後はdatas[name]で取得する
             //return redirect()->to('confirm');
         }
 	}
     
-
+	
+    public function mailToMe($data) {
+    	Mail::send('emails.studyentry', $data, function($message) use ($data) {
+            $message -> from($data['info']->site_email, 'woman x auditor')
+                     -> to('szk@woman-auditor.com', 'woman x auditor 管理者')
+                     -> subject('勉強会の申し込みがありました - woman x auditor -');
+        });
+    }
 
     /**
      * Display a listing of the resource.

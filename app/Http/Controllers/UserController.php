@@ -59,14 +59,12 @@ class UserController extends Controller
     	$userObj = User::where('user_number', $user_number) -> first();
     
     	$rules = [
-                'name' => 'required',
-                'email' => 'required|email|max:255|unique:users,email,'.$userObj->id,
-                //'password' => 'required|confirmed|min:6',
-                //'address' => 'required',
-            ];
-            $this->validate($request, $rules);
-    
-    	
+            'name' => 'required',
+            'email' => 'required|email|max:255|unique:users,email,'.$userObj->id,
+            //'password' => 'required|confirmed|min:6',
+            //'address' => 'required',
+        ];
+        $this->validate($request, $rules);
         
         $data = $request->all(); //$data:配列
         
@@ -78,7 +76,7 @@ class UserController extends Controller
                 'birth' => $data['birth_year'] . '/' . $data['birth_month'] . '/' . $data['birth_day'],
                 'address' => $data['address'],
                 'work_history' => $data['work_history'],
-                'office_posi' => $data['office_posi'],
+                //'office_posi' => $data['office_posi'],
                 'is_trip' => $data['is_trip'],
                 'eng_ability' => $data['eng_ability'],
                 'get_year' => $data['get_year'],
@@ -99,7 +97,7 @@ class UserController extends Controller
                 'birth' => $data['birth_year'] . '/' . $data['birth_month'] . '/' . $data['birth_day'],
                 'address' => $data['address'],
                 'work_history' => $data['work_history'],
-                'office_posi' => $data['office_posi'],
+                //'office_posi' => $data['office_posi'],
                 'is_trip' => $data['is_trip'],
                 'eng_ability' => $data['eng_ability'],
                 'get_year' => $data['get_year'],

@@ -19,6 +19,7 @@ use Storage;
 use Mail;
 use Schema;
 use Validator;
+use Log;
 
 use Illuminate\Http\Request;
 
@@ -27,11 +28,20 @@ use App\Http\Controllers\Controller;
 
 class DashBoardController extends Controller
 {
-	protected $post;
+	protected $page,
+            	$topic,
+                $job,
+                $iroha,
+                $blog,
+                $cate,
+                $cateRelation,
+                $siteinfo;
     
-    public function __construct(Page $page, Topic $topic, Job $job, Iroha $iroha, Blog $blog, Cate $cate, CateRelation $cateRelation, Siteinfo $siteinfo) {
+    public function __construct(Page $page, Topic $topic, Job $job, Iroha $iroha, Blog $blog, Cate $cate, CateRelation $cateRelation, Siteinfo $siteinfo)
+    {
     	
         $this -> middleware('admin');
+        $this -> middleware('log', ['only' => ['getIndex']]);
         
         $this -> page = $page;
         $this -> topic = $topic;
@@ -74,7 +84,7 @@ class DashBoardController extends Controller
         	$userObjs = User::where('admin', 10)->orderBy('created_at', 'desc') -> get();
             $jobObjs = Job::orderBy('created_at', 'desc') -> get();
             $studyObjs = $this ->iroha ->where('slug', 'study') ->orderBy('created_at', 'desc') -> get();
-            
+                        
             return view('dashboard.index', ['userObjs'=>$userObjs, 'jobObjs'=>$jobObjs, 'studyObjs'=>$studyObjs]);            
         }
     }
