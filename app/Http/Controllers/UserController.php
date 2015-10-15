@@ -123,7 +123,8 @@ class UserController extends Controller
 //        }
 //        
 //        $userObj->save();
-        
+
+
         //return view('auth.registerEnd')/* ->with(compact('editData'))*/;
     	return redirect('profile/'.$user_number)->with('status', 'ユーザー情報が更新されました');
     
