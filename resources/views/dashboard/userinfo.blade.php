@@ -20,7 +20,7 @@
                           <th style="min-width:15em;">メールアドレス</th>
                           <th style="min-width:9em;">生年月日</th>
                           <th style="min-width:6em;">所在地（住所）</th>
-                          <th style="min-width:16em;">職歴<br>（現在までの職歴、部署、役職等）</th>
+                          <th style="min-width:16em;">職歴</th>
                           {{--<th style="min-width:16em;">役職</th>--}}
                           <th style="min-width:6em;">出張の可否</th>
                           <th style="min-width:8em;">英語能力</th>
