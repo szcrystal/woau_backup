@@ -14,20 +14,20 @@
                       <thead>
                         <tr>
                         	<th style="min-width:5em;"></th>
-                          <th style="min-width:5em;">ID</th>
+                          <th style="min-width:4em;">ID</th>
                           <th style="min-width:5em;">登録番号</th>
                           <th style="min-width:15em;">名前</th>
                           <th style="min-width:15em;">メールアドレス</th>
-                          <th style="min-width:9em;">生年月日</th>
-                          <th style="min-width:6em;">所在地（住所）</th>
-                          <th style="min-width:16em;">職歴</th>
+                          <th style="min-width:10em;">生年月日</th>
+                          <th style="min-width:9em;">所在地（住所）</th>
+                          <th style="min-width:18em;">職歴</th>
                           {{--<th style="min-width:16em;">役職</th>--}}
                           <th style="min-width:6em;">出張の可否</th>
-                          <th style="min-width:8em;">英語能力</th>
-                          <th style="min-width:8em;">資格取得年</th>
-                          <th style="min-width:16em;">過去の経験監査業種</th>
-                          <th style="min-width:16em;">監査時のポジション</th>
-                          <th style="min-width:9em;">登録日時</th>
+                          <th style="min-width:12em;">英語能力</th>
+                          <th style="min-width:7em;">資格取得年</th>
+                          <th style="min-width:18em;">過去の経験監査業種</th>
+                          <th style="min-width:18em;">監査時のポジション</th>
+                          <th style="min-width:10em;">登録日時</th>
                           <th></th>
                         </tr>
                       </thead>

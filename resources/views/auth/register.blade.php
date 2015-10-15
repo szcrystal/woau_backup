@@ -13,10 +13,16 @@
     <main class="page-ct register">
     	<div class="main-head">
         	<h1>{{$headTitle}}</h1>
+            @if(! isset($userObj))
             <p>登録後は、案件や勉強会一覧のページなどが閲覧可能となります。登録された情報は応募申込みに必要となります。</p>
+            @else
+            <p>{{$userObj->name}}さんのユーザー情報を編集します。<br>パスワードを変更する場合は新しいパスワードを入力し、変更しない場合は未入力のまま次へお進み下さい。</p>
+            @endif
         </div>
-                
-        @include('shared.move_1')
+        
+        @if(! isset($userObj))
+        	@include('shared.move_1')
+        @endif
         
         @if (count($errors) > 0)
             <div class="alert alert-danger">

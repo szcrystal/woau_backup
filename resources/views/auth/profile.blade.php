@@ -89,7 +89,7 @@
                           <th scope="row">
                             職歴<br><small>(現在までの職歴,部署,役職等)</small>
                           </th>
-                          <td>{{$user->work_history}}</td>
+                          <td>{!! nb($user->work_history) !!}</td>
                         </tr>
                         
                         {{--
@@ -126,14 +126,14 @@
                           <th scope="row">
                             過去の経験監査業種
                           </th>
-                          <td>{{$user->exp_type}}</td>
+                          <td>{!! nb($user->exp_type) !!}</td>
                         </tr>
                         
                         <tr>
                           <th scope="row">
                             監査時のポジション
                           </th>
-                          <td>{{$user->audit_posi}}</td>
+                          <td>{!! nb($user->audit_posi) !!}</td>
                         </tr>
                         
                         {{--
@@ -165,11 +165,10 @@
                     <tr>
                       <th class="col-md-1">企業No</th>
                       <th class="col-md-2">企業名</th>
-                      <th class="col-md-3">応募時のコメント</th>
+                      <th class="col-md-4">応募時のコメント</th>
                       <th>添付したファイル</th>
                       <th>応募日</th>
                       <th></th>
-                      
                     </tr>
                   </thead>
                   
@@ -185,7 +184,7 @@
                             </td>
                             
                             <td>
-                                {{ $jobObj->note }}
+                                {!! nb($jobObj->note) !!}
                             </td>
                             <td>
                                 {{ $jobObj->attach_name }}
@@ -235,7 +234,7 @@
                             
                             <td>{{ $studyObj->study_name }}</td>
                             
-                            <td>{{ $studyObj->note }}</td>
+                            <td>{!! nb($studyObj->note) !!}</td>
                                                 
                             <td>{{ getStrDate($studyObj->created_at)}}</td>
 
