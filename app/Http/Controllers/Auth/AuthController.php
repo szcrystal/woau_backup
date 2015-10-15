@@ -192,13 +192,19 @@ class AuthController extends Controller
                 //$this->reservation->fill($data); //モデルにセット
                 //$this->reservation->save(); //モデルからsave
                 
+                $birth = $data['birth_year'] != '--' ? $data['birth_year'] : 0000;
+                $birth .= '-'; 
+                $birth .= $data['birth_month'] != '--' ? $data['birth_month'] : 00;
+                $birth .= '-';
+                $birth .= $data['birth_day'] != '--' ? $data['birth_day'] : 00;
+                
                 $user = User::create([
                     'name' => $data['name'],
                     'email' => $data['email'],
                     'password' => bcrypt($data['password']),
                     
                     'user_number' => mt_rand(10000, 50000),
-                    'birth' => $data['birth_year'] . '/' . $data['birth_month'] . '/' . $data['birth_day'],
+                    'birth' => $birth,
                     'address' => $data['address'],
                     'work_history' => $data['work_history'],
                     //'office_posi' => $data['office_posi'],

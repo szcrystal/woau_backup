@@ -68,12 +68,18 @@ class UserController extends Controller
         
         $data = $request->all(); //$data:配列
         
+        $birth = $data['birth_year'] != '--' ? $data['birth_year'] : 0000;
+        $birth .= '-'; 
+        $birth .= $data['birth_month'] != '--' ? $data['birth_month'] : 00;
+        $birth .= '-';
+        $birth .= $data['birth_day'] != '--' ? $data['birth_day'] : 00;
+        
         if($data['password'] == null) { //if($request->has('name') :documentのrequestページにあり
         	$userObj -> update([
                 'name' => $data['name'],
                 'email' => $data['email'],            
                 //'user_number' => mt_rand(10000, 20000),
-                'birth' => $data['birth_year'] . '/' . $data['birth_month'] . '/' . $data['birth_day'],
+                'birth' => $birth,
                 'address' => $data['address'],
                 'work_history' => $data['work_history'],
                 //'office_posi' => $data['office_posi'],
@@ -94,7 +100,7 @@ class UserController extends Controller
                 'password' => bcrypt($data['password']),
                 
                 //'user_number' => mt_rand(10000, 20000),
-                'birth' => $data['birth_year'] . '/' . $data['birth_month'] . '/' . $data['birth_day'],
+                'birth' => $birth,
                 'address' => $data['address'],
                 'work_history' => $data['work_history'],
                 //'office_posi' => $data['office_posi'],
