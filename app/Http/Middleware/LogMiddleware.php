@@ -22,8 +22,8 @@ class LogMiddleware
                 'Admin user is in ID:'. Auth::user()->id.
                 ', email:'. Auth::user()->email.
                 ', Path:' . $request->path().
-                "\n".
-                'Env:' . $_SERVER['HTTP_USER_AGENT'].
+                //"\n".
+                ', Env:' . env('HTTP_USER_AGENT', 'unrecognized'). //$_SERVER['HTTP_USER_AGENT'] 取得に失敗している時があるのでenv()でdefault値も合わせて指定 Logにて確認
                 ', Time:' . date('Y-m-d H:i:s', time())
             );
         }
@@ -31,7 +31,7 @@ class LogMiddleware
         	Log::info(
             	'Guest user is in '.
             	'Path:' . $request->path().
-                ', Env:' . $_SERVER['HTTP_USER_AGENT'].
+                ', Env:' . env('HTTP_USER_AGENT', 'unrecognized').
                 ', Time:' . date('Y-m-d H:i:s', time())
             );
         }

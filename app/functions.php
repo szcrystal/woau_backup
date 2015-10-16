@@ -194,8 +194,10 @@ function isAgent($agent) {
         $agent = implode('|', $agent);
     }
     
+    //$_SERVER['HTTP_USER_AGENT'] 取得に失敗している時があるのでenv()でdefault値も合わせて指定 Logにて確認
+    //env('HTTP_USER_AGENT', '')に変更予定
     return preg_match('/'. $agent .'/', $_SERVER['HTTP_USER_AGENT']); 
-    //return judge_agent($agent);
+    
 }
 
 
