@@ -234,7 +234,9 @@ for SP
     .blog .pagination {
     	margin-right: 0;
     }
-    
+    .single header h2 {
+    	padding: 0.9em 0 0.4em;
+    }
     .single > div {
     	width: 82%;
     }
