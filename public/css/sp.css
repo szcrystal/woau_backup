@@ -84,7 +84,18 @@ for SP
     #user-belt > ul > li:last-of-type a {
     	width: 10em;
     }
-    
+    #navmenu ul.spmain-m .dropdown-menu {
+    	display: none;
+        margin-top: 0;
+        min-width: 95%;
+    }
+    #navmenu ul.spmain-m .dropdown-menu li {
+    	margin: 0.7em 0;
+    }
+    .dropdown-menu > li > a {
+    	white-space: normal;
+        padding: 3px 7px;
+    }
     /* Calousel */
     .home #cal {
     	padding: 15px 0 8px 10px;
@@ -144,7 +155,8 @@ for SP
     	width: 50%;
     }
     .guest section.contents {
-	    padding-left: 2.5em;
+	    padding-left: 1.5%;
+        width: 48%;
 	}
     
     
@@ -226,6 +238,18 @@ for SP
     .single > div {
     	width: 82%;
     }
+    .single header h2,
+    .single > .main-ct,
+    .job-sgl {
+    	width: 97%;
+        margin: auto;
+    }
+    .single.job-sgl > .main-ct,
+    .job-sgl header h2,
+	.job-sgl header h3 {
+    	width: 100%;
+		padding-left: 0;
+	}
     .job-sgl section:last-of-type > .imghere {
         width: 170px;
         min-height: 170px
@@ -247,8 +271,8 @@ for SP
     
     /* job archive */
     .job .main-head {
-    	background-size: 350px;
-        background-position: 90% 0;
+    	background-size: 360px auto;
+        background-position: 95% 0;
     }
     
     /* Colop */
@@ -358,18 +382,18 @@ for SP
     	margin-right: 0.3em;
         color: #ccc;
     }
-    #navmenu ul.spmain-m .dropdown-menu {
-    	display: none;
-        margin-top: 0;
-        min-width: 95%;
-    }
-    #navmenu ul.spmain-m .dropdown-menu li {
-    	margin: 0.7em 0;
-    }
-    .dropdown-menu > li > a {
-    	white-space: normal;
-        padding: 3px 7px;
-    }
+/*    #navmenu ul.spmain-m .dropdown-menu {*/
+/*    	display: none;*/
+/*        margin-top: 0;*/
+/*        min-width: 95%;*/
+/*    }*/
+/*    #navmenu ul.spmain-m .dropdown-menu li {*/
+/*    	margin: 0.7em 0;*/
+/*    }*/
+/*    .dropdown-menu > li > a {*/
+/*    	white-space: normal;*/
+/*        padding: 3px 7px;*/
+/*    }*/
     
     .home #cal {
         height: auto;
@@ -662,11 +686,23 @@ for SP
     	padding: 0.6em 0.6em;
     }
     
-    /* Contact */
+    /* main-head */
+    .register .main-head,
     .contact .main-head,
+    .topics .main-head,
+    .study .main-head,
+    .job .main-head,
+    .blog .main-head {
+    	min-height: 10em;
+    }
+    /* Contact */
+    .contact .main-head {
+    	background-position: 95% 4em;
+    	background-size: 30% auto;
+    }
     .register .main-head {
     	background-position: 95% 4em;
-    	background-size: 22% auto;
+    	background-size: 20% auto;
     }
     .movement {
 	    margin: 0.5em 0 2.5em;
@@ -697,6 +733,7 @@ for SP
         display: block;
         float: none;
         padding: 1em 0.5em;
+        border: none;
     }
     .wrap-b .next-btn {
         margin: 1.5em auto;
@@ -752,7 +789,6 @@ for SP
     .main-head p,
     .iroha-child > header p {
         width: 67%;
-        //min-height: 6em;
     }
 	.single header {
     	padding-bottom: 0;
@@ -762,6 +798,9 @@ for SP
     .single.job-sgl {
         background-position: 3% 0;
         background-size: 25% auto;
+    }
+    .single header h2 {
+    	padding: 0.7em 0 0.4em;
     }
     .single header h2,
     .single > .main-ct {
@@ -847,11 +886,11 @@ for SP
     	padding: 0 0.2em 0.5em;
     }
     .blog .main-head {
-        background-position: 55% 3.5em;
-        background-size: 45% auto;
+        background-position: 0 3.5em;
+        background-size: 105px auto;
     }
     .blog .main-head > p {
-    	margin-top: 9em;
+    	margin-top: 7em;
         margin-bottom: 0;
         width: 90%;
     }
@@ -869,11 +908,11 @@ for SP
     
     /* job archive */
     .job .main-head {
-        background-position: 50% 3.5em;
-        background-size: 73% auto;
+        background-position: 100% 3.5em;
+        background-size: 180px auto;
     }
     .job .main-head p {
-    	margin-top: 8em;
+    	margin-top: 7em;
         margin-bottom: 0;
     }
     .job .archive header h3 {
@@ -1060,9 +1099,12 @@ for SP
     }
     .contact .main-head,
     .register .main-head {
-    	background-position: 98% 4em;
-    	background-size: 30% auto;
+    	background-position: 97% 4em;
+    	background-size: 35% auto;
 	}
+    .register .main-head {
+    	background-size: 25% auto;
+    }
     
     
 }
