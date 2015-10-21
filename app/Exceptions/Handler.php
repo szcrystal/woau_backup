@@ -40,7 +40,8 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-    	
+    	//exception errorが出た時の挙動をここで制御できる
+        
     	//if ($e instanceof Swift_TransportException) { //instanceof型判定が効かない　なぜか不明
         //メールが送れない時　smtpサーバーに接続できない時など　ユーザー側のネットワーク不良も関連する
         if (app()->environment() != 'local' && $e instanceof Exception && get_class($e) == 'Swift_TransportException') { 

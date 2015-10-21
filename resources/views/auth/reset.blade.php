@@ -40,7 +40,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label">新しいパスワード<br>(確認用)</label>
+                        <label class="control-label"><?php echo isAgent('sp') ? "新しいパスワード(確認用)" : "新しいパスワード<br>(確認用)"; ?></label>
                         <input type="password" class="form-control" name="password_confirmation">
                     </div>
 

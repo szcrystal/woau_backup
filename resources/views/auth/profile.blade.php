@@ -219,7 +219,7 @@
                   <thead>
                     <tr>
                       <th class="col-md-1">勉強会No</th>
-                      <th class="col-md-3">勉強会名</th>
+                      <th class="col-sm-3">勉強会名</th>
                       <th class="col-md-5">応募時のコメント</th>
                       <th>応募日</th>
                       <th></th>

@@ -71,6 +71,14 @@ for SP
     #head h1 { /* Logo */
     	width: 60%;
     }
+    .main .container-fluid {
+        padding-bottom: 3em;
+    }
+    .home .blog-main,
+	.main .blog-main {
+    	min-height: 500px;
+    }
+    
     
     /* Nav */
     #navmenu ul.main-m {
@@ -138,7 +146,7 @@ for SP
     .link-box {
         width: 100px;
         height: 123px;
-        margin: 1em 3.7% 0 0;
+        margin: 0 3.7% 1em 0;
         float: left;
     }
     /*
@@ -178,8 +186,9 @@ for SP
     .user section.profile > div div:last-of-type {
     	width: 45%;
         margin: 4em 0.5em 0;
-        background-size: 25% auto;
+        background-size: 35% auto;
     }
+    
     
     /* about */
     .about .intro-ct {
@@ -234,6 +243,15 @@ for SP
     .blog .pagination {
     	margin-right: 0;
     }
+    .blog .main-head,
+    .register .main-head,
+    .study-entry .main-head,
+    .job-entry .main-head {
+    	background-position: 92% 0;
+    }
+    .main-head p {
+    	width: 50%;
+    }
     .single header h2 {
     	padding: 0.9em 0 0.4em;
     }
@@ -269,6 +287,7 @@ for SP
     }
     .study .main-head {
         background-size: 170px auto;
+        background-position: 92% 0;
     }
     
     /* job archive */
@@ -281,6 +300,14 @@ for SP
     #colop > div {
     	padding: 0.5em 10px;
     }
+    #colop ul {
+    	float: none;
+        clear: both;
+        padding: 0;
+    }
+    #colop > div > ul {
+    	margin-left: 10%;
+    }
     #colop > div > a {
         margin: 1em 0 1.2em;
     }
@@ -288,10 +315,21 @@ for SP
     	margin-top: 1em;
     }
     
+    
     /* Form */
     .form-d input,
 	.form-d textarea {
     	width: 100%;
+    }
+    
+    /* UserInfo */
+    .userinfo h2 {
+        width: 45%;
+        float: none;
+        margin-bottom: 0.5em;
+    }
+    .userinfo table {
+        float: none;
     }
     
     /* Login */
@@ -493,8 +531,8 @@ for SP
         width: 100%;
     }
     .user section.profile > div div:last-of-type {
-        background-position: 2.5em 1.5em;
-        background-size: 20% auto;
+        background-position: 0.5em 1.5em;
+        background-size: 25% auto;
         width: 65%;
         margin-left: 35%;
     }
@@ -529,7 +567,7 @@ for SP
     .link-box {
         width: 28%;
         height: 260px;
-        //margin: 0 5.2% 0.5em 0.5%;
+/*        margin: 0 5.2% 0.5em 0.5%;*/
     }
     .link-box,
     .user .link-box,
@@ -546,13 +584,13 @@ for SP
     }
     
     /* Footer */
-    #colop ul {
-    	float: none;
-        clear: both;
-        padding: 0;
-    }
+/*    #colop ul {*/
+/*    	float: none;*/
+/*        clear: both;*/
+/*        padding: 0;*/
+/*    }*/
     #colop > div > ul {
-    	margin-left: 1.8em; /* リストの左位置調整 */
+    	margin-left: 2em; /* リストの左位置調整 */
     }
     #colop > div > a {
     	float: none;
@@ -937,14 +975,14 @@ for SP
     
     
     /* UserInfo */
-    .userinfo h2 {
-        width: 75%;
-        float: none;
-        margin-bottom: 0.5em;
-    }
-    .userinfo table {
-        float: none;
-    }
+/*    .userinfo h2 {*/
+/*        width: 75%;*/
+/*        float: none;*/
+/*        margin-bottom: 0.5em;*/
+/*    }*/
+/*    .userinfo table {*/
+/*        float: none;*/
+/*    }*/
     #entry-company > h2,
     #entry-study > h2 {
     	margin-bottom: 0.5em;
@@ -1020,6 +1058,9 @@ for SP
     }
     .new-regist img {
     	margin: auto;
+    }
+    .wrap-reset .form-group:nth-of-type(3) .control-label {
+    	line-height: 2.2em;
     }
     
 } /* @media 611px */

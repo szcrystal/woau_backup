@@ -49,8 +49,9 @@ class PasswordController extends Controller
         
         $db = DB::connection(getenv('DB_CONNECTION')); //getenv('DB_CONNECTION') :mysql or pgsql
         $hashkey = md5(microtime() * 100000);
-        //echo $hashkey;
-        $this-> token = new DatabaseTokenRepository($db, 'password_resets', $hashkey, 120); 
+        
+        //最後の引数$expires:ここでの指定(分指定)は効かず、config/auth.phpでの指定が効く（現在12時間(720)に指定）
+        $this-> token = new DatabaseTokenRepository($db, 'password_resets', $hashkey, 720); 
         //第一引数はDb connectionのintefaceなので単にDBを送るだけではダメらしい
     }
     
