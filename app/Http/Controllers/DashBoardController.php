@@ -37,6 +37,8 @@ class DashBoardController extends Controller
                 $cateRelation,
                 $siteinfo;
     
+    private $pg, $rules;
+    
     public function __construct(Page $page, Topic $topic, Job $job, Iroha $iroha, Blog $blog, Cate $cate, CateRelation $cateRelation, Siteinfo $siteinfo)
     {
     	
@@ -59,6 +61,7 @@ class DashBoardController extends Controller
         	'date_y' => 'required|numeric',
             'date_m' => 'required|numeric',
             'date_d' => 'required|numeric',
+            'set_date' => 'future|date_check',
             'title' => 'required',
             'sub_title' => 'required',
         ];
@@ -305,11 +308,13 @@ class DashBoardController extends Controller
     /* CustomValidation **************** */
     public function customValidation($request, $rules) {
     	$arr = $request->all();
-        $v = Validator::make($arr, $rules);
-        
         $setDate = $request->input('date_y') .'-'.$request->input('date_m').'-'.$request->input('date_d');
         //$setDate = date('Y-m-d', strtotime($setDate));
+        $arr['set_date'] = $setDate;
         
+        $v = Validator::make($arr, $rules);
+        
+        /*
         $v->after(function($v) use($setDate) {
         	if($v->errors()->count() == 0) {
                 $dp = date_parse_from_format('Y-m-d', $setDate); //dateからパースする関数 おかしい書式にはwarningが返されるのでそれを利用
@@ -320,9 +325,9 @@ class DashBoardController extends Controller
                     $v->errors()->add('org_date', '日付は正しい値を入力して下さい。');
             }
         });
+        */
         
-        $vAd = ['v'=>$v, 'd'=>$setDate];
-        return $vAd;
+        return ['v'=>$v, 'd'=>$setDate];
     }
     
     /* ******************************* */
