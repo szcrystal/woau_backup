@@ -87,10 +87,14 @@ php artisan config:clear
 http://readouble.com/laravel/5/1/ja/controllers.html#route-caching
 http://readouble.com/laravel/5/1/ja/installation.html#configuration-caching
 
-2,APP_DEBUG環境変数をtrueに .envファイルにて
+2,APP_DEBUG環境変数をfalseに .envファイルにて
 http://readouble.com/laravel/5/1/ja/errors.html#configuration
 本番：[APP_ENV] => production
-    [APP_DEBUG] => false
+     [APP_DEBUG] => false
+    
+     メール・フォーム送信『テスト』時は以下を1で確認する 通常は0で
+     （1：メインのinfoに送信されず、テスト用のszkメールのみに送信となる）
+     [MAIL_CHECK] => 1
 
 3,jobs tableとirohas tableのmigrateファイルを直す
 recreate_jobs_table
