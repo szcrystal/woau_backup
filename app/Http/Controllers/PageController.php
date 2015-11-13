@@ -144,7 +144,7 @@ class PageController extends Controller
                         //メールが送信受信出来ていることを確認するためのLog書き出しをここで検討
                     });
                     
-                    if(env('APP_ENV', 'localhost') == 'production') //or app()->environment()
+                    if(env('APP_ENV', 'local') == 'production') //or app()->environment()
                     	$this -> mailToMe($data);
                 }
                 else { //メールのチェック時 env('MAIL_CHECK')がtrueの時

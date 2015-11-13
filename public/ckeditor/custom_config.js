@@ -27,7 +27,7 @@ CKEDITOR.editorConfig = function( config ) {
     
     //if(! location.pathname.indexOf('jobs') > 0) {
     //config.extraPlugins = 'drugimg';
-    config.extraPlugins = 'colorbutton,panelbutton,drugimg'; //myCustom
+    config.extraPlugins = 'colorbutton,panelbutton,drugimg'; //myCustom 複数ある場合は複数指定で カンマの後にスペースを入れるとダメ
         
     //config.extraPlugins = 'colorbutton'; //set font color
     //config.extraPlugins = 'panelbutton'; //colorbuttonに必要らしい

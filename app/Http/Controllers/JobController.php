@@ -155,8 +155,9 @@ class JobController extends Controller
                             //env('MAIL_USERNAME')
                         }
                     });
-                    
-                	$this -> mailToMe($data);
+
+                    if(env('APP_ENV', 'local') == 'production') //or app()->environment()
+	                	$this -> mailToMe($data);
                 }
                 else {
                 	$this -> mailToMe($data);

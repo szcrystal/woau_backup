@@ -153,7 +153,8 @@ class IrohaController extends Controller
                                  -> subject('勉強会の申し込みがありました - woman x auditor -');
                     });
                     
-                    $this -> mailToMe($data);
+                    if(env('APP_ENV', 'local') == 'production') //or app()->environment()
+	                    $this -> mailToMe($data);
                 }
                 else { //メールのチェック時 env('MAIL_CHECK')がtrueの時
                 	$this -> mailToMe($data);
