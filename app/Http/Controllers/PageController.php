@@ -54,7 +54,6 @@ class PageController extends Controller
         //return view('pages.index', compact('pages')); //配列を一つにして渡す場合 compact('pages')とする
     }
 
-	
     // All Fix Page
     public function show(Request $request, $url_name) {
 
@@ -76,7 +75,7 @@ class PageController extends Controller
             
             return view('pages.contact', ['headTitle'=>$headTitle/*, 'intro_ct'=>$intro_ct*/]);
         }
-        else if($url_name == 'trialpage-15331') {
+        /*else if($url_name == 'trialpage-15331') {
             $agent = $_SERVER['HTTP_USER_AGENT'];
             
             Mail::raw($agent, function($message) {
@@ -84,7 +83,7 @@ class PageController extends Controller
             });
             
             return view('pages.agent');
-        }
+        }*/
         else {
             if($pageObj = Page::where('url_name', $url_name) -> first())
                 if($pageObj->closed == '非公開' && (! Auth::user() || Auth::user()->admin != 99))
@@ -96,7 +95,6 @@ class PageController extends Controller
         }
         
     }
-    
     
     //Contact
 //    public function getContact() {
