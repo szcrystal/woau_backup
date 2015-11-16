@@ -29,7 +29,7 @@ class TopicController extends Controller
     
     
     public function getIndex() {
-    	$topics = $this -> topic ->where('closed', '公開中') -> orderBy('created_at','desc') ->paginate($this->pg);
+    	$topics = $this -> topic ->where('closed', '公開中') ->orderBy('created_at','desc') ->paginate($this->pg);
         $headTitle = 'トピックス一覧';
         return view('topics.index', ['topics'=>$topics, 'headTitle'=>$headTitle]);
     }
